@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChUB 2000 - Battle</title>
+  <link rel="stylesheet" href="/css/chub.css">
+  <link rel="stylesheet" href="/css/battle.css">
+</head>
+<body>
+  <div class="battle-wrapper">
+
+    <!-- Toolbar -->
+    <div class="battle-toolbar" id="toolbar">
+      <button class="btn" id="btn-exit" title="Exit to Lobby">Exit</button>
+      <button class="btn btn-success" id="btn-begin" title="Begin Battle">Begin</button>
+      <button class="btn" id="btn-pause" title="Pause/Unpause">Pause</button>
+      <button class="btn" id="btn-moves" title="Show Moves">Moves</button>
+      <button class="btn" id="btn-chars" title="Show Characters">Chars</button>
+      <button class="btn" id="btn-teams" title="Toggle Teams View">Teams</button>
+      <button class="btn" id="btn-stats" title="Show Stats">Stats</button>
+      <button class="btn" id="btn-jb" title="Jukebox">JB</button>
+      <span class="spacer"></span>
+      <button class="theme-toggle" id="theme-toggle" title="Toggle theme" style="position:static;width:auto;height:auto;border-radius:4px;padding:4px 10px;font-size:0.8rem;">L</button>
+    </div>
+
+    <!-- Selection Phase (hidden during battle) -->
+    <div class="selection-wrapper" id="selection-phase">
+      <div class="char-list-panel">
+        <input type="text" class="char-search" id="char-search" placeholder="Search characters..." autocomplete="off">
+        <div class="char-grid" id="char-grid">
+          <!-- Character cards rendered by selection-view.js -->
+        </div>
+      </div>
+      <div class="player-slots-panel">
+        <h3 class="mb-sm">Players</h3>
+        <div id="player-slots">
+          <!-- Player slots rendered by selection-view.js -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Selection Controls -->
+    <div class="selection-controls" id="selection-controls">
+      <button class="btn btn-sm" id="btn-add-cpu">Add CPU</button>
+      <button class="btn btn-sm" id="btn-fill-cpus">Fill CPUs</button>
+      <button class="btn btn-sm" id="btn-ez-teams">EZ-Teams</button>
+      <label class="flex items-center gap-sm" style="font-size:0.8rem; color:var(--text-secondary);">
+        CPU Personality:
+        <select id="cpu-personality">
+          <option value="">Default</option>
+          <option value="aggressive">Aggressive</option>
+          <option value="defensive">Defensive</option>
+          <option value="greedy">Greedy</option>
+          <option value="random">Random</option>
+        </select>
+      </label>
+      <span class="spacer" style="flex:1;"></span>
+      <button class="btn btn-success" id="btn-ready">Ready / Begin</button>
+    </div>
+
+    <!-- Battle Phase -->
+    <div class="battle-main hidden" id="battle-phase">
+      <!-- Battle Text Log -->
+      <div class="battle-log">
+        <div class="battle-log-content" id="battle-log">
+          <div class="msg msg-system">Waiting for battle to start...</div>
+        </div>
+      </div>
+
+      <!-- Player Status Panel -->
+      <div class="status-panel" id="status-panel">
+        <!-- Player cards rendered by battle-view.js -->
+        <div class="arena-info" id="arena-info">
+          <div class="arena-name" id="arena-name">Arena: ---</div>
+          <div class="item-name" id="item-name"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Command Input -->
+    <div class="command-bar" id="command-bar">
+      <span class="prompt">&gt;</span>
+      <div style="position:relative;flex:1;">
+        <input type="text" id="command-input" placeholder="Type a command..." autocomplete="off">
+        <div class="autocomplete-list" id="autocomplete-list"></div>
+      </div>
+      <button class="btn" id="btn-send">Send</button>
+    </div>
+
+    <!-- Status Bar -->
+    <div class="battle-status-bar">
+      <span class="status-item" id="sb-mode">Teams</span>
+      <span class="status-item" id="sb-arena">---</span>
+      <span class="status-item" id="sb-time">0:00</span>
+      <span class="status-item" id="sb-players">0 players</span>
+      <span class="status-item" id="sb-phase">waiting</span>
+    </div>
+
+  </div>
+
+  <!-- Results Overlay -->
+  <div class="results-overlay" id="results-overlay">
+    <div class="results-card">
+      <h2>Battle Results</h2>
+      <div id="results-content"></div>
+      <div class="modal-actions" style="margin-top:16px;">
+        <button class="btn btn-primary" id="btn-back-lobby">Back to Lobby</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/theme.js"></script>
+  <script src="/js/socket-client.js"></script>
+  <script src="/js/battle-view.js"></script>
+  <script src="/js/command-input.js"></script>
+  <script src="/js/selection-view.js"></script>
+  <script>
+    (function () {
+      // Redirect if no session info
+      var screenName = ChubSocket.getScreenName();
+      var roomId = sessionStorage.getItem('chub-roomId');
+      if (!screenName || !roomId) {
+        window.location.href = '/';
+        return;
+      }
+
+      var isSpectator = sessionStorage.getItem('chub-isSpectator') === 'true';
+      var playerIndex = parseInt(sessionStorage.getItem('chub-playerIndex'), 10) || 0;
+
+      // Connect socket
+      ChubSocket.connect();
+
+      // Initialize modules
+      BattleView.init(roomId, playerIndex, isSpectator);
+      CommandInput.init(roomId, playerIndex, isSpectator);
+      SelectionView.init(roomId, playerIndex, isSpectator);
+
+      // ── Toolbar handlers ───────────────────────────────────────────────
+
+      document.getElementById('btn-exit').addEventListener('click', function () {
+        if (confirm('Leave this room?')) {
+          window.location.href = '/lobby.html';
+        }
+      });
+
+      document.getElementById('btn-begin').addEventListener('click', function () {
+        ChubSocket.emit('host:begin', { roomId: roomId });
+      });
+
+      document.getElementById('btn-pause').addEventListener('click', function () {
+        // Toggle pause/unpause based on current phase
+        var phase = BattleView.getPhase();
+        if (phase === 'battle') {
+          ChubSocket.emit('host:pause', { roomId: roomId });
+        } else if (phase === 'paused') {
+          ChubSocket.emit('host:unpause', { roomId: roomId });
+        }
+      });
+
+      document.getElementById('btn-moves').addEventListener('click', function () {
+        BattleView.showMoves();
+      });
+
+      document.getElementById('btn-chars').addEventListener('click', function () {
+        BattleView.showChars();
+      });
+
+      document.getElementById('btn-teams').addEventListener('click', function () {
+        BattleView.showTeams();
+      });
+
+      document.getElementById('btn-stats').addEventListener('click', function () {
+        BattleView.showStats();
+      });
+
+      document.getElementById('btn-back-lobby').addEventListener('click', function () {
+        window.location.href = '/lobby.html';
+      });
+
+      // ── Phase transitions ──────────────────────────────────────────────
+
+      ChubSocket.on('phase:selection', function () {
+        showPhase('selection');
+      });
+
+      ChubSocket.on('phase:battle', function () {
+        showPhase('battle');
+      });
+
+      ChubSocket.on('phase:paused', function () {
+        BattleView.setPhase('paused');
+        document.getElementById('sb-phase').textContent = 'paused';
+      });
+
+      ChubSocket.on('phase:ended', function (data) {
+        BattleView.setPhase('ended');
+        BattleView.showResults(data);
+        document.getElementById('sb-phase').textContent = 'ended';
+      });
+
+      ChubSocket.on('room:kicked', function () {
+        alert('You have been kicked from the room.');
+        window.location.href = '/lobby.html';
+      });
+
+      function showPhase(phase) {
+        var selectionEl = document.getElementById('selection-phase');
+        var selControlsEl = document.getElementById('selection-controls');
+        var battleEl = document.getElementById('battle-phase');
+
+        if (phase === 'selection') {
+          selectionEl.classList.remove('hidden');
+          selControlsEl.classList.remove('hidden');
+          battleEl.classList.add('hidden');
+          BattleView.setPhase('selection');
+          document.getElementById('sb-phase').textContent = 'selection';
+        } else if (phase === 'battle') {
+          selectionEl.classList.add('hidden');
+          selControlsEl.classList.add('hidden');
+          battleEl.classList.remove('hidden');
+          BattleView.setPhase('battle');
+          document.getElementById('sb-phase').textContent = 'battle';
+        }
+      }
+
+      // Start in selection phase by default
+      showPhase('selection');
+
+      // Disable host-only buttons for non-host / spectators
+      if (isSpectator) {
+        document.getElementById('btn-begin').classList.add('hidden');
+        document.getElementById('btn-pause').classList.add('hidden');
+        document.getElementById('selection-controls').classList.add('hidden');
+        document.getElementById('command-bar').classList.add('hidden');
+      }
+    })();
+  </script>
+</body>
+</html>

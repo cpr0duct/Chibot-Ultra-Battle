@@ -1,0 +1,521 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   ChUB 2000 — Battle Interface Styles
+   Layout mirrors the classic FBATTLE.FRM: log + status side-by-side
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Battle Layout ───────────────────────────────────────────────────────── */
+
+.battle-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ── Toolbar ─────────────────────────────────────────────────────────────── */
+
+.battle-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 10px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  overflow-x: auto;
+}
+
+.battle-toolbar .btn {
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.battle-toolbar .spacer {
+  flex: 1;
+}
+
+/* ── Main Area (log + status) ────────────────────────────────────────────── */
+
+.battle-main {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* ── Battle Text Log ─────────────────────────────────────────────────────── */
+
+.battle-log {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border);
+  min-width: 0;
+}
+
+.battle-log-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.battle-log-content .msg {
+  padding: 1px 0;
+  word-wrap: break-word;
+}
+
+/* Message type colors */
+.msg-attack  { color: var(--accent-red); }
+.msg-heal    { color: var(--accent-green); }
+.msg-item    { color: var(--accent-yellow); }
+.msg-arena   { color: var(--accent-purple); }
+.msg-system  { color: var(--accent-blue); }
+.msg-kill    { color: var(--accent-red); font-weight: bold; }
+.msg-fatal   { color: var(--accent-orange); font-weight: bold; }
+.msg-status  { color: var(--accent-orange); }
+.msg-default { color: var(--text-primary); }
+
+/* ── Player Status Panel ─────────────────────────────────────────────────── */
+
+.status-panel {
+  width: 320px;
+  flex-shrink: 0;
+  overflow-y: auto;
+  padding: 10px;
+  background: var(--bg-tertiary);
+}
+
+.player-status-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+}
+
+.player-status-card.dead {
+  opacity: 0.5;
+}
+
+.player-status-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.player-name {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.team-badge {
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 1px 6px;
+  border-radius: 3px;
+  color: #fff;
+}
+
+.team-a { background: #1976d2; }
+.team-b { background: #d32f2f; }
+.team-c { background: #388e3c; }
+.team-d { background: #f57c00; }
+
+/* ── Resource Bars ───────────────────────────────────────────────────────── */
+
+.resource-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 3px;
+  font-size: 0.75rem;
+}
+
+.resource-bar .bar-label {
+  width: 20px;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.bar-label-hp { color: var(--hp-color); }
+.bar-label-mp { color: var(--mp-color); }
+.bar-label-sp { color: var(--sp-color); }
+
+.bar-track {
+  flex: 1;
+  height: 12px;
+  background: var(--bg-primary);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.bar-fill-hp { background: var(--hp-color); }
+.bar-fill-mp { background: var(--mp-color); }
+.bar-fill-sp { background: var(--sp-color); }
+
+/* HP color transitions */
+.bar-fill-hp.hp-mid    { background: var(--accent-yellow); }
+.bar-fill-hp.hp-low    { background: var(--accent-red); }
+
+.bar-value {
+  width: 70px;
+  text-align: right;
+  color: var(--text-secondary);
+  font-size: 0.7rem;
+  flex-shrink: 0;
+}
+
+/* ── Status Effects ──────────────────────────────────────────────────────── */
+
+.status-effects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  margin-top: 4px;
+}
+
+.status-badge {
+  font-size: 0.6rem;
+  padding: 1px 4px;
+  border-radius: 2px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+/* ── Arena / Item Info ───────────────────────────────────────────────────── */
+
+.arena-info {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 10px 12px;
+  margin-top: 8px;
+}
+
+.arena-info .arena-name {
+  font-weight: bold;
+  color: var(--accent-purple);
+  font-size: 0.85rem;
+}
+
+.arena-info .item-name {
+  color: var(--accent-yellow);
+  font-size: 0.8rem;
+  margin-top: 4px;
+}
+
+/* ── Command Input ───────────────────────────────────────────────────────── */
+
+.command-bar {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.command-bar .prompt {
+  color: var(--accent-green);
+  margin-right: 6px;
+  font-weight: bold;
+}
+
+.command-bar input {
+  flex: 1;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  font-size: 0.9rem;
+  padding: 6px 10px;
+}
+
+.command-bar .btn {
+  margin-left: 8px;
+  padding: 6px 14px;
+}
+
+/* ── Autocomplete ────────────────────────────────────────────────────────── */
+
+.autocomplete-list {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-bottom: none;
+  max-height: 200px;
+  overflow-y: auto;
+  display: none;
+  z-index: 100;
+}
+
+.autocomplete-list.active {
+  display: block;
+}
+
+.autocomplete-item {
+  padding: 4px 10px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.autocomplete-item:hover,
+.autocomplete-item.selected {
+  background: var(--bg-tertiary);
+  color: var(--accent-blue);
+}
+
+/* ── Status Bar (footer) ─────────────────────────────────────────────────── */
+
+.battle-status-bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 4px 12px;
+  background: var(--bg-tertiary);
+  border-top: 1px solid var(--border);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.battle-status-bar .status-item {
+  white-space: nowrap;
+}
+
+/* ── Selection Phase ─────────────────────────────────────────────────────── */
+
+.selection-wrapper {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.char-list-panel {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+  border-right: 1px solid var(--border);
+}
+
+.char-search {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.char-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 8px;
+}
+
+.char-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 8px 10px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: border-color 0.15s;
+}
+
+.char-card:hover {
+  border-color: var(--accent-blue);
+}
+
+.char-card.selected {
+  border-color: var(--accent-green);
+  background: rgba(76, 175, 80, 0.1);
+}
+
+.char-card .char-name {
+  font-weight: bold;
+}
+
+.char-card .char-species {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.player-slots-panel {
+  width: 320px;
+  flex-shrink: 0;
+  overflow-y: auto;
+  padding: 12px;
+  background: var(--bg-tertiary);
+}
+
+.player-slot {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 8px 10px;
+  margin-bottom: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.player-slot .slot-name {
+  font-weight: bold;
+}
+
+.player-slot .slot-char {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+}
+
+.player-slot .slot-team {
+  font-size: 0.7rem;
+}
+
+.selection-controls {
+  padding: 12px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.selection-controls select {
+  font-size: 0.8rem;
+  padding: 4px 8px;
+}
+
+/* ── Results Overlay ─────────────────────────────────────────────────────── */
+
+.results-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.results-overlay.active {
+  display: flex;
+}
+
+.results-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+  min-width: 400px;
+  max-width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.results-card h2 {
+  text-align: center;
+  margin-bottom: 16px;
+  color: var(--accent-yellow);
+}
+
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+.results-table th,
+.results-table td {
+  padding: 4px 8px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.results-table th {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+/* ── Responsive Breakpoints ──────────────────────────────────────────────── */
+
+/* Tablet: collapsed status */
+@media (max-width: 900px) {
+  .status-panel {
+    width: 240px;
+  }
+
+  .player-slots-panel {
+    width: 240px;
+  }
+
+  .player-status-card {
+    padding: 8px;
+  }
+
+  .bar-value {
+    width: 55px;
+    font-size: 0.65rem;
+  }
+}
+
+/* Mobile: stacked layout */
+@media (max-width: 600px) {
+  .battle-main {
+    flex-direction: column;
+  }
+
+  .battle-log {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    flex: 1;
+    min-height: 40vh;
+  }
+
+  .status-panel {
+    width: 100%;
+    max-height: 35vh;
+    border-top: 1px solid var(--border);
+  }
+
+  .selection-wrapper {
+    flex-direction: column;
+  }
+
+  .char-list-panel {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    max-height: 50vh;
+  }
+
+  .player-slots-panel {
+    width: 100%;
+    max-height: 30vh;
+  }
+
+  .battle-toolbar {
+    flex-wrap: wrap;
+  }
+
+  .battle-toolbar .btn {
+    font-size: 0.7rem;
+    padding: 3px 6px;
+  }
+
+  .char-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+}
