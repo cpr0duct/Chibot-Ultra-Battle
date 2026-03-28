@@ -16,6 +16,7 @@ import { parseCh2, serializeCh2 } from '../../parsers/ch2-parser.js';
 import { parseAn2, serializeAn2 } from '../../parsers/an2-parser.js';
 import { parseItm, serializeItm } from '../../parsers/itm-parser.js';
 import { parseW2k, serializeW2k } from '../../parsers/w2k-parser.js';
+import { parseIni, serializeIni } from '../../parsers/ini-parser.js';
 
 // ── Content type configuration ──────────────────────────────────────────────
 
@@ -47,6 +48,13 @@ const CONTENT_TYPES = {
     parse: parseW2k,
     serialize: serializeW2k,
     dirKey: 'weaponsDir',
+  },
+  datasets: {
+    extensions: ['.ini'],
+    defaultExt: '.ini',
+    parse: parseIni,
+    serialize: serializeIni,
+    dirKey: 'datasetsDir',
   },
 };
 
@@ -83,6 +91,29 @@ export function setupEditorRoutes(app, config) {
     // In a full implementation this would re-scan and reload datasets.
     // For now, return success to indicate the endpoint exists.
     res.json({ success: true, message: 'Data directories rescanned.' });
+  });
+
+  // GET /api/editor/audio — list audio files for jukebox
+  app.get('/api/editor/audio', (req, res) => {
+    const audioDir = config.audioDir;
+    try {
+      const entries = readdirSync(audioDir, { withFileTypes: true });
+      const audioExts = ['.mp3', '.ogg', '.wav', '.flac', '.aac', '.m4a', '.mid', '.midi', '.spc'];
+      const files = entries
+        .filter(e => {
+          if (!e.isFile()) return false;
+          const ext = extname(e.name).toLowerCase();
+          return audioExts.includes(ext);
+        })
+        .map(e => ({ name: e.name, path: e.name }));
+      res.json(files);
+    } catch (err) {
+      if (err.code === 'ENOENT') {
+        res.json([]);
+      } else {
+        res.status(500).json({ error: err.message });
+      }
+    }
   });
 
   // Register CRUD routes for each content type

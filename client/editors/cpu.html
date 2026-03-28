@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChUB 2000 - CPU Personality Editor</title>
+  <link rel="stylesheet" href="../css/chub.css">
+  <link rel="stylesheet" href="../css/editor.css">
+  <script src="../js/theme.js"></script>
+</head>
+<body>
+<button id="theme-toggle" class="theme-toggle">L</button>
+
+<div class="editor-layout">
+  <aside class="editor-sidebar">
+    <h2>CPU Personality</h2>
+    <p style="color:var(--text-muted);font-size:0.8rem;margin-top:4px">
+      Configure how CPU-controlled characters behave during battle. Used during room selection, not saved to a standalone file.
+    </p>
+    <hr style="border-color:var(--border)">
+    <h2>Editors</h2>
+    <ul class="nav-links">
+      <li><a href="character.html">Character (.CH2)</a></li>
+      <li><a href="arena.html">Arena (.AN2)</a></li>
+      <li><a href="item.html">Item (.ITM)</a></li>
+      <li><a href="weapon.html">Weapon (.W2K)</a></li>
+      <li><a href="dataset.html">Dataset (.INI)</a></li>
+      <li><a href="cpu.html" class="active">CPU Personality</a></li>
+    </ul>
+    <hr style="border-color:var(--border)">
+    <ul class="nav-links">
+      <li><a href="../jukebox.html">Jukebox</a></li>
+      <li><a href="../stats.html">Battle Stats</a></li>
+    </ul>
+  </aside>
+
+  <main class="editor-main">
+    <div class="page-header"><h1>CPU Personality Editor</h1></div>
+
+    <div class="editor-section">
+      <h3>Presets</h3>
+      <div class="cpu-preset-row">
+        <button type="button" class="btn btn-sm" id="presetAggressive">Aggressive</button>
+        <button type="button" class="btn btn-sm" id="presetDefensive">Defensive</button>
+        <button type="button" class="btn btn-sm" id="presetGreedy">Greedy</button>
+        <button type="button" class="btn btn-sm" id="presetBalanced">Balanced</button>
+      </div>
+    </div>
+
+    <div class="editor-section">
+      <h3>Personality Sliders</h3>
+
+      <div class="stat-slider-group">
+        <label for="goodwill">Goodwill</label>
+        <input type="range" id="goodwill_slider" min="0" max="100" value="50">
+        <input type="number" id="goodwill" min="0" max="100" value="50">
+      </div>
+      <div class="cpu-description" id="goodwill_desc">
+        How likely the CPU is to heal allies, share items, and play supportively.
+      </div>
+
+      <div class="stat-slider-group" style="margin-top:16px">
+        <label for="greed">Greed</label>
+        <input type="range" id="greed_slider" min="0" max="100" value="50">
+        <input type="number" id="greed" min="0" max="100" value="50">
+      </div>
+      <div class="cpu-description" id="greed_desc">
+        How aggressively the CPU pursues items and weapons on the field.
+      </div>
+
+      <div class="stat-slider-group" style="margin-top:16px">
+        <label for="wrath">Wrath</label>
+        <input type="range" id="wrath_slider" min="0" max="100" value="50">
+        <input type="number" id="wrath" min="0" max="100" value="50">
+      </div>
+      <div class="cpu-description" id="wrath_desc">
+        How often the CPU uses its strongest attacks and focuses on a single target.
+      </div>
+
+      <div class="stat-slider-group" style="margin-top:16px">
+        <label for="arrogance">Arrogance</label>
+        <input type="range" id="arrogance_slider" min="0" max="100" value="50">
+        <input type="number" id="arrogance" min="0" max="100" value="50">
+      </div>
+      <div class="cpu-description" id="arrogance_desc">
+        How likely the CPU is to taunt, attempt fatalities, and ignore defense.
+      </div>
+    </div>
+
+    <div class="editor-section">
+      <h3>Summary</h3>
+      <div id="personalitySummary" class="preview-box"></div>
+    </div>
+
+    <div class="editor-section">
+      <h3>Export</h3>
+      <p style="color:var(--text-muted);font-size:0.8rem;margin-bottom:8px">
+        Copy this JSON and use it when configuring a CPU player in a room.
+      </p>
+      <textarea id="exportJson" rows="4" readonly style="font-family:'Courier New',monospace;font-size:0.85rem"></textarea>
+    </div>
+  </main>
+</div>
+
+<script src="../js/editor-forms.js"></script>
+<script>
+(function () {
+  var sliders = ['goodwill', 'greed', 'wrath', 'arrogance'];
+
+  var descriptions = {
+    goodwill: [
+      [0, 25, 'Selfish: rarely heals or supports allies.'],
+      [26, 50, 'Indifferent: occasionally helps allies.'],
+      [51, 75, 'Supportive: frequently heals and buffs allies.'],
+      [76, 100, 'Altruistic: prioritizes team survival above all.'],
+    ],
+    greed: [
+      [0, 25, 'Uninterested: ignores items and weapons.'],
+      [26, 50, 'Casual: picks up items if convenient.'],
+      [51, 75, 'Opportunistic: actively seeks items.'],
+      [76, 100, 'Hoarder: goes out of its way for every item.'],
+    ],
+    wrath: [
+      [0, 25, 'Passive: uses weak attacks, spreads damage.'],
+      [26, 50, 'Measured: balances offense and caution.'],
+      [51, 75, 'Aggressive: favors strong attacks, focuses targets.'],
+      [76, 100, 'Berserker: always uses strongest attacks, relentless.'],
+    ],
+    arrogance: [
+      [0, 25, 'Cautious: blocks often, rarely taunts.'],
+      [26, 50, 'Balanced: mixes offense and defense.'],
+      [51, 75, 'Bold: taunts frequently, attempts fatalities.'],
+      [76, 100, 'Reckless: never blocks, always taunts and goes for kills.'],
+    ],
+  };
+
+  function getDescription(trait, value) {
+    var v = parseInt(value, 10) || 0;
+    var ranges = descriptions[trait];
+    for (var i = 0; i < ranges.length; i++) {
+      if (v >= ranges[i][0] && v <= ranges[i][1]) return ranges[i][2];
+    }
+    return '';
+  }
+
+  function updateAll() {
+    var personality = {};
+    sliders.forEach(function (s) {
+      var val = parseInt(document.getElementById(s).value, 10) || 0;
+      personality[s] = val;
+      document.getElementById(s + '_desc').textContent = getDescription(s, val);
+    });
+    // Summary
+    var summary = 'Goodwill: ' + personality.goodwill + '  |  ' +
+      'Greed: ' + personality.greed + '  |  ' +
+      'Wrath: ' + personality.wrath + '  |  ' +
+      'Arrogance: ' + personality.arrogance;
+    document.getElementById('personalitySummary').textContent = summary;
+    // Export JSON
+    document.getElementById('exportJson').value = JSON.stringify(personality, null, 2);
+  }
+
+  sliders.forEach(function (s) {
+    var num = document.getElementById(s);
+    var slider = document.getElementById(s + '_slider');
+    num.addEventListener('input', function () {
+      slider.value = num.value;
+      updateAll();
+    });
+    slider.addEventListener('input', function () {
+      num.value = slider.value;
+      updateAll();
+    });
+  });
+
+  function setPreset(values) {
+    sliders.forEach(function (s) {
+      document.getElementById(s).value = values[s];
+      document.getElementById(s + '_slider').value = values[s];
+    });
+    updateAll();
+  }
+
+  document.getElementById('presetAggressive').addEventListener('click', function () {
+    setPreset({ goodwill: 20, greed: 40, wrath: 90, arrogance: 80 });
+  });
+  document.getElementById('presetDefensive').addEventListener('click', function () {
+    setPreset({ goodwill: 90, greed: 30, wrath: 20, arrogance: 10 });
+  });
+  document.getElementById('presetGreedy').addEventListener('click', function () {
+    setPreset({ goodwill: 30, greed: 90, wrath: 40, arrogance: 50 });
+  });
+  document.getElementById('presetBalanced').addEventListener('click', function () {
+    setPreset({ goodwill: 50, greed: 50, wrath: 50, arrogance: 50 });
+  });
+
+  updateAll();
+})();
+</script>
+</body>
+</html>

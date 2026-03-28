@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChUB 2000 - Arena Editor</title>
+  <link rel="stylesheet" href="../css/chub.css">
+  <link rel="stylesheet" href="../css/editor.css">
+  <script src="../js/theme.js"></script>
+</head>
+<body>
+<button id="theme-toggle" class="theme-toggle">L</button>
+
+<div class="editor-layout">
+  <aside class="editor-sidebar">
+    <h2>Arena Editor</h2>
+    <div class="file-browser">
+      <select id="fileSelect"><option value="">-- Select File --</option></select>
+      <div class="btn-row">
+        <button class="btn btn-sm btn-primary" id="btnLoad">Load</button>
+        <button class="btn btn-sm" id="btnRefresh">Refresh</button>
+      </div>
+    </div>
+    <hr style="border-color:var(--border)">
+    <h2>Editors</h2>
+    <ul class="nav-links">
+      <li><a href="character.html">Character (.CH2)</a></li>
+      <li><a href="arena.html" class="active">Arena (.AN2)</a></li>
+      <li><a href="item.html">Item (.ITM)</a></li>
+      <li><a href="weapon.html">Weapon (.W2K)</a></li>
+      <li><a href="dataset.html">Dataset (.INI)</a></li>
+      <li><a href="cpu.html">CPU Personality</a></li>
+    </ul>
+    <hr style="border-color:var(--border)">
+    <ul class="nav-links">
+      <li><a href="../jukebox.html">Jukebox</a></li>
+      <li><a href="../stats.html">Battle Stats</a></li>
+    </ul>
+  </aside>
+
+  <main class="editor-main">
+    <div class="page-header"><h1>Arena Editor (.AN2)</h1></div>
+
+    <form id="arenaForm" autocomplete="off">
+      <!-- Name -->
+      <div class="editor-section">
+        <h3>Arena Name</h3>
+        <div class="form-group">
+          <input type="text" id="arenaName" name="arenaName" placeholder="Arena name">
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div class="collapsible-header open">
+        <h3>Description (10 lines)</h3>
+        <span class="collapsible-arrow">&#9654;</span>
+      </div>
+      <div class="collapsible-body open" id="descSection"></div>
+
+      <!-- Element Multipliers -->
+      <div class="collapsible-header">
+        <h3>Element Multipliers (31)</h3>
+        <span class="collapsible-arrow">&#9654;</span>
+      </div>
+      <div class="collapsible-body" id="elemSection"></div>
+
+      <!-- Restoration -->
+      <div class="editor-section">
+        <h3>Restoration</h3>
+        <div class="form-row form-row-3">
+          <div class="form-group"><label>RestLowHP</label>
+            <input type="number" id="restLowHp" name="restLowHp" value="0"></div>
+          <div class="form-group"><label>RestHighHP</label>
+            <input type="number" id="restHighHp" name="restHighHp" value="0"></div>
+          <div class="form-group"><label>RestLowMP</label>
+            <input type="number" id="restLowMp" name="restLowMp" value="0"></div>
+        </div>
+        <div class="form-row form-row-3">
+          <div class="form-group"><label>RestHighMP</label>
+            <input type="number" id="restHighMp" name="restHighMp" value="0"></div>
+          <div class="form-group"><label>HP Per Second</label>
+            <input type="number" id="hpPerSecond" name="hpPerSecond" value="0"></div>
+          <div class="form-group"><label>MP Per Second</label>
+            <input type="number" id="mpPerSecond" name="mpPerSecond" value="0"></div>
+        </div>
+      </div>
+
+      <!-- Events -->
+      <div class="collapsible-header">
+        <h3>Events (up to 10)</h3>
+        <span class="collapsible-arrow">&#9654;</span>
+      </div>
+      <div class="collapsible-body" id="eventsSection"></div>
+
+      <div class="action-bar">
+        <button type="button" class="btn btn-success" id="btnSave">Save</button>
+        <button type="button" class="btn" id="btnClear">Clear</button>
+        <button type="button" class="btn btn-danger" id="btnDelete">Delete</button>
+      </div>
+    </form>
+  </main>
+</div>
+
+<script src="../js/editor-forms.js"></script>
+<script>
+(function () {
+  var E = window.ChubEditor;
+  var fileSelect = document.getElementById('fileSelect');
+  var form = document.getElementById('arenaForm');
+
+  E.populateFileSelect(fileSelect, 'arenas');
+  E.initCollapsibles();
+
+  // Build description inputs
+  var descSection = document.getElementById('descSection');
+  for (var i = 0; i < 10; i++) {
+    descSection.innerHTML += '<div class="form-group"><label>Line ' + (i + 1) + '</label>' +
+      '<input type="text" id="desc' + i + '" name="desc' + i + '"></div>';
+  }
+
+  // Build element multiplier inputs
+  var elemSection = document.getElementById('elemSection');
+  var elemHtml = '<div class="status-grid">';
+  for (var e = 0; e < 31; e++) {
+    var label = E.ARENA_ELEMENT_LABELS[e] || ('Element ' + e);
+    elemHtml += '<div class="form-group"><label>' + label + '</label>' +
+      '<input type="number" id="elem' + e + '" name="elem' + e + '" value="1" step="0.1"></div>';
+  }
+  elemHtml += '</div>';
+  elemSection.innerHTML = elemHtml;
+
+  // Build event inputs
+  var eventsSection = document.getElementById('eventsSection');
+  var evtHtml = '';
+  for (var ev = 0; ev < 10; ev++) {
+    evtHtml += '<div class="editor-section" style="margin-bottom:8px">' +
+      '<h3>Event ' + (ev + 1) + '</h3>' +
+      '<div class="form-row form-row-2">' +
+      '  <div class="form-group"><label>Name</label>' +
+      '    <input type="text" id="evt' + ev + '_name" name="evt' + ev + '_name"></div>' +
+      '  <div class="form-group"><label>Frequency (1-5)</label>' +
+      '    <input type="number" id="evt' + ev + '_freq" name="evt' + ev + '_freq" min="0" max="5" value="0"></div>' +
+      '</div>' +
+      '<div class="form-row form-row-3">' +
+      '  <div class="form-group"><label>HP Damage</label>' +
+      '    <input type="number" id="evt' + ev + '_hpDmg" name="evt' + ev + '_hpDmg" value="0"></div>' +
+      '  <div class="form-group"><label>Hit String</label>' +
+      '    <input type="text" id="evt' + ev + '_hit" name="evt' + ev + '_hit"></div>' +
+      '  <div class="form-group"><label>Miss String</label>' +
+      '    <input type="text" id="evt' + ev + '_miss" name="evt' + ev + '_miss"></div>' +
+      '</div>' +
+      '<div class="form-group"><label>' +
+      '  <input type="checkbox" id="evt' + ev + '_hitsAll" name="evt' + ev + '_hitsAll"> Hits All</label></div>' +
+      '</div>';
+  }
+  eventsSection.innerHTML = evtHtml;
+
+  // ── Load ──────────────────────────────────────────────────────────────
+  function loadArena(filename) {
+    E.loadFile('arenas', filename).then(function (arena) {
+      document.getElementById('arenaName').value = arena.name || '';
+      for (var i = 0; i < 10; i++) {
+        document.getElementById('desc' + i).value = (arena.description && arena.description[i]) || '';
+      }
+      for (var e = 0; e < 31; e++) {
+        document.getElementById('elem' + e).value = (arena.elements && arena.elements[e] !== undefined) ? arena.elements[e] : 1;
+      }
+      document.getElementById('restLowHp').value = arena.restLowHp || 0;
+      document.getElementById('restHighHp').value = arena.restHighHp || 0;
+      document.getElementById('restLowMp').value = arena.restLowMp || 0;
+      document.getElementById('restHighMp').value = arena.restHighMp || 0;
+      document.getElementById('hpPerSecond').value = arena.hpPerSecond || 0;
+      document.getElementById('mpPerSecond').value = arena.mpPerSecond || 0;
+      for (var ev = 0; ev < 10; ev++) {
+        var evt = (arena.events && arena.events[ev]) || {};
+        document.getElementById('evt' + ev + '_name').value = evt.name || '';
+        document.getElementById('evt' + ev + '_freq').value = evt.frequency || 0;
+        document.getElementById('evt' + ev + '_hpDmg').value = evt.hpDamage || 0;
+        document.getElementById('evt' + ev + '_hit').value = evt.hitStr || '';
+        document.getElementById('evt' + ev + '_miss').value = evt.missStr || '';
+        document.getElementById('evt' + ev + '_hitsAll').checked = !!evt.hitsAll;
+      }
+      E.showMessage('Loaded: ' + filename, 'success');
+    }).catch(function (err) { E.showMessage('Load error: ' + err.message, 'error'); });
+  }
+
+  function collectData() {
+    var arena = {
+      name: document.getElementById('arenaName').value,
+      description: [],
+      elements: [],
+      restLowHp: parseInt(document.getElementById('restLowHp').value, 10) || 0,
+      restHighHp: parseInt(document.getElementById('restHighHp').value, 10) || 0,
+      restLowMp: parseInt(document.getElementById('restLowMp').value, 10) || 0,
+      restHighMp: parseInt(document.getElementById('restHighMp').value, 10) || 0,
+      hpPerSecond: parseInt(document.getElementById('hpPerSecond').value, 10) || 0,
+      mpPerSecond: parseInt(document.getElementById('mpPerSecond').value, 10) || 0,
+      events: [],
+    };
+    for (var i = 0; i < 10; i++) arena.description.push(document.getElementById('desc' + i).value);
+    for (var e = 0; e < 31; e++) arena.elements.push(parseFloat(document.getElementById('elem' + e).value) || 0);
+    for (var ev = 0; ev < 10; ev++) {
+      arena.events.push({
+        name: document.getElementById('evt' + ev + '_name').value,
+        frequency: parseInt(document.getElementById('evt' + ev + '_freq').value, 10) || 0,
+        hpDamage: parseInt(document.getElementById('evt' + ev + '_hpDmg').value, 10) || 0,
+        hitStr: document.getElementById('evt' + ev + '_hit').value,
+        missStr: document.getElementById('evt' + ev + '_miss').value,
+        hitsAll: document.getElementById('evt' + ev + '_hitsAll').checked,
+      });
+    }
+    return arena;
+  }
+
+  document.getElementById('btnLoad').addEventListener('click', function () {
+    var fn = fileSelect.value;
+    if (!fn) return E.showMessage('Select a file first.', 'info');
+    loadArena(fn);
+  });
+  document.getElementById('btnRefresh').addEventListener('click', function () {
+    E.populateFileSelect(fileSelect, 'arenas');
+  });
+  document.getElementById('btnSave').addEventListener('click', function () {
+    var fn = fileSelect.value || prompt('Enter filename (e.g. 0.AN2):');
+    if (!fn) return;
+    if (!/\.\w+$/.test(fn)) fn += '.AN2';
+    E.saveFile('arenas', fn, collectData()).then(function () {
+      E.showMessage('Saved: ' + fn, 'success');
+      E.populateFileSelect(fileSelect, 'arenas');
+    }).catch(function (err) { E.showMessage('Save error: ' + err.message, 'error'); });
+  });
+  document.getElementById('btnClear').addEventListener('click', function () {
+    E.clearForm(form);
+    E.showMessage('Form cleared.', 'info');
+  });
+  document.getElementById('btnDelete').addEventListener('click', function () {
+    var fn = fileSelect.value;
+    if (!fn) return E.showMessage('Select a file to delete.', 'info');
+    if (!confirm('Delete ' + fn + '?')) return;
+    E.deleteFile('arenas', fn).then(function () {
+      E.showMessage('Deleted: ' + fn, 'success');
+      E.clearForm(form);
+      E.populateFileSelect(fileSelect, 'arenas');
+    }).catch(function (err) { E.showMessage('Delete error: ' + err.message, 'error'); });
+  });
+})();
+</script>
+</body>
+</html>

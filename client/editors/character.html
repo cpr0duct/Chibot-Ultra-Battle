@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChUB 2000 - Character Editor</title>
+  <link rel="stylesheet" href="../css/chub.css">
+  <link rel="stylesheet" href="../css/editor.css">
+  <script src="../js/theme.js"></script>
+</head>
+<body>
+<button id="theme-toggle" class="theme-toggle">L</button>
+
+<div class="editor-layout">
+  <!-- ── Sidebar ──────────────────────────────────────────────────────── -->
+  <aside class="editor-sidebar">
+    <h2>Character Editor</h2>
+    <div class="file-browser">
+      <select id="fileSelect"><option value="">-- Select File --</option></select>
+      <div class="btn-row">
+        <button class="btn btn-sm btn-primary" id="btnLoad">Load</button>
+        <button class="btn btn-sm" id="btnRefresh">Refresh</button>
+      </div>
+    </div>
+    <hr style="border-color:var(--border)">
+    <h2>Editors</h2>
+    <ul class="nav-links">
+      <li><a href="character.html" class="active">Character (.CH2)</a></li>
+      <li><a href="arena.html">Arena (.AN2)</a></li>
+      <li><a href="item.html">Item (.ITM)</a></li>
+      <li><a href="weapon.html">Weapon (.W2K)</a></li>
+      <li><a href="dataset.html">Dataset (.INI)</a></li>
+      <li><a href="cpu.html">CPU Personality</a></li>
+    </ul>
+    <hr style="border-color:var(--border)">
+    <ul class="nav-links">
+      <li><a href="../jukebox.html">Jukebox</a></li>
+      <li><a href="../stats.html">Battle Stats</a></li>
+    </ul>
+  </aside>
+
+  <!-- ── Main ─────────────────────────────────────────────────────────── -->
+  <main class="editor-main">
+    <div class="page-header">
+      <h1>Character Editor (.CH2)</h1>
+    </div>
+
+    <form id="charForm" autocomplete="off">
+      <!-- Identity -->
+      <div class="editor-section">
+        <h3>Identity</h3>
+        <div class="form-row form-row-2">
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName">
+          </div>
+          <div class="form-group">
+            <label for="senshiId">Target ID (SenshiID)</label>
+            <input type="text" id="senshiId" name="senshiId">
+          </div>
+        </div>
+        <div class="form-row form-row-2">
+          <div class="form-group">
+            <label for="pickMe">Command Key (PickMe)</label>
+            <input type="text" id="pickMe" name="pickMe">
+          </div>
+          <div class="form-group">
+            <label for="species">Species</label>
+            <input type="text" id="species" name="species">
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="editor-section">
+        <h3>Stats</h3>
+        <div class="stat-total" id="statTotal">0 / 220</div>
+        <div style="margin-top:12px">
+          <div class="stat-slider-group">
+            <label for="physStr">PhysStr</label>
+            <input type="range" id="physStr_slider" min="0" max="220" value="0">
+            <input type="number" id="physStr" name="physStr" min="0" max="220" value="0">
+          </div>
+          <div class="stat-slider-group">
+            <label for="physDef">PhysDef</label>
+            <input type="range" id="physDef_slider" min="0" max="220" value="0">
+            <input type="number" id="physDef" name="physDef" min="0" max="220" value="0">
+          </div>
+          <div class="stat-slider-group">
+            <label for="magStr">MagStr</label>
+            <input type="range" id="magStr_slider" min="0" max="220" value="0">
+            <input type="number" id="magStr" name="magStr" min="0" max="220" value="0">
+          </div>
+          <div class="stat-slider-group">
+            <label for="magDef">MagDef</label>
+            <input type="range" id="magDef_slider" min="0" max="220" value="0">
+            <input type="number" id="magDef" name="magDef" min="0" max="220" value="0">
+          </div>
+        </div>
+      </div>
+
+      <!-- Weakness / Resistance -->
+      <div class="editor-section">
+        <h3>Weakness / Resistance</h3>
+        <div class="form-row form-row-2">
+          <div class="form-group">
+            <label for="weakTo">Weak To (Element ID)</label>
+            <select id="weakTo" name="weakTo"></select>
+          </div>
+          <div class="form-group">
+            <label for="resist">Resistant To (Element ID)</label>
+            <select id="resist" name="resist"></select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Strings (collapsible) -->
+      <div class="collapsible-header">
+        <h3>Strings</h3>
+        <span class="collapsible-arrow">&#9654;</span>
+      </div>
+      <div class="collapsible-body">
+        <div class="form-group"><label for="selectStr">Select String</label>
+          <input type="text" id="selectStr" name="selectStr"></div>
+        <div class="form-group"><label for="selectJoin">Select Join String</label>
+          <input type="text" id="selectJoin" name="selectJoin"></div>
+        <div class="form-group"><label for="rest">Rest String</label>
+          <input type="text" id="rest" name="rest"></div>
+        <div class="form-group"><label for="block">Block String</label>
+          <input type="text" id="block" name="block"></div>
+        <div class="form-group"><label for="blockFail">Block Fail String</label>
+          <input type="text" id="blockFail" name="blockFail"></div>
+        <div class="form-group"><label for="blockYes">Block Yes String</label>
+          <input type="text" id="blockYes" name="blockYes"></div>
+      </div>
+
+      <!-- Taunts (collapsible) -->
+      <div class="collapsible-header">
+        <h3>Taunts</h3>
+        <span class="collapsible-arrow">&#9654;</span>
+      </div>
+      <div class="collapsible-body">
+        <div class="form-group"><label>Taunt 1</label><input type="text" id="taunt0" name="taunt0"></div>
+        <div class="form-group"><label>Taunt 2</label><input type="text" id="taunt1" name="taunt1"></div>
+        <div class="form-group"><label>Taunt 3</label><input type="text" id="taunt2" name="taunt2"></div>
+        <div class="form-group"><label>Taunt 4</label><input type="text" id="taunt3" name="taunt3"></div>
+        <div class="form-group"><label>Taunt 5</label><input type="text" id="taunt4" name="taunt4"></div>
+      </div>
+
+      <!-- Kill Strings (collapsible) -->
+      <div class="collapsible-header">
+        <h3>Kill Strings</h3>
+        <span class="collapsible-arrow">&#9654;</span>
+      </div>
+      <div class="collapsible-body">
+        <div class="form-group"><label>Kill String 1</label><input type="text" id="killStr0" name="killStr0"></div>
+        <div class="form-group"><label>Kill String 2</label><input type="text" id="killStr1" name="killStr1"></div>
+        <div class="form-group"><label>Kill String 3</label><input type="text" id="killStr2" name="killStr2"></div>
+        <div class="form-group"><label>Kill String 4</label><input type="text" id="killStr3" name="killStr3"></div>
+        <div class="form-group"><label>Kill String 5</label><input type="text" id="killStr4" name="killStr4"></div>
+      </div>
+
+      <!-- Death Strings (collapsible) -->
+      <div class="collapsible-header">
+        <h3>Death Strings</h3>
+        <span class="collapsible-arrow">&#9654;</span>
+      </div>
+      <div class="collapsible-body">
+        <div class="form-group"><label>Death String 1</label><input type="text" id="deathStr0" name="deathStr0"></div>
+        <div class="form-group"><label>Death String 2</label><input type="text" id="deathStr1" name="deathStr1"></div>
+        <div class="form-group"><label>Death String 3</label><input type="text" id="deathStr2" name="deathStr2"></div>
+        <div class="form-group"><label>Death String 4</label><input type="text" id="deathStr3" name="deathStr3"></div>
+        <div class="form-group"><label>Death String 5</label><input type="text" id="deathStr4" name="deathStr4"></div>
+      </div>
+
+      <!-- Fatality -->
+      <div class="editor-section">
+        <h3>Fatality</h3>
+        <div class="form-row form-row-3">
+          <div class="form-group"><label for="fatalCmdKey">Command Key</label>
+            <input type="text" id="fatalCmdKey" name="fatalCmdKey"></div>
+          <div class="form-group"><label for="fatalPreFatal">Pre-Fatal String</label>
+            <input type="text" id="fatalPreFatal" name="fatalPreFatal"></div>
+          <div class="form-group"><label for="fatalFatalMove">Fatal Move String</label>
+            <input type="text" id="fatalFatalMove" name="fatalFatalMove"></div>
+        </div>
+      </div>
+
+      <!-- Moves -->
+      <div class="editor-section">
+        <h3>Moves (12)</h3>
+        <div id="movesContainer"></div>
+      </div>
+
+      <!-- Descriptions (collapsible) -->
+      <div class="collapsible-header">
+        <h3>Description Lines</h3>
+        <span class="collapsible-arrow">&#9654;</span>
+      </div>
+      <div class="collapsible-body">
+        <div class="form-group"><label>Desc 1</label><input type="text" id="desc0" name="desc0"></div>
+        <div class="form-group"><label>Desc 2</label><input type="text" id="desc1" name="desc1"></div>
+        <div class="form-group"><label>Desc 3</label><input type="text" id="desc2" name="desc2"></div>
+        <div class="form-group"><label>Desc 4</label><input type="text" id="desc3" name="desc3"></div>
+      </div>
+
+      <!-- Actions -->
+      <div class="action-bar">
+        <button type="button" class="btn btn-success" id="btnSave">Save</button>
+        <button type="button" class="btn" id="btnClear">Clear</button>
+        <button type="button" class="btn btn-danger" id="btnDelete">Delete</button>
+      </div>
+    </form>
+  </main>
+</div>
+
+<script src="../js/editor-forms.js"></script>
+<script>
+(function () {
+  var E = window.ChubEditor;
+  var fileSelect = document.getElementById('fileSelect');
+  var form = document.getElementById('charForm');
+  var MOVE_COUNT = 12;
+
+  // ── Init ───────────────────────────────────────────────────────────────
+  E.populateFileSelect(fileSelect, 'characters');
+  E.initCollapsibles();
+
+  // Element selects for weakness/resistance
+  E.populateElementSelect(document.getElementById('weakTo'));
+  E.populateElementSelect(document.getElementById('resist'));
+
+  // Build move cards
+  var movesContainer = document.getElementById('movesContainer');
+  var html = '';
+  for (var i = 0; i < MOVE_COUNT; i++) {
+    html += E.buildMoveCardHTML(i, 'char_move');
+  }
+  movesContainer.innerHTML = html;
+  E.initMoveCards2(movesContainer, MOVE_COUNT, 'char_move');
+
+  // ── Stat sliders ───────────────────────────────────────────────────────
+  var statFields = ['physStr', 'physDef', 'magStr', 'magDef'];
+  function updateStatTotal() {
+    var total = 0;
+    statFields.forEach(function (f) {
+      total += parseInt(document.getElementById(f).value, 10) || 0;
+    });
+    var el = document.getElementById('statTotal');
+    el.textContent = total + ' / 220';
+    el.className = 'stat-total ' + (total > 220 ? 'over' : 'ok');
+  }
+  statFields.forEach(function (f) {
+    var num = document.getElementById(f);
+    var slider = document.getElementById(f + '_slider');
+    num.addEventListener('input', function () {
+      slider.value = num.value;
+      updateStatTotal();
+    });
+    slider.addEventListener('input', function () {
+      num.value = slider.value;
+      updateStatTotal();
+    });
+  });
+
+  // ── Load ───────────────────────────────────────────────────────────────
+  function loadCharacter(filename) {
+    E.loadFile('characters', filename).then(function (ch) {
+      document.getElementById('fullName').value = ch.fullName || '';
+      document.getElementById('senshiId').value = ch.senshiId || '';
+      document.getElementById('pickMe').value = ch.pickMe || '';
+      document.getElementById('species').value = ch.species || '';
+      // Stats
+      statFields.forEach(function (f) {
+        var v = ch[f] || 0;
+        document.getElementById(f).value = v;
+        document.getElementById(f + '_slider').value = v;
+      });
+      updateStatTotal();
+      // Weakness/Resist
+      document.getElementById('weakTo').value = ch.weakTo || 0;
+      document.getElementById('resist').value = ch.resist || 0;
+      // Strings
+      document.getElementById('selectStr').value = ch.selectStr || '';
+      document.getElementById('selectJoin').value = ch.selectJoin || '';
+      document.getElementById('rest').value = ch.rest || '';
+      document.getElementById('block').value = ch.block || '';
+      document.getElementById('blockFail').value = ch.blockFail || '';
+      document.getElementById('blockYes').value = ch.blockYes || '';
+      // Taunts
+      for (var t = 0; t < 5; t++) {
+        document.getElementById('taunt' + t).value = (ch.taunts && ch.taunts[t]) || '';
+      }
+      // Kill/Death strings
+      for (var k = 0; k < 5; k++) {
+        document.getElementById('killStr' + k).value = (ch.killStr && ch.killStr[k]) || '';
+        document.getElementById('deathStr' + k).value = (ch.deathStr && ch.deathStr[k]) || '';
+      }
+      // Fatality
+      if (ch.fatality) {
+        document.getElementById('fatalCmdKey').value = ch.fatality.cmdKey || '';
+        document.getElementById('fatalPreFatal').value = ch.fatality.preFatal || '';
+        document.getElementById('fatalFatalMove').value = ch.fatality.fatalMove || '';
+      }
+      // Moves
+      for (var m = 0; m < MOVE_COUNT; m++) {
+        if (ch.moves && ch.moves[m]) {
+          E.populateMoveCard('char_move', m, ch.moves[m]);
+        }
+      }
+      // Descriptions
+      for (var d = 0; d < 4; d++) {
+        document.getElementById('desc' + d).value = (ch.desc && ch.desc[d]) || '';
+      }
+      E.showMessage('Loaded: ' + filename, 'success');
+    }).catch(function (err) {
+      E.showMessage('Load error: ' + err.message, 'error');
+    });
+  }
+
+  // ── Collect form data ──────────────────────────────────────────────────
+  function collectData() {
+    var ch = {
+      fullName: document.getElementById('fullName').value,
+      senshiId: document.getElementById('senshiId').value,
+      pickMe: document.getElementById('pickMe').value,
+      species: document.getElementById('species').value,
+      physStr: parseInt(document.getElementById('physStr').value, 10) || 0,
+      physDef: parseInt(document.getElementById('physDef').value, 10) || 0,
+      magStr: parseInt(document.getElementById('magStr').value, 10) || 0,
+      magDef: parseInt(document.getElementById('magDef').value, 10) || 0,
+      weakTo: parseInt(document.getElementById('weakTo').value, 10) || 0,
+      resist: parseInt(document.getElementById('resist').value, 10) || 0,
+      selectStr: document.getElementById('selectStr').value,
+      selectJoin: document.getElementById('selectJoin').value,
+      rest: document.getElementById('rest').value,
+      block: document.getElementById('block').value,
+      blockFail: document.getElementById('blockFail').value,
+      blockYes: document.getElementById('blockYes').value,
+      taunts: [],
+      killStr: [],
+      deathStr: [],
+      fatality: {
+        cmdKey: document.getElementById('fatalCmdKey').value,
+        preFatal: document.getElementById('fatalPreFatal').value,
+        fatalMove: document.getElementById('fatalFatalMove').value,
+      },
+      moves: [],
+      desc: [],
+    };
+    for (var t = 0; t < 5; t++) ch.taunts.push(document.getElementById('taunt' + t).value);
+    for (var k = 0; k < 5; k++) ch.killStr.push(document.getElementById('killStr' + k).value);
+    for (var d = 0; d < 5; d++) ch.deathStr.push(document.getElementById('deathStr' + d).value);
+    for (var m = 0; m < MOVE_COUNT; m++) ch.moves.push(E.readMoveCard('char_move', m));
+    for (var dd = 0; dd < 4; dd++) ch.desc.push(document.getElementById('desc' + dd).value);
+    return ch;
+  }
+
+  // ── Event handlers ────────────────────────────────────────────────────
+  document.getElementById('btnLoad').addEventListener('click', function () {
+    var fn = fileSelect.value;
+    if (!fn) return E.showMessage('Select a file first.', 'info');
+    loadCharacter(fn);
+  });
+
+  fileSelect.addEventListener('dblclick', function () {
+    var fn = fileSelect.value;
+    if (fn) loadCharacter(fn);
+  });
+
+  document.getElementById('btnRefresh').addEventListener('click', function () {
+    E.populateFileSelect(fileSelect, 'characters');
+    E.showMessage('File list refreshed.', 'info');
+  });
+
+  document.getElementById('btnSave').addEventListener('click', function () {
+    var fn = fileSelect.value || prompt('Enter filename (e.g. CLOUD.CH2):');
+    if (!fn) return;
+    if (!/\.\w+$/.test(fn)) fn += '.CH2';
+    E.saveFile('characters', fn, collectData()).then(function () {
+      E.showMessage('Saved: ' + fn, 'success');
+      E.populateFileSelect(fileSelect, 'characters');
+    }).catch(function (err) {
+      E.showMessage('Save error: ' + err.message, 'error');
+    });
+  });
+
+  document.getElementById('btnClear').addEventListener('click', function () {
+    E.clearForm(form);
+    statFields.forEach(function (f) {
+      document.getElementById(f + '_slider').value = 0;
+    });
+    updateStatTotal();
+    E.showMessage('Form cleared.', 'info');
+  });
+
+  document.getElementById('btnDelete').addEventListener('click', function () {
+    var fn = fileSelect.value;
+    if (!fn) return E.showMessage('Select a file to delete.', 'info');
+    if (!confirm('Delete ' + fn + '? This cannot be undone.')) return;
+    E.deleteFile('characters', fn).then(function () {
+      E.showMessage('Deleted: ' + fn, 'success');
+      E.clearForm(form);
+      E.populateFileSelect(fileSelect, 'characters');
+    }).catch(function (err) {
+      E.showMessage('Delete error: ' + err.message, 'error');
+    });
+  });
+})();
+</script>
+</body>
+</html>

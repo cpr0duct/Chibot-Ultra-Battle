@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChUB 2000 - Item Editor</title>
+  <link rel="stylesheet" href="../css/chub.css">
+  <link rel="stylesheet" href="../css/editor.css">
+  <script src="../js/theme.js"></script>
+</head>
+<body>
+<button id="theme-toggle" class="theme-toggle">L</button>
+
+<div class="editor-layout">
+  <aside class="editor-sidebar">
+    <h2>Item Editor</h2>
+    <div class="file-browser">
+      <select id="fileSelect"><option value="">-- Select File --</option></select>
+      <div class="btn-row">
+        <button class="btn btn-sm btn-primary" id="btnLoad">Load</button>
+        <button class="btn btn-sm" id="btnRefresh">Refresh</button>
+      </div>
+    </div>
+    <hr style="border-color:var(--border)">
+    <h2>Editors</h2>
+    <ul class="nav-links">
+      <li><a href="character.html">Character (.CH2)</a></li>
+      <li><a href="arena.html">Arena (.AN2)</a></li>
+      <li><a href="item.html" class="active">Item (.ITM)</a></li>
+      <li><a href="weapon.html">Weapon (.W2K)</a></li>
+      <li><a href="dataset.html">Dataset (.INI)</a></li>
+      <li><a href="cpu.html">CPU Personality</a></li>
+    </ul>
+    <hr style="border-color:var(--border)">
+    <ul class="nav-links">
+      <li><a href="../jukebox.html">Jukebox</a></li>
+      <li><a href="../stats.html">Battle Stats</a></li>
+    </ul>
+  </aside>
+
+  <main class="editor-main">
+    <div class="page-header"><h1>Item Editor (.ITM)</h1></div>
+
+    <form id="itemForm" autocomplete="off">
+      <div class="editor-section">
+        <h3>Item Info</h3>
+        <div class="form-group"><label for="itemName">Name</label>
+          <input type="text" id="itemName" name="itemName"></div>
+        <div class="form-group"><label for="spawnStr">Spawn String</label>
+          <input type="text" id="spawnStr" name="spawnStr"></div>
+        <div class="form-group"><label for="telefragStr">Telefrag String</label>
+          <input type="text" id="telefragStr" name="telefragStr"></div>
+        <div class="form-group"><label for="playerGet">Get String (%SN = player)</label>
+          <input type="text" id="playerGet" name="playerGet"></div>
+        <div class="form-group"><label for="youmaGet">Youma Get String (%Y = youma)</label>
+          <input type="text" id="youmaGet" name="youmaGet"></div>
+      </div>
+
+      <div class="editor-section">
+        <h3>HP / MP</h3>
+        <div class="form-row form-row-2">
+          <div class="form-group"><label for="playerHp">HP (negative = damage)</label>
+            <input type="number" id="playerHp" name="playerHp" value="0"></div>
+          <div class="form-group"><label for="playerMp">MP (negative = drain)</label>
+            <input type="number" id="playerMp" name="playerMp" value="0"></div>
+        </div>
+      </div>
+
+      <div class="editor-section">
+        <h3>Status Effects</h3>
+        <div id="statusGrid"></div>
+      </div>
+
+      <div class="action-bar">
+        <button type="button" class="btn btn-success" id="btnSave">Save</button>
+        <button type="button" class="btn" id="btnClear">Clear</button>
+        <button type="button" class="btn btn-danger" id="btnDelete">Delete</button>
+      </div>
+    </form>
+  </main>
+</div>
+
+<script src="../js/editor-forms.js"></script>
+<script>
+(function () {
+  var E = window.ChubEditor;
+  var fileSelect = document.getElementById('fileSelect');
+  var form = document.getElementById('itemForm');
+
+  E.populateFileSelect(fileSelect, 'items');
+  E.buildStatusGrid(document.getElementById('statusGrid'), 'item_status');
+
+  function loadItem(filename) {
+    E.loadFile('items', filename).then(function (item) {
+      document.getElementById('itemName').value = item.name || '';
+      document.getElementById('spawnStr').value = item.spawnStr || '';
+      document.getElementById('telefragStr').value = item.telefragStr || '';
+      document.getElementById('playerGet').value = item.playerGet || '';
+      document.getElementById('youmaGet').value = item.youmaGet || '';
+      document.getElementById('playerHp').value = item.playerHp || 0;
+      document.getElementById('playerMp').value = item.playerMp || 0;
+      E.populateStatusGrid(document.getElementById('statusGrid'), item.playerStat);
+      E.showMessage('Loaded: ' + filename, 'success');
+    }).catch(function (err) { E.showMessage('Load error: ' + err.message, 'error'); });
+  }
+
+  function collectData() {
+    return {
+      name: document.getElementById('itemName').value,
+      spawnStr: document.getElementById('spawnStr').value,
+      telefragStr: document.getElementById('telefragStr').value,
+      playerGet: document.getElementById('playerGet').value,
+      youmaGet: document.getElementById('youmaGet').value,
+      playerHp: parseInt(document.getElementById('playerHp').value, 10) || 0,
+      playerMp: parseInt(document.getElementById('playerMp').value, 10) || 0,
+      playerStat: E.readStatusGrid(document.getElementById('statusGrid')),
+    };
+  }
+
+  document.getElementById('btnLoad').addEventListener('click', function () {
+    var fn = fileSelect.value;
+    if (!fn) return E.showMessage('Select a file first.', 'info');
+    loadItem(fn);
+  });
+  document.getElementById('btnRefresh').addEventListener('click', function () {
+    E.populateFileSelect(fileSelect, 'items');
+  });
+  document.getElementById('btnSave').addEventListener('click', function () {
+    var fn = fileSelect.value || prompt('Enter filename (e.g. CURE.ITM):');
+    if (!fn) return;
+    if (!/\.\w+$/.test(fn)) fn += '.ITM';
+    E.saveFile('items', fn, collectData()).then(function () {
+      E.showMessage('Saved: ' + fn, 'success');
+      E.populateFileSelect(fileSelect, 'items');
+    }).catch(function (err) { E.showMessage('Save error: ' + err.message, 'error'); });
+  });
+  document.getElementById('btnClear').addEventListener('click', function () {
+    E.clearForm(form);
+    E.showMessage('Form cleared.', 'info');
+  });
+  document.getElementById('btnDelete').addEventListener('click', function () {
+    var fn = fileSelect.value;
+    if (!fn) return E.showMessage('Select a file to delete.', 'info');
+    if (!confirm('Delete ' + fn + '?')) return;
+    E.deleteFile('items', fn).then(function () {
+      E.showMessage('Deleted: ' + fn, 'success');
+      E.clearForm(form);
+      E.populateFileSelect(fileSelect, 'items');
+    }).catch(function (err) { E.showMessage('Delete error: ' + err.message, 'error'); });
+  });
+})();
+</script>
+</body>
+</html>

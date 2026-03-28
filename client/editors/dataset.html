@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChUB 2000 - Dataset Editor</title>
+  <link rel="stylesheet" href="../css/chub.css">
+  <link rel="stylesheet" href="../css/editor.css">
+  <script src="../js/theme.js"></script>
+</head>
+<body>
+<button id="theme-toggle" class="theme-toggle">L</button>
+
+<div class="editor-layout">
+  <aside class="editor-sidebar">
+    <h2>Dataset Editor</h2>
+    <div class="file-browser">
+      <select id="fileSelect"><option value="">-- Select File --</option></select>
+      <div class="btn-row">
+        <button class="btn btn-sm btn-primary" id="btnLoad">Load</button>
+        <button class="btn btn-sm" id="btnRefresh">Refresh</button>
+      </div>
+    </div>
+    <hr style="border-color:var(--border)">
+    <h2>Editors</h2>
+    <ul class="nav-links">
+      <li><a href="character.html">Character (.CH2)</a></li>
+      <li><a href="arena.html">Arena (.AN2)</a></li>
+      <li><a href="item.html">Item (.ITM)</a></li>
+      <li><a href="weapon.html">Weapon (.W2K)</a></li>
+      <li><a href="dataset.html" class="active">Dataset (.INI)</a></li>
+      <li><a href="cpu.html">CPU Personality</a></li>
+    </ul>
+    <hr style="border-color:var(--border)">
+    <ul class="nav-links">
+      <li><a href="../jukebox.html">Jukebox</a></li>
+      <li><a href="../stats.html">Battle Stats</a></li>
+    </ul>
+  </aside>
+
+  <main class="editor-main">
+    <div class="page-header"><h1>Dataset Editor (.INI)</h1></div>
+
+    <form id="datasetForm" autocomplete="off">
+      <!-- Messages -->
+      <div class="editor-section">
+        <h3>Message Strings (48)</h3>
+        <p style="color:var(--text-muted);font-size:0.8rem;margin-bottom:12px">
+          Variables: %SN = player name, %T = target name, %S2 = second player, %Y = youma name
+        </p>
+        <div id="messagesContainer"></div>
+      </div>
+
+      <!-- Live Preview -->
+      <div class="editor-section">
+        <h3>Live Preview</h3>
+        <p style="color:var(--text-muted);font-size:0.8rem;margin-bottom:8px">
+          Shows substituted text for the last edited message field.
+        </p>
+        <div id="previewBox" class="preview-box">(edit a message to see preview)</div>
+      </div>
+
+      <!-- Globs -->
+      <div class="collapsible-header">
+        <h3>File Glob Patterns</h3>
+        <span class="collapsible-arrow">&#9654;</span>
+      </div>
+      <div class="collapsible-body" id="globsSection">
+        <div id="globsList"></div>
+        <button type="button" class="btn btn-sm" id="btnAddGlob">+ Add Pattern</button>
+      </div>
+
+      <!-- Death Strings -->
+      <div class="collapsible-header">
+        <h3>[Death] Strings</h3>
+        <span class="collapsible-arrow">&#9654;</span>
+      </div>
+      <div class="collapsible-body" id="deathSection">
+        <div id="deathList"></div>
+        <button type="button" class="btn btn-sm" id="btnAddDeath">+ Add Death String</button>
+      </div>
+
+      <!-- Fatality Strings -->
+      <div class="collapsible-header">
+        <h3>[Fatality] Strings</h3>
+        <span class="collapsible-arrow">&#9654;</span>
+      </div>
+      <div class="collapsible-body" id="fatalitySection">
+        <div id="fatalityList"></div>
+        <button type="button" class="btn btn-sm" id="btnAddFatality">+ Add Fatality String</button>
+      </div>
+
+      <div class="action-bar">
+        <button type="button" class="btn btn-success" id="btnSave">Save</button>
+        <button type="button" class="btn" id="btnClear">Clear</button>
+      </div>
+    </form>
+  </main>
+</div>
+
+<script src="../js/editor-forms.js"></script>
+<script>
+(function () {
+  var E = window.ChubEditor;
+  var fileSelect = document.getElementById('fileSelect');
+  var form = document.getElementById('datasetForm');
+
+  E.populateFileSelect(fileSelect, 'datasets');
+  E.initCollapsibles();
+
+  // Build message inputs
+  var msgsContainer = document.getElementById('messagesContainer');
+  E.DATASET_MESSAGE_FIELDS.forEach(function (field) {
+    var label = E.DATASET_MESSAGE_LABELS[field] || field;
+    var html = '<div class="form-group"><label for="msg_' + field + '">' + label + '</label>' +
+      '<input type="text" id="msg_' + field + '" name="msg_' + field + '" data-msg-field="' + field + '"></div>';
+    msgsContainer.innerHTML += html;
+  });
+
+  // Live preview
+  var previewBox = document.getElementById('previewBox');
+  msgsContainer.addEventListener('input', function (ev) {
+    if (ev.target.hasAttribute('data-msg-field')) {
+      var val = ev.target.value;
+      var preview = val
+        .replace(/%SN/g, 'Cloud')
+        .replace(/%T/g, 'Sephiroth')
+        .replace(/%S2/g, 'Tifa')
+        .replace(/%Y/g, 'Ifrit');
+      previewBox.textContent = preview || '(empty)';
+    }
+  });
+
+  // ── Dynamic list helpers ────────────────────────────────────────────────
+  function addDynamicItem(container, value) {
+    var div = document.createElement('div');
+    div.className = 'dynamic-list-item';
+    var inp = document.createElement('input');
+    inp.type = 'text';
+    inp.value = value || '';
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'btn btn-sm btn-danger';
+    btn.textContent = 'X';
+    btn.addEventListener('click', function () { div.remove(); });
+    div.appendChild(inp);
+    div.appendChild(btn);
+    container.appendChild(div);
+  }
+
+  function readDynamicList(container) {
+    var items = [];
+    container.querySelectorAll('.dynamic-list-item input').forEach(function (inp) {
+      items.push(inp.value);
+    });
+    return items;
+  }
+
+  document.getElementById('btnAddGlob').addEventListener('click', function () {
+    addDynamicItem(document.getElementById('globsList'));
+  });
+  document.getElementById('btnAddDeath').addEventListener('click', function () {
+    addDynamicItem(document.getElementById('deathList'));
+  });
+  document.getElementById('btnAddFatality').addEventListener('click', function () {
+    addDynamicItem(document.getElementById('fatalityList'));
+  });
+
+  // ── Load ──────────────────────────────────────────────────────────────
+  function loadDataset(filename) {
+    E.loadFile('datasets', filename).then(function (ds) {
+      // Messages
+      var msgs = ds.messages || {};
+      E.DATASET_MESSAGE_FIELDS.forEach(function (field) {
+        var el = document.getElementById('msg_' + field);
+        if (el) el.value = msgs[field] || '';
+      });
+      // Globs
+      var globsList = document.getElementById('globsList');
+      globsList.innerHTML = '';
+      (ds.globs || []).forEach(function (g) { addDynamicItem(globsList, g); });
+      // Death
+      var deathList = document.getElementById('deathList');
+      deathList.innerHTML = '';
+      (ds.deathStrings || []).forEach(function (s) { addDynamicItem(deathList, s); });
+      // Fatality
+      var fatList = document.getElementById('fatalityList');
+      fatList.innerHTML = '';
+      (ds.fatalityStrings || []).forEach(function (s) { addDynamicItem(fatList, s); });
+
+      E.showMessage('Loaded: ' + filename, 'success');
+    }).catch(function (err) { E.showMessage('Load error: ' + err.message, 'error'); });
+  }
+
+  function collectData() {
+    var messages = {};
+    E.DATASET_MESSAGE_FIELDS.forEach(function (field) {
+      var el = document.getElementById('msg_' + field);
+      messages[field] = el ? el.value : '';
+    });
+    return {
+      messages: messages,
+      globs: readDynamicList(document.getElementById('globsList')),
+      deathStrings: readDynamicList(document.getElementById('deathList')),
+      fatalityStrings: readDynamicList(document.getElementById('fatalityList')),
+    };
+  }
+
+  document.getElementById('btnLoad').addEventListener('click', function () {
+    var fn = fileSelect.value;
+    if (!fn) return E.showMessage('Select a file first.', 'info');
+    loadDataset(fn);
+  });
+  document.getElementById('btnRefresh').addEventListener('click', function () {
+    E.populateFileSelect(fileSelect, 'datasets');
+  });
+  document.getElementById('btnSave').addEventListener('click', function () {
+    var fn = fileSelect.value || prompt('Enter filename (e.g. arcade.ini):');
+    if (!fn) return;
+    if (!/\.\w+$/.test(fn)) fn += '.ini';
+    E.saveFile('datasets', fn, collectData()).then(function () {
+      E.showMessage('Saved: ' + fn, 'success');
+      E.populateFileSelect(fileSelect, 'datasets');
+    }).catch(function (err) { E.showMessage('Save error: ' + err.message, 'error'); });
+  });
+  document.getElementById('btnClear').addEventListener('click', function () {
+    E.clearForm(form);
+    document.getElementById('globsList').innerHTML = '';
+    document.getElementById('deathList').innerHTML = '';
+    document.getElementById('fatalityList').innerHTML = '';
+    E.showMessage('Form cleared.', 'info');
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChUB 2000 - Weapon Editor</title>
+  <link rel="stylesheet" href="../css/chub.css">
+  <link rel="stylesheet" href="../css/editor.css">
+  <script src="../js/theme.js"></script>
+</head>
+<body>
+<button id="theme-toggle" class="theme-toggle">L</button>
+
+<div class="editor-layout">
+  <aside class="editor-sidebar">
+    <h2>Weapon Editor</h2>
+    <div class="file-browser">
+      <select id="fileSelect"><option value="">-- Select File --</option></select>
+      <div class="btn-row">
+        <button class="btn btn-sm btn-primary" id="btnLoad">Load</button>
+        <button class="btn btn-sm" id="btnRefresh">Refresh</button>
+      </div>
+    </div>
+    <hr style="border-color:var(--border)">
+    <h2>Editors</h2>
+    <ul class="nav-links">
+      <li><a href="character.html">Character (.CH2)</a></li>
+      <li><a href="arena.html">Arena (.AN2)</a></li>
+      <li><a href="item.html">Item (.ITM)</a></li>
+      <li><a href="weapon.html" class="active">Weapon (.W2K)</a></li>
+      <li><a href="dataset.html">Dataset (.INI)</a></li>
+      <li><a href="cpu.html">CPU Personality</a></li>
+    </ul>
+    <hr style="border-color:var(--border)">
+    <ul class="nav-links">
+      <li><a href="../jukebox.html">Jukebox</a></li>
+      <li><a href="../stats.html">Battle Stats</a></li>
+    </ul>
+  </aside>
+
+  <main class="editor-main">
+    <div class="page-header"><h1>Weapon Editor (.W2K)</h1></div>
+
+    <form id="weaponForm" autocomplete="off">
+      <div class="editor-section">
+        <h3>Weapon Info</h3>
+        <div class="form-row form-row-2">
+          <div class="form-group"><label for="wpnName">Full Name</label>
+            <input type="text" id="wpnName" name="wpnName"></div>
+          <div class="form-group"><label for="wpnShortName">Short Name</label>
+            <input type="text" id="wpnShortName" name="wpnShortName"></div>
+        </div>
+        <div class="form-group"><label for="wpnEquipStr">Equip String</label>
+          <input type="text" id="wpnEquipStr" name="wpnEquipStr"></div>
+        <div class="form-group"><label for="wpnDescription">Description</label>
+          <input type="text" id="wpnDescription" name="wpnDescription"></div>
+        <div class="form-group"><label for="wpnDropStr">Drop String</label>
+          <input type="text" id="wpnDropStr" name="wpnDropStr"></div>
+        <div class="form-group"><label for="wpnNumUses">Charges (0 = unlimited)</label>
+          <input type="number" id="wpnNumUses" name="wpnNumUses" value="0" min="0" style="width:120px"></div>
+      </div>
+
+      <div class="editor-section">
+        <h3>Moves (5)</h3>
+        <div id="movesContainer"></div>
+      </div>
+
+      <div class="action-bar">
+        <button type="button" class="btn btn-success" id="btnSave">Save</button>
+        <button type="button" class="btn" id="btnClear">Clear</button>
+        <button type="button" class="btn btn-danger" id="btnDelete">Delete</button>
+      </div>
+    </form>
+  </main>
+</div>
+
+<script src="../js/editor-forms.js"></script>
+<script>
+(function () {
+  var E = window.ChubEditor;
+  var fileSelect = document.getElementById('fileSelect');
+  var form = document.getElementById('weaponForm');
+  var MOVE_COUNT = 5;
+
+  E.populateFileSelect(fileSelect, 'weapons');
+
+  // Build move cards
+  var movesContainer = document.getElementById('movesContainer');
+  var html = '';
+  for (var i = 0; i < MOVE_COUNT; i++) {
+    html += E.buildMoveCardHTML(i, 'wpn_move');
+  }
+  movesContainer.innerHTML = html;
+  E.initMoveCards2(movesContainer, MOVE_COUNT, 'wpn_move');
+
+  function loadWeapon(filename) {
+    E.loadFile('weapons', filename).then(function (wpn) {
+      document.getElementById('wpnName').value = wpn.name || '';
+      document.getElementById('wpnShortName').value = wpn.shortName || '';
+      document.getElementById('wpnEquipStr').value = wpn.equipStr || '';
+      document.getElementById('wpnDescription').value = wpn.description || '';
+      document.getElementById('wpnDropStr').value = wpn.dropStr || '';
+      document.getElementById('wpnNumUses').value = wpn.numUses || 0;
+      for (var m = 0; m < MOVE_COUNT; m++) {
+        if (wpn.moves && wpn.moves[m]) {
+          E.populateMoveCard('wpn_move', m, wpn.moves[m]);
+        }
+      }
+      E.showMessage('Loaded: ' + filename, 'success');
+    }).catch(function (err) { E.showMessage('Load error: ' + err.message, 'error'); });
+  }
+
+  function collectData() {
+    var wpn = {
+      name: document.getElementById('wpnName').value,
+      shortName: document.getElementById('wpnShortName').value,
+      equipStr: document.getElementById('wpnEquipStr').value,
+      description: document.getElementById('wpnDescription').value,
+      dropStr: document.getElementById('wpnDropStr').value,
+      numUses: parseInt(document.getElementById('wpnNumUses').value, 10) || 0,
+      moves: [],
+    };
+    for (var m = 0; m < MOVE_COUNT; m++) wpn.moves.push(E.readMoveCard('wpn_move', m));
+    return wpn;
+  }
+
+  document.getElementById('btnLoad').addEventListener('click', function () {
+    var fn = fileSelect.value;
+    if (!fn) return E.showMessage('Select a file first.', 'info');
+    loadWeapon(fn);
+  });
+  document.getElementById('btnRefresh').addEventListener('click', function () {
+    E.populateFileSelect(fileSelect, 'weapons');
+  });
+  document.getElementById('btnSave').addEventListener('click', function () {
+    var fn = fileSelect.value || prompt('Enter filename (e.g. SWORD.W2K):');
+    if (!fn) return;
+    if (!/\.\w+$/.test(fn)) fn += '.W2K';
+    E.saveFile('weapons', fn, collectData()).then(function () {
+      E.showMessage('Saved: ' + fn, 'success');
+      E.populateFileSelect(fileSelect, 'weapons');
+    }).catch(function (err) { E.showMessage('Save error: ' + err.message, 'error'); });
+  });
+  document.getElementById('btnClear').addEventListener('click', function () {
+    E.clearForm(form);
+    E.showMessage('Form cleared.', 'info');
+  });
+  document.getElementById('btnDelete').addEventListener('click', function () {
+    var fn = fileSelect.value;
+    if (!fn) return E.showMessage('Select a file to delete.', 'info');
+    if (!confirm('Delete ' + fn + '?')) return;
+    E.deleteFile('weapons', fn).then(function () {
+      E.showMessage('Deleted: ' + fn, 'success');
+      E.clearForm(form);
+      E.populateFileSelect(fileSelect, 'weapons');
+    }).catch(function (err) { E.showMessage('Delete error: ' + err.message, 'error'); });
+  });
+})();
+</script>
+</body>
+</html>
