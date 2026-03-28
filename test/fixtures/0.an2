@@ -1,14 +1,14 @@
-Training Ground
-A simple arena for testing.
-No special effects here.
-All attacks are at normal strength.
-The ground is flat and featureless.
-A blank white room.
-Used for development and testing.
-Neutral terrain.
-No elemental advantages.
-Good for fair fights.
-Standard battle conditions.
+"Grassy Field"
+"There is nothing but grass as far as the eye can see. This arena is"
+"perfect for fighting. There are no distractions in sight, and all"
+"elements are well-balanced here."
+""
+""
+""
+""
+""
+""
+""
 1
 1
 1
@@ -40,9 +40,69 @@ Standard battle conditions.
 1
 1
 1
-5
-95
-5
-95
+3
+10
+3
+10
 0
+1
+"Sun beating"
+2
+0
+""
+"The sun beats overhead."
+0
+"Cloud sighting"
+0
+0
+""
+"A solitary cloud can be seen in the sky."
+0
+"Bird flight"
+0
+0
+""
+"A bird flies by overhead."
+0
+""
+0
+0
+""
+""
+0
+""
+0
+0
+""
+""
+0
+""
+0
+0
+""
+""
+0
+""
+0
+0
+""
+""
+0
+""
+0
+0
+""
+""
+0
+""
+0
+0
+""
+""
+0
+""
+0
+0
+""
+""
 0
