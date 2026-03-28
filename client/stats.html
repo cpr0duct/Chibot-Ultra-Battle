@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChUB 2000 - Battle Statistics</title>
+  <link rel="stylesheet" href="css/chub.css">
+  <link rel="stylesheet" href="css/editor.css">
+  <script src="js/theme.js"></script>
+</head>
+<body>
+<button id="theme-toggle" class="theme-toggle">L</button>
+
+<div class="stats-container">
+  <div class="page-header" style="border-bottom-color:var(--accent-blue)">
+    <h1 style="color:var(--accent-blue)">Battle Statistics</h1>
+    <a href="editors/character.html" style="font-size:0.85rem">Back to Editors</a>
+  </div>
+
+  <!-- Time Elapsed -->
+  <div class="card mb-md">
+    <div class="card-header text-blue">Time Elapsed</div>
+    <div class="stats-time" id="timeElapsed">0:00:00</div>
+  </div>
+
+  <!-- Player Stats Table -->
+  <div class="card mb-md">
+    <div class="card-header text-blue">Player Statistics</div>
+    <div style="overflow-x:auto">
+      <table class="stats-table" id="statsTable">
+        <thead>
+          <tr>
+            <th>Player</th>
+            <th>Kills</th>
+            <th>Deaths</th>
+            <th>Fatalities</th>
+            <th>Dmg Dealt</th>
+            <th>Dmg Taken</th>
+            <th>Kills/Min</th>
+            <th>Dmg/Sec</th>
+          </tr>
+        </thead>
+        <tbody id="statsBody">
+          <tr><td colspan="8" style="text-align:center;color:var(--text-muted)">
+            Waiting for battle data...
+          </td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Summary -->
+  <div class="card mb-md">
+    <div class="card-header text-blue">Battle Summary</div>
+    <div class="form-row form-row-3" style="padding:12px">
+      <div>
+        <div style="color:var(--text-muted);font-size:0.8rem">Total Kills</div>
+        <div id="totalKills" style="font-size:1.2rem;font-weight:bold;font-family:'Courier New',monospace">0</div>
+      </div>
+      <div>
+        <div style="color:var(--text-muted);font-size:0.8rem">Total Damage</div>
+        <div id="totalDamage" style="font-size:1.2rem;font-weight:bold;font-family:'Courier New',monospace">0</div>
+      </div>
+      <div>
+        <div style="color:var(--text-muted);font-size:0.8rem">Total Fatalities</div>
+        <div id="totalFatalities" style="font-size:1.2rem;font-weight:bold;font-family:'Courier New',monospace">0</div>
+      </div>
+    </div>
+  </div>
+
+  <p style="color:var(--text-muted);font-size:0.8rem;text-align:center;margin-top:20px">
+    Statistics update in real-time via Socket.IO battle:state-update events.
+    <br>Connect to a room to see live data.
+  </p>
+</div>
+
+<script>
+(function () {
+  var statsBody = document.getElementById('statsBody');
+  var timeEl = document.getElementById('timeElapsed');
+  var battleStartTime = null;
+  var timerInterval = null;
+
+  function formatTime(ms) {
+    var totalSec = Math.floor(ms / 1000);
+    var h = Math.floor(totalSec / 3600);
+    var m = Math.floor((totalSec % 3600) / 60);
+    var s = totalSec % 60;
+    return h + ':' + (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+  }
+
+  function updateTimer() {
+    if (!battleStartTime) return;
+    var elapsed = Date.now() - battleStartTime;
+    timeEl.textContent = formatTime(elapsed);
+  }
+
+  function renderStats(players, elapsedMs) {
+    if (!players || players.length === 0) {
+      statsBody.innerHTML = '<tr><td colspan="8" style="text-align:center;color:var(--text-muted)">' +
+        'No players in battle.</td></tr>';
+      return;
+    }
+
+    var elapsedMin = Math.max(elapsedMs / 60000, 0.01); // avoid div by zero
+    var elapsedSec = Math.max(elapsedMs / 1000, 0.01);
+    var totalKills = 0;
+    var totalDamage = 0;
+    var totalFatalities = 0;
+
+    var html = '';
+    players.forEach(function (p) {
+      var kills = p.kills || 0;
+      var deaths = p.deaths || 0;
+      var fatalities = p.fatalities || 0;
+      var dmgDealt = p.damageDealt || 0;
+      var dmgTaken = p.damageTaken || 0;
+      var killsPerMin = (kills / elapsedMin).toFixed(2);
+      var dmgPerSec = (dmgDealt / elapsedSec).toFixed(1);
+
+      totalKills += kills;
+      totalDamage += dmgDealt;
+      totalFatalities += fatalities;
+
+      var nameColor = p.isAlive ? 'var(--text-primary)' : 'var(--text-muted)';
+      html += '<tr>' +
+        '<td style="color:' + nameColor + '">' + (p.scrNam || p.fullName || 'Player') + '</td>' +
+        '<td>' + kills + '</td>' +
+        '<td>' + deaths + '</td>' +
+        '<td>' + fatalities + '</td>' +
+        '<td>' + dmgDealt + '</td>' +
+        '<td>' + dmgTaken + '</td>' +
+        '<td>' + killsPerMin + '</td>' +
+        '<td>' + dmgPerSec + '</td>' +
+        '</tr>';
+    });
+
+    statsBody.innerHTML = html;
+    document.getElementById('totalKills').textContent = totalKills;
+    document.getElementById('totalDamage').textContent = totalDamage;
+    document.getElementById('totalFatalities').textContent = totalFatalities;
+  }
+
+  // ── Socket.IO Integration ──────────────────────────────────────────────
+  function connectToRoom() {
+    if (typeof io === 'undefined') return;
+
+    var socket = io();
+
+    socket.on('battle:state-update', function (state) {
+      if (state.startTime && !battleStartTime) {
+        battleStartTime = state.startTime;
+        if (!timerInterval) {
+          timerInterval = setInterval(updateTimer, 1000);
+        }
+      }
+      var elapsed = battleStartTime ? Date.now() - battleStartTime : 0;
+      renderStats(state.players || [], elapsed);
+    });
+
+    socket.on('battle:end', function (state) {
+      if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+      }
+      var elapsed = battleStartTime ? Date.now() - battleStartTime : 0;
+      renderStats(state.players || [], elapsed);
+    });
+  }
+
+  // ── Demo Mode (no socket) ─────────────────────────────────────────────
+  // If no Socket.IO, check for battle state from URL params or show placeholder
+  var params = new URLSearchParams(window.location.search);
+  var roomId = params.get('room');
+
+  if (typeof io !== 'undefined' && roomId) {
+    connectToRoom();
+  }
+
+  // Manual refresh via status API
+  function fetchStatus() {
+    fetch('/api/status')
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        if (data.rooms && data.rooms.length > 0) {
+          var room = data.rooms[0];
+          if (room.players) {
+            if (!battleStartTime) {
+              battleStartTime = Date.now() - (room.elapsed || 0);
+              if (!timerInterval) timerInterval = setInterval(updateTimer, 1000);
+            }
+            renderStats(room.players, room.elapsed || 0);
+          }
+        }
+      })
+      .catch(function () {});
+  }
+
+  // Poll status every 3 seconds as fallback
+  fetchStatus();
+  setInterval(fetchStatus, 3000);
+})();
+</script>
+</body>
+</html>
