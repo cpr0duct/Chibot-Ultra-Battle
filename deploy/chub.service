@@ -1,0 +1,17 @@
+[Unit]
+Description=ChUB 2000 Web Battle Engine
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/projects/CHUB
+ExecStart=/usr/bin/node server/index.js
+Restart=always
+RestartSec=5
+Environment=NODE_ENV=production
+Environment=PORT=9012
+
+[Install]
+WantedBy=multi-user.target

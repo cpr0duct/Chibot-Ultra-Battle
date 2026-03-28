@@ -1,0 +1,5 @@
+# Add these entries to the existing cloudflared tunnel config
+- hostname: chub.cpr0duct.com
+  service: http://192.168.1.25:9012
+- hostname: chub.cpr0duct.work
+  service: http://192.168.1.25:9012
