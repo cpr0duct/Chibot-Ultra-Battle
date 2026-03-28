@@ -76,6 +76,8 @@ export function setupLobby(io, gameState) {
       const playerIndex = room.addPlayer(screenName, socket.id);
       socket.data.playerIndex = playerIndex;
 
+      room.startSelection();
+
       socket.emit('lobby:room-created', { roomId, name: room._roomName, playerIndex });
       io.emit('lobby:room-list', getRoomList(gameState));
     });

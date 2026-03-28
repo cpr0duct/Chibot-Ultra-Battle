@@ -48,6 +48,7 @@
     ChubSocket.on('selection:team-set', updateSlots);
     ChubSocket.on('room:select-result', onSelectResult);
     ChubSocket.on('battle:state-update', onStateForSlots);
+    ChubSocket.on('room:state', onRoomState);
 
     // Fetch character list from server status endpoint
     loadCharacterList();
@@ -174,8 +175,13 @@
     renderPlayerSlots(data.players || []);
   }
 
+  function onRoomState(data) {
+    if (data.roomId && data.roomId !== roomId) return;
+    renderPlayerSlots(data.players || []);
+  }
+
   function updateSlots(data) {
-    // Slots are refreshed via state-update, nothing extra needed here
+    // Slots are refreshed via room:state event, nothing extra needed here
   }
 
   function renderPlayerSlots(players) {

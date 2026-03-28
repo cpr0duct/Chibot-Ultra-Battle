@@ -70,6 +70,7 @@ export class BattleRoom {
     this.players.push(player);
 
     this.emit('room:player-joined', { roomId: this.id, playerIndex: idx, scrNam });
+    this._emitRoomState();
     return idx;
   }
 
@@ -91,6 +92,7 @@ export class BattleRoom {
     }
 
     this.emit('room:player-left', { roomId: this.id, playerIndex: idx, scrNam: player.scrNam });
+    this._emitRoomState();
     return true;
   }
 
@@ -123,6 +125,7 @@ export class BattleRoom {
     this.players.push(player);
 
     this.emit('room:cpu-added', { roomId: this.id, playerIndex: idx, scrNam: player.scrNam });
+    this._emitRoomState();
     return idx;
   }
 
@@ -137,6 +140,7 @@ export class BattleRoom {
       const teamId = (this.players.length % 2) + 1;
       this.addCpuBot(charId, teamId, null);
     }
+    this._emitRoomState();
   }
 
   /**
@@ -149,6 +153,28 @@ export class BattleRoom {
     this.emit('room:teams-assigned', {
       roomId: this.id,
       teams: this.players.map((p, i) => ({ index: i, teamId: p.teamId })),
+    });
+    this._emitRoomState();
+  }
+
+  // ── Room state broadcast ───────────────────────────────────────────────
+
+  /**
+   * Emit the current room state (players list) to all clients in the room.
+   * Called after any player change during selection phase.
+   */
+  _emitRoomState() {
+    this.emit('room:state', {
+      roomId: this.id,
+      phase: this.phase,
+      players: this.players.map((p, i) => ({
+        index: i,
+        scrNam: p.scrNam,
+        isCpu: p.isCpu,
+        teamId: p.teamId,
+        charName: p.character?.fullName || '',
+        charId: p.charId,
+      })),
     });
   }
 
@@ -200,6 +226,7 @@ export class BattleRoom {
       playerIndex,
       charName: char.fullName,
     });
+    this._emitRoomState();
 
     return true;
   }
@@ -214,6 +241,7 @@ export class BattleRoom {
     if (!player) return;
     player.teamId = teamId;
     this.emit('selection:team-set', { roomId: this.id, playerIndex, teamId });
+    this._emitRoomState();
   }
 
   /**
@@ -404,7 +432,7 @@ export class BattleRoom {
       }
 
       case 'moveByNumber': {
-        const moveIdx = cmd.number;
+        const moveIdx = cmd.number - 1; // Convert 1-based user input to 0-based index
         const targetIdx = cmd.target
           ? this.players.findIndex(p => p.scrNam?.toLowerCase() === cmd.target?.toLowerCase())
           : this._getDefaultTarget(playerIndex);

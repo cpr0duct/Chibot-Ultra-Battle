@@ -44,9 +44,9 @@
     ChubSocket.on('battle:message', onMessage);
     ChubSocket.on('battle:state-update', onStateUpdate);
     ChubSocket.on('battle:command-result', onCommandResult);
-    ChubSocket.on('room:player-joined', onPlayerEvent);
-    ChubSocket.on('room:player-left', onPlayerEvent);
-    ChubSocket.on('room:cpu-added', onPlayerEvent);
+    ChubSocket.on('room:player-joined', function (data) { onPlayerEvent(data, 'joined'); });
+    ChubSocket.on('room:player-left', function (data) { onPlayerEvent(data, 'left'); });
+    ChubSocket.on('room:cpu-added', function (data) { onPlayerEvent(data, 'cpu-added'); });
     ChubSocket.on('room:teams-assigned', onTeamsAssigned);
     ChubSocket.on('room:error', onRoomError);
     ChubSocket.on('selection:character-chosen', onCharChosen);
@@ -190,12 +190,14 @@
 
   // ── Player Events (selection phase) ──────────────────────────────────────
 
-  function onPlayerEvent(data) {
+  function onPlayerEvent(data, eventType) {
     if (data.roomId && data.roomId !== roomId) return;
-    var verb = '';
     if (data.scrNam) {
-      // Determine event type from the event name -- use a generic message
-      appendMessage(data.scrNam + ' -- player event', 'msg-system');
+      var verb = 'joined';
+      if (eventType === 'left') verb = 'left the room';
+      else if (eventType === 'cpu-added') verb = 'entered (CPU)';
+      else verb = 'joined';
+      appendMessage(data.scrNam + ' ' + verb, 'msg-system');
     }
   }
 
