@@ -18,6 +18,37 @@ import { parseItm, serializeItm } from '../../parsers/itm-parser.js';
 import { parseW2k, serializeW2k } from '../../parsers/w2k-parser.js';
 import { parseIni, serializeIni } from '../../parsers/ini-parser.js';
 
+// ── Recursive file listing ─────────────────────────────────────────────────
+
+/**
+ * Recursively list files matching given extensions.
+ * @param {string}   dir     - Absolute directory path
+ * @param {string[]} exts    - Lowercase extensions to match (e.g. ['.ch2', '.che'])
+ * @param {string}   prefix  - Relative path prefix for subdirectories
+ * @returns {Array<{name: string, path: string}>}
+ */
+function listFilesRecursive(dir, exts, prefix) {
+  const results = [];
+  try {
+    const entries = readdirSync(dir, { withFileTypes: true });
+    for (const e of entries) {
+      if (e.isFile()) {
+        const ext = extname(e.name).toLowerCase();
+        if (exts.includes(ext)) {
+          const relPath = prefix ? prefix + '/' + e.name : e.name;
+          results.push({ name: e.name, path: relPath });
+        }
+      } else if (e.isDirectory()) {
+        const subPrefix = prefix ? prefix + '/' + e.name : e.name;
+        results.push(...listFilesRecursive(join(dir, e.name), exts, subPrefix));
+      }
+    }
+  } catch {
+    // ignore unreadable directories
+  }
+  return results;
+}
+
 // ── Content type configuration ──────────────────────────────────────────────
 
 const CONTENT_TYPES = {
@@ -120,17 +151,10 @@ export function setupEditorRoutes(app, config) {
   for (const [typeName, typeCfg] of Object.entries(CONTENT_TYPES)) {
     const baseDir = config[typeCfg.dirKey];
 
-    // GET /api/editor/:type — list files
+    // GET /api/editor/:type — list files (recursive)
     app.get(`/api/editor/${typeName}`, (req, res) => {
       try {
-        const entries = readdirSync(baseDir, { withFileTypes: true });
-        const files = entries
-          .filter(e => {
-            if (!e.isFile()) return false;
-            const ext = extname(e.name).toLowerCase();
-            return typeCfg.extensions.includes(ext);
-          })
-          .map(e => ({ name: e.name, path: e.name }));
+        const files = listFilesRecursive(baseDir, typeCfg.extensions, '');
         res.json(files);
       } catch (err) {
         // Directory may not exist yet

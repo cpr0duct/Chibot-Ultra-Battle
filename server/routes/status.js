@@ -9,7 +9,7 @@ import { readdirSync } from 'fs';
 import { join } from 'path';
 
 /**
- * Count files in a directory matching given extensions.
+ * Count files in a directory matching given extensions (recursive).
  * Returns 0 if the directory does not exist.
  *
  * @param {string}   dir  - Absolute directory path
@@ -19,11 +19,16 @@ import { join } from 'path';
 function countFiles(dir, exts) {
   try {
     const entries = readdirSync(dir, { withFileTypes: true });
-    return entries.filter(e => {
-      if (!e.isFile()) return false;
-      const ext = e.name.slice(e.name.lastIndexOf('.')).toUpperCase();
-      return exts.includes(ext);
-    }).length;
+    let count = 0;
+    for (const e of entries) {
+      if (e.isFile()) {
+        const ext = e.name.slice(e.name.lastIndexOf('.')).toUpperCase();
+        if (exts.includes(ext)) count++;
+      } else if (e.isDirectory()) {
+        count += countFiles(join(dir, e.name), exts);
+      }
+    }
+    return count;
   } catch {
     return 0;
   }

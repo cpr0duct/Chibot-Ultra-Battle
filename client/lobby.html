@@ -26,7 +26,7 @@
     </div>
     <div class="flex items-center gap-md">
       <span class="user-info" id="user-display"></span>
-      <button class="btn btn-primary btn-sm" id="create-room-btn">Create Room</button>
+      <button class="btn btn-primary btn-sm" id="open-create-room-btn">Create Room</button>
     </div>
   </div>
 
@@ -186,7 +186,8 @@
       // ── Create Room ──────────────────────────────────────────────────────
 
       var createModal = document.getElementById('create-room-modal');
-      document.getElementById('create-room-btn').addEventListener('click', function () {
+      var createRoomBtn = document.getElementById('open-create-room-btn');
+      createRoomBtn.addEventListener('click', function () {
         createModal.classList.add('active');
         document.getElementById('room-name').focus();
       });

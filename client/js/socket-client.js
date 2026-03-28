@@ -81,7 +81,11 @@
     on: on,
     emit: emit,
     getSocket: getSocket,
+    get socket() { return socket; },
     getScreenName: getScreenName,
     setScreenName: setScreenName,
   };
+
+  // Auto-connect when the script loads
+  connect();
 })();
