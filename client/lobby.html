@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChUB 2000 - Lobby</title>
+  <link rel="stylesheet" href="/css/chub.css">
+</head>
+<body>
+  <button id="theme-toggle" class="theme-toggle" title="Toggle theme">L</button>
+
+  <!-- Header -->
+  <div class="lobby-header">
+    <div>
+      <a href="/" class="logo">ChUB 2000</a>
+    </div>
+    <div class="flex items-center gap-md">
+      <span class="user-info" id="user-display"></span>
+      <button class="btn btn-primary btn-sm" id="create-room-btn">Create Room</button>
+    </div>
+  </div>
+
+  <!-- Room List -->
+  <div id="room-list" class="room-list">
+    <div class="empty-state" id="empty-state">No rooms available. Create one to get started!</div>
+  </div>
+
+  <!-- Create Room Modal -->
+  <div class="modal-overlay" id="create-room-modal">
+    <div class="modal">
+      <h2>Create Room</h2>
+      <div class="form-group">
+        <label for="room-name">Room Name</label>
+        <input type="text" id="room-name" placeholder="My Battle Room" maxlength="30" autocomplete="off">
+      </div>
+      <div class="form-group">
+        <label for="room-dataset">Dataset</label>
+        <select id="room-dataset">
+          <option value="default">Default (Arcade)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="room-password">Password (optional)</label>
+        <input type="password" id="room-password" placeholder="Leave blank for open room" autocomplete="off">
+      </div>
+      <div class="modal-actions">
+        <button class="btn" id="cancel-create">Cancel</button>
+        <button class="btn btn-primary" id="confirm-create">Create</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Password Prompt Modal -->
+  <div class="modal-overlay" id="password-modal">
+    <div class="modal">
+      <h2>Room Password</h2>
+      <div class="form-group">
+        <label for="join-password">Enter password to join</label>
+        <input type="password" id="join-password" autocomplete="off">
+      </div>
+      <div class="modal-actions">
+        <button class="btn" id="cancel-password">Cancel</button>
+        <button class="btn btn-primary" id="confirm-password">Join</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/theme.js"></script>
+  <script src="/js/socket-client.js"></script>
+  <script>
+    (function () {
+      // Redirect if no screen name
+      var screenName = ChubSocket.getScreenName();
+      if (!screenName) {
+        window.location.href = '/';
+        return;
+      }
+
+      document.getElementById('user-display').textContent = screenName;
+
+      // Connect
+      ChubSocket.connect();
+
+      var roomListEl = document.getElementById('room-list');
+      var emptyState = document.getElementById('empty-state');
+      var pendingJoinRoom = null;
+
+      // ── Room List Rendering ──────────────────────────────────────────────
+
+      function renderRoomList(rooms) {
+        // Remove all room cards (keep empty state)
+        var cards = roomListEl.querySelectorAll('.room-card');
+        for (var i = 0; i < cards.length; i++) {
+          cards[i].remove();
+        }
+
+        if (!rooms || rooms.length === 0) {
+          emptyState.classList.remove('hidden');
+          return;
+        }
+        emptyState.classList.add('hidden');
+
+        for (var j = 0; j < rooms.length; j++) {
+          var room = rooms[j];
+          var card = document.createElement('div');
+          card.className = 'room-card';
+
+          var badgeClass = 'badge-' + room.phase;
+          var lockIcon = room.hasPassword ? ' [locked]' : '';
+
+          card.innerHTML =
+            '<div class="room-name">' + escapeHtml(room.name) + lockIcon + '</div>' +
+            '<div class="room-info">' +
+              '<span><span class="badge ' + badgeClass + '">' + room.phase + '</span></span>' +
+              '<span>Players: ' + room.players + '/' + room.maxPlayers + '</span>' +
+              (room.spectators > 0 ? '<span>Spectators: ' + room.spectators + '</span>' : '') +
+            '</div>' +
+            '<div class="room-actions">' +
+              (room.phase !== 'ended'
+                ? '<button class="btn btn-sm btn-primary join-btn" data-room="' + room.id + '" data-locked="' + room.hasPassword + '">Join</button>'
+                : '') +
+              '<button class="btn btn-sm spectate-btn" data-room="' + room.id + '">Spectate</button>' +
+            '</div>';
+
+          roomListEl.appendChild(card);
+        }
+
+        // Bind join buttons
+        var joinBtns = roomListEl.querySelectorAll('.join-btn');
+        for (var k = 0; k < joinBtns.length; k++) {
+          joinBtns[k].addEventListener('click', handleJoin);
+        }
+        var specBtns = roomListEl.querySelectorAll('.spectate-btn');
+        for (var m = 0; m < specBtns.length; m++) {
+          specBtns[m].addEventListener('click', handleSpectate);
+        }
+      }
+
+      function escapeHtml(str) {
+        var div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+      }
+
+      // ── Join / Spectate ──────────────────────────────────────────────────
+
+      function handleJoin(e) {
+        var roomId = e.target.getAttribute('data-room');
+        var locked = e.target.getAttribute('data-locked') === 'true';
+
+        if (locked) {
+          pendingJoinRoom = roomId;
+          document.getElementById('password-modal').classList.add('active');
+          document.getElementById('join-password').value = '';
+          document.getElementById('join-password').focus();
+          return;
+        }
+
+        joinRoom(roomId, null);
+      }
+
+      function joinRoom(roomId, password) {
+        ChubSocket.emit('lobby:join-room', {
+          roomId: roomId,
+          screenName: screenName,
+          password: password || null,
+        });
+      }
+
+      function handleSpectate(e) {
+        var roomId = e.target.getAttribute('data-room');
+        ChubSocket.emit('lobby:spectate', { roomId: roomId });
+      }
+
+      // ── Create Room ──────────────────────────────────────────────────────
+
+      var createModal = document.getElementById('create-room-modal');
+      document.getElementById('create-room-btn').addEventListener('click', function () {
+        createModal.classList.add('active');
+        document.getElementById('room-name').focus();
+      });
+      document.getElementById('cancel-create').addEventListener('click', function () {
+        createModal.classList.remove('active');
+      });
+      document.getElementById('confirm-create').addEventListener('click', function () {
+        var name = document.getElementById('room-name').value.trim() || 'Battle Room';
+        var dataset = document.getElementById('room-dataset').value;
+        var password = document.getElementById('room-password').value;
+        ChubSocket.emit('lobby:create-room', {
+          name: name,
+          datasetId: dataset,
+          password: password || null,
+        });
+        createModal.classList.remove('active');
+      });
+
+      // ── Password Modal ───────────────────────────────────────────────────
+
+      var pwModal = document.getElementById('password-modal');
+      document.getElementById('cancel-password').addEventListener('click', function () {
+        pwModal.classList.remove('active');
+        pendingJoinRoom = null;
+      });
+      document.getElementById('confirm-password').addEventListener('click', function () {
+        var pw = document.getElementById('join-password').value;
+        if (pendingJoinRoom) {
+          joinRoom(pendingJoinRoom, pw);
+        }
+        pwModal.classList.remove('active');
+        pendingJoinRoom = null;
+      });
+      document.getElementById('join-password').addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') document.getElementById('confirm-password').click();
+      });
+
+      // Close modals on overlay click
+      createModal.addEventListener('click', function (e) {
+        if (e.target === createModal) createModal.classList.remove('active');
+      });
+      pwModal.addEventListener('click', function (e) {
+        if (e.target === pwModal) pwModal.classList.remove('active');
+      });
+
+      // ── Socket Events ────────────────────────────────────────────────────
+
+      ChubSocket.on('lobby:room-list', renderRoomList);
+
+      ChubSocket.on('lobby:room-created', function (data) {
+        // Auto-join as player 0 after creating
+        sessionStorage.setItem('chub-roomId', data.roomId);
+        joinRoom(data.roomId, null);
+      });
+
+      ChubSocket.on('lobby:joined', function (data) {
+        sessionStorage.setItem('chub-roomId', data.roomId);
+        sessionStorage.setItem('chub-playerIndex', data.playerIndex);
+        sessionStorage.setItem('chub-isSpectator', 'false');
+        window.location.href = '/battle.html';
+      });
+
+      ChubSocket.on('lobby:spectating', function (data) {
+        sessionStorage.setItem('chub-roomId', data.roomId);
+        sessionStorage.setItem('chub-isSpectator', 'true');
+        window.location.href = '/battle.html';
+      });
+
+      ChubSocket.on('lobby:error', function (data) {
+        alert(data.message || 'An error occurred.');
+      });
+
+      // Request initial room list
+      ChubSocket.emit('lobby:list-rooms');
+    })();
+  </script>
+</body>
+</html>
