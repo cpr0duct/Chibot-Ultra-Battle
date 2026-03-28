@@ -140,7 +140,7 @@
 
   async function loadPlaylistFromServer() {
     try {
-      var res = await fetch('/api/editor/audio');
+      var res = await fetch('api/editor/audio');
       if (res.ok) {
         var files = await res.json();
         setPlaylist(files);

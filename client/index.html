@@ -2,9 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <script>
+    // Auto-detect base path for proxy support (/chub/ or /)
+    (function() {
+      var path = window.location.pathname;
+      var base = '/';
+      var match = path.match(/^(\/chub\/)/);
+      if (match) base = match[1];
+      document.write('<base href="' + base + '">');
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ChUB 2000</title>
-  <link rel="stylesheet" href="/css/chub.css">
+  <link rel="stylesheet" href="css/chub.css">
 </head>
 <body>
   <button id="theme-toggle" class="theme-toggle" title="Toggle theme">L</button>
@@ -19,15 +29,15 @@
     </div>
 
     <div class="links">
-      <a href="/editor/">Character Editor</a>
+      <a href="editors/character.html">Character Editor</a>
       <span>|</span>
-      <a href="/editor/arena.html">Arena Editor</a>
+      <a href="editors/arena.html">Arena Editor</a>
     </div>
   </div>
 
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="/js/theme.js"></script>
-  <script src="/js/socket-client.js"></script>
+  <script src="socket.io/socket.io.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/socket-client.js"></script>
   <script>
     (function () {
       var nameInput = document.getElementById('screen-name');
@@ -45,7 +55,7 @@
           return;
         }
         ChubSocket.setScreenName(name);
-        window.location.href = '/lobby.html';
+        window.location.href = 'lobby.html';
       }
 
       enterBtn.addEventListener('click', enterLobby);

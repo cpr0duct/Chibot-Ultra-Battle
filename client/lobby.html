@@ -2,9 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <script>
+    // Auto-detect base path for proxy support (/chub/ or /)
+    (function() {
+      var path = window.location.pathname;
+      var base = '/';
+      var match = path.match(/^(\/chub\/)/);
+      if (match) base = match[1];
+      document.write('<base href="' + base + '">');
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ChUB 2000 - Lobby</title>
-  <link rel="stylesheet" href="/css/chub.css">
+  <link rel="stylesheet" href="css/chub.css">
 </head>
 <body>
   <button id="theme-toggle" class="theme-toggle" title="Toggle theme">L</button>
@@ -12,7 +22,7 @@
   <!-- Header -->
   <div class="lobby-header">
     <div>
-      <a href="/" class="logo">ChUB 2000</a>
+      <a href="./" class="logo">ChUB 2000</a>
     </div>
     <div class="flex items-center gap-md">
       <span class="user-info" id="user-display"></span>
@@ -65,15 +75,15 @@
     </div>
   </div>
 
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="/js/theme.js"></script>
-  <script src="/js/socket-client.js"></script>
+  <script src="socket.io/socket.io.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/socket-client.js"></script>
   <script>
     (function () {
       // Redirect if no screen name
       var screenName = ChubSocket.getScreenName();
       if (!screenName) {
-        window.location.href = '/';
+        window.location.href = './';
         return;
       }
 
@@ -236,13 +246,13 @@
         sessionStorage.setItem('chub-roomId', data.roomId);
         sessionStorage.setItem('chub-playerIndex', data.playerIndex);
         sessionStorage.setItem('chub-isSpectator', 'false');
-        window.location.href = '/battle.html';
+        window.location.href = 'battle.html';
       });
 
       ChubSocket.on('lobby:spectating', function (data) {
         sessionStorage.setItem('chub-roomId', data.roomId);
         sessionStorage.setItem('chub-isSpectator', 'true');
-        window.location.href = '/battle.html';
+        window.location.href = 'battle.html';
       });
 
       ChubSocket.on('lobby:error', function (data) {

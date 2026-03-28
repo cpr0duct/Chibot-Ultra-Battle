@@ -2,6 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <script>
+    // Auto-detect base path for proxy support (/chub/ or /)
+    (function() {
+      var path = window.location.pathname;
+      var base = '/';
+      var match = path.match(/^(\/chub\/)/);
+      if (match) base = match[1];
+      document.write('<base href="' + base + '">');
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ChUB 2000 - Jukebox</title>
   <link rel="stylesheet" href="css/chub.css">
@@ -156,7 +166,7 @@
 
   // Load playlist
   // Try fetching from a custom audio endpoint; if it fails, try the generic listing
-  fetch('/api/editor/audio')
+  fetch('api/editor/audio')
     .then(function (res) {
       if (res.ok) return res.json();
       return [];

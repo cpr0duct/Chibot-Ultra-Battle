@@ -62,7 +62,7 @@
 
   function loadCharacterList() {
     // Try to get from the status API which lists datasets
-    fetch('/api/status')
+    fetch('api/status')
       .then(function (res) { return res.json(); })
       .then(function (data) {
         if (data.datasets) {

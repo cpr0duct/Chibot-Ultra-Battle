@@ -175,7 +175,7 @@ const DATASET_MESSAGE_FIELDS = [
  * @returns {Promise<{name: string, path: string}[]>}
  */
 async function loadFileList(type) {
-  const res = await fetch('/api/editor/' + type);
+  const res = await fetch('api/editor/' + type);
   if (!res.ok) throw new Error('Failed to load file list: ' + res.statusText);
   return res.json();
 }
@@ -187,7 +187,7 @@ async function loadFileList(type) {
  * @returns {Promise<object>}
  */
 async function loadFile(type, filename) {
-  const res = await fetch('/api/editor/' + type + '/' + encodeURIComponent(filename));
+  const res = await fetch('api/editor/' + type + '/' + encodeURIComponent(filename));
   if (!res.ok) throw new Error('Failed to load file: ' + res.statusText);
   return res.json();
 }
@@ -200,7 +200,7 @@ async function loadFile(type, filename) {
  * @returns {Promise<object>}
  */
 async function saveFile(type, filename, data) {
-  const res = await fetch('/api/editor/' + type + '/' + encodeURIComponent(filename), {
+  const res = await fetch('api/editor/' + type + '/' + encodeURIComponent(filename), {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
@@ -219,7 +219,7 @@ async function saveFile(type, filename, data) {
  * @returns {Promise<object>}
  */
 async function deleteFile(type, filename) {
-  const res = await fetch('/api/editor/' + type + '/' + encodeURIComponent(filename), {
+  const res = await fetch('api/editor/' + type + '/' + encodeURIComponent(filename), {
     method: 'DELETE',
   });
   if (!res.ok) {
@@ -234,7 +234,7 @@ async function deleteFile(type, filename) {
  * @returns {Promise<object>}
  */
 async function reloadData() {
-  const res = await fetch('/api/editor/reload', { method: 'POST' });
+  const res = await fetch('api/editor/reload', { method: 'POST' });
   return res.json();
 }
 

@@ -2,11 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <script>
+    // Auto-detect base path for proxy support (/chub/ or /)
+    (function() {
+      var path = window.location.pathname;
+      var base = '/';
+      var match = path.match(/^(\/chub\/)/);
+      if (match) base = match[1];
+      document.write('<base href="' + base + '">');
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ChUB 2000 - Character Editor</title>
-  <link rel="stylesheet" href="../css/chub.css">
-  <link rel="stylesheet" href="../css/editor.css">
-  <script src="../js/theme.js"></script>
+  <link rel="stylesheet" href="css/chub.css">
+  <link rel="stylesheet" href="css/editor.css">
+  <script src="js/theme.js"></script>
 </head>
 <body>
 <button id="theme-toggle" class="theme-toggle">L</button>
@@ -25,17 +35,17 @@
     <hr style="border-color:var(--border)">
     <h2>Editors</h2>
     <ul class="nav-links">
-      <li><a href="character.html" class="active">Character (.CH2)</a></li>
-      <li><a href="arena.html">Arena (.AN2)</a></li>
-      <li><a href="item.html">Item (.ITM)</a></li>
-      <li><a href="weapon.html">Weapon (.W2K)</a></li>
-      <li><a href="dataset.html">Dataset (.INI)</a></li>
-      <li><a href="cpu.html">CPU Personality</a></li>
+      <li><a href="editors/character.html" class="active">Character (.CH2)</a></li>
+      <li><a href="editors/arena.html">Arena (.AN2)</a></li>
+      <li><a href="editors/item.html">Item (.ITM)</a></li>
+      <li><a href="editors/weapon.html">Weapon (.W2K)</a></li>
+      <li><a href="editors/dataset.html">Dataset (.INI)</a></li>
+      <li><a href="editors/cpu.html">CPU Personality</a></li>
     </ul>
     <hr style="border-color:var(--border)">
     <ul class="nav-links">
-      <li><a href="../jukebox.html">Jukebox</a></li>
-      <li><a href="../stats.html">Battle Stats</a></li>
+      <li><a href="jukebox.html">Jukebox</a></li>
+      <li><a href="stats.html">Battle Stats</a></li>
     </ul>
   </aside>
 
@@ -214,7 +224,7 @@
   </main>
 </div>
 
-<script src="../js/editor-forms.js"></script>
+<script src="js/editor-forms.js"></script>
 <script>
 (function () {
   var E = window.ChubEditor;

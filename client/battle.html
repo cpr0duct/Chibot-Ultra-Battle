@@ -2,10 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <script>
+    // Auto-detect base path for proxy support (/chub/ or /)
+    (function() {
+      var path = window.location.pathname;
+      var base = '/';
+      var match = path.match(/^(\/chub\/)/);
+      if (match) base = match[1];
+      document.write('<base href="' + base + '">');
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ChUB 2000 - Battle</title>
-  <link rel="stylesheet" href="/css/chub.css">
-  <link rel="stylesheet" href="/css/battle.css">
+  <link rel="stylesheet" href="css/chub.css">
+  <link rel="stylesheet" href="css/battle.css">
 </head>
 <body>
   <div class="battle-wrapper">
@@ -110,19 +120,19 @@
     </div>
   </div>
 
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="/js/theme.js"></script>
-  <script src="/js/socket-client.js"></script>
-  <script src="/js/battle-view.js"></script>
-  <script src="/js/command-input.js"></script>
-  <script src="/js/selection-view.js"></script>
+  <script src="socket.io/socket.io.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/socket-client.js"></script>
+  <script src="js/battle-view.js"></script>
+  <script src="js/command-input.js"></script>
+  <script src="js/selection-view.js"></script>
   <script>
     (function () {
       // Redirect if no session info
       var screenName = ChubSocket.getScreenName();
       var roomId = sessionStorage.getItem('chub-roomId');
       if (!screenName || !roomId) {
-        window.location.href = '/';
+        window.location.href = './';
         return;
       }
 
@@ -141,7 +151,7 @@
 
       document.getElementById('btn-exit').addEventListener('click', function () {
         if (confirm('Leave this room?')) {
-          window.location.href = '/lobby.html';
+          window.location.href = 'lobby.html';
         }
       });
 
@@ -176,7 +186,7 @@
       });
 
       document.getElementById('btn-back-lobby').addEventListener('click', function () {
-        window.location.href = '/lobby.html';
+        window.location.href = 'lobby.html';
       });
 
       // ── Phase transitions ──────────────────────────────────────────────
@@ -202,7 +212,7 @@
 
       ChubSocket.on('room:kicked', function () {
         alert('You have been kicked from the room.');
-        window.location.href = '/lobby.html';
+        window.location.href = 'lobby.html';
       });
 
       function showPhase(phase) {
