@@ -147,16 +147,16 @@ export const MAX_RAY = 250;  // # of lines for input buffer
 export const OUT_MAX = 250;  // # of lines for output buffer
 export const SND_MAX = 50;   // # of sounds for sound buffer
 
-// Game limits — not all are in ConstDeclares.bas but needed by the engine
-export const MAX_ARENA_EVENTS = 20;
+// Game limits from VB6 source
+export const MAX_ARENA_EVENTS = 10;
 export const MAX_ARENA_ELEMENTS = 31;
 export const MAX_ARENA_DESCRIPTION_LINES = 10;
-export const MAX_TAUNTS = 10;
-export const MAX_KILL_STRINGS = 10;
-export const MAX_DEATH_STRINGS = 10;
-export const MAX_SUPER_POINTS = 100;
-export const MAX_STAT_TOTAL = 999;
-export const MAX_INI_STRINGS = 200;
+export const MAX_TAUNTS = 5;       // Taunt(5) in CH1.BAS
+export const MAX_KILL_STRINGS = 5;  // KillStr(5) in CH1.BAS
+export const MAX_DEATH_STRINGS = 5; // DeathStr(5) in CH1.BAS
+export const MAX_SUPER_POINTS = 300;
+export const MAX_STAT_TOTAL = 220;  // Stats cannot total more than 220
+export const MAX_INI_STRINGS = 48;
 
 // ── Element Name Lookup ─────────────────────────────────────────────────────
 
