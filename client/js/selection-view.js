@@ -143,21 +143,20 @@
 
   function onSelectResult(data) {
     if (data.success) {
-      BattleView.appendMessage('Character selected: ' + (selectedCharKey || ''), 'msg-system');
-      // Update move names for autocomplete
-      if (characters.length > 0 && selectedCharKey) {
-        var ch = characters.find(function (c) {
-          return c.senshiId === selectedCharKey || c.fullName === selectedCharKey;
-        });
-        if (ch && ch.moves) {
-          var names = [];
-          for (var i = 0; i < ch.moves.length; i++) {
-            if (ch.moves[i] && ch.moves[i].cmdKey) {
-              names.push(ch.moves[i].cmdKey);
-            }
+      var charName = (data.character && data.character.fullName) || selectedCharKey || '';
+      BattleView.appendMessage('Character selected: ' + charName, 'msg-system');
+
+      // Use moves returned from server for autocomplete and display
+      if (data.character && data.character.moves) {
+        var moves = data.character.moves;
+        var names = [];
+        for (var i = 0; i < moves.length; i++) {
+          if (moves[i] && moves[i].cmdKey) {
+            names.push(moves[i].cmdKey);
           }
-          CommandInput.setMoveNames(names);
         }
+        CommandInput.setMoveNames(names);
+        BattleView.setPlayerMoves(moves);
       }
     } else {
       BattleView.appendMessage('Character not found. Try another name.', 'msg-system');
@@ -178,6 +177,18 @@
   function onRoomState(data) {
     if (data.roomId && data.roomId !== roomId) return;
     renderPlayerSlots(data.players || []);
+
+    // Restore moves for current player on reconnect
+    var players = data.players || [];
+    if (players[playerIndex] && players[playerIndex].moves && players[playerIndex].moves.length > 0) {
+      var moves = players[playerIndex].moves;
+      var names = [];
+      for (var i = 0; i < moves.length; i++) {
+        if (moves[i] && moves[i].cmdKey) names.push(moves[i].cmdKey);
+      }
+      CommandInput.setMoveNames(names);
+      BattleView.setPlayerMoves(moves);
+    }
   }
 
   function updateSlots(data) {

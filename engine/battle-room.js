@@ -174,6 +174,17 @@ export class BattleRoom {
         teamId: p.teamId,
         charName: p.character?.fullName || '',
         charId: p.charId,
+        moves: p.character ? (p.character.moves || [])
+          .filter(m => m && m.name && m.name !== '')
+          .map(m => ({
+            name: m.name,
+            cmdKey: m.cmdKey,
+            element: m.element,
+            strength: m.strength,
+            target: m.target,
+            canSuper: m.canSuper,
+            mpReq: m.mpReq,
+          })) : [],
       })),
     });
   }

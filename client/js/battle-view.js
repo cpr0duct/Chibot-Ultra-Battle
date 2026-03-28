@@ -12,6 +12,7 @@
   var currentPhase = 'waiting';
   var playerStates = [];
   var userScrolledUp = false;
+  var playerMoves = [];
 
   // Status name lookup (matches engine/constants.js STATUS enum)
   var STATUS_NAMES = {
@@ -217,12 +218,25 @@
 
   // ── Info Panels (toolbar buttons) ────────────────────────────────────────
 
+  function setPlayerMoves(moves) {
+    playerMoves = moves || [];
+  }
+
   function showMoves() {
-    // Show the current player's moves in the log
-    if (playerStates[playerIndex]) {
-      appendMessage('--- Your Moves ---', 'msg-system');
-      // Moves would be populated from character data sent by server
-      appendMessage('(Move list requires character data from server)', 'msg-system');
+    appendMessage('--- Your Moves ---', 'msg-system');
+    if (playerMoves.length === 0) {
+      appendMessage('  (No moves available — select a character first)', 'msg-system');
+      return;
+    }
+    for (var i = 0; i < playerMoves.length; i++) {
+      var m = playerMoves[i];
+      var line = '  ' + (i + 1) + '. ' + (m.name || '???');
+      if (m.cmdKey) line += '  /' + m.cmdKey;
+      if (m.element) line += '  [' + m.element + ']';
+      if (m.strength) line += '  str:' + m.strength;
+      if (m.mpReq) line += '  mp:' + m.mpReq;
+      if (m.canSuper) line += '  (super)';
+      appendMessage(line, 'msg-system');
     }
   }
 
@@ -324,6 +338,7 @@
     appendMessage: appendMessage,
     setPhase: setPhase,
     getPhase: getPhase,
+    setPlayerMoves: setPlayerMoves,
     showMoves: showMoves,
     showChars: showChars,
     showTeams: showTeams,

@@ -21,7 +21,33 @@ export function setupRoomHandlers(socket, gameState) {
     if (playerIndex === undefined) return;
 
     const ok = room.selectCharacter(playerIndex, commandKey);
-    socket.emit('room:select-result', { success: ok, commandKey });
+
+    // Get character data including moves so the client can display them
+    let charData = null;
+    if (ok) {
+      const player = room.players[playerIndex];
+      if (player && player.character) {
+        charData = {
+          fullName: player.character.fullName,
+          moves: (player.character.moves || [])
+            .filter(m => m && m.name && m.name !== '')
+            .map(m => ({
+              name: m.name,
+              cmdKey: m.cmdKey,
+              element: m.element,
+              strength: m.strength,
+              target: m.target,
+              canSuper: m.canSuper,
+              mpReq: m.mpReq,
+            })),
+          fatality: player.character.fatality?.cmdKey ? {
+            cmdKey: player.character.fatality.cmdKey,
+          } : null,
+        };
+      }
+    }
+
+    socket.emit('room:select-result', { success: ok, commandKey, character: charData });
   });
 
   // ── Set team ────────────────────────────────────────────────────────────
