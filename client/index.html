@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChUB 2000</title>
+  <link rel="stylesheet" href="/css/chub.css">
+</head>
+<body>
+  <button id="theme-toggle" class="theme-toggle" title="Toggle theme">L</button>
+
+  <div class="landing">
+    <div class="title">ChUB 2000</div>
+    <div class="subtitle">Chibot Ultra Battle</div>
+
+    <div class="entry-form">
+      <input type="text" id="screen-name" placeholder="Enter screen name..." maxlength="20" autocomplete="off">
+      <button class="btn btn-primary" id="enter-lobby">Enter Lobby</button>
+    </div>
+
+    <div class="links">
+      <a href="/editor/">Character Editor</a>
+      <span>|</span>
+      <a href="/editor/arena.html">Arena Editor</a>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/theme.js"></script>
+  <script src="/js/socket-client.js"></script>
+  <script>
+    (function () {
+      var nameInput = document.getElementById('screen-name');
+      var enterBtn = document.getElementById('enter-lobby');
+
+      // Restore previously-entered name
+      var stored = ChubSocket.getScreenName();
+      if (stored) nameInput.value = stored;
+
+      function enterLobby() {
+        var name = nameInput.value.trim();
+        if (!name) {
+          nameInput.focus();
+          nameInput.style.borderColor = 'var(--accent-red)';
+          return;
+        }
+        ChubSocket.setScreenName(name);
+        window.location.href = '/lobby.html';
+      }
+
+      enterBtn.addEventListener('click', enterLobby);
+      nameInput.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') enterLobby();
+        nameInput.style.borderColor = '';
+      });
+
+      nameInput.focus();
+    })();
+  </script>
+</body>
+</html>
