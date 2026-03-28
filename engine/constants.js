@@ -149,7 +149,7 @@ export const SND_MAX = 50;   // # of sounds for sound buffer
 
 // Game limits — not all are in ConstDeclares.bas but needed by the engine
 export const MAX_ARENA_EVENTS = 20;
-export const MAX_ARENA_ELEMENTS = 30;
+export const MAX_ARENA_ELEMENTS = 31;
 export const MAX_ARENA_DESCRIPTION_LINES = 10;
 export const MAX_TAUNTS = 10;
 export const MAX_KILL_STRINGS = 10;
