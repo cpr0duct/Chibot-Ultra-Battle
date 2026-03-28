@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChUB 2000 - Jukebox</title>
+  <link rel="stylesheet" href="css/chub.css">
+  <link rel="stylesheet" href="css/editor.css">
+  <script src="js/theme.js"></script>
+</head>
+<body>
+<button id="theme-toggle" class="theme-toggle">L</button>
+
+<div class="jukebox-container">
+  <div class="page-header" style="border-bottom-color:var(--accent-blue)">
+    <h1 style="color:var(--accent-blue)">Jukebox</h1>
+    <a href="editors/character.html" style="font-size:0.85rem">Back to Editors</a>
+  </div>
+
+  <!-- Now Playing -->
+  <div class="jukebox-now-playing">
+    <div class="track-name" id="trackName">No Track Selected</div>
+    <div class="track-status" id="trackStatus">Stopped</div>
+    <div class="track-status" id="trackTime" style="margin-top:4px;font-family:'Courier New',monospace">
+      0:00 / 0:00
+    </div>
+  </div>
+
+  <!-- Transport Controls -->
+  <div class="jukebox-controls">
+    <button class="btn" id="btnPrev" title="Previous">|&lt;</button>
+    <button class="btn btn-primary" id="btnPlayPause" title="Play / Pause">Play</button>
+    <button class="btn" id="btnNext" title="Next">&gt;|</button>
+  </div>
+
+  <!-- Toggles -->
+  <div class="jukebox-toggles">
+    <label><input type="checkbox" id="chkLoop"> Loop</label>
+    <label><input type="checkbox" id="chkShuffle"> Shuffle</label>
+  </div>
+
+  <!-- Volume -->
+  <div class="jukebox-volume">
+    <label>Vol</label>
+    <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="0.7">
+    <span id="volumeValue" style="color:var(--text-muted);font-size:0.8rem;width:30px">70%</span>
+  </div>
+
+  <!-- Playlist -->
+  <div class="editor-section">
+    <h3>Playlist</h3>
+    <ul class="jukebox-playlist" id="playlistEl">
+      <li style="color:var(--text-muted)">Loading...</li>
+    </ul>
+  </div>
+</div>
+
+<script src="js/jukebox-player.js"></script>
+<script>
+(function () {
+  var JP = window.JukeboxPlayer;
+  var playlistEl = document.getElementById('playlistEl');
+  var trackNameEl = document.getElementById('trackName');
+  var trackStatusEl = document.getElementById('trackStatus');
+  var trackTimeEl = document.getElementById('trackTime');
+  var btnPlayPause = document.getElementById('btnPlayPause');
+
+  // Volume
+  var volumeSlider = document.getElementById('volumeSlider');
+  var volumeValue = document.getElementById('volumeValue');
+  JP.setVolume(0.7);
+  volumeSlider.addEventListener('input', function () {
+    JP.setVolume(parseFloat(this.value));
+    volumeValue.textContent = Math.round(this.value * 100) + '%';
+  });
+
+  // Loop / Shuffle
+  document.getElementById('chkLoop').addEventListener('change', function () {
+    JP.setLoop(this.checked);
+  });
+  document.getElementById('chkShuffle').addEventListener('change', function () {
+    JP.setShuffle(this.checked);
+  });
+
+  // Transport
+  btnPlayPause.addEventListener('click', function () { JP.togglePlay(); });
+  document.getElementById('btnPrev').addEventListener('click', function () { JP.prev(); });
+  document.getElementById('btnNext').addEventListener('click', function () { JP.next(); });
+
+  // Events
+  JP.on('track-change', function (data) {
+    trackNameEl.textContent = data.track.name;
+    trackStatusEl.textContent = 'Playing';
+    btnPlayPause.textContent = 'Pause';
+    updatePlaylistHighlight(data.index);
+  });
+  JP.on('paused', function () {
+    trackStatusEl.textContent = 'Paused';
+    btnPlayPause.textContent = 'Play';
+  });
+  JP.on('resumed', function () {
+    trackStatusEl.textContent = 'Playing';
+    btnPlayPause.textContent = 'Pause';
+  });
+  JP.on('stopped', function () {
+    trackStatusEl.textContent = 'Stopped';
+    btnPlayPause.textContent = 'Play';
+  });
+  JP.on('unsupported', function (data) {
+    trackNameEl.textContent = data.track.name;
+    trackStatusEl.textContent = data.format + ' format not yet supported';
+  });
+
+  // Time update
+  var audioEl = JP.getAudio();
+  audioEl.addEventListener('timeupdate', function () {
+    trackTimeEl.textContent = formatTime(audioEl.currentTime) + ' / ' + formatTime(audioEl.duration || 0);
+  });
+
+  function formatTime(sec) {
+    if (isNaN(sec)) return '0:00';
+    var m = Math.floor(sec / 60);
+    var s = Math.floor(sec % 60);
+    return m + ':' + (s < 10 ? '0' : '') + s;
+  }
+
+  function updatePlaylistHighlight(idx) {
+    var items = playlistEl.querySelectorAll('li');
+    items.forEach(function (li, i) {
+      li.classList.toggle('active', i === idx);
+    });
+  }
+
+  // Render playlist
+  function renderPlaylist(tracks) {
+    playlistEl.innerHTML = '';
+    if (tracks.length === 0) {
+      playlistEl.innerHTML = '<li style="color:var(--text-muted)">No audio files found in /data/audio/</li>';
+      return;
+    }
+    tracks.forEach(function (track, i) {
+      var li = document.createElement('li');
+      li.textContent = track.name;
+      if (JP.isUnsupported(track.name)) {
+        var span = document.createElement('span');
+        span.className = 'unsupported';
+        span.textContent = '(' + JP.getExtension(track.name).toUpperCase().replace('.', '') + ')';
+        li.appendChild(span);
+      }
+      li.addEventListener('click', function () { JP.play(i); });
+      playlistEl.appendChild(li);
+    });
+  }
+
+  JP.on('playlist-loaded', function (data) { renderPlaylist(data.tracks); });
+
+  // Load playlist
+  // Try fetching from a custom audio endpoint; if it fails, try the generic listing
+  fetch('/api/editor/audio')
+    .then(function (res) {
+      if (res.ok) return res.json();
+      return [];
+    })
+    .then(function (files) {
+      if (files.length > 0) {
+        JP.setPlaylist(files);
+      } else {
+        // Fallback: no audio endpoint or empty list
+        playlistEl.innerHTML = '<li style="color:var(--text-muted)">No audio files found. Place MP3 files in /data/audio/</li>';
+      }
+    })
+    .catch(function () {
+      playlistEl.innerHTML = '<li style="color:var(--text-muted)">Could not load playlist.</li>';
+    });
+
+  // Socket.IO integration (if available on the page)
+  if (typeof io !== 'undefined') {
+    JP.connectSocket(io());
+  }
+})();
+</script>
+</body>
+</html>

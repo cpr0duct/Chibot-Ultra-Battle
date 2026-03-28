@@ -26,6 +26,7 @@ const io = new Server(httpServer, { cors: { origin: '*' } });
 
 app.use(express.json());
 app.use(express.static(join(__dirname, '..', 'client')));
+app.use('/data/audio', express.static(join(__dirname, '..', config.audioDir)));
 
 // ── Shared game state ───────────────────────────────────────────────────────
 
