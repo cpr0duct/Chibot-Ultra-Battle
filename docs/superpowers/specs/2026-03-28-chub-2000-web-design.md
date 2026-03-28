@@ -583,7 +583,8 @@ New subdomain entries in existing tunnel config:
 
 | Method | URL | Notes |
 |---|---|---|
-| Local | http://192.168.1.25/chub/ | Direct LAN access |
+| Local (ethernet) | http://192.168.1.25/chub/ | Direct LAN access |
+| Local (wifi) | http://192.168.1.10/chub/ | Direct LAN access |
 | Local direct | http://192.168.1.25:9012/ | Bypass nginx |
 | Cloudflare | https://chub.cpr0duct.com/ | Always-on public |
 | Cloudflare | https://chub.cpr0duct.work/ | Alternate domain |
