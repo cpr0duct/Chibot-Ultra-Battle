@@ -202,6 +202,7 @@
           name: name,
           datasetId: dataset,
           password: password || null,
+          screenName: screenName,
         });
         createModal.classList.remove('active');
       });
@@ -238,9 +239,11 @@
       ChubSocket.on('lobby:room-list', renderRoomList);
 
       ChubSocket.on('lobby:room-created', function (data) {
-        // Auto-join as player 0 after creating
+        // Creator is already added as a player on the server
         sessionStorage.setItem('chub-roomId', data.roomId);
-        joinRoom(data.roomId, null);
+        sessionStorage.setItem('chub-playerIndex', data.playerIndex != null ? data.playerIndex : 0);
+        sessionStorage.setItem('chub-isSpectator', 'false');
+        window.location.href = 'battle.html';
       });
 
       ChubSocket.on('lobby:joined', function (data) {

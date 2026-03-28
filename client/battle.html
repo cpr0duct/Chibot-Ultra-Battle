@@ -139,8 +139,14 @@
       var isSpectator = sessionStorage.getItem('chub-isSpectator') === 'true';
       var playerIndex = parseInt(sessionStorage.getItem('chub-playerIndex'), 10) || 0;
 
-      // Connect socket
+      // Connect socket and rejoin room
       ChubSocket.connect();
+      ChubSocket.emit('lobby:rejoin-room', {
+        roomId: roomId,
+        screenName: screenName,
+        playerIndex: playerIndex,
+        isSpectator: isSpectator,
+      });
 
       // Initialize modules
       BattleView.init(roomId, playerIndex, isSpectator);

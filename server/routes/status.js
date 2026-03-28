@@ -57,6 +57,23 @@ export function setupStatusRoute(app, gameState) {
   if (!gameState._peakPlayers) gameState._peakPlayers = 0;
   if (!gameState._totalRoomsCreated) gameState._totalRoomsCreated = 0;
 
+  // ── GET /api/characters — lightweight character list for selection grid ────
+  app.get('/api/characters', (req, res) => {
+    const datasetId = req.query.dataset || 'default';
+    const dataset = gameState.datasets.get(datasetId);
+    if (!dataset || !dataset.characters) {
+      return res.json([]);
+    }
+    const list = dataset.characters.map((ch, i) => ({
+      index: i,
+      fullName: ch.fullName || '',
+      senshiId: ch.senshiId || '',
+      species: ch.species || '',
+      pickMe: ch.pickMe || '',
+    }));
+    res.json(list);
+  });
+
   app.get('/api/status', (req, res) => {
     const config = gameState.config;
 

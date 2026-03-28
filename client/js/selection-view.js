@@ -61,19 +61,11 @@
   // ── Character List ───────────────────────────────────────────────────────
 
   function loadCharacterList() {
-    // Try to get from the status API which lists datasets
-    fetch('api/status')
+    fetch('api/characters')
       .then(function (res) { return res.json(); })
-      .then(function (data) {
-        if (data.datasets) {
-          // Datasets may have character lists
-          for (var key in data.datasets) {
-            var ds = data.datasets[key];
-            if (ds.characters) {
-              characters = ds.characters;
-              break;
-            }
-          }
+      .then(function (list) {
+        if (Array.isArray(list)) {
+          characters = list;
         }
         renderCharacterGrid();
       })

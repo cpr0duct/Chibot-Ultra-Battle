@@ -68,11 +68,15 @@ export function setupLobby(io, gameState) {
 
       gameState.rooms.set(roomId, room);
 
-      // Creator joins the room socket channel
+      // Creator joins the room socket channel and becomes player 0
       socket.join(roomId);
       socket.data.roomId = roomId;
 
-      socket.emit('lobby:room-created', { roomId, name: room._roomName });
+      const screenName = data.screenName || socket.data.screenName || 'Host';
+      const playerIndex = room.addPlayer(screenName, socket.id);
+      socket.data.playerIndex = playerIndex;
+
+      socket.emit('lobby:room-created', { roomId, name: room._roomName, playerIndex });
       io.emit('lobby:room-list', getRoomList(gameState));
     });
 
@@ -103,6 +107,51 @@ export function setupLobby(io, gameState) {
 
       socket.emit('lobby:joined', { roomId, playerIndex });
       io.emit('lobby:room-list', getRoomList(gameState));
+    });
+
+    // ── Rejoin room (after page navigation) ─────────────────────────────
+    socket.on('lobby:rejoin-room', (data) => {
+      const { roomId, screenName, playerIndex, isSpectator } = data || {};
+      const room = gameState.rooms.get(roomId);
+
+      if (!room) {
+        socket.emit('lobby:error', { message: 'Room not found.' });
+        return;
+      }
+
+      // Cancel any pending cleanup timer
+      if (room._cleanupTimer) {
+        clearTimeout(room._cleanupTimer);
+        room._cleanupTimer = null;
+      }
+
+      socket.join(roomId);
+      socket.data.roomId = roomId;
+
+      if (isSpectator) {
+        if (!room.spectators.includes(socket.id)) {
+          room.spectators.push(socket.id);
+        }
+        socket.data.isSpectator = true;
+      } else {
+        // Check if this player slot is still available (player was removed on disconnect)
+        const existingIdx = room.players.findIndex(p => p.scrNam === screenName);
+        if (existingIdx >= 0) {
+          // Re-associate the socket with the existing player
+          room.players[existingIdx].socketId = socket.id;
+          socket.data.playerIndex = existingIdx;
+        } else {
+          // Re-add as a new player
+          const idx = room.addPlayer(screenName || 'Player', socket.id);
+          socket.data.playerIndex = idx >= 0 ? idx : playerIndex;
+        }
+      }
+
+      socket.emit('lobby:rejoined', {
+        roomId,
+        playerIndex: socket.data.playerIndex,
+        phase: room.phase,
+      });
     });
 
     // ── List rooms ────────────────────────────────────────────────────────
@@ -148,13 +197,21 @@ export function setupLobby(io, gameState) {
         // Remove player; BattleRoom handles CPU takeover internally
         room.removePlayer(socket.id);
 
-        // Clean up empty rooms
+        // Clean up empty rooms after a grace period (allows page navigation reconnects)
         if (room.players.length === 0 && room.spectators.length === 0) {
-          // Stop any running timers
-          if (room.phase === 'battle' || room.phase === 'paused') {
-            room._stopTimers();
-          }
-          gameState.rooms.delete(roomId);
+          const GRACE_MS = 10000; // 10 seconds
+          if (room._cleanupTimer) clearTimeout(room._cleanupTimer);
+          room._cleanupTimer = setTimeout(() => {
+            // Re-check: only delete if still empty
+            const r = gameState.rooms.get(roomId);
+            if (r && r.players.length === 0 && r.spectators.length === 0) {
+              if (r.phase === 'battle' || r.phase === 'paused') {
+                r._stopTimers();
+              }
+              gameState.rooms.delete(roomId);
+              io.emit('lobby:room-list', getRoomList(gameState));
+            }
+          }, GRACE_MS);
         }
       }
 
