@@ -140,7 +140,7 @@ export const RUNE = Object.freeze({});
 
 export const CHEESE_LIMIT = 1100;  // MaxCheeseLimit
 export const MAX_MOVES = 12;       // Max moves per character (player-usable)
-export const MAX_WEAPON_MOVES = 30; // MaxMoves in VB6 (total move slots)
+export const MAX_WEAPON_MOVES = 5;  // Weapons have 5 move slots
 
 // Buffer sizes from VB6
 export const MAX_RAY = 250;  // # of lines for input buffer
