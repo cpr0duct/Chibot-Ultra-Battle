@@ -1,0 +1,564 @@
+"Toriel"
+"Toriel"
+2422
+"Pick Toriel!"
+"Toriel enters the battle!"
+"Toriel joins the fight!"
+20
+35
+60
+55
+"Toriel's fire barrier absorbs the attack!"
+"Toriel reads a book about snails by the fireplace."
+"Toriel raises a barrier of protective fire!"
+"The attack breaks through Toriel's fire barrier!"
+"Do not be afraid, my child. Be afraid of ME."
+"I am not your enemy. But I will defend those I love."
+"Would you like to hear about snails? ...No? Then prepare yourself."
+"I was a queen, you know. This is nothing."
+"You remind me of the children I used to protect."
+"exqueen"
+"Toriel's eyes burn white. The former Queen of All Monsters awakens her full power..."
+"Toriel unleashes the full fury of a Boss Monster! An ocean of fire consumes %T! 'I am sorry... but I cannot let you hurt anyone else.'"
+"Fire Magic"
+"fire"
+1
+"Toriel raises her hands, fire swirling around her..."
+""
+""
+"%SN sends a ring of fireballs at %T!"
+""
+0
+""
+"%SN's fireballs engulf %T in searing flames!"
+""
+"%T evades Toriel's fireballs!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+24
+110
+2
+"Fire Pillar"
+"pillar"
+0
+"Toriel stamps her foot and the ground glows..."
+""
+""
+"Pillars of fire erupt beneath all enemies!"
+""
+0
+""
+"Massive fire pillars consume all enemies! The Ruins shake!"
+""
+"The fire pillars erupt harmlessly!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+24
+90
+5
+"Healing Hands"
+"heal"
+0
+"Toriel extends her paws, glowing with warmth..."
+""
+""
+"%SN heals %T with gentle green magic!"
+""
+0
+""
+"%SN's healing magic floods %T with restorative energy!"
+""
+"Toriel's healing energy disperses..."
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+130
+3
+"Butterscotch Pie"
+"pie"
+0
+"Toriel pulls a freshly baked pie from... somewhere."
+""
+""
+"Toriel shares Butterscotch-Cinnamon Pie! The team is healed!"
+""
+0
+""
+"The pie is PERFECT! The entire team is greatly healed!"
+""
+"The pie crumbles before anyone can eat it!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+90
+1
+"Motherly Scold"
+"scold"
+0
+"Toriel gives you THE LOOK..."
+""
+""
+"%SN scolds %T with such motherly disappointment that it hurts!"
+""
+0
+""
+"%SN's disappointment devastates %T to their very SOUL!"
+""
+"%T has no mother issues to exploit!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+26
+80
+2
+"Monster Insight"
+"insight"
+0
+"Toriel adjusts her reading glasses..."
+""
+""
+"%SN reads %T with a teacher's intuition! Stats revealed!"
+""
+0
+""
+"%SN understands %T completely, like a mother would!"
+""
+"Toriel can't quite figure out %T..."
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+23
+0
+2
+"Inferno"
+"inferno"
+1
+"Toriel's eyes glow with ancient fire magic..."
+""
+""
+"%SN unleashes a devastating inferno on %T!"
+""
+0
+""
+"%SN's inferno incinerates %T! The power of a Boss Monster!"
+""
+"%T escapes the worst of Toriel's inferno!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+24
+160
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+"Toriel's HP dropped to 0. Their SOUL shatters..."
+"Toriel has been struck down!"
+"Toriel falls... but their memory remains."
+"Toriel can't hold on any longer..."
+"Toriel fades away..."
+"Toriel strikes the final blow!"
+"Toriel finishes the job! No mercy!"
+"Toriel wins! +EXP!"
+"Toriel is VICTORIOUS!"
+"Toriel delivers the finishing strike!"
+"Caretaker of the Ruins and former Queen. A kind, motherly"
+"boss monster who wields powerful fire magic and healing to"
+"protect the children she loves."
+""

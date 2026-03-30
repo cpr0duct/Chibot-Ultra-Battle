@@ -19,6 +19,7 @@ import { loadDataset } from '../parsers/index.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const config = JSON.parse(readFileSync(join(__dirname, '..', 'config', 'default.json'), 'utf-8'));
+const pkg = JSON.parse(readFileSync(join(__dirname, '..', 'package.json'), 'utf-8'));
 
 const app = express();
 const httpServer = createServer(app);
@@ -49,11 +50,79 @@ try {
   console.warn('Could not load default dataset:', e.message);
 }
 
+// ── Version endpoint ────────────────────────────────────────────────────────
+
+app.get('/api/version', (_req, res) => res.json({ version: pkg.version }));
+
 // ── Register routes and socket handlers ─────────────────────────────────────
 
 setupStatusRoute(app, gameState);
 setupEditorRoutes(app, config);
 setupLobby(io, gameState);
+
+// ── Room cleanup: expire stale rooms ────────────────────────────────────────
+
+const ROOM_EXPIRY_MS = 5 * 60 * 1000; // 5 minutes of inactivity or ended phase
+
+setInterval(() => {
+  const now = Date.now();
+  for (const [roomId, room] of gameState.rooms) {
+    const hasHumans = room.players.some(p => p && !p.isCpu && p.connected);
+    const age = now - (room._lastActivity || room.startTime || now);
+
+    // Delete rooms that: have ended, OR have no human players for 2 minutes, OR inactive 5+ minutes
+    const isEnded = room.phase === 'ended' && age > 30_000;
+    const noHumans = !hasHumans && age > 2 * 60_000;
+    const stale = age > ROOM_EXPIRY_MS;
+
+    if (isEnded || noHumans || stale) {
+      if (room.phase === 'battle' || room.phase === 'paused') {
+        room._stopTimers();
+      }
+      gameState.rooms.delete(roomId);
+      io.emit('lobby:room-list', getRoomList(gameState));
+      console.log(`[cleanup] Deleted stale room ${roomId} (ended=${isEnded}, noHumans=${noHumans}, stale=${stale})`);
+    }
+  }
+}, 30_000); // Check every 30 seconds
+
+function getRoomList(gs) {
+  const list = [];
+  for (const [id, room] of gs.rooms) {
+    list.push({
+      id,
+      name: room._roomName || id,
+      phase: room.phase,
+      players: room.players.length,
+      maxPlayers: room.config.maxPlayersPerRoom || 20,
+      hasPassword: !!room._password,
+      spectators: room.spectators.length,
+    });
+  }
+  return list;
+}
+
+// ── Admin: manual room deletion ─────────────────────────────────────────────
+
+app.delete('/api/rooms/:roomId', (req, res) => {
+  const room = gameState.rooms.get(req.params.roomId);
+  if (!room) return res.status(404).json({ error: 'Room not found' });
+  if (room.phase === 'battle' || room.phase === 'paused') {
+    room._stopTimers();
+  }
+  gameState.rooms.delete(req.params.roomId);
+  io.emit('lobby:room-list', getRoomList(gameState));
+  res.json({ deleted: req.params.roomId });
+});
+
+app.delete('/api/rooms', (_req, res) => {
+  for (const [roomId, room] of gameState.rooms) {
+    if (room.phase === 'battle' || room.phase === 'paused') room._stopTimers();
+    gameState.rooms.delete(roomId);
+  }
+  io.emit('lobby:room-list', getRoomList(gameState));
+  res.json({ deleted: 'all' });
+});
 
 // ── Start server ────────────────────────────────────────────────────────────
 

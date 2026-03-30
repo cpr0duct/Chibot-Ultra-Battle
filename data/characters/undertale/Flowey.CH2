@@ -1,0 +1,564 @@
+"Flowey"
+"Flowey"
+2724
+"Pick Flowey!"
+"Flowey enters the battle!"
+"Flowey joins the fight!"
+25
+20
+70
+40
+"Flowey's vine shield absorbs the blow!"
+"Flowey burrows underground to photosynthesize."
+"Flowey wraps himself in thorny vines!"
+"The attack tears through Flowey's vines!"
+"In this world, it's KILL or BE killed!"
+"You IDIOT. You really think anyone's gonna save you?"
+"Golly! You sure are stupid!"
+"I've done this a million times. You can't surprise me."
+"Die. Die. DIE!"
+"yourbestfriend"
+"Flowey's face melts into a twisted grin. 'You know what would be REALLY fun?'"
+"Flowey wraps %T in an inescapable cage of thorny vines! The vines constrict tighter and tighter! 'Die. Die. DIE!!!' Pellets close in from every direction as Flowey laughs maniacally!"
+"Friendliness Pellets"
+"pellets"
+1
+"Flowey grins. 'Here, have some friendliness pellets!'"
+""
+""
+"%SN surrounds %T with 'friendliness pellets!' They HURT!"
+""
+0
+""
+"%T is engulfed in 'friendliness pellets!' YOU IDIOT!"
+""
+"%T avoids the 'friendliness pellets!'"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+100
+2
+"Vine Whip"
+"vine"
+1
+"Vines burst from the ground..."
+""
+""
+"%SN lashes %T with thorny vines!"
+""
+0
+""
+"%SN's vines constrict and tear at %T! Thorns dig in deep!"
+""
+"%T pulls free from Flowey's vines!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+27
+90
+2
+"Pellet Ring"
+"ring"
+0
+"Flowey's face distorts. Pellets appear everywhere..."
+""
+""
+"Flowey surrounds everyone with closing rings of pellets!"
+""
+0
+""
+"The pellet rings close in and shred everyone!"
+""
+"The pellet rings fail to close!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+80
+5
+"SAVE Steal"
+"steal"
+0
+"Flowey wraps vines around %T's SOUL..."
+""
+""
+"%SN steals %T's life force! HP absorbed!"
+""
+0
+""
+"%SN drains %T dry! 'Your HP... is MINE!'"
+""
+"%T's SOUL resists Flowey's theft!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+11
+90
+2
+"Face Shift"
+"face"
+0
+"Flowey's expression changes to something... wrong."
+""
+""
+"Flowey shifts to a TERRIFYING face and %T recoils in horror!"
+""
+0
+""
+"Flowey's face becomes a NIGHTMARE! %T's SOUL trembles in fear!"
+""
+"%T isn't scared by Flowey's face!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+21
+110
+2
+"Root Scan"
+"rootscan"
+0
+"Flowey burrows his roots deeper..."
+""
+""
+"%SN's roots dig into the ground and analyze %T! Stats revealed!"
+""
+0
+""
+"%SN knows EVERYTHING about %T! 'I've done this a thousand times!'"
+""
+"Flowey can't read %T from here!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+23
+0
+2
+"Run. Away."
+"runaway"
+1
+"Flowey's stem grows. His face splits. 'You really ARE an idiot.'"
+""
+""
+"Flowey unleashes his TRUE form — a wall of distorted faces assaults %T!"
+""
+0
+""
+"Flowey's nightmarish assault tears at %T's very SOUL!"
+""
+"%T looks away from the horrific display!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+21
+150
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+"Flowey's HP dropped to 0. Their SOUL shatters..."
+"Flowey has been struck down!"
+"Flowey falls... but their memory remains."
+"Flowey can't hold on any longer..."
+"Flowey fades away..."
+"Flowey strikes the final blow!"
+"Flowey finishes the job! No mercy!"
+"Flowey wins! +EXP!"
+"Flowey is VICTORIOUS!"
+"Flowey delivers the finishing strike!"
+"A sinister golden flower with a twisted smile. In this"
+"world, it's kill or BE killed. Don't trust the friendly"
+"pellets."
+""

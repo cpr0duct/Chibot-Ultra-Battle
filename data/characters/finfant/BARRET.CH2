@@ -1,6 +1,6 @@
 "Barret Wallace"
 "barret"
-""
+0
 "barret"
 "The Missing Score takes over %SN's right arm as they become Barret Wallace."
 "%SN joins the battle as Barret Wallace."
@@ -43,7 +43,7 @@
 0
 0
 0
-0
+"0"
 0
 0
 0
@@ -87,6 +87,7 @@
 0
 0
 0
+"0"
 0
 0
 0
@@ -104,23 +105,22 @@
 0
 0
 0
-0
-11
+1
 70
 2
-"Gernade Bomb"
+"Grenade Bomb"
 "gb"
 0
 "%SN launches a huge, high intensity gernade from the Missing Score."
 ""
 ""
-"A gernade lands in front of %T. >>BOOM<<!!"
+"A grenade lands in front of %T. >>BOOM<<!!"
 ""
 0
 ""
 ""
 ""
-"%T throws the gernade into a river."
+"%T throws the grenade into a river."
 0
 0
 0
@@ -131,7 +131,7 @@
 0
 0
 0
-0
+"0"
 0
 0
 0
@@ -175,7 +175,7 @@
 0
 0
 0
-0
+"0"
 0
 0
 0
@@ -219,7 +219,7 @@
 0
 0
 0
-0
+"0"
 0
 0
 0
@@ -239,14 +239,14 @@
 0
 1
 80
-3
+2
 "Anger Max"
 "am"
 0
 "%SN fires up in anger."
 ""
 ""
-"%SN blasts %T an uncounterable amount of times."
+"%SN blasts %T an uncountable amount of times."
 ""
 0
 ""
@@ -263,7 +263,7 @@
 0
 0
 0
-0
+"0"
 0
 0
 0
@@ -307,7 +307,7 @@
 0
 0
 0
-0
+"0"
 0
 0
 0
@@ -351,7 +351,7 @@
 100
 0
 0
-0
+"0"
 0
 0
 0
@@ -378,7 +378,7 @@
 "%SN equips Seal Materia and begins to cast 'Sleep'"
 ""
 ""
-"A purple star rises up from the ground beneath %T, and shower them in dust."
+"A purple star rises up from the ground beneath %T, and showers them in dust."
 ""
 0
 ""
@@ -395,51 +395,7 @@
 0
 0
 0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-2
-""
-""
-0
-""
-""
-""
-""
-""
-0
-""
-""
-""
-""
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
+"0"
 0
 0
 0
@@ -483,7 +439,7 @@
 0
 0
 0
-0
+"0"
 0
 0
 0
@@ -527,7 +483,51 @@
 0
 0
 0
+"0"
 0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+"0"
 0
 0
 0

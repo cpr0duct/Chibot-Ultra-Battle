@@ -1,0 +1,564 @@
+"Muffet"
+"Muffet"
+7024
+"Pick Muffet!"
+"Muffet enters the battle!"
+"Muffet joins the fight!"
+45
+30
+55
+35
+"The web barrier catches the attack! Ahuhuhu~"
+"Muffet has a tea party with her spiders while resting."
+"Muffet weaves a protective web barrier!"
+"The attack tears through Muffet's web!"
+"Ahuhuhu~ Don't look so blue, dearie~"
+"I heard you don't like spiders. That's too bad. Ahuhuhu~"
+"All proceeds go to real spiders!"
+"Oh my~ You can't even afford to lose? How sad~"
+"These webs are handcrafted, you know. Very expensive."
+"teatime"
+"Muffet sets down all five teacups. The darkness fills with countless glowing spider eyes..."
+"Every spider in the Underground descends upon %T! A tsunami of webs, venom, and tiny legs! Muffet's pet spider delivers the coup de grace! 'Ahuhuhu~ That wasn't so bad, was it, dearie~?'"
+"Web Trap"
+"web"
+1
+"Muffet weaves a web at incredible speed..."
+""
+""
+"%SN traps %T in a sticky web! The spiders close in!"
+""
+0
+""
+"%SN's web completely immobilizes %T! The spiders feast! Ahuhuhu~"
+""
+"%T tears free from the web!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+100
+2
+"Spider Swarm"
+"swarm"
+0
+"Muffet whistles and thousands of spiders emerge..."
+""
+""
+"Muffet's spider army swarms all enemies! Venomous bites!"
+""
+0
+""
+"An overwhelming swarm of poisonous spiders covers everyone! Ahuhuhu~"
+""
+"The spiders scatter before reaching anyone!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+70
+90
+5
+"Purple SOUL"
+"purple"
+1
+"Muffet's strings glow purple..."
+""
+""
+"%SN traps %T's SOUL on web strings! They can't dodge freely!"
+""
+0
+""
+"%T's SOUL is trapped on the web strings! Spiders attack from all sides!"
+""
+"%T's SOUL resists the purple transformation!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+21
+110
+2
+"Spider Cider"
+"cider"
+0
+"Muffet sips from a teacup held in one of her many hands..."
+""
+""
+"%SN drinks Spider Cider! HP restored! Ahuhuhu~"
+""
+0
+""
+"%SN's Spider Cider heals magnificently! Made from real spiders!"
+""
+"The Spider Cider has gone stale..."
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+80
+8
+"Pet the Spider"
+"pet"
+1
+"Something HUGE descends from the ceiling on a thread..."
+""
+""
+"Muffet's GIANT pet spider slams into %T!"
+""
+0
+""
+"Muffet's colossal pet spider CRUSHES %T! Such a good spider~"
+""
+"The giant spider misses %T!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+140
+2
+"Appraising Eye"
+"appraise"
+0
+"Muffet sizes up the merchandise... er, opponent..."
+""
+""
+"%SN appraises %T with all five eyes! Stats revealed!"
+""
+0
+""
+"%SN knows exactly what %T is worth! Down to the last gold!"
+""
+"Muffet can't put a price on %T..."
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+23
+0
+2
+"Donation Web"
+"donate"
+0
+"Muffet extends a collection web..."
+""
+""
+"%SN's web drains %T's energy! A mandatory 'donation!' Ahuhuhu~"
+""
+0
+""
+"%SN drains %T completely! 'Thank you for your generous donation~'"
+""
+"%T keeps their energy to themselves!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+12
+70
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+"Muffet's HP dropped to 0. Their SOUL shatters..."
+"Muffet has been struck down!"
+"Muffet falls... but their memory remains."
+"Muffet can't hold on any longer..."
+"Muffet fades away..."
+"Muffet strikes the final blow!"
+"Muffet finishes the job! No mercy!"
+"Muffet wins! +EXP!"
+"Muffet is VICTORIOUS!"
+"Muffet delivers the finishing strike!"
+"The spider girl who runs the bake sale. Behind her cute"
+"ahuhuhu~ lies a ruthless businesswoman with an army of"
+"spiders and lethal web attacks."
+""

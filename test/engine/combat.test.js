@@ -165,7 +165,7 @@ describe('queueMove', () => {
     expect(result.success).toBe(true);
     expect(result.message).toContain('Attacker');
     expect(result.message).toContain('Target');
-    expect(attacker.curMove).toBe(1);
+    expect(attacker.curMove).toBe(2); // moveIndex 1 stored as 1-based: 1+1=2
     expect(attacker.target).toBe(1);
     expect(attacker.moveStart).toBe(10);
   });
@@ -321,7 +321,7 @@ describe('resolveMove', () => {
     const target = makePlayer({ scrNam: 'Target', teamId: 2 });
     const move = makeMove(ELEMENT.FIRE, 100, { target: TARGET.ENEMY });
     attacker.moves = [null, move];
-    attacker.curMove = 1;
+    attacker.curMove = 2; // 1-based: move at index 1 → curMove=2
     attacker.target = 1;
     attacker.moveStart = 0;
 
@@ -334,7 +334,7 @@ describe('resolveMove', () => {
     const target = makePlayer({ scrNam: 'Target', teamId: 2, hp: 500, maxHp: 500, physDef: 0, magDef: 0 });
     const move = makeMove(ELEMENT.FIRE, 100, { target: TARGET.ENEMY });
     attacker.moves = [null, move];
-    attacker.curMove = 1;
+    attacker.curMove = 2; // 1-based: move at index 1 → curMove=2
     attacker.target = 1;
     attacker.moveStart = 0;
 
@@ -357,7 +357,7 @@ describe('resolveMove', () => {
     const target = makePlayer({ scrNam: 'Target', teamId: 2, magDef: 199 }); // very high defense
     const move = makeMove(ELEMENT.FIRE, 100, { target: TARGET.ENEMY });
     attacker.moves = [null, move];
-    attacker.curMove = 1;
+    attacker.curMove = 2; // 1-based: move at index 1 → curMove=2
     attacker.target = 1;
     attacker.moveStart = 0;
 
@@ -375,7 +375,7 @@ describe('resolveMove', () => {
     const target = makePlayer({ scrNam: 'Target', teamId: 2 });
     const move = makeMove(ELEMENT.FIRE, 100, { target: TARGET.ENEMY });
     attacker.moves = [null, move];
-    attacker.curMove = 1;
+    attacker.curMove = 2; // 1-based: move at index 1 → curMove=2
     attacker.target = 1;
     attacker.moveStart = 0;
 
@@ -400,7 +400,7 @@ describe('resolveMove', () => {
       healSelf: '%SN heals %T.',
     });
     healer.moves = [null, move];
-    healer.curMove = 1;
+    healer.curMove = 2; // 1-based: move at index 1 → curMove=2
     healer.target = 1;
     healer.moveStart = 0;
 
@@ -418,7 +418,7 @@ describe('resolveMove', () => {
     // 100% chance to apply poison
     move.status[STATUS.POISON] = 100;
     attacker.moves = [null, move];
-    attacker.curMove = 1;
+    attacker.curMove = 2; // 1-based: move at index 1 → curMove=2
     attacker.target = 1;
     attacker.moveStart = 0;
 
@@ -436,7 +436,7 @@ describe('resolveMove', () => {
     const target = makePlayer({ scrNam: 'Target', teamId: 2 });
     const move = makeMove(ELEMENT.FIRE, 100, { target: TARGET.ENEMY, mpReq: 30 });
     attacker.moves = [null, move];
-    attacker.curMove = 1;
+    attacker.curMove = 2; // 1-based: move at index 1 → curMove=2
     attacker.target = 1;
     attacker.moveStart = 0;
 
@@ -450,7 +450,7 @@ describe('resolveMove', () => {
     const target = makePlayer({ scrNam: 'Target', teamId: 2 });
     const move = makeMove(ELEMENT.FIRE, 100, { target: TARGET.ENEMY, mpReq: 30 });
     attacker.moves = [null, move];
-    attacker.curMove = 1;
+    attacker.curMove = 2; // 1-based: move at index 1 → curMove=2
     attacker.target = 1;
     attacker.moveStart = 0;
 
@@ -465,7 +465,7 @@ describe('resolveMove', () => {
     const target = makePlayer({ scrNam: 'Target', teamId: 2 });
     const move = makeMove(ELEMENT.FIRE, 100, { target: TARGET.ENEMY, canSuper: 1 });
     attacker.moves = [null, move];
-    attacker.curMove = 1;
+    attacker.curMove = 2; // 1-based: move at index 1 → curMove=2
     attacker.target = 1;
     attacker.moveStart = 0;
 
@@ -481,7 +481,7 @@ describe('resolveMove', () => {
     const target = makePlayer({ scrNam: 'Target', teamId: 2 });
     const move = makeMove(ELEMENT.FIRE, 100, { target: TARGET.ENEMY });
     attacker.moves = [null, move];
-    attacker.curMove = 1;
+    attacker.curMove = 2; // 1-based: move at index 1 → curMove=2
     attacker.target = 1;
     attacker.moveStart = 0;
 
@@ -497,7 +497,7 @@ describe('resolveMove', () => {
     const target = makePlayer({ scrNam: 'Target', teamId: 2 });
     const move = makeMove(ELEMENT.FIRE, 100, { target: TARGET.ENEMY });
     attacker.moves = [null, move];
-    attacker.curMove = 1;
+    attacker.curMove = 2; // 1-based: move at index 1 → curMove=2
     attacker.target = 1;
     attacker.moveStart = 0;
 
@@ -516,7 +516,7 @@ describe('resolveMove', () => {
     target.status[STATUS.RERAISE] = -1;
     const move = makeMove(ELEMENT.FIRE, 200, { target: TARGET.ENEMY });
     attacker.moves = [null, move];
-    attacker.curMove = 1;
+    attacker.curMove = 2; // 1-based: move at index 1 → curMove=2
     attacker.target = 1;
     attacker.moveStart = 0;
 
@@ -535,7 +535,7 @@ describe('resolveMove', () => {
     const target = makePlayer({ scrNam: 'Target', teamId: 2 });
     const move = makeMove(ELEMENT.FIRE, 100, { target: TARGET.ENEMY });
     attacker.moves = [null, move];
-    attacker.curMove = 1;
+    attacker.curMove = 2; // 1-based: move at index 1 → curMove=2
     attacker.target = 1;
     attacker.moveStart = 0;
 
@@ -549,7 +549,7 @@ describe('resolveMove', () => {
     const target = makePlayer({ scrNam: 'Target', teamId: 2 });
     const move = makeMove(ELEMENT.FIRE, 100, { target: TARGET.ENEMY });
     attacker.moves = [null, move];
-    attacker.curMove = 1;
+    attacker.curMove = 2; // 1-based: move at index 1 → curMove=2
     attacker.target = 1;
     attacker.moveStart = 0;
 
@@ -563,7 +563,7 @@ describe('resolveMove', () => {
     const dead = makePlayer({ scrNam: 'Dead', teamId: 1, hp: 0, isAlive: false });
     const move = makeMove(ELEMENT.LIFE, 0, { target: TARGET.ALLY });
     caster.moves = [null, move];
-    caster.curMove = 1;
+    caster.curMove = 2; // 1-based: move at index 1 → curMove=2
     caster.target = 1;
     caster.moveStart = 0;
 
@@ -610,7 +610,7 @@ describe('resolveBlock', () => {
     blocker.target = 1; // counter move index
 
     const attacker = makePlayer({ scrNam: 'Attacker', teamId: 2 });
-    attacker.curMove = 1;
+    attacker.curMove = 2; // 1-based: move at index 1 → curMove=2
     attacker.target = 0; // targeting blocker
     attacker.moveStart = 0;
     attacker.moves = [null, makeMove(ELEMENT.FIRE, 100)];

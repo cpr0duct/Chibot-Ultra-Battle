@@ -1,6 +1,6 @@
 {
   "name": "chub",
-  "version": "1.0.0",
+  "version": "0.7.0",
   "description": "",
   "main": "index.js",
   "directories": {
@@ -11,7 +11,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "start": "node server/index.js",
-    "dev": "node --watch server/index.js"
+    "dev": "node --watch server/index.js",
+    "deploy": "ssh pi@192.168.1.10 \"pkill -f 'node server/index.js'; sleep 2; cd /home/pi/projects/CHUB && nohup node server/index.js > /tmp/chub.log 2>&1 &\" && echo Deployed!"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +23,7 @@
   },
   "devDependencies": {
     "playwright": "^1.58.2",
+    "socket.io-client": "^4.8.3",
     "vitest": "^4.1.2"
   }
 }

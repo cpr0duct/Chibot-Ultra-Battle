@@ -1,0 +1,564 @@
+"Asgore"
+"Asgore"
+2422
+"Pick Asgore!"
+"Asgore enters the battle!"
+"Asgore joins the fight!"
+55
+45
+50
+35
+"The King's trident deflects the attack!"
+"Asgore waters the golden flowers in his garden."
+"Asgore braces behind his trident!"
+"The attack gets past Asgore's guard!"
+"Human... It was nice to meet you. Goodbye."
+"This is my duty as King. Forgive me."
+"I do not want to do this. But I must."
+"...Would you like a cup of tea?"
+"I remember the flowers my son loved."
+"bergentruckung"
+"ASGORE flexes his muscles so hard that his armor shatters. His trident blazes with all seven SOUL colors..."
+"Asgore, King of All Monsters, brings his trident down with the force of every soul he's collected! The earth splits! Fire erupts! %T is consumed by the King's terrible resolve!"
+"Trident Strike"
+"trident"
+1
+"Asgore raises his mighty trident..."
+""
+""
+"%SN swings the royal trident at %T!"
+""
+0
+""
+"%SN's trident cleaves through %T! The King's power is immense!"
+""
+"%T dodges Asgore's trident!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+130
+2
+"Fire Rain"
+"firerain"
+1
+"Asgore summons fire from above..."
+""
+""
+"Asgore rains fire down on all enemies!"
+""
+0
+""
+"A devastating rain of fire scorches all enemies!"
+""
+"The fire rain scatters harmlessly!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+24
+100
+5
+"Flame Trident"
+"flametrident"
+1
+"Asgore's trident ignites with orange flames..."
+""
+""
+"%SN strikes %T with a blazing trident!"
+""
+0
+""
+"%SN's flame trident burns through %T! The fire of the King!"
+""
+"%T sidesteps the burning trident!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+24
+150
+2
+"Sweeping Arc"
+"sweep"
+0
+"Asgore winds up a massive horizontal swing..."
+""
+""
+"Asgore sweeps his trident across all enemies!"
+""
+0
+""
+"The sweeping arc knocks all enemies off their feet!"
+""
+"The enemies duck under the sweeping arc!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+90
+5
+"Golden Flower Tea"
+"tea"
+0
+"Asgore takes a moment to sip some tea..."
+""
+""
+"%SN drinks Golden Flower Tea. HP restored."
+""
+0
+""
+"%SN's tea warms his SOUL! Massive recovery!"
+""
+"The tea has gone cold... No effect."
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+80
+8
+"King's Judgement"
+"judge"
+0
+"Asgore looks upon his opponent with sad eyes..."
+""
+""
+"%SN assesses %T with a king's wisdom! Stats revealed!"
+""
+0
+""
+"%SN sees through %T completely! The King knows all!"
+""
+"Asgore is too burdened to read %T clearly..."
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+23
+0
+2
+"Trident of the King"
+"kingtrident"
+1
+"Asgore grips his trident with both hands. His crown gleams..."
+""
+""
+"%SN drives the full force of the royal trident into %T!"
+""
+0
+""
+"%SN's royal trident devastates %T! THE KING STANDS UNMATCHED!"
+""
+"%T narrowly avoids the King's ultimate strike!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+180
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+"Asgore's HP dropped to 0. Their SOUL shatters..."
+"Asgore has been struck down!"
+"Asgore falls... but their memory remains."
+"Asgore can't hold on any longer..."
+"Asgore fades away..."
+"Asgore strikes the final blow!"
+"Asgore finishes the job! No mercy!"
+"Asgore wins! +EXP!"
+"Asgore is VICTORIOUS!"
+"Asgore delivers the finishing strike!"
+"King of all Monsters. A gentle giant burdened by duty,"
+"wielding a mighty trident and fire magic. He fights not out"
+"of hatred, but tragic resolve."
+""

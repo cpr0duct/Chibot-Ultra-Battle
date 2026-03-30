@@ -1,0 +1,564 @@
+"Sans"
+"Sans"
+2101
+"Pick Sans!"
+"Sans enters the battle!"
+"Sans joins the fight!"
+10
+5
+95
+20
+"Sans sidesteps the attack effortlessly."
+"Sans falls asleep at his sentry station. Zzzzz..."
+"Sans dodges lazily."
+"Sans gets hit! He only has 1 HP after all..."
+"you're gonna have a bad time."
+"geeettttttt dunked on!!!"
+"it's a beautiful day outside. birds are singing, flowers are blooming..."
+"heh. didja really think you would be able to?"
+"you look frustrated about something."
+"badtime"
+"Sans' left eye flashes blue and yellow..."
+"Sans unleashes an endless barrage of bones and Gaster Blasters! %T is completely overwhelmed! geeettttttt dunked on!!!"
+"Gaster Blaster"
+"blaster"
+1
+"Sans summons a Gaster Blaster..."
+""
+""
+"%SN fires a massive skull beam at %T!"
+""
+0
+""
+"%SN's Gaster Blaster tears through %T! Critical hit!"
+""
+"%T dodges the Gaster Blaster!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+30
+180
+2
+"Bone Attack"
+"bone"
+1
+"Bones rise from the ground..."
+""
+""
+"%SN sends a wave of bones crashing into %T!"
+""
+0
+""
+"%SN's bones skewer %T from every angle! Critical hit!"
+""
+"%T jumps over Sans' bones!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+100
+2
+"Blue Attack"
+"blue"
+1
+"Sans' left eye flashes blue..."
+""
+""
+"%SN turns %T's SOUL blue and slams them to the ground!"
+""
+0
+""
+"%SN slams %T into the ceiling, walls, and floor repeatedly! Critical hit!"
+""
+"%T resists the blue gravity!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+22
+130
+2
+"Bone Zone"
+"bonezone"
+0
+"Sans snaps his fingers..."
+""
+""
+"A labyrinth of bones erupts around all enemies!"
+""
+0
+""
+"The bone labyrinth closes in on everyone! No escape!"
+""
+"The enemies navigate through the bone maze!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+90
+5
+"Karmic Retribution"
+"karma"
+0
+"Sans' eye blazes with purple energy..."
+""
+""
+"%T is poisoned by KR! Their sins are catching up to them!"
+""
+0
+""
+"%T is overwhelmed by Karmic Retribution! Every sin weighs on them!"
+""
+"%T's SOUL resists the karma!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+70
+110
+2
+"Shortcut"
+"shortcut"
+0
+"Sans disappears for a moment..."
+""
+""
+"%SN takes a shortcut to recover some HP."
+""
+0
+""
+"%SN takes the best shortcut! Massive recovery!"
+""
+"%SN's shortcut leads nowhere useful."
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+60
+8
+"Scan"
+"check"
+0
+"Sans looks at you with empty eye sockets..."
+""
+""
+"%SN judges %T. Stats revealed!"
+""
+0
+""
+"%SN sees right through %T!"
+""
+"%SN can't be bothered to read %T properly."
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+23
+0
+2
+"Blaster Barrage"
+"barrage"
+1
+"Sans summons a ring of Gaster Blasters..."
+""
+""
+"Multiple Gaster Blasters fire on all enemies!"
+""
+0
+""
+"An overwhelming barrage of Gaster Blasters engulfs everyone!"
+""
+"The Gaster Blasters miss their mark!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+30
+140
+5
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+"Sans's HP dropped to 0. Their SOUL shatters..."
+"Sans has been struck down!"
+"Sans falls... but their memory remains."
+"Sans can't hold on any longer..."
+"Sans fades away..."
+"Sans strikes the final blow!"
+"Sans finishes the job! No mercy!"
+"Sans wins! +EXP!"
+"Sans is VICTORIOUS!"
+"Sans delivers the finishing strike!"
+"A lazy skeleton who serves illegal hot dogs and terrible"
+"puns. Don't let the smile fool you — he's the most dangerous"
+"monster in the Underground."
+""

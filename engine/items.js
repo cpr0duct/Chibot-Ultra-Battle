@@ -40,9 +40,10 @@ export function spawnItem(availableItems, currentItem, opts = {}) {
     }
   }
 
-  // Pick random new item
+  // Pick random new item — return a copy so we don't mutate the dataset
   const idx = rand(0, availableItems.length - 1);
-  const item = availableItems[idx];
+  const item = { ...availableItems[idx] };
+  if (item.playerStat) item.playerStat = [...item.playerStat];
 
   if (item.spawnStr) {
     messages.push(item.spawnStr);
@@ -69,16 +70,25 @@ export function pickupItem(player, item, opts = {}) {
   const gameTime = opts.gameTime || 0;
   const messages = [];
 
+  // Dead players can't pick up items
+  if (!player.isAlive || player.hp <= 0) {
+    return { messages: [`${player.scrNam} is dead and cannot pick up items.`] };
+  }
+
   // Pickup message
   if (item.playerGet) {
-    messages.push(item.playerGet.replace(/%P/g, player.scrNam));
+    messages.push(item.playerGet.replace(/%P/g, player.scrNam).replace(/%SN/g, player.scrNam));
   }
 
   // Apply HP
   if (item.playerHp) {
     player.hp += item.playerHp;
     if (player.hp > player.maxHp) player.hp = player.maxHp;
-    if (player.hp < 0) player.hp = 0;
+    if (player.hp <= 0) {
+      player.hp = 0;
+      player.isAlive = false;
+      messages.push(`${player.scrNam} has been killed by the ${item.name || 'item'}!`);
+    }
   }
 
   // Apply MP

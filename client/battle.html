@@ -14,8 +14,8 @@
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ChUB 2000 - Battle</title>
-  <link rel="stylesheet" href="css/chub.css">
-  <link rel="stylesheet" href="css/battle.css">
+  <link rel="stylesheet" href="css/chub.css?v=0.7.0">
+  <link rel="stylesheet" href="css/battle.css?v=0.7.0">
 </head>
 <body>
   <div class="battle-wrapper">
@@ -30,7 +30,21 @@
       <button class="btn" id="btn-teams" title="Toggle Teams View">Teams</button>
       <button class="btn" id="btn-stats" title="Show Stats">Stats</button>
       <button class="btn" id="btn-jb" title="Jukebox">JB</button>
+      <!-- Winamp-style MIDI Player -->
+      <div id="midi-player" class="midi-player hidden">
+        <div class="midi-display">
+          <span class="midi-label">JB</span>
+          <span id="midi-track-name">-- press play --</span>
+        </div>
+        <div class="midi-controls">
+          <button id="midi-play-btn" class="midi-btn" title="Play">&#9654;</button>
+          <button id="midi-pause-btn" class="midi-btn" title="Pause" style="display:none;">&#9208;</button>
+          <button id="midi-next-btn" class="midi-btn" title="Next">&#9197;</button>
+          <input type="range" id="midi-volume" min="0" max="1" step="0.05" value="0.7" title="Volume">
+        </div>
+      </div>
       <span class="spacer"></span>
+      <span id="version-display" style="font-size:0.65rem;opacity:0.4;"></span>
       <button class="theme-toggle" id="theme-toggle" title="Toggle theme" style="position:static;width:auto;height:auto;border-radius:4px;padding:4px 10px;font-size:0.8rem;">L</button>
     </div>
 
@@ -38,6 +52,9 @@
     <div class="selection-wrapper" id="selection-phase">
       <div class="char-list-panel">
         <input type="text" class="char-search" id="char-search" placeholder="Search characters..." autocomplete="off">
+        <div class="char-categories" id="char-categories">
+          <!-- Category tabs rendered by selection-view.js -->
+        </div>
         <div class="char-grid" id="char-grid">
           <!-- Character cards rendered by selection-view.js -->
         </div>
@@ -46,6 +63,16 @@
         <h3 class="mb-sm">Players</h3>
         <div id="player-slots">
           <!-- Player slots rendered by selection-view.js -->
+        </div>
+        <div class="room-chat-section">
+          <h3 class="mb-sm mt-md" style="font-size:0.8rem;color:var(--accent-blue);">ROOM CHAT</h3>
+          <div class="room-chat-log" id="room-chat-log">
+            <div class="chat-msg system" style="color:var(--text-muted);font-style:italic;">Chat with other players here...</div>
+          </div>
+          <div class="room-chat-input-bar">
+            <input type="text" id="room-chat-input" placeholder="Type to chat..." autocomplete="off" maxlength="300">
+            <button class="btn btn-sm" id="room-chat-send">SEND</button>
+          </div>
         </div>
       </div>
     </div>
@@ -71,40 +98,54 @@
 
     <!-- Battle Phase -->
     <div class="battle-main hidden" id="battle-phase">
-      <!-- Battle Text Log -->
-      <div class="battle-log">
-        <div class="battle-log-content" id="battle-log">
-          <div class="msg msg-system">Waiting for battle to start...</div>
-        </div>
-      </div>
-
-      <!-- Player Status Panel -->
-      <div class="status-panel" id="status-panel">
+      <!-- Top: Player cards horizontal strip -->
+      <div class="player-strip" id="status-panel">
         <!-- Player cards rendered by battle-view.js -->
         <div class="arena-info" id="arena-info">
           <div class="arena-name" id="arena-name">Arena: ---</div>
           <div class="item-name" id="item-name"></div>
         </div>
       </div>
-    </div>
 
-    <!-- Command Input -->
-    <div class="command-bar" id="command-bar">
-      <span class="prompt">&gt;</span>
-      <div style="position:relative;flex:1;">
-        <input type="text" id="command-input" placeholder="Type a command..." autocomplete="off">
-        <div class="autocomplete-list" id="autocomplete-list"></div>
+      <!-- Center: Battle log -->
+      <div class="battle-center">
+        <div class="battle-card">
+          <div class="battle-log-content" id="battle-log">
+            <div class="msg msg-system">Waiting for battle to start...</div>
+          </div>
+        </div>
       </div>
-      <button class="btn" id="btn-send">Send</button>
-    </div>
 
-    <!-- Status Bar -->
-    <div class="battle-status-bar">
-      <span class="status-item" id="sb-mode">Teams</span>
-      <span class="status-item" id="sb-arena">---</span>
-      <span class="status-item" id="sb-time">0:00</span>
-      <span class="status-item" id="sb-players">0 players</span>
-      <span class="status-item" id="sb-phase">waiting</span>
+      <!-- Bottom: Move buttons + command input -->
+      <div class="battle-bottom">
+        <!-- Move Buttons (big arcade-style) -->
+        <div class="move-buttons" id="move-chips">
+          <!-- Populated by battle-view.js -->
+        </div>
+        <!-- Target picker (hidden until a move is clicked) -->
+        <div class="target-picker hidden" id="target-picker">
+          <span class="target-label">Attack who?</span>
+          <div class="target-list" id="target-list"></div>
+          <button class="btn btn-sm target-cancel" id="target-cancel">Cancel</button>
+        </div>
+        <!-- Command Input -->
+        <div class="command-bar" id="command-bar">
+          <span class="prompt">&gt;</span>
+          <div style="position:relative;flex:1;">
+            <input type="text" id="command-input" placeholder="Type a command..." autocomplete="off">
+            <div class="autocomplete-list" id="autocomplete-list"></div>
+          </div>
+          <button class="btn" id="btn-send">Send</button>
+        </div>
+        <!-- Status Bar -->
+        <div class="battle-status-bar">
+          <span class="status-item" id="sb-mode">Teams</span>
+          <span class="status-item" id="sb-arena">---</span>
+          <span class="status-item" id="sb-time">0:00</span>
+          <span class="status-item" id="sb-players">0 players</span>
+          <span class="status-item" id="sb-phase">waiting</span>
+        </div>
+      </div>
     </div>
 
   </div>
@@ -121,11 +162,12 @@
   </div>
 
   <script src="socket.io/socket.io.js"></script>
-  <script src="js/theme.js"></script>
-  <script src="js/socket-client.js"></script>
-  <script src="js/battle-view.js"></script>
-  <script src="js/command-input.js"></script>
-  <script src="js/selection-view.js"></script>
+  <script src="js/theme.js?v=0.7.0"></script>
+  <script src="js/socket-client.js?v=0.7.0"></script>
+  <script src="js/midi-player.js?v=0.7.0"></script>
+  <script src="js/battle-view.js?v=0.7.0"></script>
+  <script src="js/command-input.js?v=0.7.0"></script>
+  <script src="js/selection-view.js?v=0.7.0"></script>
   <script>
     (function () {
       // Redirect if no session info
@@ -135,6 +177,11 @@
         window.location.href = './';
         return;
       }
+
+      // Show version
+      fetch('/api/version').then(function(r){return r.json()}).then(function(d){
+        document.getElementById('version-display').textContent = 'v' + d.version;
+      }).catch(function(){});
 
       var isSpectator = sessionStorage.getItem('chub-isSpectator') === 'true';
       var playerIndex = parseInt(sessionStorage.getItem('chub-playerIndex'), 10) || 0;
@@ -191,6 +238,13 @@
         BattleView.showStats();
       });
 
+      // Jukebox toggle
+      document.getElementById('btn-jb').addEventListener('click', function () {
+        var mp = document.getElementById('midi-player');
+        mp.classList.toggle('hidden');
+      });
+      MidiJukebox.init();
+
       document.getElementById('btn-back-lobby').addEventListener('click', function () {
         window.location.href = 'lobby.html';
       });
@@ -240,6 +294,39 @@
           document.getElementById('sb-phase').textContent = 'battle';
         }
       }
+
+      // ── Room Chat (selection phase) ──────────────────────────────────────
+      var roomChatInput = document.getElementById('room-chat-input');
+      var roomChatLog = document.getElementById('room-chat-log');
+
+      function sendRoomChat() {
+        var msg = roomChatInput.value.trim();
+        if (!msg) return;
+        ChubSocket.emit('battle:command', { roomId: roomId, command: msg });
+        roomChatInput.value = '';
+        roomChatInput.focus();
+      }
+
+      document.getElementById('room-chat-send').addEventListener('click', sendRoomChat);
+      roomChatInput.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') sendRoomChat();
+      });
+
+      // Show chat messages in the room chat log during selection
+      ChubSocket.on('battle:message', function (data) {
+        if (data.roomId && data.roomId !== roomId) return;
+        if (BattleView.getPhase() !== 'selection') return; // Battle view handles its own messages
+
+        var div = document.createElement('div');
+        div.className = 'chat-msg';
+        if (data.type === 'whisper') {
+          div.className += ' whisper';
+        }
+        div.textContent = data.message || '';
+        roomChatLog.appendChild(div);
+        roomChatLog.scrollTop = roomChatLog.scrollHeight;
+        while (roomChatLog.children.length > 100) roomChatLog.removeChild(roomChatLog.firstChild);
+      });
 
       // Start in selection phase by default
       showPhase('selection');

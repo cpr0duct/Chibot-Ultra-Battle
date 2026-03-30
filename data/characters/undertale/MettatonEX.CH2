@@ -1,0 +1,564 @@
+"Mettaton EX"
+"MettatonEX"
+2425
+"Pick Mettaton EX!"
+"Mettaton EX enters the battle!"
+"Mettaton EX joins the fight!"
+35
+30
+70
+40
+"Mettaton deflects the attack with style! The crowd goes wild!"
+"Mettaton strikes a pose for the camera while resting."
+"Mettaton crosses his fabulous arms!"
+"Mettaton's defenses fail! His ratings dip!"
+"OHHHH YES! Did you see those ratings?!"
+"Lights! Camera! OBLITERATION!"
+"I'm not just a star, darling. I'm a SUPERNOVA."
+"Beauty. Grace. And a face that can kill. Literally."
+"This body was MADE for fighting! And looking fabulous."
+"finale"
+"The lights go dark. A single spotlight illuminates Mettaton. It's showtime..."
+"Mettaton performs the ULTIMATE SHOW! Explosions, lasers, Mini Mettatons, and a musical number combine into the most spectacular attack ever broadcast! %T is destroyed LIVE ON AIR! RATINGS: 100,000,000!!!"
+"Dramatic Beam"
+"beam"
+1
+"Mettaton strikes a fabulous pose..."
+""
+""
+"%SN fires a dazzling beam at %T! The ratings skyrocket!"
+""
+0
+""
+"%SN's beam blinds %T with pure star power! THE RATINGS ARE OFF THE CHARTS!"
+""
+"%T dodges the spotlight beam!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+30
+120
+2
+"Leg Kick"
+"legs"
+1
+"Mettaton shows off those gorgeous legs..."
+""
+""
+"%SN delivers a devastating high kick to %T! Those legs!"
+""
+0
+""
+"%SN's legendary legs destroy %T! OHHHH YES!"
+""
+"%T avoids those fabulous legs!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+100
+2
+"Heart Bomb"
+"heartbomb"
+0
+"Mettaton blows kisses that turn into bombs..."
+""
+""
+"Mettaton throws heart-shaped bombs at all enemies! Fabulous explosions!"
+""
+0
+""
+"The heart bombs detonate spectacularly! WHAT A SHOW!"
+""
+"The heart bombs fizzle out dramatically!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+26
+110
+5
+"Essay Question"
+"essay"
+0
+"Mettaton produces a pop quiz from nowhere..."
+""
+""
+"%T is overwhelmed by Mettaton's essay question! Their mind reels!"
+""
+0
+""
+"%T's brain short-circuits from the impossible essay question!"
+""
+"%T actually answers correctly! Mettaton is impressed!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+21
+90
+2
+"Ratings Boost"
+"ratings"
+0
+"Mettaton turns to the camera and winks..."
+""
+""
+"The audience cheers for Mettaton! HP restored!"
+""
+0
+""
+"THE RATINGS ARE THROUGH THE ROOF! Mettaton is fully energized!"
+""
+"The ratings dip... Mettaton doesn't recover!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+80
+8
+"Star Scan"
+"starscan"
+0
+"Mettaton turns the spotlight on the enemy..."
+""
+""
+"%SN critiques %T for the cameras! Stats revealed!"
+""
+0
+""
+"%SN exposes %T's every flaw on live television!"
+""
+"Mettaton gets distracted by his own reflection!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+23
+0
+2
+"Mini Mettatons"
+"minis"
+1
+"Mettaton snaps his fingers — an army of Mini Mettatons appears!"
+""
+""
+"Dozens of Mini Mettatons swarm all enemies!"
+""
+0
+""
+"The Mini Mettaton army overwhelms everyone! RATINGS!!!"
+""
+"The Mini Mettatons malfunction and scatter!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+25
+100
+5
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+"Mettaton EX's HP dropped to 0. Their SOUL shatters..."
+"Mettaton EX has been struck down!"
+"Mettaton EX falls... but their memory remains."
+"Mettaton EX can't hold on any longer..."
+"Mettaton EX fades away..."
+"Mettaton EX strikes the final blow!"
+"Mettaton EX finishes the job! No mercy!"
+"Mettaton EX wins! +EXP!"
+"Mettaton EX is VICTORIOUS!"
+"Mettaton EX delivers the finishing strike!"
+"The Underground's biggest star! Fabulous, dramatic, and"
+"dangerously entertaining. His ratings are TO DIE FOR —"
+"literally."
+""

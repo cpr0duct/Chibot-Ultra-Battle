@@ -9,7 +9,7 @@
   "audioDir": "./data/audio",
   "defaultDataset": "arcade.ini",
   "maxPlayersPerRoom": 20,
-  "maxRooms": 10,
+  "maxRooms": 50,
   "reconnectTimeout": 60000,
   "cheeseLimit": 1100,
   "maxSuperPoints": 300,

@@ -103,7 +103,7 @@ describe('createPlayer', () => {
   it('returns an object with all expected default fields', () => {
     const p = createPlayer();
     expect(p.scrNam).toBe('');
-    expect(p.charId).toBe(0);
+    expect(p.charId).toBe(-1);
     expect(p.character).toBeNull();
     expect(p.teamId).toBe(0);
     expect(p.hp).toBe(0);

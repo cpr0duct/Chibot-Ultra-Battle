@@ -37,10 +37,80 @@ function getRoomList(gameState) {
  * @param {import('socket.io').Server} io
  * @param {object} gameState
  */
+function getOnlineUsers(io) {
+  const users = [];
+  for (const [, s] of io.sockets.sockets) {
+    const name = s.data.screenName;
+    if (name) {
+      users.push({
+        screenName: name,
+        roomId: s.data.roomId || null,
+        isSpectator: !!s.data.isSpectator,
+      });
+    }
+  }
+  return users;
+}
+
+function broadcastUsers(io) {
+  io.emit('lobby:users', getOnlineUsers(io));
+}
+
 export function setupLobby(io, gameState) {
   io.on('connection', (socket) => {
-    // Send current room list on connect
+    // Send current room list and user list on connect
     socket.emit('lobby:room-list', getRoomList(gameState));
+    socket.emit('lobby:users', getOnlineUsers(io));
+
+    // Store screen name when client identifies
+    socket.on('lobby:set-name', (data) => {
+      socket.data.screenName = (data?.screenName || '').slice(0, 20) || 'Anonymous';
+      broadcastUsers(io);
+      io.emit('lobby:chat', {
+        screenName: 'System',
+        message: socket.data.screenName + ' has entered the lobby.',
+        timestamp: Date.now(),
+        system: true,
+      });
+    });
+
+    // ── Lobby Chat ────────────────────────────────────────────────────────
+    socket.on('lobby:chat', (data) => {
+      const { message, screenName } = data || {};
+      if (!message || !message.trim()) return;
+      const text = message.trim().slice(0, 300);
+      const sender = screenName || 'Anonymous';
+
+      // Whisper: /msg <name> <message> or /t <name> <message>
+      const whisperMatch = text.match(/^\/(msg|t|tell|whisper)\s+(\S+)\s+(.+)$/i);
+      if (whisperMatch) {
+        const targetName = whisperMatch[2].toLowerCase();
+        const whisperText = whisperMatch[3];
+
+        // Find target socket by screen name
+        for (const [, s] of io.sockets.sockets) {
+          if (s.data.screenName?.toLowerCase().includes(targetName)) {
+            s.emit('lobby:chat', {
+              screenName: sender, message: whisperText, timestamp: Date.now(), whisper: 'from'
+            });
+            socket.emit('lobby:chat', {
+              screenName: s.data.screenName, message: whisperText, timestamp: Date.now(), whisper: 'to'
+            });
+            return;
+          }
+        }
+        socket.emit('lobby:chat', {
+          screenName: 'System', message: 'Player not found.', timestamp: Date.now(), system: true
+        });
+        return;
+      }
+
+      io.emit('lobby:chat', {
+        screenName: sender,
+        message: text,
+        timestamp: Date.now(),
+      });
+    });
 
     // ── Create room ───────────────────────────────────────────────────────
     socket.on('lobby:create-room', (data) => {
@@ -185,6 +255,17 @@ export function setupLobby(io, gameState) {
 
     // ── Disconnect ────────────────────────────────────────────────────────
     socket.on('disconnect', () => {
+      if (socket.data.screenName) {
+        io.emit('lobby:chat', {
+          screenName: 'System',
+          message: socket.data.screenName + ' has left the lobby.',
+          timestamp: Date.now(),
+          system: true,
+        });
+      }
+      // Defer user list broadcast so this socket is gone
+      setTimeout(() => broadcastUsers(io), 100);
+
       const roomId = socket.data.roomId;
       if (!roomId) return;
 
@@ -199,14 +280,16 @@ export function setupLobby(io, gameState) {
         // Remove player; BattleRoom handles CPU takeover internally
         room.removePlayer(socket.id);
 
-        // Clean up empty rooms after a grace period (allows page navigation reconnects)
-        if (room.players.length === 0 && room.spectators.length === 0) {
+        // Clean up rooms with no human players after a grace period
+        const hasHumans = room.players.some(p => p && !p.isCpu);
+        if ((!hasHumans || room.players.length === 0) && room.spectators.length === 0) {
           const GRACE_MS = 10000; // 10 seconds
           if (room._cleanupTimer) clearTimeout(room._cleanupTimer);
           room._cleanupTimer = setTimeout(() => {
-            // Re-check: only delete if still empty
             const r = gameState.rooms.get(roomId);
-            if (r && r.players.length === 0 && r.spectators.length === 0) {
+            if (!r) return;
+            const stillHasHumans = r.players.some(p => p && !p.isCpu);
+            if (!stillHasHumans && r.spectators.length === 0) {
               if (r.phase === 'battle' || r.phase === 'paused') {
                 r._stopTimers();
               }

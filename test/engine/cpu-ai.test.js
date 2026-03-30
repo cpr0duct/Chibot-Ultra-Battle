@@ -64,7 +64,7 @@ function makeArena() {
 describe('isBeingTargeted', () => {
   it('returns true when an enemy has a pending move targeting this player', () => {
     const cpu = makePlayer();
-    const enemy = makeEnemy({ curMove: 1, target: 0 });
+    const enemy = makeEnemy({ curMove: 2, target: 0 }); // curMove is 1-based: index 1 → curMove=2
     enemy.moves[1] = makeMove(ELEMENT.FIRE, 100, { target: TARGET.ENEMY });
     const allPlayers = [cpu, enemy];
     expect(isBeingTargeted(0, allPlayers)).toBe(true);
@@ -79,7 +79,7 @@ describe('isBeingTargeted', () => {
 
   it('returns true for ALL_FOE targeting', () => {
     const cpu = makePlayer();
-    const enemy = makeEnemy({ curMove: 1, target: 1 });
+    const enemy = makeEnemy({ curMove: 2, target: 1 }); // 1-based
     enemy.moves[1] = makeMove(ELEMENT.FIRE, 100, { target: TARGET.ALL_FOE });
     const allPlayers = [cpu, enemy];
     expect(isBeingTargeted(0, allPlayers)).toBe(true);
@@ -87,7 +87,7 @@ describe('isBeingTargeted', () => {
 
   it('returns false when targeted by an ally', () => {
     const cpu = makePlayer();
-    const ally = makePlayer({ scrNam: 'Ally', curMove: 1, target: 0, teamId: 1 });
+    const ally = makePlayer({ scrNam: 'Ally', curMove: 2, target: 0, teamId: 1 }); // 1-based
     ally.moves[1] = makeMove(ELEMENT.HEAL, 100, { target: TARGET.ALLY });
     const allPlayers = [cpu, ally];
     expect(isBeingTargeted(0, allPlayers)).toBe(false);
@@ -233,7 +233,7 @@ describe('cpuDecide', () => {
     const cpu = makePlayer({ sp: 100 });
     cpu.moves[0] = makeMove(ELEMENT.FIRE, 100, { name: 'Fire Blast' });
 
-    const enemy = makeEnemy({ curMove: 1, target: 0 });
+    const enemy = makeEnemy({ curMove: 2, target: 0 }); // 1-based
     enemy.moves[1] = makeMove(ELEMENT.FIRE, 100, { target: TARGET.ENEMY });
 
     const allPlayers = [cpu, enemy];
@@ -248,7 +248,7 @@ describe('cpuDecide', () => {
     const cpu = makePlayer({ sp: 50, hp: 100 }); // HP < 40% of 500
     cpu.moves[0] = makeMove(ELEMENT.FIRE, 100, { name: 'Fire Blast' });
 
-    const enemy = makeEnemy({ curMove: 1, target: 0 });
+    const enemy = makeEnemy({ curMove: 2, target: 0 }); // 1-based
     enemy.moves[1] = makeMove(ELEMENT.FIRE, 100, { target: TARGET.ENEMY });
 
     const allPlayers = [cpu, enemy];

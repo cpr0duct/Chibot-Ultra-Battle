@@ -93,7 +93,7 @@ export function createCharacter() {
 export function createPlayer() {
   return {
     scrNam: '',
-    charId: 0,
+    charId: -1,
     character: null,
     teamId: 0,
     hp: 0,

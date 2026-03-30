@@ -1,0 +1,564 @@
+"Chara"
+"Chara"
+2126
+"Pick Chara!"
+"Chara enters the battle!"
+"Chara joins the fight!"
+75
+30
+55
+30
+"The Heart Locket absorbs the hit. Chara doesn't flinch."
+"Chara stares at you with an empty smile. They don't rest. They wait."
+"Chara holds up the Locket. 'Best Friends Forever.'"
+"Chara takes the hit without changing expression."
+"Since when were you the one in control?"
+"That's a wonderful idea!"
+"* You feel your sins crawling on your back."
+"SINCE WHEN WERE YOU THE ONE IN CONTROL?"
+"Together, we eradicated the enemy and became strong."
+"worlderase"
+"The screen goes black. Two glowing red eyes appear in the darkness. A single slash crosses the screen..."
+"Chara ERASES %T from existence with a single devastating slash! The world cracks apart! 'Since when were you the one in control?' 9 9 9 9 9 9 9 9 9"
+"Real Knife"
+"realknife"
+1
+"Chara raises the Real Knife. Their eyes glow red..."
+""
+""
+"%SN slashes %T with the Real Knife! A brutal strike!"
+""
+0
+""
+"%SN's slash cuts deep into %T! 9999999 damage in their heart!"
+""
+"%T barely dodges the Real Knife!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+160
+2
+"ERASE"
+"erase"
+1
+"Chara smiles. The world glitches..."
+""
+""
+"%SN begins to ERASE %T from existence!"
+""
+0
+""
+"%SN ERASES half of %T's existence! Their HP is halved!"
+""
+"%T clings to existence!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+19
+180
+2
+"Creepy Approach"
+"creepy"
+0
+"Chara takes a step forward. And another. And another..."
+""
+""
+"Chara slowly walks toward %T with an empty smile... It HURTS somehow!"
+""
+0
+""
+"Chara's presence overwhelms %T with existential dread!"
+""
+"%T looks away from Chara's unsettling approach!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+21
+100
+2
+"Worn Dagger"
+"worndagger"
+0
+"Chara moves impossibly fast..."
+""
+""
+"Chara strikes at all enemies with blinding speed!"
+""
+0
+""
+"Chara's dagger finds every enemy! No one is spared!"
+""
+"The enemies dodge Chara's wild slashes!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+90
+5
+"DETERMINATION"
+"dt"
+0
+"Chara is filled with DETERMINATION. (The bad kind.)"
+""
+""
+"%SN's DETERMINATION restores HP. But it feels... wrong."
+""
+0
+""
+"%SN's twisted DETERMINATION floods back! Massive recovery!"
+""
+"The DETERMINATION falters..."
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+80
+8
+"SOUL Read"
+"soulread"
+0
+"Chara tilts their head and stares..."
+""
+""
+"%SN stares into %T's SOUL with empty eyes. Stats revealed."
+""
+0
+""
+"%SN reads %T's entire being! LV, HP, everything!"
+""
+"Chara can't read this one..."
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+23
+0
+2
+"Genocide"
+"genocide"
+1
+"Chara's LOVE increases. Their smile widens..."
+""
+""
+"Chara strikes down all enemies without mercy!"
+""
+0
+""
+"Chara cuts through everyone! The kill counter rises!"
+""
+"The enemies endure Chara's onslaught!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+130
+5
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+"Chara's HP dropped to 0. Their SOUL shatters..."
+"Chara has been struck down!"
+"Chara falls... but their memory remains."
+"Chara can't hold on any longer..."
+"Chara fades away..."
+"Chara strikes the final blow!"
+"Chara finishes the job! No mercy!"
+"Chara wins! +EXP!"
+"Chara is VICTORIOUS!"
+"Chara delivers the finishing strike!"
+"The first human to fall into the Underground. Once Asriel's"
+"best friend, now a sinister force of destruction. Their"
+"smile is not a kind one."
+""

@@ -416,19 +416,19 @@
 0
 0
 5
+"Smithy's Strike"
+"smithystr"
+0
+"%SN prepares to attack!"
 ""
 ""
-0
-""
-""
-""
-""
+"%SN strikes %T with a powerful blow!"
 ""
 0
 ""
 ""
 ""
-""
+"%SN swings at %T but misses!"
 0
 0
 0
@@ -457,8 +457,8 @@
 0
 0
 0
-0
-0
+1
+50
 2
 ""
 ""

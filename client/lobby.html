@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <script>
-    // Auto-detect base path for proxy support (/chub/ or /)
     (function() {
       var path = window.location.pathname;
       var base = '/';
@@ -14,7 +13,117 @@
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ChUB 2000 - Lobby</title>
-  <link rel="stylesheet" href="css/chub.css">
+  <link rel="stylesheet" href="css/chub.css?v=0.7.0">
+  <style>
+    .lobby-body {
+      display: flex;
+      flex: 1;
+      height: calc(100vh - 50px);
+      overflow: hidden;
+    }
+    .lobby-rooms {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px;
+    }
+    .lobby-chat {
+      width: 340px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      border-left: 1px solid var(--border);
+      background: var(--bg-tertiary);
+    }
+    .chat-header {
+      padding: 10px 14px;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.7rem;
+      color: var(--accent-blue);
+      border-bottom: 1px solid var(--border);
+      text-shadow: 0 0 8px var(--glow-blue);
+    }
+    .chat-and-users {
+      flex: 1;
+      display: flex;
+      overflow: hidden;
+    }
+    .chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 8px 12px;
+      font-size: 0.95rem;
+    }
+    .user-list-panel {
+      width: 140px;
+      flex-shrink: 0;
+      border-left: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      background: var(--bg-secondary);
+    }
+    .user-list-header {
+      padding: 6px 10px;
+      font-size: 0.6rem;
+      font-weight: bold;
+      color: var(--accent-yellow);
+      border-bottom: 1px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .user-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 4px 0;
+    }
+    .user-entry {
+      padding: 3px 10px;
+      font-size: 0.8rem;
+      color: var(--accent-green);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .user-entry.in-room {
+      color: var(--text-muted);
+      font-style: italic;
+    }
+    .user-count {
+      padding: 4px 10px;
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+    }
+    .chat-msg {
+      padding: 3px 0;
+      word-wrap: break-word;
+    }
+    .chat-msg .chat-name {
+      color: var(--accent-green);
+      font-weight: bold;
+    }
+    .chat-msg.whisper {
+      color: var(--accent-pink);
+      font-style: italic;
+    }
+    .chat-msg.system {
+      color: var(--text-muted);
+      font-style: italic;
+    }
+    .chat-input-bar {
+      display: flex;
+      padding: 8px;
+      border-top: 1px solid var(--border);
+      gap: 6px;
+    }
+    .chat-input-bar input {
+      flex: 1;
+      font-size: 1rem;
+    }
+    @media (max-width: 768px) {
+      .lobby-body { flex-direction: column; }
+      .lobby-chat { width: 100%; height: 250px; border-left: none; border-top: 1px solid var(--border); }
+    }
+  </style>
 </head>
 <body>
   <button id="theme-toggle" class="theme-toggle" title="Toggle theme">L</button>
@@ -23,16 +132,42 @@
   <div class="lobby-header">
     <div>
       <a href="./" class="logo">ChUB 2000</a>
+      <span id="version-display" style="font-size:0.7rem;opacity:0.5;margin-left:8px;"></span>
     </div>
     <div class="flex items-center gap-md">
       <span class="user-info" id="user-display"></span>
-      <button class="btn btn-primary btn-sm" id="open-create-room-btn">Create Room</button>
+      <button class="btn btn-primary btn-sm" id="open-create-room-btn">CREATE ROOM</button>
     </div>
   </div>
 
-  <!-- Room List -->
-  <div id="room-list" class="room-list">
-    <div class="empty-state" id="empty-state">No rooms available. Create one to get started!</div>
+  <!-- Main Body: Rooms + Chat -->
+  <div class="lobby-body">
+    <!-- Room List -->
+    <div class="lobby-rooms">
+      <div id="room-list" class="room-list">
+        <div class="empty-state" id="empty-state">No rooms available. Create one to get started!</div>
+      </div>
+    </div>
+
+    <!-- Lobby Chat + Users -->
+    <div class="lobby-chat">
+      <div class="chat-header">LOBBY CHAT</div>
+      <div class="chat-and-users">
+        <div class="chat-messages" id="lobby-chat-log">
+          <div class="chat-msg system">Welcome to ChUB 2000! Type to chat, /msg &lt;name&gt; to whisper.</div>
+        </div>
+        <div class="user-list-panel">
+          <div class="user-list-header">PEOPLE HERE</div>
+          <div class="user-list" id="user-list">
+            <!-- Populated by lobby:users event -->
+          </div>
+        </div>
+      </div>
+      <div class="chat-input-bar">
+        <input type="text" id="lobby-chat-input" placeholder="Type a message..." autocomplete="off" maxlength="300">
+        <button class="btn btn-sm" id="lobby-chat-send">SEND</button>
+      </div>
+    </div>
   </div>
 
   <!-- Create Room Modal -->
@@ -76,11 +211,10 @@
   </div>
 
   <script src="socket.io/socket.io.js"></script>
-  <script src="js/theme.js"></script>
-  <script src="js/socket-client.js"></script>
+  <script src="js/theme.js?v=0.7.0"></script>
+  <script src="js/socket-client.js?v=0.7.0"></script>
   <script>
     (function () {
-      // Redirect if no screen name
       var screenName = ChubSocket.getScreenName();
       if (!screenName) {
         window.location.href = './';
@@ -89,21 +223,95 @@
 
       document.getElementById('user-display').textContent = screenName;
 
-      // Connect
+      fetch('/api/version').then(function(r){return r.json()}).then(function(d) {
+        document.getElementById('version-display').textContent = 'v' + d.version;
+      }).catch(function(){});
+
       ChubSocket.connect();
+
+      // Identify self to server for whisper support
+      ChubSocket.emit('lobby:set-name', { screenName: screenName });
 
       var roomListEl = document.getElementById('room-list');
       var emptyState = document.getElementById('empty-state');
       var pendingJoinRoom = null;
 
+      // ── Lobby Chat ────────────────────────────────────────────────────────
+
+      var chatLog = document.getElementById('lobby-chat-log');
+      var chatInput = document.getElementById('lobby-chat-input');
+      var chatSend = document.getElementById('lobby-chat-send');
+
+      function appendChat(data) {
+        var div = document.createElement('div');
+        div.className = 'chat-msg';
+
+        if (data.system) {
+          div.className += ' system';
+          div.textContent = data.message;
+        } else if (data.whisper) {
+          div.className += ' whisper';
+          var prefix = data.whisper === 'from' ? '[from ' + data.screenName + ']' : '[to ' + data.screenName + ']';
+          div.textContent = prefix + ' ' + data.message;
+        } else {
+          var nameSpan = document.createElement('span');
+          nameSpan.className = 'chat-name';
+          nameSpan.textContent = data.screenName + ': ';
+          div.appendChild(nameSpan);
+          div.appendChild(document.createTextNode(data.message));
+        }
+
+        chatLog.appendChild(div);
+        chatLog.scrollTop = chatLog.scrollHeight;
+
+        // Cap at 200 messages
+        while (chatLog.children.length > 200) chatLog.removeChild(chatLog.firstChild);
+      }
+
+      function sendChat() {
+        var msg = chatInput.value.trim();
+        if (!msg) return;
+        ChubSocket.emit('lobby:chat', { message: msg, screenName: screenName });
+        chatInput.value = '';
+        chatInput.focus();
+      }
+
+      chatSend.addEventListener('click', sendChat);
+      chatInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') sendChat();
+      });
+
+      ChubSocket.on('lobby:chat', appendChat);
+
+      // ── User List ──────────────────────────────────────────────────────────
+
+      var userListEl = document.getElementById('user-list');
+
+      ChubSocket.on('lobby:users', function (users) {
+        userListEl.innerHTML = '';
+        if (!users || users.length === 0) return;
+
+        for (var u = 0; u < users.length; u++) {
+          var user = users[u];
+          var div = document.createElement('div');
+          div.className = 'user-entry' + (user.roomId ? ' in-room' : '');
+          div.textContent = user.screenName;
+          if (user.roomId) div.title = 'In a room';
+          userListEl.appendChild(div);
+        }
+
+        // Count
+        var countDiv = document.createElement('div');
+        countDiv.className = 'user-count';
+        countDiv.textContent = users.length + ' online';
+        userListEl.appendChild(countDiv);
+      });
+
       // ── Room List Rendering ──────────────────────────────────────────────
 
       function renderRoomList(rooms) {
-        // Remove all room cards (keep empty state)
         var cards = roomListEl.querySelectorAll('.room-card');
-        for (var i = 0; i < cards.length; i++) {
-          cards[i].remove();
-        }
+        for (var i = 0; i < cards.length; i++) cards[i].remove();
 
         if (!rooms || rooms.length === 0) {
           emptyState.classList.remove('hidden');
@@ -136,15 +344,10 @@
           roomListEl.appendChild(card);
         }
 
-        // Bind join buttons
         var joinBtns = roomListEl.querySelectorAll('.join-btn');
-        for (var k = 0; k < joinBtns.length; k++) {
-          joinBtns[k].addEventListener('click', handleJoin);
-        }
+        for (var k = 0; k < joinBtns.length; k++) joinBtns[k].addEventListener('click', handleJoin);
         var specBtns = roomListEl.querySelectorAll('.spectate-btn');
-        for (var m = 0; m < specBtns.length; m++) {
-          specBtns[m].addEventListener('click', handleSpectate);
-        }
+        for (var m = 0; m < specBtns.length; m++) specBtns[m].addEventListener('click', handleSpectate);
       }
 
       function escapeHtml(str) {
@@ -158,7 +361,6 @@
       function handleJoin(e) {
         var roomId = e.target.getAttribute('data-room');
         var locked = e.target.getAttribute('data-locked') === 'true';
-
         if (locked) {
           pendingJoinRoom = roomId;
           document.getElementById('password-modal').classList.add('active');
@@ -166,15 +368,12 @@
           document.getElementById('join-password').focus();
           return;
         }
-
         joinRoom(roomId, null);
       }
 
       function joinRoom(roomId, password) {
         ChubSocket.emit('lobby:join-room', {
-          roomId: roomId,
-          screenName: screenName,
-          password: password || null,
+          roomId: roomId, screenName: screenName, password: password || null,
         });
       }
 
@@ -186,8 +385,7 @@
       // ── Create Room ──────────────────────────────────────────────────────
 
       var createModal = document.getElementById('create-room-modal');
-      var createRoomBtn = document.getElementById('open-create-room-btn');
-      createRoomBtn.addEventListener('click', function () {
+      document.getElementById('open-create-room-btn').addEventListener('click', function () {
         createModal.classList.add('active');
         document.getElementById('room-name').focus();
       });
@@ -199,10 +397,7 @@
         var dataset = document.getElementById('room-dataset').value;
         var password = document.getElementById('room-password').value;
         ChubSocket.emit('lobby:create-room', {
-          name: name,
-          datasetId: dataset,
-          password: password || null,
-          screenName: screenName,
+          name: name, datasetId: dataset, password: password || null, screenName: screenName,
         });
         createModal.classList.remove('active');
       });
@@ -216,9 +411,7 @@
       });
       document.getElementById('confirm-password').addEventListener('click', function () {
         var pw = document.getElementById('join-password').value;
-        if (pendingJoinRoom) {
-          joinRoom(pendingJoinRoom, pw);
-        }
+        if (pendingJoinRoom) joinRoom(pendingJoinRoom, pw);
         pwModal.classList.remove('active');
         pendingJoinRoom = null;
       });
@@ -226,7 +419,6 @@
         if (e.key === 'Enter') document.getElementById('confirm-password').click();
       });
 
-      // Close modals on overlay click
       createModal.addEventListener('click', function (e) {
         if (e.target === createModal) createModal.classList.remove('active');
       });
@@ -239,7 +431,6 @@
       ChubSocket.on('lobby:room-list', renderRoomList);
 
       ChubSocket.on('lobby:room-created', function (data) {
-        // Creator is already added as a player on the server
         sessionStorage.setItem('chub-roomId', data.roomId);
         sessionStorage.setItem('chub-playerIndex', data.playerIndex != null ? data.playerIndex : 0);
         sessionStorage.setItem('chub-isSpectator', 'false');
@@ -263,7 +454,6 @@
         alert(data.message || 'An error occurred.');
       });
 
-      // Request initial room list
       ChubSocket.emit('lobby:list-rooms');
     })();
   </script>

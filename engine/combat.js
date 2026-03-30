@@ -73,7 +73,7 @@ export function getTargets(playerIndex, move, allPlayers, selectedTarget) {
   for (let i = 0; i < allPlayers.length; i++) {
     const p = allPlayers[i];
     // Skip empty slots
-    if (!p || p.charId === 0) continue;
+    if (!p || p.charId < 0) continue;
     // Skip MIA players
     if (p.status[STATUS.MIA]) continue;
 
@@ -145,6 +145,11 @@ export function queueMove(player, playerIndex, moveIndex, targetIndex, gameState
     return { success: false, message: `${player.scrNam} cannot act due to a status effect.` };
   }
 
+  // Already executing a move
+  if (player.curMove !== 0) {
+    return { success: false, message: `${player.scrNam} is already performing an action.` };
+  }
+
   const move = player.moves[moveIndex];
   if (!move) {
     return { success: false, message: `${player.scrNam}: invalid move index.` };
@@ -206,8 +211,8 @@ export function queueMove(player, playerIndex, moveIndex, targetIndex, gameState
     mpWarning = ` WARNING: Not enough MP required to complete move. (has ${player.mp}, requires ${move.mpReq})`;
   }
 
-  // Set move state
-  player.curMove = moveIndex;
+  // Set move state (store as 1-based index; curMove=0 means idle)
+  player.curMove = moveIndex + 1;
   player.target = targetIndex;
   player.moveStart = gameTime;
 
@@ -256,11 +261,13 @@ export function queueMove(player, playerIndex, moveIndex, targetIndex, gameState
  * @returns {{ resolved: boolean, messages?: string[], kills?: Array<{attacker: number, target: number}>, statusChanges?: Array<{player: number, status: number, applied: boolean}> }}
  */
 export function resolveMove(player, playerIndex, allPlayers, arena, gameTime, opts = {}) {
-  if (player.curMove <= 0 || player.curMove > (player.moves.length - 1)) {
+  if (player.curMove <= 0 || player.curMove > player.moves.length) {
     return { resolved: false };
   }
 
-  const move = player.moves[player.curMove];
+  // curMove is 1-based; convert back to 0-based array index
+  const moveIndex = player.curMove - 1;
+  const move = player.moves[moveIndex];
   if (!move) return { resolved: false };
 
   // Calculate time needed
@@ -381,6 +388,12 @@ export function resolveMove(player, playerIndex, allPlayers, arena, gameTime, op
 
     let damage = dmgResult.damage;
 
+    // Invincible check — before barrier absorption so barriers aren't wasted
+    if (target.status[STATUS.INVINCIBLE]) {
+      messages.push(`${target.scrNam} is shielded! The attack has no effect.`);
+      continue;
+    }
+
     // Barrier / MBarrier absorption
     if (isPhysicalElement(move.element) && target.status[STATUS.BARRIER] > 0) {
       const absorbed = Math.min(damage, target.status[STATUS.BARRIER]);
@@ -397,12 +410,6 @@ export function resolveMove(player, playerIndex, allPlayers, arena, gameTime, op
       if (absorbed > 0) {
         messages.push(`${target.scrNam}'s MBarrier absorbs ${absorbed} damage.`);
       }
-    }
-
-    // Invincible check
-    if (target.status[STATUS.INVINCIBLE]) {
-      messages.push(`${target.scrNam} is shielded! The attack has no effect.`);
-      continue;
     }
 
     // HP Theft: attacker gains HP
@@ -425,26 +432,28 @@ export function resolveMove(player, playerIndex, allPlayers, arena, gameTime, op
       target.hp -= damage;
       totalDamage += damage;
 
-      // Generate hit message
-      let hitStr;
-      if (dmgResult.isCrit) {
-        hitStr = move.critHit || move.hit || '%SN critically hits %T!';
-        messages.push(substituteVars(hitStr, {
-          SN: player.scrNam,
-          T: target.scrNam,
-        }) + ` [${damage}HP]`);
-      } else if (isSuper && move.superHit) {
-        hitStr = move.superHit;
-        messages.push(substituteVars(hitStr, {
-          SN: player.scrNam,
-          T: target.scrNam,
-        }) + ` [${damage}HP]`);
-      } else {
-        hitStr = move.hit || '%SN hits %T!';
-        messages.push(substituteVars(hitStr, {
-          SN: player.scrNam,
-          T: target.scrNam,
-        }) + ` [${damage}HP]`);
+      // Generate hit message (skip if barrier absorbed all damage)
+      if (damage > 0) {
+        let hitStr;
+        if (dmgResult.isCrit) {
+          hitStr = move.critHit || move.hit || '%SN critically hits %T!';
+          messages.push(substituteVars(hitStr, {
+            SN: player.scrNam,
+            T: target.scrNam,
+          }) + ` [${damage}HP]`);
+        } else if (isSuper && move.superHit) {
+          hitStr = move.superHit;
+          messages.push(substituteVars(hitStr, {
+            SN: player.scrNam,
+            T: target.scrNam,
+          }) + ` [${damage}HP]`);
+        } else {
+          hitStr = move.hit || '%SN hits %T!';
+          messages.push(substituteVars(hitStr, {
+            SN: player.scrNam,
+            T: target.scrNam,
+          }) + ` [${damage}HP]`);
+        }
       }
     }
 
@@ -473,11 +482,12 @@ export function resolveMove(player, playerIndex, allPlayers, arena, gameTime, op
         messages.push(`${target.scrNam} is revived by Reraise! [${target.hp}HP]`);
       } else {
         kills.push({ attacker: playerIndex, target: ti });
+        messages.push(`${target.scrNam} has been defeated by ${player.scrNam}!`);
       }
     }
 
-    // Wake up sleeping target on hit
-    if (target.status[STATUS.SLEEP] && damage > 0) {
+    // Wake up sleeping target on hit (but not if they're dead)
+    if (target.isAlive && target.status[STATUS.SLEEP] && damage > 0) {
       target.status[STATUS.SLEEP] = 0;
       messages.push(`${target.scrNam} wakes up!`);
     }
@@ -496,6 +506,17 @@ export function resolveMove(player, playerIndex, allPlayers, arena, gameTime, op
     if (target.hp > 0 && target.isAlive && doesDamage(move.element)) {
       const spGain = Math.min(Math.floor(totalDamage / (targetIndices.length * 30)) + 1, 10);
       target.sp = Math.min(target.sp + spGain, MAX_SUPER_POINTS);
+    }
+  }
+
+  // Track damage dealt/taken
+  if (doesDamage(move.element) && totalDamage > 0) {
+    player.damageDealt += totalDamage;
+    for (const ti of targetIndices) {
+      const target = allPlayers[ti];
+      if (target && ti !== playerIndex) {
+        target.damageTaken += Math.min(totalDamage, target.maxHp);
+      }
     }
   }
 
@@ -536,7 +557,7 @@ export function resolveBlock(blocker, blockerIndex, allPlayers, gameTime, opts =
 
   // Check for counter-attack move
   const counterMoveIndex = blocker.target; // stored in target when blocking with counter
-  const counterMove = counterMoveIndex > 0 ? blocker.moves[counterMoveIndex] : null;
+  const counterMove = counterMoveIndex >= 0 && counterMoveIndex < blocker.moves.length ? blocker.moves[counterMoveIndex] : null;
 
   if (counterMove && blocker.sp >= 100) {
     // Counter attack: find closest incoming attacker
@@ -696,7 +717,7 @@ export function checkBattleEnd(players, battleType) {
 
   for (let i = 0; i < players.length; i++) {
     const p = players[i];
-    if (!p || p.charId === 0) continue;
+    if (!p || p.charId < 0) continue;
     if (p.hp > 0 && p.isAlive) {
       alive.push(i);
       teamsAlive.add(p.teamId);

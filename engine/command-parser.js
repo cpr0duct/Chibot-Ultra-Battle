@@ -78,10 +78,17 @@ function parseSlashCommand(trimmed) {
       return {
         type: 'moveByNumber',
         number: num,
-        target: rest[0] || undefined,
+        target: rest.length > 0 ? rest.join(' ') : undefined,
         isSuper: false
       };
     }
+  }
+
+  // Host commands: /!command
+  if (keyword.startsWith('!')) {
+    const result = { type: 'host', command: keyword.slice(1) };
+    if (rest.length > 0) result.target = rest.join(' ');
+    return result;
   }
 
   // Built-in commands (no super prefix allowed on these)
@@ -99,7 +106,7 @@ function parseSlashCommand(trimmed) {
     return {
       type: 'move',
       key: keyword,
-      target: rest[0] || undefined,
+      target: rest.length > 0 ? rest.join(' ') : undefined,
       isSuper,
       ...(isSuper ? { superLevel } : {})
     };
@@ -134,7 +141,7 @@ function parseBuiltIn(keyword, rest, raw) {
     case 'flee':
       return { type: 'flee' };
     case 'defect':
-      return { type: 'defect', target: rest[0] || undefined };
+      return { type: 'defect', target: rest.length > 0 ? rest.join(' ') : undefined };
     default:
       return { type: 'unknown', raw };
   }

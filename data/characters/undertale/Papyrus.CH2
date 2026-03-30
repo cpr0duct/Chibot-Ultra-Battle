@@ -1,0 +1,564 @@
+"Papyrus"
+"Papyrus"
+2724
+"Pick Papyrus!"
+"Papyrus enters the battle!"
+"Papyrus joins the fight!"
+50
+40
+45
+30
+"THE GREAT PAPYRUS'S BATTLE BODY DEFLECTS THE ATTACK!"
+"Papyrus reads a book about advanced puzzle creation."
+"Papyrus hides behind his battle body!"
+"Papyrus's battle body fails to protect him! NYEH!?"
+"NYEH HEH HEH! THE GREAT PAPYRUS CANNOT BE DEFEATED!"
+"I, THE GREAT PAPYRUS, WILL CAPTURE YOU!"
+"WOWIE! YOU'RE REALLY GOOD AT FIGHTING! BUT NOT AS GOOD AS ME!"
+"MY BROTHER WOULD BE SO JEALOUS OF MY FIGHTING SKILLS!"
+"I'M GOING TO BE IN THE ROYAL GUARD FOR SURE NOW!"
+"coolattack"
+"PAPYRUS PREPARES THE MOST ABSOLUTELY COOL ATTACK!"
+"An overwhelming storm of bones erupts from every direction! %T is caught in the COOLEST ATTACK EVER! NYEH HEH HEH HEH HEH!!!"
+"Bone Strike"
+"bonestrike"
+1
+"PAPYRUS PREPARES HIS SPECIAL ATTACK..."
+""
+""
+"%SN sends a barrage of bones at %T! NYEH HEH HEH!"
+""
+0
+""
+"%SN's bone attack connects perfectly with %T! NYEH HEH HEH!"
+""
+"%T dodges the Great Papyrus's bones!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+90
+2
+"Blue Bone"
+"bluebone"
+1
+"Papyrus summons a glowing blue bone..."
+""
+""
+"%SN throws a blue bone that passes through %T's defenses!"
+""
+0
+""
+"%T moved! The blue bone strikes hard! NYEH!"
+""
+"%T stays perfectly still and the blue bone passes through harmlessly!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+22
+100
+2
+"Special Attack"
+"special"
+1
+"PAPYRUS IS ABOUT TO USE HIS SPECIAL ATTACK!!!"
+""
+""
+"%SN unleashes his SPECIAL ATTACK on %T! (A really cool bone pattern!)"
+""
+0
+""
+"%SN's VERY SPECIAL ATTACK obliterates %T! THE GREAT PAPYRUS TRIUMPHS!"
+""
+"A small dog stole the special attack! %T is unharmed!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+150
+2
+"Spaghetti Heal"
+"spaghetti"
+0
+"PAPYRUS PRESENTS HIS MASTERWORK SPAGHETTI!"
+""
+""
+"Papyrus shares his artisanal spaghetti! Everyone feels better! (Somehow!)"
+""
+0
+""
+"This spaghetti is actually INCREDIBLE! Maximum healing!"
+""
+"The spaghetti is... inedible. No one is healed."
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+90
+1
+"Bone Cage"
+"cage"
+0
+"Papyrus raises both arms dramatically..."
+""
+""
+"Bones erupt around all enemies, trapping them!"
+""
+0
+""
+"The bone cage crushes all enemies! NYEH HEH HEH HEH!"
+""
+"The enemies escape the bone cage!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+27
+80
+5
+"Puzzling Scan"
+"puzzle"
+0
+"Papyrus adjusts his battle body visor..."
+""
+""
+"%SN studies %T like a puzzle! Stats revealed!"
+""
+0
+""
+"%SN solves %T like a junior jumble!"
+""
+"THIS PUZZLE IS TOO HARD FOR PAPYRUS! ...Just kidding!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+23
+0
+2
+"Belief In You"
+"believe"
+0
+"PAPYRUS BELIEVES IN YOU!!!"
+""
+""
+"%SN believes in %T! They feel encouraged!"
+""
+0
+""
+"%SN's belief fills %T with incredible warmth!"
+""
+"%SN's encouragement falls on deaf ears..."
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+26
+70
+3
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+"Papyrus's HP dropped to 0. Their SOUL shatters..."
+"Papyrus has been struck down!"
+"Papyrus falls... but their memory remains."
+"Papyrus can't hold on any longer..."
+"Papyrus fades away..."
+"Papyrus strikes the final blow!"
+"Papyrus finishes the job! No mercy!"
+"Papyrus wins! +EXP!"
+"Papyrus is VICTORIOUS!"
+"Papyrus delivers the finishing strike!"
+"The GREAT Papyrus! A cool skeleton who dreams of joining the"
+"Royal Guard. His bone attacks are fearsome, but his heart is"
+"pure."
+""

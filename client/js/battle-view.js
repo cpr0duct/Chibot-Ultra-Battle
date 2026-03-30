@@ -11,6 +11,7 @@
   var isSpectator = false;
   var currentPhase = 'waiting';
   var playerStates = [];
+  var lastKnownPlayers = [];
   var userScrolledUp = false;
   var playerMoves = [];
 
@@ -69,10 +70,21 @@
     return 'msg-default';
   }
 
-  function appendMessage(text, cssClass) {
+  function appendMessage(text, cssClass, msgPlayerIndex) {
     var logEl = document.getElementById('battle-log');
     var div = document.createElement('div');
-    div.className = 'msg ' + (cssClass || classifyMessage(text));
+    var cls = 'msg ' + (cssClass || classifyMessage(text));
+
+    // Player attribution styling
+    if (msgPlayerIndex !== undefined && msgPlayerIndex !== null && msgPlayerIndex >= 0) {
+      if (msgPlayerIndex === playerIndex) {
+        cls += ' msg-self';
+      } else if (lastKnownPlayers && lastKnownPlayers[msgPlayerIndex] && lastKnownPlayers[msgPlayerIndex].isCpu) {
+        cls += ' msg-cpu';
+      }
+    }
+
+    div.className = cls;
     div.textContent = text;
     logEl.appendChild(div);
 
@@ -89,7 +101,10 @@
 
   function onMessage(data) {
     if (data.roomId && data.roomId !== roomId) return;
-    appendMessage(data.message || '');
+    var cssClass = null;
+    if (data.type === 'chat') cssClass = 'msg-chat';
+    else if (data.type === 'whisper') cssClass = 'msg-whisper';
+    appendMessage(data.message || '', cssClass, data.playerIndex);
   }
 
   function onCommandResult(data) {
@@ -108,7 +123,16 @@
     if (data.roomId && data.roomId !== roomId) return;
 
     playerStates = data.players || [];
+    lastKnownPlayers = playerStates;
     renderStatusPanel(data);
+
+    // Update arena display
+    if (data.arenaName) {
+      var arenaText = 'Arena: ' + data.arenaName;
+      if (data.currentItem) arenaText += ' | Item: ' + data.currentItem;
+      var arenaEl = document.getElementById('arena-info');
+      if (arenaEl) arenaEl.textContent = arenaText;
+    }
 
     // Update status bar time
     var gameTime = data.gameTime || 0;
@@ -121,65 +145,114 @@
   function renderStatusPanel(data) {
     var panel = document.getElementById('status-panel');
     var arenaInfo = document.getElementById('arena-info');
-
-    // Remove existing player cards (not the arena info)
+    var players = data.players || [];
     var existing = panel.querySelectorAll('.player-status-card');
-    for (var i = 0; i < existing.length; i++) {
-      existing[i].remove();
+
+    // Create cards only if count changed
+    if (existing.length !== players.length) {
+      for (var i = 0; i < existing.length; i++) existing[i].remove();
+      for (var j = 0; j < players.length; j++) {
+        var card = document.createElement('div');
+        card.className = 'player-status-card';
+        card.setAttribute('data-pi', j);
+        card.innerHTML =
+          '<div class="player-status-header">' +
+            '<img class="player-portrait" src="" alt="" style="display:none">' +
+            '<span class="player-name"></span>' +
+            '<span class="team-badge"></span>' +
+          '</div>' +
+          '<div class="resource-bar">' +
+            '<span class="bar-label bar-label-hp">HP</span>' +
+            '<div class="bar-track"><div class="bar-fill bar-fill-hp" style="width:0%"></div></div>' +
+            '<span class="bar-value hp-val"></span>' +
+          '</div>' +
+          '<div class="resource-bar">' +
+            '<span class="bar-label bar-label-mp">MP</span>' +
+            '<div class="bar-track"><div class="bar-fill bar-fill-mp" style="width:0%"></div></div>' +
+            '<span class="bar-value mp-val"></span>' +
+          '</div>' +
+          '<div class="resource-bar">' +
+            '<span class="bar-label bar-label-sp">SP</span>' +
+            '<div class="bar-track"><div class="bar-fill bar-fill-sp" style="width:0%"></div></div>' +
+            '<span class="bar-value sp-val"></span>' +
+          '</div>' +
+          '<div class="status-effects"></div>';
+        panel.insertBefore(card, arenaInfo);
+      }
+      existing = panel.querySelectorAll('.player-status-card');
     }
 
-    var players = data.players || [];
-    for (var j = 0; j < players.length; j++) {
-      var p = players[j];
-      var card = document.createElement('div');
-      card.className = 'player-status-card' + (p.isAlive ? '' : ' dead');
+    // Update each card in-place (no DOM rebuild = smooth CSS transitions)
+    for (var k = 0; k < players.length; k++) {
+      var p = players[k];
+      var el = existing[k];
+      if (!el) continue;
 
-      var teamLetter = TEAM_LETTERS[p.teamId] || '?';
-      var teamClass = TEAM_CLASSES[p.teamId] || 'team-a';
+      // Dead state
+      if (p.isAlive) el.classList.remove('dead');
+      else el.classList.add('dead');
 
-      // HP percentage and color class
-      var hpPct = p.maxHp > 0 ? Math.max(0, Math.min(100, (p.hp / p.maxHp) * 100)) : 0;
-      var hpColorClass = 'bar-fill-hp';
-      if (hpPct <= 25) hpColorClass += ' hp-low';
-      else if (hpPct <= 50) hpColorClass += ' hp-mid';
-
-      var mpPct = p.maxMp > 0 ? Math.max(0, Math.min(100, (p.mp / p.maxMp) * 100)) : 0;
-      var spMax = 300; // maxSuperPoints from config
-      var spPct = Math.max(0, Math.min(100, (p.sp / spMax) * 100));
-
-      // Status effects
-      var statusHtml = '';
-      if (p.status) {
-        for (var s = 1; s <= 30; s++) {
-          if (p.status[s] && p.status[s] > 0 && STATUS_NAMES[s]) {
-            statusHtml += '<span class="status-badge">' + STATUS_NAMES[s] + '</span>';
-          }
+      // Portrait (set once)
+      var portrait = el.querySelector('.player-portrait');
+      if (portrait && p.charId !== undefined && p.charId >= 0) {
+        var src = 'img/chars/' + p.charId + '.png';
+        if (portrait.getAttribute('src') !== src) {
+          portrait.setAttribute('src', src);
+          portrait.style.display = '';
+          portrait.onerror = function () { this.style.display = 'none'; };
         }
       }
 
-      card.innerHTML =
-        '<div class="player-status-header">' +
-          '<span class="player-name">' + escapeHtml(p.scrNam) + '</span>' +
-          '<span class="team-badge ' + teamClass + '">' + teamLetter + '</span>' +
-        '</div>' +
-        '<div class="resource-bar">' +
-          '<span class="bar-label bar-label-hp">HP</span>' +
-          '<div class="bar-track"><div class="bar-fill ' + hpColorClass + '" style="width:' + hpPct + '%"></div></div>' +
-          '<span class="bar-value">' + Math.floor(p.hp) + '/' + Math.floor(p.maxHp) + '</span>' +
-        '</div>' +
-        '<div class="resource-bar">' +
-          '<span class="bar-label bar-label-mp">MP</span>' +
-          '<div class="bar-track"><div class="bar-fill bar-fill-mp" style="width:' + mpPct + '%"></div></div>' +
-          '<span class="bar-value">' + Math.floor(p.mp) + '/' + Math.floor(p.maxMp) + '</span>' +
-        '</div>' +
-        '<div class="resource-bar">' +
-          '<span class="bar-label bar-label-sp">SP</span>' +
-          '<div class="bar-track"><div class="bar-fill bar-fill-sp" style="width:' + spPct + '%"></div></div>' +
-          '<span class="bar-value">' + Math.floor(p.sp) + '/' + spMax + '</span>' +
-        '</div>' +
-        (statusHtml ? '<div class="status-effects">' + statusHtml + '</div>' : '');
+      // Name + team (set once)
+      var nameEl = el.querySelector('.player-name');
+      if (nameEl && nameEl.textContent !== p.scrNam) nameEl.textContent = p.scrNam;
 
-      panel.insertBefore(card, arenaInfo);
+      var badge = el.querySelector('.team-badge');
+      if (badge) {
+        var teamLetter = TEAM_LETTERS[p.teamId] || '?';
+        var teamClass = TEAM_CLASSES[p.teamId] || 'team-a';
+        badge.textContent = teamLetter;
+        badge.className = 'team-badge ' + teamClass;
+      }
+
+      // HP bar (update width + value only)
+      var hpPct = p.maxHp > 0 ? Math.max(0, Math.min(100, (p.hp / p.maxHp) * 100)) : 0;
+      var hpFill = el.querySelector('.bar-fill-hp');
+      if (hpFill) {
+        hpFill.style.width = hpPct + '%';
+        hpFill.className = 'bar-fill bar-fill-hp' + (hpPct <= 25 ? ' hp-low' : hpPct <= 50 ? ' hp-mid' : '');
+      }
+      var hpVal = el.querySelector('.hp-val');
+      if (hpVal) hpVal.textContent = Math.floor(p.hp) + '/' + Math.floor(p.maxHp);
+
+      // MP bar
+      var mpPct = p.maxMp > 0 ? Math.max(0, Math.min(100, (p.mp / p.maxMp) * 100)) : 0;
+      var mpFill = el.querySelector('.bar-fill-mp');
+      if (mpFill) mpFill.style.width = mpPct + '%';
+      var mpVal = el.querySelector('.mp-val');
+      if (mpVal) mpVal.textContent = Math.floor(p.mp) + '/' + Math.floor(p.maxMp);
+
+      // SP bar
+      var spMax = 300;
+      var spPct = Math.max(0, Math.min(100, (p.sp / spMax) * 100));
+      var spFill = el.querySelector('.bar-fill-sp');
+      if (spFill) spFill.style.width = spPct + '%';
+      var spVal = el.querySelector('.sp-val');
+      if (spVal) spVal.textContent = Math.floor(p.sp) + '/' + spMax;
+
+      // Status effects
+      var statusEl = el.querySelector('.status-effects');
+      if (statusEl) {
+        var statusHtml = '';
+        if (p.status) {
+          for (var s = 1; s <= 30; s++) {
+            if (p.status[s] && p.status[s] > 0 && STATUS_NAMES[s]) {
+              statusHtml += '<span class="status-badge">' + STATUS_NAMES[s] + '</span>';
+            }
+          }
+        }
+        if (statusEl.innerHTML !== statusHtml) statusEl.innerHTML = statusHtml;
+      }
     }
   }
 
@@ -220,7 +293,140 @@
 
   function setPlayerMoves(moves) {
     playerMoves = moves || [];
+    renderMoveChips();
   }
+
+  var pendingCmd = '';
+
+  function renderMoveChips() {
+    var container = document.getElementById('move-chips');
+    if (!container) return;
+    container.innerHTML = '';
+    hideTargetPicker();
+    if (!playerMoves.length) return;
+
+    for (var i = 0; i < playerMoves.length; i++) {
+      var m = playerMoves[i];
+      if (!m || !m.cmdKey) continue;
+      var btn = document.createElement('button');
+      btn.className = 'move-btn';
+      var label = (m.name || m.cmdKey);
+      if (label.length > 22) label = label.substring(0, 20) + '..';
+      btn.textContent = label;
+      btn.title = (m.strength ? 'STR ' + m.strength : '') + (m.mpReq ? '  MP ' + m.mpReq : '');
+      btn.setAttribute('data-cmd', '/' + m.cmdKey);
+      btn.setAttribute('data-needs-target', m.target === 2 ? 'yes' : 'no');
+      btn.addEventListener('click', onMoveClick);
+      container.appendChild(btn);
+    }
+
+    // Utility buttons
+    var utils = [
+      { cmd: '/rest', label: 'Rest', target: false },
+      { cmd: '/block', label: 'Block', target: false },
+      { cmd: '/get', label: 'Get Item', target: false },
+    ];
+    for (var u = 0; u < utils.length; u++) {
+      var ub = document.createElement('button');
+      ub.className = 'move-btn move-btn-util';
+      ub.textContent = utils[u].label;
+      ub.setAttribute('data-cmd', utils[u].cmd);
+      ub.setAttribute('data-needs-target', 'no');
+      ub.addEventListener('click', onMoveClick);
+      container.appendChild(ub);
+    }
+  }
+
+  function onMoveClick(e) {
+    var cmd = e.currentTarget.getAttribute('data-cmd');
+    var needsTarget = e.currentTarget.getAttribute('data-needs-target') === 'yes';
+
+    // Highlight selected button
+    var allBtns = document.querySelectorAll('.move-btn');
+    for (var i = 0; i < allBtns.length; i++) allBtns[i].classList.remove('selected');
+    e.currentTarget.classList.add('selected');
+
+    if (needsTarget) {
+      pendingCmd = cmd;
+      showTargetPicker();
+    } else {
+      // No target needed — put in input and send
+      var input = document.getElementById('command-input');
+      if (input) {
+        input.value = cmd;
+        input.focus();
+      }
+      hideTargetPicker();
+    }
+  }
+
+  function showTargetPicker() {
+    var picker = document.getElementById('target-picker');
+    var list = document.getElementById('target-list');
+    if (!picker || !list) return;
+
+    list.innerHTML = '';
+
+    // Get my team to show enemies
+    var me = playerStates[playerIndex];
+    var myTeam = me ? me.teamId : 0;
+
+    for (var i = 0; i < playerStates.length; i++) {
+      var p = playerStates[i];
+      if (!p || !p.isAlive || p.hp <= 0) continue;
+      if (p.teamId === myTeam) continue; // Skip allies
+
+      var btn = document.createElement('button');
+      btn.className = 'target-btn';
+
+      // Portrait
+      if (p.charId !== undefined && p.charId >= 0) {
+        var img = document.createElement('img');
+        img.src = 'img/chars/' + p.charId + '.png';
+        img.alt = '';
+        img.onerror = function () { this.style.display = 'none'; };
+        btn.appendChild(img);
+      }
+
+      var nameSpan = document.createElement('span');
+      nameSpan.textContent = p.scrNam;
+      btn.appendChild(nameSpan);
+
+      btn.setAttribute('data-name', p.scrNam);
+      btn.addEventListener('click', function () {
+        var targetName = this.getAttribute('data-name');
+        var input = document.getElementById('command-input');
+        if (input) {
+          input.value = pendingCmd + ' ' + targetName;
+          input.focus();
+        }
+        hideTargetPicker();
+        // Clear button selection
+        var allBtns = document.querySelectorAll('.move-btn');
+        for (var i = 0; i < allBtns.length; i++) allBtns[i].classList.remove('selected');
+      });
+
+      list.appendChild(btn);
+    }
+
+    picker.classList.remove('hidden');
+  }
+
+  function hideTargetPicker() {
+    var picker = document.getElementById('target-picker');
+    if (picker) picker.classList.add('hidden');
+    pendingCmd = '';
+  }
+
+  // Wire cancel button
+  setTimeout(function () {
+    var cancelBtn = document.getElementById('target-cancel');
+    if (cancelBtn) cancelBtn.addEventListener('click', function () {
+      hideTargetPicker();
+      var allBtns = document.querySelectorAll('.move-btn');
+      for (var i = 0; i < allBtns.length; i++) allBtns[i].classList.remove('selected');
+    });
+  }, 100);
 
   function showMoves() {
     appendMessage('--- Your Moves ---', 'msg-system');
@@ -287,7 +493,7 @@
       var p = players[i];
       var teamLetter = TEAM_LETTERS[p.teamId] || '?';
       var isWinner = data.winners && data.winners.indexOf(i) >= 0;
-      var rowStyle = isWinner ? ' style="color:var(--accent-yellow);"' : '';
+      var rowStyle = isWinner ? ' style="background:rgba(76,175,80,0.2);font-weight:bold;"' : '';
       html += '<tr' + rowStyle + '>' +
         '<td>' + escapeHtml(p.scrNam) + '</td>' +
         '<td>' + teamLetter + '</td>' +

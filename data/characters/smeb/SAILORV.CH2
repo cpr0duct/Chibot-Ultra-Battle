@@ -105,7 +105,7 @@
 0
 0
 0
-30
+26
 90
 2
 "Crescent Boomerang"
@@ -120,7 +120,7 @@
 ""
 "%SN throws the boomerang and its slams into %T's head!"
 ""
-"The Crescent Boomerang flies back and wacks %SN in the head."
+"The Crescent Boomerang flies back and whacks %SN in the head."
 0
 0
 0
@@ -369,7 +369,7 @@
 0
 0
 0
-30
+26
 120
 2
 "Crescent Moon Power Transform"

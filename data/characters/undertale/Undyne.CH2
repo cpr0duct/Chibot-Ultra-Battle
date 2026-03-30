@@ -1,0 +1,564 @@
+"Undyne"
+"Undyne"
+2224
+"Pick Undyne!"
+"Undyne enters the battle!"
+"Undyne joins the fight!"
+70
+55
+30
+25
+"Undyne deflects the attack with her spear! NGAAH!"
+"Undyne does aggressive push-ups to recover."
+"Undyne plants her spear and braces!"
+"The attack breaks through Undyne's guard!"
+"NGAAAAHHH! I'LL DESTROY YOU!"
+"You think you can beat ME?! The Captain of the Royal Guard?!"
+"FUHUHUHU! This is getting fun!"
+"I'll make sashimi out of you!"
+"For everyone's hopes and dreams... I WILL STRIKE YOU DOWN!"
+"trueheroine"
+"Undyne's armor begins to glow. Her determination surges beyond mortal limits..."
+"Undyne unleashes a cataclysmic storm of spears! Thousands of magical spears converge on %T from every direction! THIS IS THE POWER OF THE ROYAL GUARD!!!"
+"Spear Throw"
+"spear"
+1
+"Undyne summons a magical spear..."
+""
+""
+"%SN hurls a glowing spear at %T!"
+""
+0
+""
+"%SN's spear pierces through %T's defenses! Direct hit!"
+""
+"%T deflects Undyne's spear!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+110
+2
+"Spear Rain"
+"rain"
+1
+"Undyne raises her hand to the sky..."
+""
+""
+"A rain of magical spears falls on all enemies!"
+""
+0
+""
+"An overwhelming storm of spears rains down on everyone!"
+""
+"The enemies dodge through the spear rain!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+90
+5
+"Green SOUL"
+"green"
+0
+"Undyne's spear glows green..."
+""
+""
+"%SN turns %T's SOUL green! They can't run! Spears strike from all sides!"
+""
+0
+""
+"%T's SOUL turns green and spears close in from every direction! Devastating!"
+""
+"%T resists the green SOUL effect!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+27
+100
+2
+"Suplex Boulder"
+"suplex"
+1
+"Undyne picks up a massive boulder..."
+""
+""
+"%SN suplexes a huge boulder just because she can, and it lands on %T!"
+""
+0
+""
+"%SN suplexes the boulder ONTO %T with incredible force!"
+""
+"Undyne suplexes the boulder but it misses %T!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+27
+140
+2
+"Battle Cry"
+"cry"
+0
+"NGAAAAHHH!!!"
+""
+""
+"Undyne's battle cry inspires the team! HP restored!"
+""
+0
+""
+"Undyne's NGAAAAHHH heals the team massively!"
+""
+"Undyne's cry echoes uselessly..."
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+70
+1
+"Spear Scan"
+"scan"
+0
+"Undyne narrows her eye at the target..."
+""
+""
+"%SN sizes up %T with a warrior's eye! Stats revealed!"
+""
+0
+""
+"%SN sees every weakness in %T's stance!"
+""
+"%SN can't get a read on %T!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+23
+0
+2
+"Hero's Spear"
+"hero"
+1
+"Undyne summons the biggest spear you've ever seen..."
+""
+""
+"%SN drives a massive hero's spear through %T!"
+""
+0
+""
+"%SN's hero's spear devastates %T! The power of a true warrior!"
+""
+"%T narrowly avoids the hero's spear!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+170
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+"Undyne's HP dropped to 0. Their SOUL shatters..."
+"Undyne has been struck down!"
+"Undyne falls... but their memory remains."
+"Undyne can't hold on any longer..."
+"Undyne fades away..."
+"Undyne strikes the final blow!"
+"Undyne finishes the job! No mercy!"
+"Undyne wins! +EXP!"
+"Undyne is VICTORIOUS!"
+"Undyne delivers the finishing strike!"
+"Captain of the Royal Guard. A fierce warrior whose spear"
+"attacks and unbreakable will make her the Underground's"
+"greatest fighter."
+""

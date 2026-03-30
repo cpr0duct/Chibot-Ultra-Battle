@@ -2,10 +2,10 @@
 export function substituteVars(template, vars = {}) {
   if (!template) return '';
   return template
-    .replace(/%SN/g, vars.SN ?? '')
-    .replace(/%S2/g, vars.S2 ?? '')
-    .replace(/%T/g, vars.T ?? '')
-    .replace(/%Y/g, vars.Y ?? '');
+    .replace(/%SN/gi, vars.SN ?? '')
+    .replace(/%S2/gi, vars.S2 ?? '')
+    .replace(/%T/gi, vars.T ?? '')
+    .replace(/%Y/gi, vars.Y ?? '');
 }
 
 export function stripQuotes(str) {

@@ -13,31 +13,32 @@
     })();
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ChUB 2000</title>
-  <link rel="stylesheet" href="css/chub.css">
+  <title>ChUB 2000 — Chibot Ultra Battle</title>
+  <link rel="stylesheet" href="css/chub.css?v=0.7.0">
 </head>
 <body>
   <button id="theme-toggle" class="theme-toggle" title="Toggle theme">L</button>
 
   <div class="landing">
-    <div class="title">ChUB 2000</div>
-    <div class="subtitle">Chibot Ultra Battle</div>
+    <img src="img/logo.png" alt="ChUB 2000" class="logo-img">
+    <div class="subtitle">CHIBOT ULTRA BATTLE</div>
+    <div class="tagline">The arena awaits...</div>
 
     <div class="entry-form">
-      <input type="text" id="screen-name" placeholder="Enter screen name..." maxlength="20" autocomplete="off">
-      <button class="btn btn-primary" id="enter-lobby">Enter Lobby</button>
+      <input type="text" id="screen-name" placeholder="Enter your name..." maxlength="20" autocomplete="off">
+      <button class="btn btn-primary" id="enter-lobby">ENTER THE ARENA</button>
     </div>
 
     <div class="links">
       <a href="editors/character.html">Character Editor</a>
-      <span>|</span>
+      <span style="color:var(--text-muted);">|</span>
       <a href="editors/arena.html">Arena Editor</a>
     </div>
   </div>
 
   <script src="socket.io/socket.io.js"></script>
-  <script src="js/theme.js"></script>
-  <script src="js/socket-client.js"></script>
+  <script src="js/theme.js?v=0.7.0"></script>
+  <script src="js/socket-client.js?v=0.7.0"></script>
   <script>
     (function () {
       var nameInput = document.getElementById('screen-name');
@@ -52,6 +53,7 @@
         if (!name) {
           nameInput.focus();
           nameInput.style.borderColor = 'var(--accent-red)';
+          nameInput.style.boxShadow = '0 0 10px rgba(255,51,102,0.3)';
           return;
         }
         ChubSocket.setScreenName(name);
@@ -62,6 +64,7 @@
       nameInput.addEventListener('keydown', function (e) {
         if (e.key === 'Enter') enterLobby();
         nameInput.style.borderColor = '';
+        nameInput.style.boxShadow = '';
       });
 
       nameInput.focus();

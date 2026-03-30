@@ -64,12 +64,29 @@ export function setupStatusRoute(app, gameState) {
     if (!dataset || !dataset.characters) {
       return res.json([]);
     }
-    const list = dataset.characters.map((ch, i) => ({
-      index: i,
+    const list = dataset.characters
+      .map((ch, i) => ({ ...ch, _origIndex: i }))
+      .filter(ch => {
+        // Filter out corrupted/encrypted characters
+        const name = ch.fullName || '';
+        if (name.includes('Encrypted ChUB') || name.includes('\u0000')) return false;
+        if (!name.trim()) return false;
+        return true;
+      })
+      .map((ch) => ({
+      index: ch._origIndex,
       fullName: ch.fullName || '',
       senshiId: ch.senshiId || '',
       species: ch.species || '',
       pickMe: ch.pickMe || '',
+      desc: (ch.desc || []).filter(d => d && d.trim()).join(' '),
+      selectStr: (ch.selectStr || '').replace(/%SN/g, '').trim(),
+      physStr: ch.physStr || 0,
+      magStr: ch.magStr || 0,
+      physDef: ch.physDef || 0,
+      magDef: ch.magDef || 0,
+      maxHp: ch.maxHp || 500,
+      moveCount: (ch.moves || []).filter(m => m && m.name).length,
     }));
     res.json(list);
   });

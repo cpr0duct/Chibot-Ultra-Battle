@@ -1,6 +1,6 @@
 "Akuma"
 "Akuma"
-""
+0
 "akuma"
 "%SN turns and enters the battlefield calmy it's the dark and dangerous Akuma... "
 "%SN turns and enters the battlefield calmy it's the dark and dangerous Akuma... "
@@ -43,6 +43,7 @@
 0
 0
 0
+"0"
 0
 0
 0
@@ -60,8 +61,7 @@
 0
 0
 0
-0
-1
+29
 100
 2
 "Hurricane Kick"
@@ -70,7 +70,7 @@
 "%SN runs and heads towards %T.."
 ""
 ""
-"%SN jumps up and spins his foot around kicking %T in the head serveral times before coming down.."
+"%SN jumps up and spins his foot around kicking %T in the head several times before coming down.."
 ""
 0
 ""
@@ -87,7 +87,7 @@
 0
 0
 0
-0
+"0"
 0
 0
 0
@@ -131,7 +131,7 @@
 0
 0
 0
-0
+"0"
 0
 0
 0
@@ -175,7 +175,7 @@
 0
 0
 0
-0
+"0"
 0
 0
 0
@@ -219,7 +219,7 @@
 0
 0
 0
-0
+"0"
 0
 0
 0
@@ -263,6 +263,7 @@
 0
 0
 0
+"0"
 0
 0
 0
@@ -283,7 +284,6 @@
 0
 0
 0
-0
 ""
 ""
 0
@@ -307,6 +307,7 @@
 0
 0
 0
+"0"
 0
 0
 0
@@ -327,7 +328,6 @@
 0
 0
 0
-0
 ""
 ""
 0
@@ -341,7 +341,6 @@
 ""
 ""
 ""
-0
 0
 0
 0
@@ -352,6 +351,7 @@
 0
 0
 0
+"0"
 0
 0
 0
@@ -395,6 +395,7 @@
 0
 0
 0
+"0"
 0
 0
 0
@@ -415,7 +416,6 @@
 0
 0
 0
-0
 ""
 ""
 0
@@ -429,7 +429,6 @@
 ""
 ""
 ""
-0
 0
 0
 0
@@ -440,6 +439,7 @@
 0
 0
 0
+"0"
 0
 0
 0
@@ -483,6 +483,7 @@
 0
 0
 0
+"0"
 0
 0
 0
@@ -503,7 +504,6 @@
 0
 0
 0
-0
 ""
 ""
 0
@@ -517,7 +517,6 @@
 ""
 ""
 ""
-0
 0
 0
 0
@@ -528,6 +527,7 @@
 0
 0
 0
+"0"
 0
 0
 0
@@ -549,6 +549,10 @@
 0
 0
 "'You cannot kill a demon that's already dead..I shall return'"
+""
+""
+""
+""
 ""
 ""
 ""

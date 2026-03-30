@@ -1,0 +1,564 @@
+"Napstablook"
+"Napstablook"
+130
+"Pick Napstablook!"
+"Napstablook enters the battle!"
+"Napstablook joins the fight!"
+15
+40
+60
+50
+"The attack passes through Napstablook's ghostly form!"
+"Napstablook lies on the ground and feels like garbage. It's oddly comforting."
+"Napstablook turns invisible!"
+"Napstablook solidifies at the wrong moment! oh no..."
+"oh..........."
+"i'd just weigh you down....... sorry........"
+"let me try... oh, i messed it up... sorry..."
+"i usually just come here to feel like garbage..."
+"oh no, are you okay? ...was that me? ...oh no..."
+"spookwave"
+"Napstablook's tears begin to fall endlessly. The room fills with spectral energy... 'oh... i'm sorry about this...'"
+"A tidal wave of acid tears crashes over %T! Ghostly wails echo from every direction! The tears form a massive top hat that slams down! '...oh... i actually did it... sorry...'"
+"Acid Tears"
+"tears"
+1
+"Napstablook starts to cry..."
+""
+""
+"%SN cries acid tears on %T! It burns!"
+""
+0
+""
+"%SN's tears flood %T! The acid is devastating!"
+""
+"%T avoids the falling tears!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+22
+100
+2
+"Dapper Blook"
+"dapper"
+1
+"Napstablook's tears float upward and take shape..."
+""
+""
+"%SN forms tears into a top hat! It flies at %T with spectral energy!"
+""
+0
+""
+"%SN's dapper tear-hat strikes %T with incredible ghost power! How stylish!"
+""
+"The dapper hat phases through %T harmlessly!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+75
+110
+2
+"Ghostly Wail"
+"wail"
+0
+"Napstablook takes a deep breath... oooooooo..."
+""
+""
+"Napstablook's mournful wail echoes through all enemies!"
+""
+0
+""
+"The wail shakes everyone to their SOUL! So sad... so powerful!"
+""
+"The ghostly wail fades before reaching anyone..."
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+75
+90
+5
+"Really Not Feelin Up To It"
+"feelin"
+0
+"Napstablook lies on the ground... really not feelin up to it right now..."
+""
+""
+"%SN lies on the ground and lowers %T's will to fight!"
+""
+0
+""
+"%T is overwhelmed by existential dread! All motivation fades!"
+""
+"%T isn't affected by the existential sadness!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+21
+80
+2
+"Music Therapy"
+"music"
+0
+"Napstablook puts on their headphones and plays a mix..."
+""
+""
+"%SN plays a soothing track. HP restored... oh..."
+""
+0
+""
+"%SN's music heals deeply! It's a really good mix, actually..."
+""
+"The music is too sad to heal..."
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+90
+8
+"Ghost Scan"
+"spooklook"
+0
+"Napstablook floats closer... nervously..."
+""
+""
+"%SN phases through %T and reads their stats! ...sorry for going through you."
+""
+0
+""
+"%SN reads %T's entire being! ...oh... that's a lot of information..."
+""
+"Napstablook is too shy to scan properly..."
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+23
+0
+2
+"Incorporeal"
+"incorporeal"
+0
+"Napstablook starts to fade..."
+""
+""
+"%SN becomes incorporeal! Physical attacks pass right through!"
+""
+0
+""
+"%SN becomes completely intangible! Untouchable!"
+""
+"Napstablook can't fully phase out..."
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+8
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+"Napstablook's HP dropped to 0. Their SOUL shatters..."
+"Napstablook has been struck down!"
+"Napstablook falls... but their memory remains."
+"Napstablook can't hold on any longer..."
+"Napstablook fades away..."
+"Napstablook strikes the final blow!"
+"Napstablook finishes the job! No mercy!"
+"Napstablook wins! +EXP!"
+"Napstablook is VICTORIOUS!"
+"Napstablook delivers the finishing strike!"
+"A melancholy ghost who makes music alone in their house."
+"Their acid tears are surprisingly dangerous. They just want"
+"to feel something..."
+""

@@ -1,0 +1,564 @@
+"Mad Dummy"
+"MadDummy"
+7524
+"Pick Mad Dummy!"
+"Mad Dummy enters the battle!"
+"Mad Dummy joins the fight!"
+55
+35
+45
+30
+"The attack bounces off Mad Dummy's cottony body!"
+"Mad Dummy screams into a pillow. It helps. A little."
+"Mad Dummy tenses every cotton fiber!"
+"Cotton flies everywhere as the attack connects!"
+"I'M SO MAD!!! MAAAAAAD!!!"
+"FOOLISH. FOOLISH! FOOLISH!!!!!"
+"You weren't supposed to FIGHT me! You were supposed to TALK TO ME!"
+"DUMMY! DUMMY! DUUUUUMMY!!!"
+"I'LL SHOW YOU! I'LL SHOW EVERYONE!"
+"ragequit"
+"Mad Dummy's rage transcends physical form. The room fills with ghost energy and knife projectiles..."
+"MAD DUMMY LOSES IT! Thousands of knives, hundreds of mini dummies, and UNLIMITED RAGE converge on %T! 'I'M!!! SO!!! MAAAAAAAAAD!!!' The explosion of fury leaves nothing standing!"
+"Knife Barrage"
+"knives"
+1
+"Mad Dummy pulls out an arsenal of magical knives..."
+""
+""
+"%SN hurls a storm of cotton knives at %T!"
+""
+0
+""
+"%SN pins %T with a perfect barrage of knives! TAKE THAT!"
+""
+"%T dodges the cotton knife barrage!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+110
+2
+"Dummy Rockets"
+"rockets"
+0
+"Mad Dummy summons rocket-powered mini dummies..."
+""
+""
+"Mad Dummy fires rocket dummies at all enemies! They explode!"
+""
+0
+""
+"The dummy rockets detonate on impact! EXPLOSIONS OF RAGE!"
+""
+"The dummy rockets spiral out of control!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+24
+100
+5
+"Rage Stab"
+"stab"
+1
+"MAD DUMMY IS SO MAD THEY CAN'T SEE STRAIGHT!"
+""
+""
+"%SN stabs %T with FURIOUS ANGER!"
+""
+0
+""
+"%SN's rage-fueled stab devastates %T! GRRRAAAHHHH!!!"
+""
+"%T avoids the MAD stab!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+130
+2
+"Dummy Army"
+"army"
+0
+"Mad Dummy summons their fellow dummies..."
+""
+""
+"An army of ghost dummies attacks all enemies!"
+""
+0
+""
+"The dummy army overwhelms everyone with sheer numbers and RAGE!"
+""
+"The dummy army collapses in a heap!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+75
+80
+5
+"Cotton Heal"
+"stuff"
+0
+"Mad Dummy grabs some spare cotton..."
+""
+""
+"%SN restuffs themselves with cotton! HP restored!"
+""
+0
+""
+"%SN is fully restuffed! Good as new! STILL MAD THOUGH!"
+""
+"The cotton falls right back out!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+70
+8
+"Mad Scan"
+"madscan"
+0
+"Mad Dummy stares FURIOUSLY..."
+""
+""
+"%SN glares at %T SO HARD their stats become visible!"
+""
+0
+""
+"%SN reads %T with PURE CONCENTRATED RAGE!"
+""
+"MAD DUMMY IS TOO MAD TO FOCUS!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+23
+0
+2
+"Glad Dummy"
+"glad"
+1
+"Mad Dummy fuses completely with their body... becoming CORPOREAL!"
+""
+""
+"Mad Dummy becomes SO CORPOREAL from rage that they hit %T with everything!"
+""
+0
+""
+"Now fully corporeal, Mad Dummy — no, GLAD DUMMY — DESTROYS %T!"
+""
+"%T dodges Glad Dummy's attack!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+75
+150
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+"Mad Dummy's HP dropped to 0. Their SOUL shatters..."
+"Mad Dummy has been struck down!"
+"Mad Dummy falls... but their memory remains."
+"Mad Dummy can't hold on any longer..."
+"Mad Dummy fades away..."
+"Mad Dummy strikes the final blow!"
+"Mad Dummy finishes the job! No mercy!"
+"Mad Dummy wins! +EXP!"
+"Mad Dummy is VICTORIOUS!"
+"Mad Dummy delivers the finishing strike!"
+"A ghost possessing a cotton dummy with SERIOUS anger issues."
+"They're MAD because you didn't talk to them. Now they're"
+"going to DESTROY you."
+""

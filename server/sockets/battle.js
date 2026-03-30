@@ -11,7 +11,7 @@
  */
 export function setupBattleHandlers(socket, gameState, io) {
 
-  // ── Player command (move, block, rest, etc.) ────────────────────────────
+  // ── Player command (move, block, rest, etc.) or chat ─────────────────────
   socket.on('battle:command', (data) => {
     const { roomId, command } = data || {};
     const room = gameState.rooms.get(roomId);
@@ -20,6 +20,45 @@ export function setupBattleHandlers(socket, gameState, io) {
     const playerIndex = socket.data.playerIndex;
     if (playerIndex === undefined) return;
 
+    const trimmed = (command || '').trim();
+    if (!trimmed) return;
+
+    // Whisper: /msg <name> <message> or /t <name> <message>
+    const whisperMatch = trimmed.match(/^\/(msg|t|tell|whisper)\s+(\S+)\s+(.+)$/i);
+    if (whisperMatch) {
+      const targetName = whisperMatch[2].toLowerCase();
+      const whisperText = whisperMatch[3];
+      const senderName = room.players[playerIndex]?.scrNam || 'Unknown';
+
+      // Find target player's socket
+      for (const p of room.players) {
+        if (p && !p.isCpu && p.scrNam?.toLowerCase().includes(targetName)) {
+          const targetSocket = io.sockets.sockets.get(p.socketId);
+          if (targetSocket) {
+            targetSocket.emit('battle:message', {
+              roomId, message: `[whisper from ${senderName}]: ${whisperText}`, type: 'whisper'
+            });
+          }
+          socket.emit('battle:message', {
+            roomId, message: `[whisper to ${p.scrNam}]: ${whisperText}`, type: 'whisper'
+          });
+          return;
+        }
+      }
+      socket.emit('battle:command-result', { success: false, message: 'Player not found.' });
+      return;
+    }
+
+    // Plain chat (no slash prefix)
+    if (!trimmed.startsWith('/')) {
+      const senderName = room.players[playerIndex]?.scrNam || 'Player';
+      io.to(roomId).emit('battle:message', {
+        roomId, message: `${senderName}: ${trimmed}`, type: 'chat', playerIndex
+      });
+      return;
+    }
+
+    // Slash command
     const result = room.processCommand(playerIndex, command);
     socket.emit('battle:command-result', result);
   });

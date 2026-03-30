@@ -1,0 +1,564 @@
+"Lesser Dog"
+"LesserDog"
+121
+"Pick Lesser Dog!"
+"Lesser Dog enters the battle!"
+"Lesser Dog joins the fight!"
+50
+40
+20
+25
+"The coiled neck deflects the attack!"
+"Lesser Dog chases their own tail, which is oddly relaxing."
+"Lesser Dog's neck coils into a protective spiral!"
+"The attack hits Lesser Dog! *sad whimper*"
+"*Lesser Dog is too excited to form words!*"
+"ARF! ARF ARF ARF!!! *vibrating with joy*"
+"*Lesser Dog's tail is wagging at dangerous speeds!*"
+"*Lesser Dog's neck is getting uncomfortably long!*"
+"*Lesser Dog has been pet too much! Neck approaching critical length!*"
+"endlessneck"
+"Lesser Dog has been pet one too many times. The neck is extending beyond all reason..."
+"Lesser Dog's neck extends through space and time, wrapping around %T hundreds of times! The neck constricts and then slams %T into the ground from orbit! LESSER DOG ABSORBED %T INTO THE NECK DIMENSION!"
+"Sword Slash"
+"slash"
+1
+"Lesser Dog draws a tiny sword..."
+""
+""
+"%SN slashes %T with an excited sword swing!"
+""
+0
+""
+"%SN's sword connects perfectly with %T! *tail wagging*"
+""
+"%T avoids the enthusiastic slash!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+100
+2
+"Neck Stretch Attack"
+"stretch"
+1
+"Lesser Dog's neck begins to stretch... and stretch..."
+""
+""
+"Lesser Dog's neck stretches impossibly long and headbutts %T!"
+""
+0
+""
+"Lesser Dog's neck stretches INTO SPACE and comes crashing down on %T!"
+""
+"Lesser Dog's neck extends but misses %T!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+120
+2
+"Excited Pounce"
+"pounce"
+0
+"Lesser Dog crouches, tail wagging furiously..."
+""
+""
+"%SN pounces on %T with maximum excitement!"
+""
+0
+""
+"%SN tackles %T and WON'T STOP LICKING THEM! The slobber does damage somehow!"
+""
+"%T sidesteps the excited pounce!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+80
+2
+"Happy Bark"
+"happybark"
+0
+"Lesser Dog takes a deep breath..."
+""
+""
+"Lesser Dog barks happily! The sonic waves hit all enemies!"
+""
+0
+""
+"An incredibly enthusiastic bark blasts all enemies!"
+""
+"The bark is too happy to hurt anyone!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+28
+70
+5
+"Wag Heal"
+"wag"
+0
+"*tail wagging intensifies*"
+""
+""
+"Lesser Dog wags their tail so happily that it heals!"
+""
+0
+""
+"Maximum tail wag speed achieved! Incredible healing energy!"
+""
+"Lesser Dog isn't feeling waggish right now..."
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+75
+8
+"Dog Sniff"
+"dogsniff"
+0
+"Lesser Dog sniffs the air curiously..."
+""
+""
+"Lesser Dog sniffs %T! Stats revealed! *pant*"
+""
+0
+""
+"Lesser Dog sniffs out ALL of %T's secrets!"
+""
+"Lesser Dog gets distracted by a squirrel!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+23
+0
+2
+"Infinite Neck"
+"infinite"
+1
+"Someone petted Lesser Dog too many times. The neck is EXTENDING..."
+""
+""
+"Lesser Dog's neck stretches TO INFINITY and crashes back down on %T!"
+""
+0
+""
+"Lesser Dog's neck wraps around the ENTIRE PLANET and strikes %T from the other side!"
+""
+"The neck extends so far it misses entirely!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+160
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+"Lesser Dog's HP dropped to 0. Their SOUL shatters..."
+"Lesser Dog has been struck down!"
+"Lesser Dog falls... but their memory remains."
+"Lesser Dog can't hold on any longer..."
+"Lesser Dog fades away..."
+"Lesser Dog strikes the final blow!"
+"Lesser Dog finishes the job! No mercy!"
+"Lesser Dog wins! +EXP!"
+"Lesser Dog is VICTORIOUS!"
+"Lesser Dog delivers the finishing strike!"
+"An excitable dog guard whose neck extends when pet."
+"Simple-minded but enthusiastic, armed with a sword and an"
+"unending desire for head pats."
+""

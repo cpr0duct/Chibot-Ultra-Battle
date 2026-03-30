@@ -1,0 +1,564 @@
+"Greater Dog"
+"GreaterDog"
+125
+"Pick Greater Dog!"
+"Greater Dog enters the battle!"
+"Greater Dog joins the fight!"
+65
+55
+15
+20
+"The attack bounces off Greater Dog's thick armor!"
+"Greater Dog curls up inside the armor for a quick nap. Zzz..."
+"Greater Dog hides inside the armor and closes the visor!"
+"The attack dents Greater Dog's armor! *whimper*"
+"BARK! BARK BARK! *tail wagging intensifies*"
+"*Greater Dog is panting excitedly!*"
+"*The tiny dog inside the armor is having THE BEST TIME!*"
+"WOOF! *armored tail destroys a wall*"
+"*Greater Dog wants to play! ...by fighting you!*"
+"goodboy"
+"Greater Dog's armor begins to glow. The tiny dog inside barks with maximum determination..."
+"Greater Dog charges at maximum speed in full armor! The neck extends, the spear points forward, and the entire mass of excited dog-knight CRASHES into %T like a furry cannonball! BARK BARK BARK! GOOD BOY!!!"
+"Spear Lunge"
+"lunge"
+1
+"Greater Dog charges forward in full armor!"
+""
+""
+"%SN lunges at %T with a massive armored spear! BARK!"
+""
+0
+""
+"%SN's armored lunge crushes %T! Very strong dog!"
+""
+"%T dodges the excited lunge!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+120
+2
+"Armor Slam"
+"slam"
+1
+"Greater Dog leaps into the air in full armor..."
+""
+""
+"%SN body-slams %T with the weight of the full armor! WOOF!"
+""
+0
+""
+"%SN's armor slam creates a shockwave that devastates %T!"
+""
+"%T rolls out of the way of the massive slam!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+27
+100
+2
+"Bark Wave"
+"bark"
+0
+"Greater Dog inhales deeply... BAAARRRKK!"
+""
+""
+"Greater Dog barks so loud it creates a shockwave hitting everyone!"
+""
+0
+""
+"The bark blast knocks everyone off their feet!"
+""
+"The bark echoes harmlessly!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+28
+80
+5
+"Fetch!"
+"fetch"
+1
+"Greater Dog gets excited! *panting intensifies*"
+""
+""
+"Greater Dog fetches a BOULDER and drops it on %T!"
+""
+0
+""
+"Greater Dog returns with a COLOSSAL boulder and CRUSHES %T! Good dog!"
+""
+"Greater Dog brings back a stick instead of a boulder!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+150
+2
+"Belly Rub Heal"
+"bellyrub"
+0
+"Greater Dog rolls onto his back expectantly..."
+""
+""
+"Greater Dog rolls over for belly rubs! The happiness heals all wounds!"
+""
+0
+""
+"THE BEST BELLY RUBS! Greater Dog is SO HAPPY! Maximum healing!"
+""
+"No one rubs Greater Dog's belly... *sad whimper*"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+80
+8
+"Sniff"
+"sniff"
+0
+"Greater Dog's nose twitches..."
+""
+""
+"Greater Dog sniffs %T thoroughly! Stats revealed! *pant pant*"
+""
+0
+""
+"Greater Dog sniffs out EVERYTHING about %T! Very good nose!"
+""
+"Greater Dog gets distracted by another smell!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+23
+0
+2
+"Neck Extend"
+"neck"
+0
+"Greater Dog's neck begins to stretch..."
+""
+""
+"Greater Dog's neck extends impossibly far and headbutts %T!"
+""
+0
+""
+"Greater Dog's neck stretches across the ENTIRE ARENA to headbutt %T!"
+""
+"The neck extends but bonks the wall instead!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+90
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+"Greater Dog's HP dropped to 0. Their SOUL shatters..."
+"Greater Dog has been struck down!"
+"Greater Dog falls... but their memory remains."
+"Greater Dog can't hold on any longer..."
+"Greater Dog fades away..."
+"Greater Dog strikes the final blow!"
+"Greater Dog finishes the job! No mercy!"
+"Greater Dog wins! +EXP!"
+"Greater Dog is VICTORIOUS!"
+"Greater Dog delivers the finishing strike!"
+"A tiny dog inside a massive suit of armor. Part of the Royal"
+"Guard's canine unit. Loves pets, belly rubs, and smashing"
+"things with a giant spear."
+""

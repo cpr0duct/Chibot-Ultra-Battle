@@ -46,7 +46,7 @@ function doesDamage(element) {
 }
 
 function isAliveAndActive(p) {
-  return p && p.charId !== 0 && p.hp > 0 && p.isAlive && !p.status[STATUS.MIA];
+  return p && p.charId >= 0 && p.hp > 0 && p.isAlive && !p.status[STATUS.MIA];
 }
 
 function defaultRng() {
@@ -81,12 +81,12 @@ export function isBeingTargeted(playerIndex, allPlayers) {
 
   for (let i = 0; i < allPlayers.length; i++) {
     const p = allPlayers[i];
-    if (!p || i === playerIndex || p.hp <= 0 || p.charId === 0) continue;
+    if (!p || i === playerIndex || p.hp <= 0 || p.charId < 0) continue;
     if (p.teamId === player.teamId) continue; // allies don't threaten
     if (p.curMove <= 0) continue;
 
-    // Check if the move targets us
-    const move = p.moves[p.curMove];
+    // Check if the move targets us (curMove is 1-based)
+    const move = p.moves[p.curMove - 1];
     if (!move) continue;
 
     const tgtType = move.target;
@@ -183,6 +183,7 @@ export function findHealMove(player) {
     if (!move || !move.name) continue;
     if (move.element !== ELEMENT.HEAL) continue;
     if (move.canSuper > 1) continue; // skip super-only moves
+    if (move.mpReq > 0 && player.mp < move.mpReq) continue; // can't afford
     // Mute blocks non-physical
     if (player.status[STATUS.MUTE] && move.element !== ELEMENT.PHYSICAL) continue;
     if (move.strength > bestStrength) {
@@ -211,6 +212,7 @@ export function findBuffMove(player, targetStatus) {
     const move = player.moves[i];
     if (!move || !move.name) continue;
     if (move.canSuper > 1) continue; // skip super-only moves
+    if (move.mpReq > 0 && player.mp < move.mpReq) continue; // can't afford
     // Mute blocks non-physical
     if (player.status[STATUS.MUTE] && move.element !== ELEMENT.PHYSICAL) continue;
     // Scarecrow blocks physical
@@ -246,6 +248,7 @@ export function findBestAttackMove(player, target, arena) {
     if (!doesDamage(move.element)) continue;
     if (move.element === ELEMENT.MP_THEFT || move.element === ELEMENT.HP_THEFT) continue;
     if (move.canSuper > 1) continue; // skip super-only moves
+    if (move.mpReq > 0 && player.mp < move.mpReq) continue; // can't afford
     // Mute blocks non-physical
     if (player.status[STATUS.MUTE] && move.element !== ELEMENT.PHYSICAL) continue;
     // Scarecrow blocks physical
@@ -328,48 +331,50 @@ export function cpuDecide(player, playerIndex, allPlayers, arena, gameTime, opts
 
   // ── Priority 1: Block/Counter when being targeted ────────────────────
 
-  if (isBeingTargeted(playerIndex, allPlayers) && player.sp >= 100) {
-    // Find a counter move (best damaging move usable as counter)
-    let counterMoveIndex = -1;
-    let bestDmg = -1;
-    const targetingEnemy = getStrongestEnemy(player, allPlayers);
+  if (isBeingTargeted(playerIndex, allPlayers)) {
+    // Try counter if SP >= 100
+    if (player.sp >= 100) {
+      let counterMoveIndex = -1;
+      let bestDmg = -1;
+      const targetingEnemy = getStrongestEnemy(player, allPlayers);
 
-    for (let i = 0; i < player.moves.length; i++) {
-      const move = player.moves[i];
-      if (!move || !move.name) continue;
-      if (!doesDamage(move.element)) continue;
-      // Counter moves: canSuper <= 1 or canSuper >= 6 (VB6 FindCounter logic)
-      if (move.canSuper > 1 && move.canSuper < 6) continue;
-      if (player.status[STATUS.MUTE] && move.element !== ELEMENT.PHYSICAL) continue;
-      if (player.status[STATUS.SCARECROW] && move.element === ELEMENT.PHYSICAL) continue;
+      for (let i = 0; i < player.moves.length; i++) {
+        const move = player.moves[i];
+        if (!move || !move.name) continue;
+        if (!doesDamage(move.element)) continue;
+        // Counter moves: canSuper <= 1 or canSuper >= 6 (VB6 FindCounter logic)
+        if (move.canSuper > 1 && move.canSuper < 6) continue;
+        if (player.status[STATUS.MUTE] && move.element !== ELEMENT.PHYSICAL) continue;
+        if (player.status[STATUS.SCARECROW] && move.element === ELEMENT.PHYSICAL) continue;
 
-      if (targetingEnemy >= 0) {
-        const result = projectDamage(player, allPlayers[targetingEnemy], move, arena, { seed: 0.5 });
-        if (result.damage > bestDmg) {
-          bestDmg = result.damage;
+        if (targetingEnemy >= 0) {
+          const result = projectDamage(player, allPlayers[targetingEnemy], move, arena, { seed: 0.5 });
+          if (result.damage > bestDmg) {
+            bestDmg = result.damage;
+            counterMoveIndex = i;
+          }
+        } else if (move.name) {
           counterMoveIndex = i;
+          break;
         }
-      } else if (move.name) {
-        counterMoveIndex = i;
-        break;
+      }
+
+      if (counterMoveIndex >= 0) {
+        return {
+          action: 'block',
+          moveIndex: PLAYER_MOVE.BLOCK,
+          targetIndex: counterMoveIndex, // VB6 stores counter move in target slot
+          message: `${player.scrNam} blocks with a counter ready!`,
+        };
       }
     }
 
-    if (counterMoveIndex >= 0) {
-      return {
-        action: 'block',
-        moveIndex: PLAYER_MOVE.BLOCK,
-        targetIndex: counterMoveIndex, // VB6 stores counter move in target slot
-        message: `${player.scrNam} blocks with a counter ready!`,
-      };
-    }
-
-    // Block without counter if HP is comfortable
+    // Block without counter (no SP requirement for plain block)
     if (player.hp >= player.maxHp * 2 / 5) {
       return {
         action: 'block',
         moveIndex: PLAYER_MOVE.BLOCK,
-        targetIndex: 0,
+        targetIndex: -1,
         message: `${player.scrNam} takes a defensive stance.`,
       };
     }
@@ -429,14 +434,10 @@ export function cpuDecide(player, playerIndex, allPlayers, arena, gameTime, opts
       if (!player.status[stat]) {
         const moveIdx = findBuffMove(player, stat);
         if (moveIdx >= 0) {
-          const move = player.moves[moveIdx];
-          // Determine target based on move target type
-          const targetIdx = (move.target === TARGET.ONLY_SELF || move.target === TARGET.ALLY)
-            ? playerIndex : playerIndex;
           return {
             action: 'buff',
             moveIndex: moveIdx,
-            targetIndex: targetIdx,
+            targetIndex: playerIndex,
             message: `${player.scrNam} applies a buff!`,
           };
         }
@@ -513,8 +514,11 @@ export function cpuDecide(player, playerIndex, allPlayers, arena, gameTime, opts
 
   // ── Priority 5: Attack ──────────────────────────────────────────────
 
+  // Force attack when comfortable (high HP + Regen active = stop resting)
+  const isComfortable = player.hp > player.maxHp * 0.7 && player.status[STATUS.REGEN];
+
   // Wrath >= 80 means always attack (even when healing might be better)
-  const shouldAttack = wrath >= 80 || (rng() * 100) <= wrath;
+  const shouldAttack = isComfortable || wrath >= 80 || (rng() * 100) <= wrath;
   const targetIdx = getStrongestEnemy(player, allPlayers);
 
   if (shouldAttack && targetIdx >= 0) {

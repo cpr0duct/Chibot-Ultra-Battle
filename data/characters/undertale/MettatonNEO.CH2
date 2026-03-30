@@ -1,0 +1,564 @@
+"Mettaton NEO"
+"MettatonNEO"
+3001
+"Pick Mettaton NEO!"
+"Mettaton NEO enters the battle!"
+"Mettaton NEO joins the fight!"
+30
+10
+90
+15
+"Mettaton NEO's armor absorbs the blow!"
+"Mettaton NEO enters power-saving mode to recharge."
+"Mettaton NEO raises a reinforced arm!"
+"Mettaton NEO's thin armor shatters! Critical vulnerability!"
+"This form was designed for one purpose: DESTRUCTION!"
+"I'll protect everyone... with every weapon I have!"
+"Dr. Alphys built me to be the ULTIMATE weapon!"
+"You can't stop this show... it's the FINAL episode!"
+"NEO form activated. Combat mode: MAXIMUM."
+"neofinale"
+"Mettaton NEO overclocks all weapons systems. Warning: CORE MELTDOWN IMMINENT..."
+"Mettaton NEO fires every weapon simultaneously — cannons, missiles, lasers, and energy blades converge on %T in a cataclysmic explosion! THE FINAL SHOW! THE ULTIMATE PERFORMANCE!"
+"NEO Cannon"
+"cannon"
+1
+"Mettaton NEO's arm transforms into a cannon..."
+""
+""
+"%SN fires the NEO Cannon at %T! A massive energy blast!"
+""
+0
+""
+"%SN's NEO Cannon obliterates %T! MAXIMUM POWER!"
+""
+"%T ducks under the NEO Cannon blast!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+30
+170
+2
+"Energy Blast"
+"energyblast"
+1
+"Every weapon port on Mettaton NEO opens..."
+""
+""
+"Mettaton NEO fires energy blasts at all enemies!"
+""
+0
+""
+"The energy barrage devastates everyone! TOTAL DESTRUCTION!"
+""
+"The energy blasts scatter harmlessly!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+30
+130
+5
+"Rocket Punch"
+"rocket"
+1
+"Mettaton NEO's fist detaches and ignites..."
+""
+""
+"%SN launches a rocket-propelled fist at %T!"
+""
+0
+""
+"%SN's rocket punch smashes %T into the wall!"
+""
+"%T sidesteps the rocket punch!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+120
+2
+"Heart Missiles"
+"missiles"
+0
+"Mettaton NEO's shoulder pods open..."
+""
+""
+"Heart-shaped missiles rain down on all enemies!"
+""
+0
+""
+"The heart missiles explode in a chain reaction across all enemies!"
+""
+"The heart missiles veer off course!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+26
+100
+5
+"Repair Protocol"
+"repair"
+0
+"Mettaton NEO's systems whir and click..."
+""
+""
+"%SN activates emergency repair systems! HP restored!"
+""
+0
+""
+"%SN's repairs exceed parameters! Maximum recovery!"
+""
+"The repair systems fail to engage!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+70
+8
+"Target Lock"
+"lock"
+0
+"Mettaton NEO's visor flashes red..."
+""
+""
+"%SN locks onto %T with targeting systems! Stats revealed!"
+""
+0
+""
+"%SN's targeting computer maps every weakness in %T!"
+""
+"Targeting systems error!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+23
+0
+2
+"Lightning Sword"
+"sword"
+1
+"A crackling energy blade extends from Mettaton NEO's arm..."
+""
+""
+"%SN slashes %T with an electrified sword!"
+""
+0
+""
+"%SN's lightning sword carves through %T! Electrifying!"
+""
+"%T parries the lightning sword!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+25
+140
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+"Mettaton NEO's HP dropped to 0. Their SOUL shatters..."
+"Mettaton NEO has been struck down!"
+"Mettaton NEO falls... but their memory remains."
+"Mettaton NEO can't hold on any longer..."
+"Mettaton NEO fades away..."
+"Mettaton NEO strikes the final blow!"
+"Mettaton NEO finishes the job! No mercy!"
+"Mettaton NEO wins! +EXP!"
+"Mettaton NEO is VICTORIOUS!"
+"Mettaton NEO delivers the finishing strike!"
+"Mettaton's combat form, designed by Dr. Alphys for battle."
+"Armed to the teeth with weapons, but perhaps not as tough as"
+"he looks."
+""

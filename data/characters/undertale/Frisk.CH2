@@ -1,0 +1,564 @@
+"Frisk"
+"Frisk"
+2621
+"Pick Frisk!"
+"Frisk enters the battle!"
+"Frisk joins the fight!"
+40
+35
+40
+35
+"The Heart Locket absorbs the blow!"
+"Frisk sits by a glowing SAVE point and rests."
+"Frisk braces with the Heart Locket."
+"Frisk's guard is broken through!"
+"* But it refused."
+"* You are filled with DETERMINATION."
+"* Frisk smiles mysteriously."
+"* Despite everything, it's still you."
+"* You feel your sins crawling on your back."
+"reset"
+"Frisk's eyes glow red with DETERMINATION. The world shudders..."
+"Frisk RESETS the timeline around %T! Their existence is erased from this world!"
+"Tough Glove"
+"glove"
+1
+"Frisk equips the Tough Glove..."
+""
+""
+"%SN punches %T with the Tough Glove!"
+""
+0
+""
+"%SN lands a devastating Tough Glove combo on %T! Critical hit!"
+""
+"%T dodges Frisk's punch!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+80
+2
+"Ballet Shoes"
+"ballet"
+1
+"Frisk performs a ballet stance..."
+""
+""
+"%SN kicks %T gracefully with the Ballet Shoes!"
+""
+0
+""
+"%SN unleashes a flurry of graceful kicks on %T! Critical hit!"
+""
+"%T sidesteps Frisk's elegant kick!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+100
+2
+"Worn Dagger"
+"dagger"
+1
+"Frisk draws the Worn Dagger..."
+""
+""
+"%SN slashes %T with the Worn Dagger!"
+""
+0
+""
+"%SN carves through %T with the Worn Dagger! Critical hit!"
+""
+"%T evades the dagger strike!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+120
+2
+"DETERMINATION"
+"determination"
+0
+"Frisk's SOUL glows bright red..."
+""
+""
+"%SN is filled with DETERMINATION! HP restored!"
+""
+0
+""
+"%SN overflows with DETERMINATION! Massive healing!"
+""
+"%SN tries to muster determination but falters!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+120
+8
+"ACT - Mercy"
+"mercy"
+0
+"Frisk opens the MERCY menu..."
+""
+""
+"%SN reaches out to %T with compassion! Their SOUL resonates!"
+""
+0
+""
+"%SN's mercy pierces %T's defenses! Their SOUL trembles!"
+""
+"%T refuses Frisk's mercy!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+26
+90
+2
+"Butterscotch Pie"
+"pie"
+0
+"Frisk opens their inventory..."
+""
+""
+"%SN eats a slice of Butterscotch Pie! HP restored!"
+""
+0
+""
+"%SN savors the Butterscotch Pie! Massive healing!"
+""
+"%SN fumbles with the pie!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+80
+3
+"SAVE"
+"save"
+0
+"Frisk reaches for the SAVE point..."
+""
+""
+"%SN analyzes %T! Stats revealed!"
+""
+0
+""
+"%SN reads %T's every stat!"
+""
+"%SN can't quite read %T..."
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+23
+0
+2
+"Real Knife"
+"knife"
+1
+"Frisk's expression goes blank as they draw the Real Knife..."
+""
+""
+"%SN strikes %T with the Real Knife! A vicious blow!"
+""
+0
+""
+"%SN tears through %T with the Real Knife! The damage is immense!"
+""
+"%T barely avoids the Real Knife!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+180
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+"Frisk's HP dropped to 0. Their SOUL shatters..."
+"Frisk has been struck down!"
+"Frisk falls... but their memory remains."
+"Frisk can't hold on any longer..."
+"Frisk fades away..."
+"Frisk strikes the final blow!"
+"Frisk finishes the job! No mercy!"
+"Frisk wins! +EXP!"
+"Frisk is VICTORIOUS!"
+"Frisk delivers the finishing strike!"
+"A determined human child who fell into the Underground."
+"Their unwavering DETERMINATION lets them persist through any"
+"challenge."
+""

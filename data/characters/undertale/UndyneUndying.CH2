@@ -1,0 +1,564 @@
+"Undyne the Undying"
+"UndyneUndying"
+2225
+"Pick Undyne the Undying!"
+"Undyne the Undying enters the battle!"
+"Undyne the Undying joins the fight!"
+80
+60
+40
+30
+"Undyne's determination deflects the attack! SHE WILL NOT FALL!"
+"Undyne's body flickers, but her determination holds her together."
+"Undyne's melting body hardens with determination!"
+"The attack strikes Undyne's melting form!"
+"You're going to have to try harder than THAT!"
+"SCREW IT! NGAAAAHHHHHHH!!!"
+"The hopes and dreams of every monster... I carry them all!"
+"I WON'T DIE! Not until I've done what I need to!"
+"Human... No, WHATEVER you are... I will END you!"
+"undying"
+"Undyne's single eye blazes like a star. Her form becomes pure light..."
+"Undyne the Undying channels every monster's DETERMINATION into a single cataclysmic spear! It pierces through dimensions to strike %T! THIS IS THE POWER OF EVERYONE'S DETERMINATION!!!"
+"Spear of Justice"
+"justice"
+1
+"Undyne's spear blazes with righteous light..."
+""
+""
+"%SN hurls the burning Spear of Justice at %T!"
+""
+0
+""
+"%SN's Spear of Justice burns straight through %T! FOR EVERYONE'S HOPES AND DREAMS!"
+""
+"%T narrowly avoids the Spear of Justice!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+30
+160
+2
+"Reversed Spears"
+"reverse"
+1
+"Undyne flips her hand — the spears reverse course!"
+""
+""
+"Spears appear behind %T and strike from all directions!"
+""
+0
+""
+"The reversed spears shred through %T! No blind spot is safe!"
+""
+"%T weaves through the reversed spear pattern!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+120
+2
+"Spinning Spears"
+"spin"
+1
+"Undyne conjures enormous rotating spears..."
+""
+""
+"Massive spinning spears sweep across all enemies!"
+""
+0
+""
+"The spinning spears tear through everyone! Unstoppable!"
+""
+"The enemies duck under the spinning spears!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+100
+5
+"DETERMINATION"
+"determine"
+0
+"Undyne's body begins to melt... but she stands firm!"
+""
+""
+"%SN's body melts but reforms! HP restored! SHE REFUSES TO DIE!"
+""
+0
+""
+"%SN is held together by sheer DETERMINATION! Massive recovery!"
+""
+"Undyne's determination flickers..."
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+100
+8
+"Yellow Spear Volley"
+"yellow"
+0
+"Undyne charges her spears with electricity..."
+""
+""
+"Yellow lightning spears arc across all enemies!"
+""
+0
+""
+"The yellow spears electrify everything! NGAAAAHHH!"
+""
+"The yellow spears fizzle harmlessly!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+25
+110
+5
+"Hero's Gaze"
+"gaze"
+0
+"Undyne focuses her remaining eye..."
+""
+""
+"%SN stares down %T with an undying eye! Stats revealed!"
+""
+0
+""
+"%SN sees through %T completely! Every stat exposed!"
+""
+"%SN's vision blurs as her body struggles to hold form..."
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+23
+0
+2
+"Spear of Determination"
+"detspear"
+1
+"The will of every monster in the Underground fuels this spear..."
+""
+""
+"%SN hurls a spear blazing with pure determination at %T!"
+""
+0
+""
+"%SN's ultimate spear explodes through %T! THE HEROINE NEVER DIES!"
+""
+"%T evades the ultimate spear by a hair!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+30
+200
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+"Undyne the Undying's HP dropped to 0. Their SOUL shatters..."
+"Undyne the Undying has been struck down!"
+"Undyne the Undying falls... but their memory remains."
+"Undyne the Undying can't hold on any longer..."
+"Undyne the Undying fades away..."
+"Undyne the Undying strikes the final blow!"
+"Undyne the Undying finishes the job! No mercy!"
+"Undyne the Undying wins! +EXP!"
+"Undyne the Undying is VICTORIOUS!"
+"Undyne the Undying delivers the finishing strike!"
+"Fueled by the determination of every monster in the"
+"Underground, Undyne has surpassed her mortal limits. She"
+"will not die. She REFUSES to die."
+""

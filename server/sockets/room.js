@@ -96,6 +96,40 @@ export function setupRoomHandlers(socket, gameState) {
     }
   });
 
+  // ── Set any player's team (host only) ───────────────────────────────────
+  socket.on('room:set-player-team', (data) => {
+    const { roomId, playerIndex, teamId } = data || {};
+    const room = gameState.rooms.get(roomId);
+    if (!room) return;
+
+    if (socket.data.playerIndex !== room.hostIndex) {
+      socket.emit('room:error', { message: 'Only the host can change teams.' });
+      return;
+    }
+
+    room.setTeam(playerIndex, teamId);
+  });
+
+  // ── Change CPU character (host only) ────────────────────────────────────
+  socket.on('room:set-cpu-char', (data) => {
+    const { roomId, playerIndex, commandKey } = data || {};
+    const room = gameState.rooms.get(roomId);
+    if (!room) return;
+
+    if (socket.data.playerIndex !== room.hostIndex) {
+      socket.emit('room:error', { message: 'Only the host can change CPU characters.' });
+      return;
+    }
+
+    const player = room.players[playerIndex];
+    if (!player || !player.isCpu) {
+      socket.emit('room:error', { message: 'Not a CPU player.' });
+      return;
+    }
+
+    room.selectCharacter(playerIndex, commandKey);
+  });
+
   // ── EZ Teams ────────────────────────────────────────────────────────────
   socket.on('room:ez-teams', (data) => {
     const { roomId } = data || {};
@@ -108,6 +142,24 @@ export function setupRoomHandlers(socket, gameState) {
     }
 
     room.ezTeams();
+  });
+
+  // ── Toggle turn-based mode ──────────────────────────────────────────────
+  socket.on('room:set-turn-based', (data) => {
+    const { roomId, enabled } = data || {};
+    const room = gameState.rooms.get(roomId);
+    if (!room) return;
+
+    if (socket.data.playerIndex !== room.hostIndex) {
+      socket.emit('room:error', { message: 'Only the host can change battle mode.' });
+      return;
+    }
+
+    room.turnBased = !!enabled;
+    room.emit('battle:message', {
+      roomId: room.id,
+      message: `Turn-based mode: ${room.turnBased ? 'ON' : 'OFF'}`,
+    });
   });
 
   // ── Fill CPUs ───────────────────────────────────────────────────────────

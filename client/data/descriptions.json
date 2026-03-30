@@ -1,0 +1,2682 @@
+[
+  {
+    "index": 0,
+    "name": "Aeris Gainsborough",
+    "description": "Final Fantasy VII's flower girl and last of the Cetra. Aeris heals the whole party and shields allies with Planet Protector. Pure magic powerhouse!"
+  },
+  {
+    "index": 1,
+    "name": "Barret Wallace",
+    "description": "Final Fantasy VII's gun-armed rebel leader. Barret unloads Heavy Shots, Grenade Bombs, and the devastating Catastrophe beam. All firepower, no mercy!"
+  },
+  {
+    "index": 2,
+    "name": "Bizzaro*Sephiroth",
+    "description": "Sephiroth's twisted form from Final Fantasy VII. Commands Bolt 3, Ice 3, Fire 3, and the dreaded Heartless Angel. A multi-elemental nightmare!"
+  },
+  {
+    "index": 3,
+    "name": "Cait Sith",
+    "description": "Final Fantasy VII's fortune-telling cat on a moogle. Cait Sith rolls Dice, drops Toy Boxes, and might just land a Lucky Girl critical!"
+  },
+  {
+    "index": 4,
+    "name": "Chocobo",
+    "description": "Final Fantasy VII's beloved golden bird. Chocobo pecks, heals with Choco Cure, and rains down Choco Meteor. Kweh means business!"
+  },
+  {
+    "index": 5,
+    "name": "Chun Li",
+    "description": "Street Fighter's strongest woman! Chun Li unleashes Lightning Legs and Kikoken blasts. Speed and grace with knockout power!"
+  },
+  {
+    "index": 6,
+    "name": "Cid Highwind",
+    "description": "Final Fantasy VII's foul-mouthed pilot. Cid leaps with Hyper Jump and calls down the Highwind airship for massive damage. Tea time's over!"
+  },
+  {
+    "index": 7,
+    "name": "Cloud Strife",
+    "description": "Final Fantasy VII's legendary SOLDIER. Cloud wields the massive Buster Sword with Omnislash and channels Restore Materia. A balanced warrior!"
+  },
+  {
+    "index": 8,
+    "name": "Cyan Garamonde",
+    "description": "Final Fantasy VI's honorable samurai. Cyan strikes with Dispatch and Quadra Slam, channeling the ancient Bushido arts. Honor demands victory!"
+  },
+  {
+    "index": 9,
+    "name": "Dalton!",
+    "description": "Chrono Trigger's arrogant general. Dalton hurls fireballs, lightning, and even lets out a massive Buuuurp! Gross but deadly!"
+  },
+  {
+    "index": 10,
+    "name": "Gafgarion",
+    "description": "Final Fantasy Tactics' dark knight. Gafgarion drains life with Night Sword and Dark Sword. Your HP is his HP now!"
+  },
+  {
+    "index": 11,
+    "name": "Galian Beast",
+    "description": "Vincent Valentine's beast form from Final Fantasy VII. Galian Beast goes berserk with raw physical fury. 100% strength, 0% chill!"
+  },
+  {
+    "index": 12,
+    "name": "Iron Man",
+    "description": "A heavily armored warrior wielding Grand Sword techniques. Pure physical brute force with Adrenaline-fueled strikes. No magic, all muscle!"
+  },
+  {
+    "index": 13,
+    "name": "Kamek's Magus",
+    "description": "A dark mage wielding Kamek's sorcery. Commands Lightning, Ice, Fire, and even summons Lavos itself! Bow before the Magus!"
+  },
+  {
+    "index": 14,
+    "name": "Kamek's Shadow",
+    "description": "Kamek's shadow assassin blending ninja arts with elemental edges. Throws shurikens, wields Excalibur, and strikes from the darkness!"
+  },
+  {
+    "index": 15,
+    "name": "Mog",
+    "description": "Final Fantasy VI's dancing moogle. Mog boogies with Sonic Boom, Cave In, and El Nino. This fuzzy dancer packs a surprising punch!"
+  },
+  {
+    "index": 16,
+    "name": "Olan",
+    "description": "Final Fantasy Tactics' scholar-warrior. Olan fights with books, stones, and a trusty Heal spell. Brains AND brawn in one package!"
+  },
+  {
+    "index": 17,
+    "name": "Red XIII",
+    "description": "Final Fantasy VII's fiery beast from Cosmo Canyon. Red XIII shreds foes with Sled Fang and blasts Stardust Ray. Nanaki bites back!"
+  },
+  {
+    "index": 18,
+    "name": "Safer*Sephiroth",
+    "description": "Final Fantasy VII's ultimate villain. Safer Sephiroth rains Super Nova, Shadow Flare, and Heartless Angel. The One-Winged Angel of doom!"
+  },
+  {
+    "index": 19,
+    "name": "Jenova*SYNTHESIS",
+    "description": "Final Fantasy VII's alien horror. Jenova SYNTHESIS absorbs life, stops time, and unleashes Ultima. Mother knows worst!"
+  },
+  {
+    "index": 20,
+    "name": "Tifa Lockhart",
+    "description": "Final Fantasy VII's martial arts master. Tifa chains Beat Rush into Meteor Strike and unleashes Final Heaven. These fists don't miss!"
+  },
+  {
+    "index": 21,
+    "name": "Yuffie Kisaragi",
+    "description": "Final Fantasy VII's ninja thief from Wutai. Yuffie hurls Greased Lightning, steals items, and creates All Creation. Catch her if you can!"
+  },
+  {
+    "index": 22,
+    "name": "Midgar Zolom",
+    "description": "Final Fantasy VII's legendary serpent of the marshes. Midgar Zolom poisons, drains energy, and unleashes the feared Beta attack!"
+  },
+  {
+    "index": 23,
+    "name": "Ail",
+    "description": "From Sailor Moon. Ail steals energy and blasts foes with his alien flute. A mysterious extraterrestrial menace with a personal force field!"
+  },
+  {
+    "index": 24,
+    "name": "Andrew",
+    "description": "Original Character. Andrew throws arcade machines and operates skill crane games. The arcade never closes when he's fighting!"
+  },
+  {
+    "index": 25,
+    "name": "Ann",
+    "description": "From Sailor Moon. Ann blasts with alien energy and chokes foes with telekinetic grabs. Don't let her cute disguise fool you!"
+  },
+  {
+    "index": 26,
+    "name": "Artemis",
+    "description": "Sailor Moon's guardian cat advisor. Artemis mind melds, mauls, and fires Chaos Beams. This kitty has claws AND psychic powers!"
+  },
+  {
+    "index": 27,
+    "name": "Beruche",
+    "description": "Sailor Moon's Dark Moon sister. Beruche commands devastating ice attacks and Dark Water. Sub-zero temperatures guaranteed!"
+  },
+  {
+    "index": 28,
+    "name": "Queen Beryl",
+    "description": "Sailor Moon's Dark Kingdom queen. Queen Beryl summons Negaverse Warriors and fires crystal blasts. Bow before the dark throne!"
+  },
+  {
+    "index": 29,
+    "name": "Bobo the Vulture",
+    "description": "Original Character. Bobo the Vulture throws Spinning Right Hooks, Turbo Hooks, and Atomic Uppercuts. A boxing bird with a mean streak!"
+  },
+  {
+    "index": 30,
+    "name": "Buburan",
+    "description": "From Sailor Moon. Buburan fires Bon-Bon blasts, Cannon Balls, and puts foes to sleep with a magic flute. Sweet but deadly!"
+  },
+  {
+    "index": 31,
+    "name": "Bumboo Kid",
+    "description": "From Sailor Moon. Bumboo Kid slashes with scissors, impales with compasses, and cuts with razor blades. Office supplies gone lethal!"
+  },
+  {
+    "index": 32,
+    "name": "Ceraberas",
+    "description": "Original Character. Ceraberas cracks the Dark Whip and deploys mysterious droids. A shadowy warrior with tricks up their sleeve!"
+  },
+  {
+    "index": 33,
+    "name": "CereCere",
+    "description": "Sailor Moon's Amazoness Quartet member. CereCere hurls flower hurricanes, headbashes, and summons flower monsters. Pretty and painful!"
+  },
+  {
+    "index": 34,
+    "name": "Sailor Ceres",
+    "description": "Sailor Moon's asteroid senshi. Sailor Ceres blasts with crystal beams, heals with herbs, and chokes foes with vines. Nature's fury!"
+  },
+  {
+    "index": 35,
+    "name": "Sailor Chibi-Chibi",
+    "description": "Sailor Moon's mysterious tiny guardian. Chibi-Chibi blasts, hugs to heal, and summons protective shields. Small but cosmically powerful!"
+  },
+  {
+    "index": 36,
+    "name": "SailorStar Chibi-Moon",
+    "description": "Sailor Moon's future warrior princess. Chibi-Moon fires Pink Sugar Heart Attacks and wields Luna-P gadgets. Freezes foes with kisses!"
+  },
+  {
+    "index": 37,
+    "name": "Cooan",
+    "description": "Sailor Moon's Dark Moon sister. Cooan rains Dark Fire and Nega-Bombs on her enemies. Hot-tempered in every sense!"
+  },
+  {
+    "index": 38,
+    "name": "Sailor Cosmos",
+    "description": "Sailor Moon's ultimate guardian from the far future. Sailor Cosmos unleashes cosmic shockwaves, star beams, and revives the fallen!"
+  },
+  {
+    "index": 39,
+    "name": "Cyprine and Ptilol",
+    "description": "Sailor Moon's twin witches. Cyprine and Ptilol blast in tandem and shield each other. Two-for-one destruction!"
+  },
+  {
+    "index": 40,
+    "name": "Diana",
+    "description": "Sailor Moon's kitten guardian. Diana mind melds and scratches, then overwhelms you with questions. Adorably dangerous!"
+  },
+  {
+    "index": 41,
+    "name": "Prince Dimando",
+    "description": "Sailor Moon's Dark Moon prince. Dimando hypnotizes, blasts with eye beams, and summons energy shields. Royal and ruthless!"
+  },
+  {
+    "index": 42,
+    "name": "The Dream Princess",
+    "description": "From Sailor Moon. The Dream Princess weaves snake wreaths and apple curses. Sweet dreams become your worst nightmare!"
+  },
+  {
+    "index": 43,
+    "name": "Prince Endymion",
+    "description": "Sailor Moon's noble prince. Endymion throws roses, strikes with his sword, and protects allies. Romance meets combat!"
+  },
+  {
+    "index": 44,
+    "name": "Esmeraude",
+    "description": "Sailor Moon's Dark Moon villainess. Esmeraude shocks with green electricity and impales with dark hedges. That laugh is deadly!"
+  },
+  {
+    "index": 45,
+    "name": "Eudial",
+    "description": "Sailor Moon's Witches 5 fire specialist. Eudial summons Daimons and blasts with the Fire Buster. She's got traps everywhere!"
+  },
+  {
+    "index": 46,
+    "name": "Evil Prince Endymion",
+    "description": "Sailor Moon's brainwashed prince. Evil Endymion wields black roses and dark crystal energy. The good prince gone terribly wrong!"
+  },
+  {
+    "index": 47,
+    "name": "Sailorstarfighter",
+    "description": "Sailor Moon's Starlight warrior. Sailor Star Fighter fires Star Serious Laser with pinpoint accuracy. Starlight power cuts through all!"
+  },
+  {
+    "index": 48,
+    "name": "Fiore",
+    "description": "From the Sailor Moon R movie. Fiore commands Kisenian flowers and drains energy. Love twisted into vengeance!"
+  },
+  {
+    "index": 49,
+    "name": "Fish Eye",
+    "description": "Sailor Moon's Amazon Trio member. Fish Eye freezes foes, tosses daggers, and traps with nets. Fabulous AND lethal!"
+  },
+  {
+    "index": 50,
+    "name": "Sailor Galaxia",
+    "description": "Sailor Moon's golden-armored conqueror. Galaxia unleashes star columns, comet rain, and golden whips. The most feared senshi!"
+  },
+  {
+    "index": 51,
+    "name": "Game Machine Man",
+    "description": "From Sailor Moon. Game Machine Man hurls arcade cabinets and snares foes with claws. Insert coin to continue... if you survive!"
+  },
+  {
+    "index": 52,
+    "name": "Greg",
+    "description": "From Sailor Moon. Greg reads minds, fires rainbow crystal beams, and boosts psychic waves. Knowledge IS power!"
+  },
+  {
+    "index": 53,
+    "name": "Miss Haruna",
+    "description": "Sailor Moon's long-suffering teacher. Miss Haruna grades papers into weapons and rings the Cowbell of doom. Class is in session!"
+  },
+  {
+    "index": 54,
+    "name": "Hawk Eye",
+    "description": "Sailor Moon's Amazon Trio member. Hawk Eye breathes fire, throws daggers, and extracts dream mirrors. A circus nightmare!"
+  },
+  {
+    "index": 55,
+    "name": "Sailorstarhealer",
+    "description": "Sailor Moon's Starlight healer. Sailor Star Healer fires Star Sensitive Inferno for massive damage. Healing star power that burns!"
+  },
+  {
+    "index": 56,
+    "name": "Jadeite",
+    "description": "Sailor Moon's Dark Kingdom general. Jadeite disguises, drains energy, and blasts with Negaverse power. Deceptively dangerous!"
+  },
+  {
+    "index": 57,
+    "name": "JunJun",
+    "description": "Sailor Moon's Amazoness Quartet acrobat. JunJun headbashes, steals HP, and delivers acrobatic heel kicks. Tough and tumbling!"
+  },
+  {
+    "index": 58,
+    "name": "SailorStar Jupiter",
+    "description": "Sailor Moon's thunder senshi. Jupiter unleashes Supreme Thunder Dragon and Oak Evolution. The mightiest physical Sailor fighter!"
+  },
+  {
+    "index": 59,
+    "name": "Princess Snow Kaguya",
+    "description": "From Sailor Moon. Princess Snow Kaguya freezes everything with ice breath and spiral blasts. An eternal winter awaits!"
+  },
+  {
+    "index": 60,
+    "name": "Sailor Kakyuu",
+    "description": "Sailor Moon's Kinmoku princess. Sailor Kakyuu heals and unleashes Kinmoku Fusion Tempest. Royal flower power at its finest!"
+  },
+  {
+    "index": 61,
+    "name": "Tuxedo Kamen",
+    "description": "Sailor Moon's masked hero. Tuxedo Kamen throws roses, swings his cane, and drops speeches. Style AND substance!"
+  },
+  {
+    "index": 62,
+    "name": "Kaolinite",
+    "description": "Sailor Moon's Witches 5 leader. Kaolinite whips with her hair, shocks with electricity, and hurls ice shards. Tangled pain!"
+  },
+  {
+    "index": 63,
+    "name": "Tsukikage no Knight",
+    "description": "Sailor Moon's moonlight knight. Tsukikage no Knight slashes swords and throws white roses. A mysterious protector from the desert!"
+  },
+  {
+    "index": 64,
+    "name": "Kunzite",
+    "description": "Sailor Moon's strongest Dark Kingdom general. Kunzite steals energy, steals moves, and unleashes shadow dragons. The ultimate thief!"
+  },
+  {
+    "index": 65,
+    "name": "Black Lady",
+    "description": "Sailor Moon's corrupted future princess. Black Lady fires dark mirrors and spirals of shadow. Innocence twisted into dark power!"
+  },
+  {
+    "index": 66,
+    "name": "Sailor Lethe",
+    "description": "Sailor Moon's river guardian. Sailor Lethe fires Galactica blasts and drowns memories in the River of Oblivion. Forget everything!"
+  },
+  {
+    "index": 67,
+    "name": "Luna",
+    "description": "Sailor Moon's wise guardian cat. Luna mind melds, flips, and sneaks from the shadows. Don't underestimate this feline advisor!"
+  },
+  {
+    "index": 68,
+    "name": "The Makaiju",
+    "description": "Sailor Moon's alien life-tree. The Makaiju drains HP and SP, poisons with pods, and smashes with roots. An alien force of nature!"
+  },
+  {
+    "index": 69,
+    "name": "Sailorstarmaker",
+    "description": "Sailor Moon's Starlight creator. Sailor Star Maker fires Star Gentle Uterus and shields with the star locket. Cosmic creation power!"
+  },
+  {
+    "index": 70,
+    "name": "SailorStar Mars",
+    "description": "Sailor Moon's fire senshi. Mars unleashes Fire Soul Bird and Mars Flame Sniper. Sacred flames purify all evil!"
+  },
+  {
+    "index": 71,
+    "name": "Tuxedo Melvin",
+    "description": "Sailor Moon's lovable nerd hero. Tuxedo Melvin throws CD-ROMs, uploads viruses, and attacks with HTTP. The internet's mightiest warrior!"
+  },
+  {
+    "index": 72,
+    "name": "SailorStar Mercury",
+    "description": "Sailor Moon's water senshi. Mercury freezes foes with Shine Aqua Illusion and scans weaknesses. Intelligence is the ultimate weapon!"
+  },
+  {
+    "index": 73,
+    "name": "Queen Metallia",
+    "description": "Sailor Moon's ultimate Dark Kingdom force. Queen Metallia unleashes devastating Nega Blasts and tornadoes. Pure evil energy incarnate!"
+  },
+  {
+    "index": 74,
+    "name": "Mimete",
+    "description": "Sailor Moon's Witches 5 idol. Mimete summons Daimons, sings to drain, and blasts with star shards. A deadly fangirl!"
+  },
+  {
+    "index": 75,
+    "name": "Mistress 9",
+    "description": "Sailor Moon's vessel of destruction. Mistress 9 wraps foes in hair, summons Daimons, and brings The Silence. The end begins here!"
+  },
+  {
+    "index": 76,
+    "name": "Sailor Mnemosyne",
+    "description": "Sailor Moon's memory guardian. Sailor Mnemosyne heals with water, shields allies, and rushes with memories. Past meets present!"
+  },
+  {
+    "index": 77,
+    "name": "Eternal Sailormoon",
+    "description": "Sailor Moon's ultimate form! Eternal Moon fires Moon Gorgeous Meditation and Silver Moon Crystal Power Kiss. Love conquers ALL!"
+  },
+  {
+    "index": 78,
+    "name": "Sailor Iron Mouse",
+    "description": "Sailor Moon's Animamate mouse. Iron Mouse fires rapid Galactica blasts. Small, fast, and overwhelmingly annoying to fight!"
+  },
+  {
+    "index": 79,
+    "name": "Naoko Takeuchi",
+    "description": "Sailor Moon's real-world creator cameo! Naoko Takeuchi attacks with manga pages and summons dark villains. The pen IS mightier!"
+  },
+  {
+    "index": 80,
+    "name": "Osaka Naru",
+    "description": "Sailor Moon's loyal friend. Naru channels the power of love into healing and cherry bomb blasts. Heart and courage in one!"
+  },
+  {
+    "index": 81,
+    "name": "Queen Nehelenia",
+    "description": "Sailor Moon's nightmare queen. Nehelenia shatters dream mirrors and fires golden crystal blasts. Beautiful terror!"
+  },
+  {
+    "index": 82,
+    "name": "Neo-Queen Serenity",
+    "description": "Sailor Moon's future queen. Neo-Queen Serenity heals, revives, and fires Moon Crystal Power. Pure magical supremacy!"
+  },
+  {
+    "index": 83,
+    "name": "Nephrite",
+    "description": "Sailor Moon's star-reading general. Nephrite fires cosmic star rain and drains hearts. The stars foretell your defeat!"
+  },
+  {
+    "index": 84,
+    "name": "SailorStar Neptune",
+    "description": "Sailor Moon's ocean senshi. Neptune submerges foes with Deep Submerge and reflects attacks with Aqua Mirror. Elegant destruction!"
+  },
+  {
+    "index": 85,
+    "name": "Sailor Heavy Metal Papillon",
+    "description": "Sailor Moon's butterfly Animamate. Heavy Metal Papillon swarms with butterflies and soul attacks. Wings of beauty, sting of death!"
+  },
+  {
+    "index": 86,
+    "name": "ParaPara",
+    "description": "Sailor Moon's Amazoness Quartet trickster. ParaPara swings balls, jabs with poolsticks, and casts aging spells. Youth is her weapon!"
+  },
+  {
+    "index": 87,
+    "name": "Pegasus",
+    "description": "Sailor Moon's dream guardian. Pegasus heals with moon beams and charges with ram attacks. A mystical winged protector!"
+  },
+  {
+    "index": 88,
+    "name": "Peruru",
+    "description": "From the Sailor Moon SuperS movie. Peruru hypnotizes with his flute and powers up with super cookies. Sweet-toothed dream fairy!"
+  },
+  {
+    "index": 89,
+    "name": "Petz",
+    "description": "Sailor Moon's Dark Moon sister. Petz strikes with dark thunder and summons hypnotic droids. Lightning with a dark twist!"
+  },
+  {
+    "index": 90,
+    "name": "SailorStar Pluto",
+    "description": "Sailor Moon's time senshi. Pluto screams Dead Scream, stops time, and bends chronology. Guardian of the time gate!"
+  },
+  {
+    "index": 91,
+    "name": "Pox",
+    "description": "Original Character. Pox growls, headbutts, and bashes with raw claws. A feral beast with pure physical aggression!"
+  },
+  {
+    "index": 92,
+    "name": "Puppet",
+    "description": "From Sailor Moon. Puppet drains energy, traps souls in bottles, and summons maid attacks. A sinister puppeteer pulling deadly strings!"
+  },
+  {
+    "index": 93,
+    "name": "Ririka the Vampire",
+    "description": "From Sailor Moon. Ririka drinks blood, hides behind wing shields, and summons vampire hordes. A sweet-faced bloodsucker!"
+  },
+  {
+    "index": 94,
+    "name": "Rubeus",
+    "description": "Sailor Moon's Dark Moon commander. Rubeus blasts dark energy through shields and fires pulsating dark streams. Fiery-haired fury!"
+  },
+  {
+    "index": 95,
+    "name": "Sailor V",
+    "description": "Sailor Moon's original hero identity! Sailor V kicks, chops, punches, and fires Crescent Beams. The OG magical girl vigilante!"
+  },
+  {
+    "index": 96,
+    "name": "SailorStar Saturn",
+    "description": "Sailor Moon's silence senshi. Saturn swings the Silence Glaive for devastating attacks and raises Silence Walls. Apocalyptic power!"
+  },
+  {
+    "index": 97,
+    "name": "Queen Serenity",
+    "description": "Sailor Moon's ancient lunar queen. Queen Serenity heals, casts Holy, and revives the fallen. The Silver Millennium's ultimate protector!"
+  },
+  {
+    "index": 98,
+    "name": "The Invincible Shadow",
+    "description": "From Sailor Moon. The Invincible Shadow massacres with physical strikes and fires massive energy blasts. Simple, brutal, effective!"
+  },
+  {
+    "index": 99,
+    "name": "Techniclon",
+    "description": "From Sailor Moon. Techniclon drains with leeches, shocks with lightning beakers, and Butt Splats. Don't ask, just dodge!"
+  },
+  {
+    "index": 100,
+    "name": "Tellu",
+    "description": "Sailor Moon's Witches 5 botanist. Tellu commands mutant plants, raises plant walls, and sics vine armies. Nature's dark side!"
+  },
+  {
+    "index": 101,
+    "name": "Terakoya",
+    "description": "From Sailor Moon. Terakoya attacks with love letters that cause chaos and painful paper cuts. Love hurts... literally!"
+  },
+  {
+    "index": 102,
+    "name": "Tetis, the Youma of Water",
+    "description": "From Sailor Moon. Tetis disguises as water, deep freezes foes, and summons dark tidal waves. A shape-shifting aquatic terror!"
+  },
+  {
+    "index": 103,
+    "name": "Tiger Eye",
+    "description": "Sailor Moon's Amazon Trio member. Tiger Eye holds shadows, throws daggers, and trips with sticks. A wild circus performer!"
+  },
+  {
+    "index": 104,
+    "name": "SailorStar Uranus",
+    "description": "Sailor Moon's sky senshi. Uranus shakes the world and blasts with the Space Sword. Raw physical dominance from the sky!"
+  },
+  {
+    "index": 105,
+    "name": "Queen Vadiana",
+    "description": "From the Sailor Moon SuperS movie. Queen Vadiana traps foes in black dream holes and drains with dream coffins. Sweet dreams are over!"
+  },
+  {
+    "index": 106,
+    "name": "Veena",
+    "description": "Original Character. Veena rains boulders, draws snakes, and tickles with feathers. A quirky mage with earth-shaking power!"
+  },
+  {
+    "index": 107,
+    "name": "SailorStar Venus",
+    "description": "Sailor Moon's love senshi. Venus chains foes with Love Me Chain and shocks with Love And Beauty Shock. Love is a battlefield!"
+  },
+  {
+    "index": 108,
+    "name": "VesVes",
+    "description": "Sailor Moon's Amazoness Quartet beast tamer. VesVes hexes computers, steals HP, and jabs with poolsticks. Wild and unpredictable!"
+  },
+  {
+    "index": 109,
+    "name": "Viluy",
+    "description": "Sailor Moon's Witches 5 hacker. Viluy drains with computers, uploads viruses, and morphs via ChUB Access. Digital destruction!"
+  },
+  {
+    "index": 110,
+    "name": "Wiseman",
+    "description": "Sailor Moon's puppeteer of doom. Wiseman chokes, brainwashes, and rains showers of destruction. The true Dark Moon mastermind!"
+  },
+  {
+    "index": 111,
+    "name": "Zirconia",
+    "description": "Sailor Moon's mirror sorceress. Zirconia reflects attacks, crushes hearts, and traps foes in mirror mazes. Reflections of pain!"
+  },
+  {
+    "index": 112,
+    "name": "Zoisite",
+    "description": "Sailor Moon's cunning general. Zoisite whirls cherry blossoms, hurls ice crystals, and blazes with fire. Beautiful but deadly!"
+  },
+  {
+    "index": 113,
+    "name": "Artificial 13",
+    "description": "Dragon Ball Z's combined android. Artificial 13 kicks mountains, crushes heads, and recharges mid-fight. Parts sold separately!"
+  },
+  {
+    "index": 114,
+    "name": "#14",
+    "description": "Dragon Ball Z's towering android #14. Backfists, headcrushes, and powers up with devices. Silent but devastating!"
+  },
+  {
+    "index": 115,
+    "name": "#15",
+    "description": "Dragon Ball Z's stealthy android #15. Mountain kicks, headcrushes, and throws razor-sharp hats. Small but packing serious heat!"
+  },
+  {
+    "index": 116,
+    "name": "Artificial 16",
+    "description": "Dragon Ball Z's gentle giant android. Android 16 fires Hell's Flash and rocket punches. Nature-loving but battle-ready!"
+  },
+  {
+    "index": 117,
+    "name": "Artificial 17",
+    "description": "Dragon Ball Z's rebellious android. Android 17 fires finger blasts, smashes fists, and recharges. Infinite power, infinite attitude!"
+  },
+  {
+    "index": 118,
+    "name": "Artificial 18",
+    "description": "Dragon Ball Z's fashionable android. Android 18 fires energy waves, delivers hip attacks, and bloody knees. Stylish destruction!"
+  },
+  {
+    "index": 119,
+    "name": "Artificial 19",
+    "description": "Dragon Ball Z's energy-absorbing android. Android 19 drains power with both hands and fires eye beams. Your energy is his!"
+  },
+  {
+    "index": 120,
+    "name": "Artificial 20",
+    "description": "Dragon Ball Z's elder android. Android 20 steals KI, fires eye beams and arm cannons. Dr. Gero's ultimate creation!"
+  },
+  {
+    "index": 121,
+    "name": "Baata",
+    "description": "Dragon Ball Z's Ginyu Force speedster. Burter boosts speed and crashes in as the Purple Comet. Fastest in the universe!"
+  },
+  {
+    "index": 122,
+    "name": "Majin Babidi",
+    "description": "Dragon Ball Z's evil wizard. Babidi summons Dabura, Majin Buu, and Majin Vegeta. Why fight when minions do it for you?"
+  },
+  {
+    "index": 123,
+    "name": "Bebi",
+    "description": "Dragon Ball GT's parasitic Tuffle. Baby takes over bodies with a single touch. One morph and you're fighting your own ally!"
+  },
+  {
+    "index": 124,
+    "name": "Bojack",
+    "description": "Dragon Ball Z's galactic pirate. Bojack slashes energy, smashes hammers, and fires the Galactic Buster. Space terror incarnate!"
+  },
+  {
+    "index": 125,
+    "name": "Brolli",
+    "description": "Dragon Ball Z's Legendary Super Saiyan. Broly rains relentless energy blasts and smashes with atomic force. Unstoppable berserker rage!"
+  },
+  {
+    "index": 126,
+    "name": "Majin Buu",
+    "description": "Dragon Ball Z's pink terror. Majin Buu fires Genocide Attacks and Kamehamehas. Candy won't save you from this menace!"
+  },
+  {
+    "index": 127,
+    "name": "Cell",
+    "description": "Dragon Ball Z's perfect bio-android. Cell uses Kamehameha, Makankosappo, AND Kienzan -- everyone's moves stolen! Perfection achieved!"
+  },
+  {
+    "index": 128,
+    "name": "Cell Jr",
+    "description": "Dragon Ball Z's mini menaces. Cell Jr fires Kamehameha and Makankosappo just like daddy. Small but horrifyingly strong!"
+  },
+  {
+    "index": 129,
+    "name": "Chaozu",
+    "description": "Dragon Ball Z's psychic warrior. Chiaotzu fires Dodonpa, goes Kamikaze, and freezes foes with telekinesis. Tiny but explosive!"
+  },
+  {
+    "index": 130,
+    "name": "Dabura",
+    "description": "Dragon Ball Z's Demon King. Dabura petrifies with spit, blasts KI, and burns with hellfire. The ruler of the Demon Realm!"
+  },
+  {
+    "index": 131,
+    "name": "Piccolo Daimao",
+    "description": "Dragon Ball's original Demon King Piccolo. Fires Bakurikimaha and Makosen blasts with Namekian regeneration. The OG green menace!"
+  },
+  {
+    "index": 132,
+    "name": "Dende",
+    "description": "Dragon Ball Z's young Namekian healer. Dende heals everything and calls Piccolo for backup. The ultimate support character!"
+  },
+  {
+    "index": 133,
+    "name": "Freeza",
+    "description": "Dragon Ball Z's galactic emperor. Frieza fires Death Balls, eye beams, and goes 100% power. You WILL kneel before him!"
+  },
+  {
+    "index": 134,
+    "name": "Garlic Jr",
+    "description": "Dragon Ball Z's immortal demon. Garlic Jr summons henchmen, stretches, and regenerates. You can't kill what won't stay dead!"
+  },
+  {
+    "index": 135,
+    "name": "Gill",
+    "description": "Dragon Ball GT's robot companion. Gill absorbs energy and fires cannons. Small package, big boom!"
+  },
+  {
+    "index": 136,
+    "name": "Ginger",
+    "description": "Dragon Ball Z's spice warrior. Ginger slashes swords, blasts energy, and calls the triple team. Garlic Jr's loyal henchman!"
+  },
+  {
+    "index": 137,
+    "name": "Ginyu",
+    "description": "Dragon Ball Z's body-swapping captain. Ginyu changes bodies with one move! Pray he doesn't pick yours!"
+  },
+  {
+    "index": 138,
+    "name": "Ultimate Gojiita",
+    "description": "Dragon Ball's ultimate fusion warrior. Gogeta fires Big Bang Kamehameha for world-ending damage. The ultimate tag team!"
+  },
+  {
+    "index": 139,
+    "name": "Gohan",
+    "description": "Dragon Ball Z's scholarly warrior. Gohan goes Mystic and fires Masenko and Kamehameha. Hidden power surpassing his father!"
+  },
+  {
+    "index": 140,
+    "name": "Goku",
+    "description": "Dragon Ball Z's legendary Super Saiyan. Goku fires Kamehameha, Spirit Bomb, and Dragon Fist. The ultimate warrior!"
+  },
+  {
+    "index": 141,
+    "name": "Goten",
+    "description": "Dragon Ball Z's young half-Saiyan. Goten fires Kamekameha, goes Super Saiyan, and calls double teams. Like father, like son!"
+  },
+  {
+    "index": 142,
+    "name": "Gotenks",
+    "description": "Dragon Ball Z's fusion prankster. Gotenks goes Super Saiyan 3 and sends Super Ghost Kamikaze! Comedy AND power!"
+  },
+  {
+    "index": 143,
+    "name": "Guld",
+    "description": "Dragon Ball Z's Ginyu Force psychic. Guldo freezes time and freezes foes in place. Slow but impossibly tricky!"
+  },
+  {
+    "index": 144,
+    "name": "The Eldest Namek",
+    "description": "Dragon Ball Z's ancient Namekian elder. The Great Elder unlocks hidden strength and heals. Wisdom is the greatest power!"
+  },
+  {
+    "index": 145,
+    "name": "Hildegarn",
+    "description": "Dragon Ball Z's giant phantom beast. Hildegarn teleports, wraps with its tail, and breathes devastating fire. Kaiju-sized threat!"
+  },
+  {
+    "index": 146,
+    "name": "Janenba",
+    "description": "Dragon Ball Z's dimension-ripping demon. Janenba stabs, heals through rifts, and delivers furious combos. Reality bends to his will!"
+  },
+  {
+    "index": 147,
+    "name": "Janenba",
+    "description": "Dragon Ball Z's orb-wielding demon form. Janenba fires colored orbs with devastating effects. A rainbow of destruction!"
+  },
+  {
+    "index": 148,
+    "name": "Jees",
+    "description": "Dragon Ball Z's Ginyu Force blaster. Jeice fires Crasher Balls and crashes as the Purple Comet. Red Magma meets speed!"
+  },
+  {
+    "index": 149,
+    "name": "Kaiou-bit",
+    "description": "Dragon Ball Z's fused Supreme Kai. Kibito Kai fires wave shocks and energy thrusts with divine healing. Supreme divine power!"
+  },
+  {
+    "index": 150,
+    "name": "Kaioushin",
+    "description": "Dragon Ball Z's Supreme Kai. Kaioushin fires wave shocks and devastating Gekiretsushinoho. The universe's highest authority!"
+  },
+  {
+    "index": 151,
+    "name": "Kibito",
+    "description": "Dragon Ball Z's divine attendant. Kibito heals allies, cures all, and charges in with powerful punches. Heavenly support!"
+  },
+  {
+    "index": 152,
+    "name": "Kooler",
+    "description": "Dragon Ball Z's Frieza's brother. Cooler fires Death Balls, eye beams, and upgrades to metal form. Colder than Frieza!"
+  },
+  {
+    "index": 153,
+    "name": "Krillin",
+    "description": "Dragon Ball Z's bald warrior hero. Krillin fires Kamehameha and Kienzan discs with Taiyoken blinds. The strongest human alive!"
+  },
+  {
+    "index": 154,
+    "name": "Kuwii",
+    "description": "Dragon Ball Z's cowardly soldier. Cui blasts, kicks, and runs when outmatched. His scouter says you're toast... maybe!"
+  },
+  {
+    "index": 155,
+    "name": "Mirai Gohan",
+    "description": "Dragon Ball Z's future timeline hero. Future Gohan goes Super Saiyan and fires Kamehameha. One arm, infinite courage!"
+  },
+  {
+    "index": 156,
+    "name": "Master Roshi",
+    "description": "Dragon Ball's legendary master. Roshi fires Kamehameha, fights drunk, and always has a Senzu Bean. The original turtle hermit!"
+  },
+  {
+    "index": 157,
+    "name": "Mister Satan",
+    "description": "Dragon Ball Z's world champ. Mr. Satan delivers Dynamite Kicks and the legendary Megaton Punch! All hype, maximum heart!"
+  },
+  {
+    "index": 158,
+    "name": "Mirai Trunks",
+    "description": "Dragon Ball Z's future sword warrior. Trunks goes Super Saiyan, sword slices, and fires Burning Attack. Time-traveling hero!"
+  },
+  {
+    "index": 159,
+    "name": "Nail",
+    "description": "Dragon Ball Z's Namekian warrior. Nail fires Inazuma-ha, slashes claws, and regenerates. Piccolo's other half!"
+  },
+  {
+    "index": 160,
+    "name": "Nappa",
+    "description": "Dragon Ball Z's Saiyan brute. Nappa goes Oozaru, summons Saibamen, and fires his ultimate attack. Bald, buff, and brutal!"
+  },
+  {
+    "index": 161,
+    "name": "Nicky",
+    "description": "Dragon Ball Z's Garlic Jr henchman. Nicky fires energy blasts, swings swords, and calls the triple team. One of three deadly foes!"
+  },
+  {
+    "index": 162,
+    "name": "Pan",
+    "description": "Dragon Ball GT's spirited quarter-Saiyan. Pan fires Kamehameha and delivers atomic blitz combos. Grandpa's fighting spirit!"
+  },
+  {
+    "index": 163,
+    "name": "Piccolo",
+    "description": "Dragon Ball Z's Namekian hero. Piccolo fires Makankosappo, the ultimate beam cannon, and regenerates. Green, mean, fighting machine!"
+  },
+  {
+    "index": 164,
+    "name": "Puar",
+    "description": "Dragon Ball's shape-shifting cat. Puar transforms into anything with one morph! One move, infinite possibilities!"
+  },
+  {
+    "index": 165,
+    "name": "Raditz",
+    "description": "Dragon Ball Z's Saiyan invader. Raditz scouters, goes Oozaru, and fires KI blasts. Goku's evil brother means business!"
+  },
+  {
+    "index": 166,
+    "name": "Recoom",
+    "description": "Dragon Ball Z's Ginyu Force muscle. Recoome fires the Eraser Cannon and delivers devastating attacks. Flamboyant AND powerful!"
+  },
+  {
+    "index": 167,
+    "name": "Great Saiyaman",
+    "description": "Dragon Ball Z's superhero alter ego. Great Saiyaman fires cannons and delivers justice kicks. Crime doesn't pay!"
+  },
+  {
+    "index": 168,
+    "name": "Super Buu",
+    "description": "Dragon Ball Z's evolved Buu. Super Buu fires Genocide Attacks, absorbs fighters, and blasts shockwaves. Smarter and deadlier!"
+  },
+  {
+    "index": 169,
+    "name": "Lord Slug",
+    "description": "Dragon Ball Z's evil Super Namekian. Lord Slug poisons, stretches, and grows to giant size. Ancient evil reborn!"
+  },
+  {
+    "index": 170,
+    "name": "SSJ2 Gohan",
+    "description": "Dragon Ball Z's unleashed warrior. SSJ2 Gohan fires Kamehameha and relentless energy barrages. Father-surpassing power!"
+  },
+  {
+    "index": 171,
+    "name": "Super Goku 4",
+    "description": "Dragon Ball GT's ultimate form. Super Goku 4 fires 10x Kamehameha and Dragon Fist Explosion. Maximum monkey power!"
+  },
+  {
+    "index": 172,
+    "name": "Super #17",
+    "description": "Dragon Ball GT's ultimate android fusion. Super 17 absorbs energy and fires Flash Bombs. Powered by your attacks!"
+  },
+  {
+    "index": 173,
+    "name": "Super Vegeta 4",
+    "description": "Dragon Ball GT's Saiyan prince evolved. Super Vegeta 4 fires Final Shine and Kienzan. The prince at peak power!"
+  },
+  {
+    "index": 174,
+    "name": "Tapion",
+    "description": "Dragon Ball Z's legendary hero. Tapion charges with his sword and plays the melody. Ancient courage reforged!"
+  },
+  {
+    "index": 175,
+    "name": "Tien",
+    "description": "Dragon Ball Z's three-eyed warrior. Tien fires Kikoho, Dodonpa, and the blinding Taiyoken. Triclops with a killer punch!"
+  },
+  {
+    "index": 176,
+    "name": "Trunks",
+    "description": "Dragon Ball Z's young Saiyan prince. Trunks goes Super Saiyan and pummels foes. Royal blood, wild spirit!"
+  },
+  {
+    "index": 177,
+    "name": "Turles",
+    "description": "Dragon Ball Z's evil space pirate. Turles fires energy blasts, barrages furiously, and goes Oozaru. Goku's dark mirror!"
+  },
+  {
+    "index": 178,
+    "name": "Ubuu",
+    "description": "Dragon Ball Z's reincarnated warrior. Uub fires Kamehameha and blinds with Taiyoken. Buu's power reborn as a hero!"
+  },
+  {
+    "index": 179,
+    "name": "Vegeta-Bebi",
+    "description": "Dragon Ball GT's possessed prince. Vegeta-Baby fires Revenge Death Balls and goes Golden Oozaru. Royal rage amplified!"
+  },
+  {
+    "index": 180,
+    "name": "Vegeta",
+    "description": "Dragon Ball Z's Saiyan prince. Vegeta fires Final Flash, Big Bang Attack, and energy barrages. The Prince of All Saiyans!"
+  },
+  {
+    "index": 181,
+    "name": "Vegetto",
+    "description": "Dragon Ball Z's Potara fusion. Vegetto fires Perfect Kamehameha and Ki Sword. Goku plus Vegeta equals unstoppable!"
+  },
+  {
+    "index": 182,
+    "name": "Videl",
+    "description": "Dragon Ball Z's crime-fighting heroine. Videl fires Kamehameha, calls Gohan, and swings frying pans. Justice has no limits!"
+  },
+  {
+    "index": 183,
+    "name": "Yamcha",
+    "description": "Dragon Ball Z's desert bandit. Yamcha fires Soukidan and Wolf Fang Fist. The OG Z-Fighter still packs a punch!"
+  },
+  {
+    "index": 184,
+    "name": "Zangya",
+    "description": "Dragon Ball Z's galaxy warrior. Zangya fires rapid energy shots and spark lasers. Bojack's most dangerous lieutenant!"
+  },
+  {
+    "index": 185,
+    "name": "Zarbon",
+    "description": "Dragon Ball Z's vain warrior. Zarbon morphs into monster form and fires KI blasts. Pretty face hides a beast within!"
+  },
+  {
+    "index": 186,
+    "name": "Arbok",
+    "description": "A wild Arbok appeared! This poison snake wraps, bites, and sprays acid. Its glare paralyzes before the venom hits!"
+  },
+  {
+    "index": 187,
+    "name": "Ash Ketchum",
+    "description": "Pokemon's legendary trainer! Ash commands Pikachu, Charmander, Bulbasaur, and more. Gotta catch 'em all!"
+  },
+  {
+    "index": 188,
+    "name": "Beedrill",
+    "description": "A wild Beedrill appeared! Fury Attack, Twineedle, and Pin Missile rain down. This angry bee swarm means PAIN!"
+  },
+  {
+    "index": 189,
+    "name": "Blastoise",
+    "description": "Pokemon's heavy artillery turtle! Blastoise blasts Hydro Pump and Skull Bashes. Those cannons aren't for show!"
+  },
+  {
+    "index": 190,
+    "name": "Bulbasaur",
+    "description": "Pokemon's iconic starter! Bulbasaur tackles, drains with Leech Seed, and whips with vines. Evolves into Ivysaur mid-fight!"
+  },
+  {
+    "index": 191,
+    "name": "Butterfree",
+    "description": "A wild Butterfree appeared! Confusion, poison powder, sleep powder, and psybeams. Beautiful bug shuts you down!"
+  },
+  {
+    "index": 192,
+    "name": "Caterpie",
+    "description": "Pokemon's humble caterpillar. Caterpie tackles and shoots string. Evolves into Metapod -- hang in there, little buddy!"
+  },
+  {
+    "index": 193,
+    "name": "Charizard",
+    "description": "Pokemon's fire-breathing dragon! Charizard slashes, rages, and unleashes Flamethrower and Fire Spin. The ultimate fire starter!"
+  },
+  {
+    "index": 194,
+    "name": "Charmander",
+    "description": "Pokemon's fiery starter! Charmander scratches and embers, then evolves into Charmeleon. That tail flame burns with potential!"
+  },
+  {
+    "index": 195,
+    "name": "Charmeleon",
+    "description": "Pokemon's mid-evolution fire lizard. Charmeleon scratches, rages, slashes, and evolves into Charizard. Getting hotter!"
+  },
+  {
+    "index": 196,
+    "name": "Clefable",
+    "description": "A wild Clefable appeared! Sings foes to sleep, Doubleslaps, and uses random Metronome. Anything can happen!"
+  },
+  {
+    "index": 197,
+    "name": "Clefairy",
+    "description": "A wild Clefairy appeared! Sings, slaps, and Metronomes random moves. Cute AND unpredictable -- evolves into Clefable!"
+  },
+  {
+    "index": 198,
+    "name": "Ekans",
+    "description": "A wild Ekans appeared! Wraps, poisons, and bites. This snake's glare freezes you solid before striking!"
+  },
+  {
+    "index": 199,
+    "name": "Fearow",
+    "description": "A wild Fearow appeared! Fury Attack, Drill Peck, and Mirror Move. This fierce bird copies your best moves!"
+  },
+  {
+    "index": 200,
+    "name": "Nidoran (f)",
+    "description": "A wild Nidoran appeared! Scratches, poisons, and bites. This little bunny evolves into the mighty Nidoqueen!"
+  },
+  {
+    "index": 201,
+    "name": "Ivysaur",
+    "description": "Pokemon's mid-evolution grass type. Ivysaur drains with Leech Seed and slices Razor Leaf. Evolves into Venusaur!"
+  },
+  {
+    "index": 202,
+    "name": "Kakuna",
+    "description": "A wild Kakuna appeared! Harden... and that's it. But evolve into Beedrill and watch out!"
+  },
+  {
+    "index": 203,
+    "name": "Meowth",
+    "description": "A wild Meowth appeared! Scratches, bites, and throws Pay Day coins. Evolves into Persian! That's right!"
+  },
+  {
+    "index": 204,
+    "name": "Metapod",
+    "description": "A wild Metapod appeared! Harden is all it knows, but Butterfree is one evolution away. Patience is key!"
+  },
+  {
+    "index": 205,
+    "name": "Mew",
+    "description": "Pokemon's mythical ancestor. Mew transforms, mega punches, and fires Psychic blasts. Contains DNA of every Pokemon!"
+  },
+  {
+    "index": 206,
+    "name": "Mewtwo",
+    "description": "Pokemon's ultimate psychic weapon. Mewtwo fires Psychic, recovers HP, and raises barriers. Genetically engineered perfection!"
+  },
+  {
+    "index": 207,
+    "name": "Missingno.",
+    "description": "Pokemon's legendary glitch! MissingNo fires Sky Attack and Water Gun. A corrupted anomaly that breaks all the rules!"
+  },
+  {
+    "index": 208,
+    "name": "Nidoran (m)",
+    "description": "A wild Nidoran appeared! Horns, poison, and fury attacks. This little guy evolves into fearsome Nidoking!"
+  },
+  {
+    "index": 209,
+    "name": "Nidoking",
+    "description": "A wild Nidoking appeared! Thrashes, horn attacks, and poisons. The evolved king of venom hits like a truck!"
+  },
+  {
+    "index": 210,
+    "name": "Nidoqueen",
+    "description": "A wild Nidoqueen appeared! Body slams, scratches, and poisons. The queen's raw power is not to be underestimated!"
+  },
+  {
+    "index": 211,
+    "name": "Nidorina",
+    "description": "A wild Nidorina appeared! Bites, scratches, and double kicks. Evolves into mighty Nidoqueen!"
+  },
+  {
+    "index": 212,
+    "name": "Nidorino",
+    "description": "A wild Nidorino appeared! Horn attacks, fury strikes, and Horn Drill! Evolves into mighty Nidoking!"
+  },
+  {
+    "index": 213,
+    "name": "Persian",
+    "description": "A wild Persian appeared! Slashes, bites, and fires Pay Day coins. This classy cat has Fury Swipes for days!"
+  },
+  {
+    "index": 214,
+    "name": "Pidgeot",
+    "description": "A wild Pidgeot appeared! Gusts, Wing Attacks, and Mirror Moves make this the king of the skies!"
+  },
+  {
+    "index": 215,
+    "name": "Pidgeotto",
+    "description": "A wild Pidgeotto appeared! Gusts, quick attacks, and wing strikes. Evolves into the majestic Pidgeot!"
+  },
+  {
+    "index": 216,
+    "name": "Pidgey",
+    "description": "A wild Pidgey appeared! Gusts and wing attacks from this tiny bird. Every champion starts small!"
+  },
+  {
+    "index": 217,
+    "name": "Pikachu",
+    "description": "Pokemon's iconic electric mouse! Pikachu zaps with Thundershock and Thunder. Shockingly powerful! Evolves into Raichu!"
+  },
+  {
+    "index": 218,
+    "name": "Raichu",
+    "description": "A wild Raichu appeared! Thundershock and Thunder Wave from Pikachu's evolved form. Maximum voltage!"
+  },
+  {
+    "index": 219,
+    "name": "Sabrina",
+    "description": "Pokemon's psychic gym leader! Sabrina powers up, recovers, and fires Psychic Attacks. Her mind is her deadliest weapon!"
+  },
+  {
+    "index": 220,
+    "name": "Sandshrew",
+    "description": "A wild Sandshrew appeared! Scratches, sand attacks, and poison stings. Evolves into Sandslash!"
+  },
+  {
+    "index": 221,
+    "name": "Sandslash",
+    "description": "A wild Sandslash appeared! Scratches, slashes, and Fury Swipes with deadly claws. A spiny ball of sandy destruction!"
+  },
+  {
+    "index": 222,
+    "name": "Spearow",
+    "description": "A wild Spearow appeared! Pecks and Fury Attacks from this tiny angry bird. Evolves into the fearsome Fearow!"
+  },
+  {
+    "index": 223,
+    "name": "Squirtle",
+    "description": "Pokemon's adorable water starter! Squirtle tackles, bubbles, and bites. Small shell, big Blastoise potential!"
+  },
+  {
+    "index": 224,
+    "name": "Venusaur",
+    "description": "Pokemon's fully-evolved grass titan! Venusaur drains with Leech Seed, Razor Leaf, and fires Solar Beam. Nature's champion!"
+  },
+  {
+    "index": 225,
+    "name": "Wartortle",
+    "description": "Pokemon's mid-evolution water turtle. Wartortle tackles, bites, and Skull Bashes. Getting stronger toward Blastoise!"
+  },
+  {
+    "index": 226,
+    "name": "Weedle",
+    "description": "A wild Weedle appeared! Poison Sting and String Shot. Evolves into Kakuna then deadly Beedrill!"
+  },
+  {
+    "index": 227,
+    "name": "Akuma",
+    "description": "Street Fighter's demon warrior! Akuma fires Hadoukens, Hurricane Kicks, and Shoryukens. The master of the fist!"
+  },
+  {
+    "index": 228,
+    "name": "Batsu",
+    "description": "Rival Schools' hot-blooded student. Batsu punches with fire fists and delivers shooting star kicks. School spirit EXTREME!"
+  },
+  {
+    "index": 229,
+    "name": "M.Bison",
+    "description": "Street Fighter's fearsome dictator! M. Bison fires Psycho Bombs, stomps, and steals your moves. Kneel before Shadaloo!"
+  },
+  {
+    "index": 230,
+    "name": "Captin America",
+    "description": "Marvel's star-spangled Avenger! Captain America hurls his shield and charges Stars and Stripes. Liberty never looked so tough!"
+  },
+  {
+    "index": 231,
+    "name": "Chicken",
+    "description": "Original Character. It's a chicken! Pecks, lays eggs, and somehow summons a COW. Don't underestimate the barnyard!"
+  },
+  {
+    "index": 232,
+    "name": "Chun Li",
+    "description": "Street Fighter's strongest woman (duplicate). Chun Li unleashes Lightning Legs and Kikoken. The fastest kicks in the world!"
+  },
+  {
+    "index": 233,
+    "name": "Claire Redfield",
+    "description": "Resident Evil 2's brave survivor. Claire fires guns, slashes knives, and torches with flamethrowers. Survival horror fights!"
+  },
+  {
+    "index": 234,
+    "name": "Captin Commando",
+    "description": "Capcom's futuristic hero! Captain Commando fires wrist flames and calls teammates. Commando justice!"
+  },
+  {
+    "index": 235,
+    "name": "Cyclops",
+    "description": "X-Men's optic blast leader! Cyclops fires eye lasers in combos and dashes. One look and you're done!"
+  },
+  {
+    "index": 236,
+    "name": "Donovan",
+    "description": "Darkstalkers' vampire hunter. Donovan channels flame, lightning, and blizzard through his cursed sword. Monster slayer!"
+  },
+  {
+    "index": 237,
+    "name": "Felicia",
+    "description": "Darkstalkers' catgirl fighter! Felicia kicks, spikes, rolls, and calls friends. Purr-fectly deadly in a dance fight!"
+  },
+  {
+    "index": 238,
+    "name": "Firedog",
+    "description": "Original Character. Firedog breathes flames, spins fire, and shields with infernos. A blazing hot good boy!"
+  },
+  {
+    "index": 239,
+    "name": "Gambit",
+    "description": "X-Men's Cajun card shark! Gambit throws charged cards and explodes chains. Mon ami, you're in trouble!"
+  },
+  {
+    "index": 240,
+    "name": "Havok",
+    "description": "X-Men's plasma powerhouse! Havok fires plasma bursts, walls, and quakes the ground. Alex Summers brings the heat!"
+  },
+  {
+    "index": 241,
+    "name": "Hinata",
+    "description": "Rival Schools' sunny fighter! Hinata uppercuts, tornado kicks, and machine-gun punches. Cheerful spirit, devastating combos!"
+  },
+  {
+    "index": 242,
+    "name": "Hulk",
+    "description": "Marvel's strongest there is! Hulk charges, grabs, and Gamma Quakes. The angrier he gets, the stronger he gets!"
+  },
+  {
+    "index": 243,
+    "name": "I Suck to much Char",
+    "description": "Original Character. I Suck Too Much has a weak punch and calls Backstreet Boys for help. The ultimate joke fighter!"
+  },
+  {
+    "index": 244,
+    "name": "Jin",
+    "description": "Cyberbots' mech pilot! Jin fires Blodia Punches and ground explosions. Giant robot fists pack a wallop!"
+  },
+  {
+    "index": 245,
+    "name": "Jubilee",
+    "description": "X-Men's sparkle blaster! Jubilee fires light blasts, pyrokinetic balls, and goes Nova. Fireworks that actually hurt!"
+  },
+  {
+    "index": 246,
+    "name": "Ken Masters",
+    "description": "Street Fighter's fiery rival! Ken Masters fires Hadoukens, Hurricane Kicks, and Shoryukens. Ryu's best friend, worst enemy!"
+  },
+  {
+    "index": 247,
+    "name": "Kyosuke",
+    "description": "Rival Schools' cool disciplinarian. Kyosuke fires Cross Cutters, Ground Shocks, and Air Blades. Style in every strike!"
+  },
+  {
+    "index": 248,
+    "name": "Leon",
+    "description": "Resident Evil's rookie cop. Leon punches, knifes, and shoots. Simple tools, survival instincts, can-do attitude!"
+  },
+  {
+    "index": 249,
+    "name": "Lilith Aensland",
+    "description": "Darkstalkers' succubus clone! Lilith fires Soul Flash, Merry Turn, and the Gloomy Puppet Show. Cute but creepy!"
+  },
+  {
+    "index": 250,
+    "name": "MegaMan",
+    "description": "Capcom's Blue Bomber! MegaMan fires X Buster, copies weapons, and summons Zero. A dozen weapons in one hero!"
+  },
+  {
+    "index": 251,
+    "name": "Mega Man X",
+    "description": "Mega Man X's upgraded reploid hero. X fires X-Buster, Storm Tornado, and even Hadoken! The reploid rebellion starts here!"
+  },
+  {
+    "index": 252,
+    "name": "Morrigan Aensland",
+    "description": "Darkstalkers' succubus queen! Morrigan fires Soul Fists and Darkness Illusions. Deadly beauty from the demon world!"
+  },
+  {
+    "index": 253,
+    "name": "Mystique",
+    "description": "X-Men's shape-shifting spy! Mystique shoots lasers, morphs into tigers, and copies identities. Never know who she is!"
+  },
+  {
+    "index": 254,
+    "name": "Natsu",
+    "description": "Rival Schools' volleyball star! Natsu serves, fire spikes, and digs with athletic fury. Sports meets combat!"
+  },
+  {
+    "index": 255,
+    "name": "PhReAkx0iD",
+    "description": "Original Character. PhReAkx0iD smacks, summons newbies, and throws questionable substances. Maximum chaos!"
+  },
+  {
+    "index": 256,
+    "name": "Polaris",
+    "description": "X-Men's magnetic warrior! Polaris suffocates with metal, throws knives, and drops buildings. Magneto's daughter means business!"
+  },
+  {
+    "index": 257,
+    "name": "Psylocke",
+    "description": "X-Men's psychic ninja! Psylocke slashes with psi-blades, mind-heals, and Frankensteiners foes. Telepathy meets martial arts!"
+  },
+  {
+    "index": 258,
+    "name": "Roll",
+    "description": "Mega Man's helper robot! Roll punches, busts, heals, and fires Toasters from Hell! Don't mess with the sister!"
+  },
+  {
+    "index": 259,
+    "name": "Ryu",
+    "description": "Street Fighter's wandering warrior! Ryu fires fireballs, spin kicks, and Dragon Punches. The eternal world warrior!"
+  },
+  {
+    "index": 260,
+    "name": "Sakura",
+    "description": "Street Fighter's schoolgirl fighter! Sakura throws fireballs and hurricane kicks. She learned by watching Ryu!"
+  },
+  {
+    "index": 261,
+    "name": "Sentinel",
+    "description": "X-Men's mutant-hunting robot! Sentinel fires lasers, dashes, and self-destructs. Cold, metallic, and relentless!"
+  },
+  {
+    "index": 262,
+    "name": "Shadow Lady",
+    "description": "Street Fighter's cyborg Chun Li! Shadow Lady electrifies, drill charges, and fires homing missiles. Upgraded for max damage!"
+  },
+  {
+    "index": 263,
+    "name": "Spiderman",
+    "description": "Marvel's web-slinging hero! Spider-Man stings, webs, and Maximum Spiders. Your friendly neighborhood knockout artist!"
+  },
+  {
+    "index": 264,
+    "name": "SQ L SL",
+    "description": "Original Character. SQ L SL kills, kicks, fireballs, and morphs with a massive arsenal. Jack-of-all-trades!"
+  },
+  {
+    "index": 265,
+    "name": "Storm",
+    "description": "X-Men's weather goddess! Storm bolts lightning, hails ice, and summons tornadoes. Mother Nature's fury unleashed!"
+  },
+  {
+    "index": 266,
+    "name": "Strider Hiryu",
+    "description": "Capcom's futuristic ninja! Strider Hiryu slices with Gram and summons Legion. The fastest blade alive!"
+  },
+  {
+    "index": 267,
+    "name": "Syoma",
+    "description": "Rival Schools' baseball slugger! Syoma swings for home runs and pitches fastballs. Batter up for a knockout!"
+  },
+  {
+    "index": 268,
+    "name": "Venom",
+    "description": "Marvel's symbiote villain! Venom fangs, webs, and terrifies. Eddie Brock's dark side bites back -- literally!"
+  },
+  {
+    "index": 269,
+    "name": "War Machine",
+    "description": "Marvel's armored Avenger! War Machine fires solar cannons, smart bombs, and repulsors. Like Iron Man but MORE guns!"
+  },
+  {
+    "index": 270,
+    "name": "Wolverine",
+    "description": "X-Men's adamantium-clawed berserker! Wolverine barrages, drill claws, and rages. The best at what he does!"
+  },
+  {
+    "index": 271,
+    "name": "Zangief",
+    "description": "Street Fighter's wrestling bear-fighter! Zangief spins lariats, grabs, and Atomic Busters. Pure grappling devastation!"
+  },
+  {
+    "index": 272,
+    "name": "Obi-Wan Kenobi",
+    "description": "Star Wars' legendary Jedi! Obi-Wan uses mind tricks and wields his lightsaber. The Force is strong with this one!"
+  },
+  {
+    "index": 273,
+    "name": "C-3P0",
+    "description": "Star Wars' golden protocol droid. C-3PO communicates and attacks. The odds of surviving are 3,720 to 1!"
+  },
+  {
+    "index": 274,
+    "name": "Chadra-Fan",
+    "description": "Star Wars' small alien scavenger. Chadra-Fan scans, heals, steals items, and kidnaps. Tiny but sneaky!"
+  },
+  {
+    "index": 275,
+    "name": "Chewbacca",
+    "description": "Star Wars' mighty Wookiee! Chewbacca smuggles HP, fires blasters, and punches hard. Let the Wookiee win!"
+  },
+  {
+    "index": 276,
+    "name": "Death Star",
+    "description": "Star Wars' planet-destroying superweapon! The Death Star fires one move: the Superlaser. One shot. That's all it needs!"
+  },
+  {
+    "index": 277,
+    "name": "Elon",
+    "description": "Original Character. Elon attacks, detects lies, and heals with the Force. A mysterious force-sensitive warrior!"
+  },
+  {
+    "index": 278,
+    "name": "Gran",
+    "description": "Star Wars' rotund alien. Gran tosses Kinyen Bombs and attacks. Simple but explosive!"
+  },
+  {
+    "index": 279,
+    "name": "Princess Leia Organa",
+    "description": "Star Wars' rebel princess! Leia heals with dignity and shoots with her blaster. A leader on the front lines!"
+  },
+  {
+    "index": 280,
+    "name": "Luke Skywalker",
+    "description": "Star Wars' farm boy turned Jedi! Luke wields a lightsaber and fires blasters. The galaxy's last hope!"
+  },
+  {
+    "index": 281,
+    "name": "R2-D2",
+    "description": "Star Wars' resourceful astromech! R2-D2 uses arms, serves drinks, and fires mini-beams. Beep boop, you lose!"
+  },
+  {
+    "index": 282,
+    "name": "Sailor Alpha",
+    "description": "Original Character. Sailor Alpha fires ultimate elemental attacks, heals, and copies enemy moves. A versatile magical warrior!"
+  },
+  {
+    "index": 283,
+    "name": "Proto",
+    "description": "Original Character. Proto poisons with slime, morphs forms, and pulls out an AK-47. Unpredictable and heavily armed!"
+  },
+  {
+    "index": 284,
+    "name": "Nega Band Director",
+    "description": "Original Character. Nega Band Director attacks with metronomes, baton beams, and dissonance. March to HIS beat or else!"
+  },
+  {
+    "index": 285,
+    "name": "Nega Sailor Drum Major",
+    "description": "Original Character. Nega Drum Major blasts, plays fight songs, and conducts tempo changes. The halftime show of DOOM!"
+  },
+  {
+    "index": 286,
+    "name": "Sailor Gamma",
+    "description": "Original Character. Sailor Gamma radiates poison and blinds with gamma rays. Nuclear-powered magical girl!"
+  },
+  {
+    "index": 287,
+    "name": "Sailor Lucca",
+    "description": "Original Character fusing Chrono Trigger tech with Sailor power. Sailor Lucca tosses flames and hypnotizes. Fire mage supreme!"
+  },
+  {
+    "index": 288,
+    "name": "Tuxedo Macintosh",
+    "description": "Original Character. Tuxedo Macintosh bashes Dells, throws flaming Compaqs, and heals with Power Macs. Tech support gets physical!"
+  },
+  {
+    "index": 289,
+    "name": "A Magikoopa",
+    "description": "Super Mario RPG's wand-waving wizard! Magikoopa fires Corona and Bolt, then morphs into Neo-Kamek!"
+  },
+  {
+    "index": 290,
+    "name": "Neo-Kamek",
+    "description": "Super Mario's upgraded Magikoopa! Neo-Kamek drains HP/MP, fires lightning, and summons Hookbill. Dark sorcery unleashed!"
+  },
+  {
+    "index": 291,
+    "name": "belome",
+    "description": "Super Mario RPG's tongue monster! Belome smacks with tongue, clones enemies, and summons Bahamut. Lick, clone, repeat!"
+  },
+  {
+    "index": 292,
+    "name": "Bowser",
+    "description": "Super Mario's King of the Koopas! Bowser claws, chains, and delivers the crushing Bowser Crush. The original final boss!"
+  },
+  {
+    "index": 293,
+    "name": "Bowyer",
+    "description": "Super Mario RPG's arrow boss. Bowyer rains arrows, zaps static, and freezes with lightning orbs. A living weapon rack!"
+  },
+  {
+    "index": 294,
+    "name": "Croco",
+    "description": "Super Mario RPG's thieving croc! Croco rams, throws bombs, and steals mushrooms AND flowers. Fastest sticky fingers!"
+  },
+  {
+    "index": 295,
+    "name": "Culex",
+    "description": "Super Mario RPG's interdimensional boss! Culex commands four elemental crystals of fire, ice, earth, and darkness. RPG superboss!"
+  },
+  {
+    "index": 296,
+    "name": "Dodo",
+    "description": "Super Mario RPG's angry bird. Dodo pecks, multi-strikes, and knocks foes out. 100% physical, 0% flight!"
+  },
+  {
+    "index": 297,
+    "name": "Exor",
+    "description": "Super Mario RPG's giant sword boss! Exor attacks through multiple parts with fire, ice, and dark stars. Fortress of pain!"
+  },
+  {
+    "index": 298,
+    "name": "Geno",
+    "description": "Super Mario RPG's star warrior! Geno fires Star Gun, Geno Beam, and Geno Flash. Wooden doll with cosmic power!"
+  },
+  {
+    "index": 299,
+    "name": "Jinx",
+    "description": "Super Mario RPG's martial arts master. Jinx triple kicks, quicksilvers, and bombs away. The dojo's ultimate challenge!"
+  },
+  {
+    "index": 300,
+    "name": "Johnathan Jones",
+    "description": "Super Mario RPG's pirate shark king! Jonathan Jones attacks with tridents and drains energy. Honor among thieves!"
+  },
+  {
+    "index": 301,
+    "name": "King Calimari",
+    "description": "Super Mario RPG's giant squid! King Calamari strikes with tentacles and gunks you up. Ink-redibly dangerous!"
+  },
+  {
+    "index": 302,
+    "name": "Luigi",
+    "description": "Super Mario's eternal sidekick! Luigi has one move: Life. He revives the fallen. That's his whole deal. Mama mia!"
+  },
+  {
+    "index": 303,
+    "name": "Mack",
+    "description": "Super Mario RPG's sword-bouncing boss! Mack stomps and blasts fire walls. Simple but scorching!"
+  },
+  {
+    "index": 304,
+    "name": "Mallow",
+    "description": "Super Mario RPG's cloud prince! Mallow thunderbolts, summons Snowy blizzards, and rains stars. Emotional AND powerful!"
+  },
+  {
+    "index": 305,
+    "name": "Mario",
+    "description": "Nintendo's legendary plumber! Mario punches, hammers, and fires orbs. It's-a him, and he's ready to brawl!"
+  },
+  {
+    "index": 306,
+    "name": "Smithy (Mask Head)",
+    "description": "Super Mario RPG's Smithy Mask form. Only knows Recover. Pure healing, zero offense. Strategic patience!"
+  },
+  {
+    "index": 307,
+    "name": "Princess Toadstool",
+    "description": "Super Mario's royal princess! Peach slaps with frying pans and revives allies. Don't underestimate the crown!"
+  },
+  {
+    "index": 308,
+    "name": "Raspberry",
+    "description": "Super Mario RPG's energy-draining wizard. Raspberry blizzards and drains with beams. Fruity name hides a frozen threat!"
+  },
+  {
+    "index": 309,
+    "name": "Smithy (Final Form)",
+    "description": "Super Mario RPG's final boss! Smithy morphs between four devastating head forms. A shapeshifting factory of destruction!"
+  },
+  {
+    "index": 310,
+    "name": "Smithy (Sorcerer Head)",
+    "description": "Super Mario RPG's Smithy Sorcerer form. Rains swords, boulders, spears, and meteors. Pure magical devastation!"
+  },
+  {
+    "index": 311,
+    "name": "Smithy (Tank Head)",
+    "description": "Super Mario RPG's Smithy Tank form. One move: Missile Attack. 100% physical power in pure explosive force!"
+  },
+  {
+    "index": 312,
+    "name": "Smithy (Treasure Head)",
+    "description": "Super Mario RPG's Smithy Treasure form. Status effects ONLY -- mute, chaos, freeze, sleep, poison. Total control!"
+  },
+  {
+    "index": 313,
+    "name": "Valentina",
+    "description": "Super Mario RPG's vain villainess. Valentina blizzards, crystallizes, and diamond saws. Cold beauty, colder attacks!"
+  },
+  {
+    "index": 314,
+    "name": "Yaridovich",
+    "description": "Super Mario RPG's shape-shifting spear boss! Yaridovich stabs, blasts water, and splits in two. Deceptively dangerous!"
+  },
+  {
+    "index": 315,
+    "name": "The Cucco Lady",
+    "description": "Legend of Zelda's chicken lady! The Cucco Lady throws chickens and hides behind chicken shields. Cucco army, ASSEMBLE!"
+  },
+  {
+    "index": 316,
+    "name": "Darunia, the Goron Leader",
+    "description": "Legend of Zelda's Goron chief! Darunia punches, stomps quakes, and throws bomb flowers. Mountain's mightiest warrior!"
+  },
+  {
+    "index": 317,
+    "name": "Ganondorf",
+    "description": "Legend of Zelda's King of Evil! Ganondorf fires energy balls, drains life, and morphs. Triforce of Power incarnate!"
+  },
+  {
+    "index": 318,
+    "name": "Gerudo Guard",
+    "description": "Legend of Zelda's desert warrior. Gerudo Guard slashes with one devastating move. Simple, swift, lethal!"
+  },
+  {
+    "index": 319,
+    "name": "The Horse",
+    "description": "Legend of Zelda's faithful steed! The Horse attacks, stampedes, and returns allies to battle. Epona charges!"
+  },
+  {
+    "index": 320,
+    "name": "Impa",
+    "description": "Legend of Zelda's Sheikah guardian! Impa punches, kicks, and plays Zelda's Lullaby to heal. The princess's protector!"
+  },
+  {
+    "index": 321,
+    "name": "Link",
+    "description": "Legend of Zelda's legendary hero! Link swings sword, throws bombs, fires arrows, and carries a Fairy. The Hero of Time!"
+  },
+  {
+    "index": 322,
+    "name": "Moblin",
+    "description": "Legend of Zelda's piglike brute. Moblin has one attack at 95 strength. Just one. But it HURTS!"
+  },
+  {
+    "index": 323,
+    "name": "Nabooru",
+    "description": "Legend of Zelda's Gerudo sage! Nabooru slashes, steals moves, and heals. A thief with a noble heart!"
+  },
+  {
+    "index": 324,
+    "name": "Kaepora Gaebora (Owl)",
+    "description": "Legend of Zelda's wise owl. Kaepora Gaebora pecks and lectures with Useless Jargon. Want to hear that again? No? TOO BAD!"
+  },
+  {
+    "index": 325,
+    "name": "Poe",
+    "description": "Legend of Zelda's ghostly lantern carrier. Poe has one move: Scare. Pure magic at 100 strength. Terrifying!"
+  },
+  {
+    "index": 326,
+    "name": "ReDead",
+    "description": "Legend of Zelda's undead horror. ReDead drains life and scares foes stiff. Its scream haunts your nightmares!"
+  },
+  {
+    "index": 327,
+    "name": "The Running Man",
+    "description": "Legend of Zelda's unbeatable runner. The Running Man has one move: Run. You will NEVER catch him!"
+  },
+  {
+    "index": 328,
+    "name": "Princess Ruto",
+    "description": "Legend of Zelda's Zora princess! Ruto slaps with flippers, drains health, and summons Morpha. Fishy royalty with attitude!"
+  },
+  {
+    "index": 329,
+    "name": "Saria",
+    "description": "Legend of Zelda's forest sage! Saria kicks, plays her ocarina, and summons forest helpers. Nature's punchy friend!"
+  },
+  {
+    "index": 330,
+    "name": "Sheik",
+    "description": "Legend of Zelda's mysterious Sheikah! Sheik punches, kicks, heals with harp, and hides in shadows. Zelda's secret identity!"
+  },
+  {
+    "index": 331,
+    "name": "Stalfos",
+    "description": "Legend of Zelda's skeletal warrior. Stalfos stabs, slashes, and shields. Undead swordplay from the dungeon depths!"
+  },
+  {
+    "index": 332,
+    "name": "Young Link",
+    "description": "Legend of Zelda's young hero! Young Link slashes, boomerangs, and plays the Ocarina of Time. Small hero, big destiny!"
+  },
+  {
+    "index": 333,
+    "name": "Princess Zelda",
+    "description": "Legend of Zelda's wise princess! Zelda slaps, calls Impa and guards. Royalty commands the battlefield!"
+  },
+  {
+    "index": 334,
+    "name": "Kaitou Ace",
+    "description": "From Codename Sailor V. Kaitou Ace throws cards, fires lightning fields, and reads love fortunes. Phantom thief!"
+  },
+  {
+    "index": 335,
+    "name": "Akaishi",
+    "description": "Original Character. Akaishi blesses, heals, morphs, revives, and fires the Omega Destroyer. A one-character ARMY!"
+  },
+  {
+    "index": 336,
+    "name": "Adult Link",
+    "description": "Legend of Zelda's adult hero rebuilt! Adult Link fires ice and fire arrows and wields Biggoron's Sword. Complete hero!"
+  },
+  {
+    "index": 337,
+    "name": "Alpha X",
+    "description": "Original Character. Alpha X punches, fires buster shots, and copies moves. A custom Mega Man-style warrior!"
+  },
+  {
+    "index": 338,
+    "name": "AntiSpawn",
+    "description": "Original Character. AntiSpawn fires Holy Crosses and Wraths of God. The light side fights back!"
+  },
+  {
+    "index": 339,
+    "name": "Aquarias",
+    "description": "Original Character. Aquarias commands water walls, whirlpools, and ice blasts. The ocean's warrior strikes deep!"
+  },
+  {
+    "index": 340,
+    "name": "Annoying Guy from school",
+    "description": "Original Character. Annoying Guy fires black holes, throws muffins, and screams in French. Maximum chaos!"
+  },
+  {
+    "index": 341,
+    "name": "Archer <BY MOG>",
+    "description": "Original Character inspired by FFT. Archer fires arrows, throws cross vials, and zaps lightning. Tactical marksman!"
+  },
+  {
+    "index": 342,
+    "name": "Encrypted ChUB Character\u0000\u0000F\u0000P\u0000F\u0000\u0000\u0000\u0000\u0000\t\u0000ArkAngL99\t\u0000ArkAngL99",
+    "description": "Encrypted ChUB Character. Data corrupted -- but the mystery makes it MORE dangerous! Secrets within!"
+  },
+  {
+    "index": 343,
+    "name": "Encrypted ChUB Character7\u00007\u00007\u00007\u0000\u001a\u0000\u0015\u0000",
+    "description": "Encrypted ChUB Character. Another corrupted file, another unknown threat. Will you dare to unlock it?"
+  },
+  {
+    "index": 344,
+    "name": "Baby Bowser",
+    "description": "Super Mario's baby Bowser! Rides Donkey and pounds the ground. Small shell, BIG temper tantrum!"
+  },
+  {
+    "index": 345,
+    "name": "Planetary BenJer",
+    "description": "Original Character. Planetary BenJer morphs and channels every Sailor planet crystal power. One-person alignment!"
+  },
+  {
+    "index": 346,
+    "name": "Safer Aquila",
+    "description": "Original Character. Safer Aquila fires thunderbolts, comets, and earth beams. Twelve moves of elemental sky fury!"
+  },
+  {
+    "index": 347,
+    "name": "bigbowser",
+    "description": "A bigger, badder Bowser variant! Bigbowser throws boulders, breathes fireballs, and bashes. King Koopa supersized!"
+  },
+  {
+    "index": 348,
+    "name": "Bossman",
+    "description": "Original Character. Bossman nightstrikes, mega punches, and calls corporate help. The CEO of pain!"
+  },
+  {
+    "index": 349,
+    "name": "Callisto",
+    "description": "Original Character. Callisto channels goddess fire, lightning, and divine ambrosia healing. Olympian fury!"
+  },
+  {
+    "index": 350,
+    "name": "Celdie the Great",
+    "description": "Original Character. Celdie the Great slices wind blades, rushes fire, and heals. A balanced elemental warrior!"
+  },
+  {
+    "index": 351,
+    "name": "Chicken",
+    "description": "Original Character. Another Chicken! Pecks, lays eggs, and summons a COW. The barnyard strikes again!"
+  },
+  {
+    "index": 352,
+    "name": "Sailorchuu",
+    "description": "Original Character. Sailorchuu crunches earth, mouse kicks, and reveals spirits. An electric mouse magical girl!"
+  },
+  {
+    "index": 353,
+    "name": "Sailorcoronis",
+    "description": "Original Character. Sailorcoronis summons tornadoes and hurricane fists. Wind-powered magical fury!"
+  },
+  {
+    "index": 354,
+    "name": "Angel CrsisMoon",
+    "description": "Original Character. Angel CrsisMoon fires star bombs, shields, heals, and revives souls. Celestial golden guardian!"
+  },
+  {
+    "index": 355,
+    "name": "Dark Angel Nikki",
+    "description": "Original Character. Dark Angel Nikki electrifies with dark powers and raises shadow barriers. Darkness perfected!"
+  },
+  {
+    "index": 356,
+    "name": "Darkchild",
+    "description": "Original Character. Darkchild blesses, regenerates, poisons, disguises, revives, and drains. Twelve moves of dark mastery!"
+  },
+  {
+    "index": 357,
+    "name": "Tekkaman Dead",
+    "description": "From Tekkaman Blade. Tekkaman Dead slices, soars, and fires the devastating Voltekker. Space knight of destruction!"
+  },
+  {
+    "index": 358,
+    "name": "Decheapied KatLioness",
+    "description": "Original Character. Decheapied KatLioness steals moves, revives with kisses, and grills foes. Wild cat with tricks!"
+  },
+  {
+    "index": 359,
+    "name": "Dorothy",
+    "description": "From The Wizard of Oz! Dorothy drops houses, summons Glenda, and sics TinMan, Lion, and Scarecrow. No place like the arena!"
+  },
+  {
+    "index": 360,
+    "name": "1st Time Drugee",
+    "description": "Original Character. 1st Time Drugee attacks with substances and a fire-stompin' grocery bag. Just say NO to losing!"
+  },
+  {
+    "index": 361,
+    "name": "Masta' O Echo's",
+    "description": "Original Character. Masta O Echoes reflects healing, massive, razor, and instant echoes. Sound bounces back deadlier!"
+  },
+  {
+    "index": 362,
+    "name": "Goddess Elmo",
+    "description": "Original Character. Goddess Elmo fires earth crystal blasts, shields, and revives. Elmo wants to PLAY... for keeps!"
+  },
+  {
+    "index": 363,
+    "name": "ENIAC",
+    "description": "Original Character. ENIAC tosses vacuum tubes and throws chips. The world's first computer fights back!"
+  },
+  {
+    "index": 364,
+    "name": "The Epic Child",
+    "description": "Original Character. The Epic Child fires rainbow beams and apocalypse dreams. A child prodigy of cosmic power!"
+  },
+  {
+    "index": 365,
+    "name": "Evangelion Unit-05",
+    "description": "From Neon Genesis Evangelion! Eva Unit-05 hits with lance, bites, and earns God's reward. Get in the robot!"
+  },
+  {
+    "index": 366,
+    "name": "Final SpIdErM64",
+    "description": "Original Character. Final SpIdErM64 fires hyper assaults and inflictor energy. A web of mysterious power!"
+  },
+  {
+    "index": 367,
+    "name": "Gabrielle",
+    "description": "From Xena: Warrior Princess. Gabrielle wields her staff and summons Hope. The bard becomes the warrior!"
+  },
+  {
+    "index": 368,
+    "name": "Sailor Galatica",
+    "description": "Original Character. Sailor Galatica channels ALL Sailor planet attacks at once. Every element in one fighter!"
+  },
+  {
+    "index": 369,
+    "name": "Gally",
+    "description": "From Battle Angel Alita. Gally blitzes with martial arts and energy fists. A combat cyborg at full throttle!"
+  },
+  {
+    "index": 370,
+    "name": "Gangrel",
+    "description": "From Vampire: The Masquerade. Gangrel shifts forms and channels earth spirits. A shape-shifting vampire!"
+  },
+  {
+    "index": 371,
+    "name": "Garr",
+    "description": "Original Character. Garr fires wind arrows, storms, cyclones, and Void Sword slashes. Master of wind and blade!"
+  },
+  {
+    "index": 372,
+    "name": "Hellectic BenJer",
+    "description": "Original Character. Hellectic BenJer heals with pendants and cloaks in darkness. Mystical pendant power!"
+  },
+  {
+    "index": 373,
+    "name": "Hillary Clinton",
+    "description": "A humorous political fighter. Hillary attacks, whips flames, and fires psy waves. Campaign trail combat!"
+  },
+  {
+    "index": 374,
+    "name": "Hyper Sonic ",
+    "description": "From Sonic the Hedgehog. Hyper Sonic zooms with figure 8s and tornado spins. Maximum speed, maximum power!"
+  },
+  {
+    "index": 375,
+    "name": "Evil Ima",
+    "description": "Original Character. Evil Ima hurls asteroids, drains life, and stops time. Space-powered villainy!"
+  },
+  {
+    "index": 376,
+    "name": "indigo",
+    "description": "Original Character inspired by D&D. Indigo casts Magic Missile, Flame Strike, and Wish. Classic wizard unleashed!"
+  },
+  {
+    "index": 377,
+    "name": "Infinity Sage",
+    "description": "Original Character. Infinity Sage fires power pulses, meteor hails, and time blasts. Sorcerous might!"
+  },
+  {
+    "index": 378,
+    "name": "Sailor Infinity",
+    "description": "Original Character. Sailor Infinity fires light domes and steals power. Unlimited magical energy!"
+  },
+  {
+    "index": 379,
+    "name": "Zodiac Knight Jase.",
+    "description": "Original Character inspired by FFT. Zodiac Knight Jase poisons, petrifies, and fires Grand Cross. Astrological doom!"
+  },
+  {
+    "index": 380,
+    "name": "Justin Stacewell",
+    "description": "Original Character. Justin Stacewell yawns, coughs, and attacks with Barney sets and Oreos. Chaotic randomness!"
+  },
+  {
+    "index": 381,
+    "name": "Kane",
+    "description": "From WWE! Kane chokeslams, punches, and calls corporation help. The Big Red Machine enters the ring!"
+  },
+  {
+    "index": 382,
+    "name": "Kestra the Lotus Healer",
+    "description": "Original Character. Kestra heals with lotus blooms, revives allies, and devastates with gemstones. Nature's fury!"
+  },
+  {
+    "index": 383,
+    "name": "Kat-In-Da-Hat",
+    "description": "From Dr. Seuss! Kat-In-Da-Hat summons Dr. Seuss, reads stories, and tosses milk. Fun and fungus for everyone!"
+  },
+  {
+    "index": 384,
+    "name": "Kronos",
+    "description": "Original Character. Kronos explodes, creates black holes, and teleport slashes. Time and space bend to his will!"
+  },
+  {
+    "index": 385,
+    "name": "Lapras",
+    "description": "Pokemon's gentle sea traveler! Lapras fires Ice Beam, Blizzard, and Hydro Pump. Majestic ice-water powerhouse!"
+  },
+  {
+    "index": 386,
+    "name": "Legendary Zero ",
+    "description": "Original Character. Legendary Zero flashes, fires hell blasts, and tornado slashes. A dark hero!"
+  },
+  {
+    "index": 387,
+    "name": "Sailor Malkie Way",
+    "description": "Original Character. Sailor Malkie Way freezes space, calls Outer Senshi, and heals. Galactic magical girl power!"
+  },
+  {
+    "index": 388,
+    "name": "Mankind",
+    "description": "From WWE! Mankind delivers DDTs, brain busters, and chair shots. Mrs. Foley's baby boy HURTS you!"
+  },
+  {
+    "index": 389,
+    "name": "Supa Sailor Echo Man",
+    "description": "Original Character. Supa Sailor Echo Man reflects twelve echoes for healing, damage, and life. Sound warfare!"
+  },
+  {
+    "index": 390,
+    "name": "Sailor Mau",
+    "description": "Original Character. Sailor Mau fires star storms and claws foes. A guardian cat senshi!"
+  },
+  {
+    "index": 391,
+    "name": "Mega-Machine",
+    "description": "Original Character. Mega-Machine launches kitties and discharges massively. A cat-powered death machine!"
+  },
+  {
+    "index": 392,
+    "name": "Mega Man X",
+    "description": "Capcom's Blue Bomber upgraded! Mega Man X fires X-Buster, Storm Tornado, and Hadoken. The reploid hero returns!"
+  },
+  {
+    "index": 393,
+    "name": "Sailor Mermaid",
+    "description": "Original Character. Sailor Mermaid fires fire tsunamis and water spires. Ocean warrior mixing fire and water!"
+  },
+  {
+    "index": 394,
+    "name": "Mike M",
+    "description": "Original Character. Mike M freezes with ice, heals, and mega punches. Simple but effective elemental combat!"
+  },
+  {
+    "index": 395,
+    "name": "Mistress M L",
+    "description": "Original Character. Mistress M L tosses berets, dreams of Bill, and summons wind. Quirky hat-throwing fighter!"
+  },
+  {
+    "index": 396,
+    "name": "Sailor Musica",
+    "description": "Original Character. Sailor Musica strikes with lightning sonatas and ocean concertos. Music IS the weapon!"
+  },
+  {
+    "index": 397,
+    "name": "Noah K 17",
+    "description": "Original Character. Noah K 17 slashes with a gunblade and casts Cure4. Final Fantasy VIII vibes!"
+  },
+  {
+    "index": 398,
+    "name": "Philia",
+    "description": "From Tales of Destiny. Philia bombs, thunder blades, and inspects enemies. Explosive mage with knowledge!"
+  },
+  {
+    "index": 399,
+    "name": "Neo-Psychoman",
+    "description": "Original Character. Neo-Psychoman fires attacks, morphs, steals moves, and heals the team. Swiss-army fighter!"
+  },
+  {
+    "index": 400,
+    "name": "Encrypted ChUB Character2\u0000(\u0000U\u0000-\u0000\u0016\u0000\u0018\u0000\t\u0000Psychoman\t\u0000Psychoman\t\u0000Psychoman\u001f\u0000%SN takes command of Psychoman!#\u0000%SN jumps into battle as Psychoman!(\u0000%SN blocks %T's attack and gets back up.+\u0000%SN sits down and plays his Game Boy Color.2\u0000%SN crouches down and prepares for the attack from \u0000%SN could not block %T's attack!\u000b\u0000autoshotgun#\u0000%SN pulls out an automatic shotgun.+\u0000%SN shoots %T in the head with the shotgun!=\u0000%SN says ''How dare you challenge me? I will crush you, %T!''$\u0000%SN says, ''You're goin' down, T%!''K\u0000%SN says, ''I wasn't named after PsYch0313, PsYch0313 was named after me!'''\u0000%SN yells ''I AM THE SAILOR SLAYER!!!''3\u0000%SN yells ''NO! I am NOT based on that Ozzy song!''4\u0000%SN says ''You just kicked my a...'' and drops dead.#\u0000%SN says ''I am too young to die!''\u000f\u0000%SN is slain...f\u0000%SN says ''You can't kill me! I didn't give you permission...oh yeah, that pre-match release form...''\u0000\u0000\u0014\u0000%SN killed %T. Cool.5\u0000%SN says ''Get up, %T! It's too early to be killed!''\u0016\u0000%SN says 'Who's next?'",
+    "description": "Encrypted ChUB Character. Psychoman's data lurks within corrupted code. A hidden warrior awaits!"
+  },
+  {
+    "index": 401,
+    "name": "PunK",
+    "description": "Original Character. PunK throws CDs, rocks out with Nirvana heals, and transforms. Music is life and death!"
+  },
+  {
+    "index": 402,
+    "name": "Encrypted ChUB Character",
+    "description": "Encrypted ChUB Character. Another warrior locked behind encryption. The unknown is most terrifying!"
+  },
+  {
+    "index": 403,
+    "name": "Relm Arrowny",
+    "description": "Final Fantasy VI's young artist! Relm sketches enemies to copy them and wields elemental rods. Art imitates DEATH!"
+  },
+  {
+    "index": 404,
+    "name": "RoNiN's Shadow ",
+    "description": "Original Character. RoNiN's Shadow fires shadow roses and heals from darkness. A ghostly blade in the night!"
+  },
+  {
+    "index": 405,
+    "name": "Rutee Katrea",
+    "description": "From Tales of Destiny. Rutee heals, cures, and freezes foes with ice tornados. The ultimate support mage!"
+  },
+  {
+    "index": 406,
+    "name": "Saffiru",
+    "description": "Sailor Moon's Dark Moon prince. Saffiru fires dark energy and summons an angry Dimando. Brains of the Black Moon!"
+  },
+  {
+    "index": 407,
+    "name": "Saffiru",
+    "description": "Sailor Moon's Dark Moon prince variant. Another Saffiru with dark crescent beams. Double the dark prince trouble!"
+  },
+  {
+    "index": 408,
+    "name": "Supah Flare",
+    "description": "Original Character. Supah Flare heals, tornadoes, punches lightning, and fires shadow destroyers. Multi-elemental warrior!"
+  },
+  {
+    "index": 409,
+    "name": "The RoNiN SeNsHi ",
+    "description": "Original Character. The RoNiN SeNsHi strikes with twin roses and drains energy. A ronin magical girl!"
+  },
+  {
+    "index": 410,
+    "name": "Sheikah ",
+    "description": "Original Character. Sheikah wields shadow blades, hyper beams, and healing spells. Ultimate Zelda-inspired ninja!"
+  },
+  {
+    "index": 411,
+    "name": "shy guy corps",
+    "description": "Super Mario's masked minions! Shy Guy Corps bounces and shoots seeds. Small, cute, and persistent!"
+  },
+  {
+    "index": 412,
+    "name": "spawn",
+    "description": "From Image Comics! Spawn wraps chains, fires guns, and regenerates. Hell's champion with dwindling power!"
+  },
+  {
+    "index": 413,
+    "name": "SuperSailor EeveeKat3! *SPECIAL EDITION*",
+    "description": "Original Character. SuperSailor EeveeKat3 Special Edition blesses, blasts, and steals supers. Premium Eevee warrior!"
+  },
+  {
+    "index": 414,
+    "name": "Spork",
+    "description": "Original Character. Spork digs with a Shovel of Doom and tornadoes. Utensil-based warfare from the 4th dimension!"
+  },
+  {
+    "index": 415,
+    "name": "SuperSailorStar SuperSaiyan",
+    "description": "Original Character. SuperSailorStar SuperSaiyan fires twelve cosmic attacks. Dragon Ball meets Sailor Moon at MAX!"
+  },
+  {
+    "index": 416,
+    "name": "SQ L SL",
+    "description": "Original Character. SQ L SL variant kills, kicks, fireballs, morphs, and learns moves. Jack-of-all-trades brawler!"
+  },
+  {
+    "index": 417,
+    "name": "SSJ4 ChaoDenks",
+    "description": "Original Character. SSJ4 ChaoDenks destroys planets and fires Kamehameha. Dragon Ball power at maximum!"
+  },
+  {
+    "index": 418,
+    "name": "SuperSailor EeveeKat3!",
+    "description": "Original Character. SuperSailor EeveeKat3 blesses, blasts with Eevee staff, and steals supers. Cute Eevee power!"
+  },
+  {
+    "index": 419,
+    "name": " SSLRranma",
+    "description": "Original Character. SSLRranma fires impulses, ice knives, and holy star strikes. Multi-elemental chaos warrior!"
+  },
+  {
+    "index": 420,
+    "name": "Stahn Aileron ",
+    "description": "From Tales of Destiny. Stahn Aileron charges sword, fires hell fire, and Dragon Blades. The Swordian master!"
+  },
+  {
+    "index": 421,
+    "name": "sumo brother",
+    "description": "Super Mario's massive enemy! Sumo Brother stomps fire and karate chops. 100/100 stats, maximum overkill!"
+  },
+  {
+    "index": 422,
+    "name": "Supa Gau",
+    "description": "Final Fantasy VI's wild child! Supa Gau rages into beast forms and chows dried meat. Untamed Veldt fury!"
+  },
+  {
+    "index": 423,
+    "name": "Thunderbird",
+    "description": "Original Character. Thunderbird fires thunderbolts and storms while healing. Pure electric devastation!"
+  },
+  {
+    "index": 424,
+    "name": "Toreador",
+    "description": "From Vampire: The Masquerade. Toreador sings sweet songs, reads auras, and drains blood. Artistic vampire!"
+  },
+  {
+    "index": 425,
+    "name": "Toto",
+    "description": "From The Wizard of Oz! Toto inflicts rabies, leaps, and goes psycho. Dorothy's little dog has gone MAD!"
+  },
+  {
+    "index": 426,
+    "name": "Tracy",
+    "description": "Original Character. Tracy blasts with radio stations, drains energy, and regenerates. A resourceful scrapper!"
+  },
+  {
+    "index": 427,
+    "name": "TryClyde",
+    "description": "Super Mario Bros 2's three-headed snake! TryClyde breathes flames and heals with kerosene. Triple fire trouble!"
+  },
+  {
+    "index": 428,
+    "name": "Ultimate(?) Aquila",
+    "description": "Original Character. Ultimate Aquila fires homing shocks, quakes, and fireballs. Powered-up elemental blaster!"
+  },
+  {
+    "index": 429,
+    "name": "Undertaker",
+    "description": "From WWE! The Undertaker punches, rope walks, and chokeslams. Ministry of Darkness. Rest in PEACE!"
+  },
+  {
+    "index": 430,
+    "name": "Venture",
+    "description": "Original Character. Venture swings scepters, raises night barriers, and fires flame fury. Masked adventurer!"
+  },
+  {
+    "index": 431,
+    "name": "Wicked witch of the west",
+    "description": "From The Wizard of Oz! Wicked Witch summons flying monkeys and fires flames. Surrender Dorothy... or burn!"
+  },
+  {
+    "index": 432,
+    "name": "Xena Warrior Princess",
+    "description": "From Xena: Warrior Princess! Xena tosses chakrams, slashes swords, and delivers the Pinch. AYIYIYIYIYI!"
+  },
+  {
+    "index": 433,
+    "name": "Zanryutyou",
+    "description": "Original Character. Zanryutyou calls twelve buddies for help, revives, and uppercuts. Friendship IS the weapon!"
+  },
+  {
+    "index": 434,
+    "name": "Adult Link",
+    "description": "Legend of Zelda's adult hero variant. Adult Link wields Biggoron's Sword and fires Din's Fire. Complete Hero of Time!"
+  },
+  {
+    "index": 435,
+    "name": "Beavis",
+    "description": "From Beavis and Butt-Head! Beavis farts shadow damage, chugs Crappuccinos, and vomits poison. Disgusting but effective!"
+  },
+  {
+    "index": 436,
+    "name": "Big Scary Tank",
+    "description": "Original Character. Big Scary Tank fires cannons, iron balls, and double blasts. Pure armored devastation!"
+  },
+  {
+    "index": 437,
+    "name": "Sailor Not Quite So Cheapy-Cheapy",
+    "description": "Original Character. Sailor Not Quite So Cheapy fires cheapy beams and cheezy attacks. 100/100 stats say otherwise!"
+  },
+  {
+    "index": 438,
+    "name": "Earthworm Jim",
+    "description": "From the classic game! Earthworm Jim fires lasers and plasma guns. A suited-up worm saving the galaxy!"
+  },
+  {
+    "index": 439,
+    "name": "AOL Lamer",
+    "description": "Original Character. AOL Lamer scrolls shadow, nukes fire, and mails viruses. 90s internet warfare at its finest!"
+  },
+  {
+    "index": 440,
+    "name": "Lemming",
+    "description": "From the classic puzzle game! Lemming climbs, bashes, builds, and blocks. The power of sheer determination!"
+  },
+  {
+    "index": 441,
+    "name": "Q",
+    "description": "From Star Trek! Q teleports, freezes time, and grants godly powers. Omnipotent and insufferably smug!"
+  },
+  {
+    "index": 442,
+    "name": "Team Rocket",
+    "description": "Pokemon's infamous villains! Team Rocket commands Weezing and Arbok. Blasting off in style!"
+  },
+  {
+    "index": 443,
+    "name": "Roll",
+    "description": "Mega Man's helper robot variant! Roll punches, heals, and fires deadly bouquets. Even Dr. Light is impressed!"
+  },
+  {
+    "index": 444,
+    "name": "Santa Claus",
+    "description": "The jolly gift-giver enters combat! Santa throws coal, heals, and Kringle Krushes. Naughty list means PAIN!"
+  },
+  {
+    "index": 445,
+    "name": "Swordsman",
+    "description": "Original Character. Swordsman slashes, fireballs, heals, and power breaks. Classic warrior archetype done right!"
+  },
+  {
+    "index": 446,
+    "name": "Lord Ashram",
+    "description": "Record of Lodoss War's dark knight! Lord Ashram delivers genocide attacks and mounts his horse. Marmo's deadliest!"
+  },
+  {
+    "index": 447,
+    "name": "Emperor Beld",
+    "description": "Record of Lodoss War's emperor! Beld wields the Demon Sword SoulCrusher. The conquering dark lord!"
+  },
+  {
+    "index": 448,
+    "name": "Deedlit",
+    "description": "Record of Lodoss War's high elf! Deedlit summons Sylph, Undine, Efreet, and Jin. Four elements at her command!"
+  },
+  {
+    "index": 449,
+    "name": "Etoh",
+    "description": "Record of Lodoss War's faithful priest! Etoh heals, blesses, and smites with Holy Light. Parn's loyal companion!"
+  },
+  {
+    "index": 450,
+    "name": "King Fahn",
+    "description": "Record of Lodoss War's legendary king! Fahn wields the Holy Sword of Falis. A true warrior king!"
+  },
+  {
+    "index": 451,
+    "name": "Ghim",
+    "description": "Record of Lodoss War's dwarven warrior! Ghim hurls axes and chugs healing potions. Short but mighty!"
+  },
+  {
+    "index": 452,
+    "name": "Captain Jebra",
+    "description": "Record of Lodoss War's loyal captain! Jebra equips his shield and arrests criminals. Law on the battlefield!"
+  },
+  {
+    "index": 453,
+    "name": "Prince Jester",
+    "description": "Record of Lodoss War's wyvern prince! Jester mounts his dragon and throws spears. Aerial assault royalty!"
+  },
+  {
+    "index": 454,
+    "name": "Karla",
+    "description": "Record of Lodoss War's grey witch! Karla casts fog, chaos, lightning, ice, and fire. Ancient magical might!"
+  },
+  {
+    "index": 455,
+    "name": "King Kashue",
+    "description": "Record of Lodoss War's mercenary king! Kashue slashes and strikes from horseback. The desert warrior king!"
+  },
+  {
+    "index": 456,
+    "name": "Leylia",
+    "description": "Record of Lodoss War's gentle priestess! Leylia heals, cures, and fires divine rays. Faith made manifest!"
+  },
+  {
+    "index": 457,
+    "name": "Neese",
+    "description": "Record of Lodoss War's supreme priestess! Neese mass heals and fires holy warrior beams. Strongest healer alive!"
+  },
+  {
+    "index": 458,
+    "name": "Orson",
+    "description": "Record of Lodoss War's berserker! Orson rages, slashes, and power strikes. When the berserker awakens, RUN!"
+  },
+  {
+    "index": 459,
+    "name": "Parn",
+    "description": "Record of Lodoss War's heroic knight! Parn charges with sword slashes and thrusts. The Free Knight of Lodoss!"
+  },
+  {
+    "index": 460,
+    "name": "Pirotessa",
+    "description": "Record of Lodoss War's dark elf! Pirotessa summons elementals and whips foes. Dark elegance in combat!"
+  },
+  {
+    "index": 461,
+    "name": "Shiris",
+    "description": "Record of Lodoss War's swordswoman! Shiris saves travelers and delivers justice cuts. A wandering hero!"
+  },
+  {
+    "index": 462,
+    "name": "Slayn",
+    "description": "Record of Lodoss War's sage wizard! Slayn raises barriers and fires lightning balls. Wise mage power!"
+  },
+  {
+    "index": 463,
+    "name": "Wagnard",
+    "description": "Record of Lodoss War's necromancer! Wagnard curses, summons zombies, and fires death bolts. Dark sorcery!"
+  },
+  {
+    "index": 464,
+    "name": "Woodchuck",
+    "description": "Record of Lodoss War's cunning thief! Woodchuck throws daggers and steals healing potions. Quick hands!"
+  },
+  {
+    "index": 465,
+    "name": "Wort",
+    "description": "Record of Lodoss War's elder sage! Wort raises force fields and casts fireblasts and thunder. Ancient power!"
+  },
+  {
+    "index": 466,
+    "name": "Kaos, The Ancient",
+    "description": "Original Character. Kaos the Ancient wields a staff, channels beams, and heals. Balanced chaos!"
+  },
+  {
+    "index": 467,
+    "name": "Anubis of Cruelty",
+    "description": "From Ronin Warriors! Anubis of Cruelty slices with morning stars and quakes fear. Dynasty armor aggression!"
+  },
+  {
+    "index": 468,
+    "name": "Dais of Illusion",
+    "description": "From Ronin Warriors! Dais of Illusion spins webs, hurls spiked balls, and creates illusions. Spider deception!"
+  },
+  {
+    "index": 469,
+    "name": "Hariel of Inferno",
+    "description": "From Ronin Warriors! Hariel of Inferno channels pure fire through every attack. Flame, flare, and healing fire!"
+  },
+  {
+    "index": 470,
+    "name": "Kale of Corruption",
+    "description": "From Ronin Warriors! Kale of Corruption claws through darkness and summons the undead. Shadow warrior!"
+  },
+  {
+    "index": 471,
+    "name": "Lady Kayura",
+    "description": "From Ronin Warriors! Lady Kayura slices, dives, and combos with Star Sword Scream. Dynasty's finest!"
+  },
+  {
+    "index": 472,
+    "name": "Kento of Hardrock",
+    "description": "From Ronin Warriors! Kento of Hardrock hammers and Iron Rock Crushes. The earth trembles when he fights!"
+  },
+  {
+    "index": 473,
+    "name": "Saber Strike",
+    "description": "From Ronin Warriors! Saber Strike slashes, stabs, and summons Black Blaze. Winged angel of the blade!"
+  },
+  {
+    "index": 474,
+    "name": "Mukara of Black Inferno",
+    "description": "From Ronin Warriors! Mukara of Black Inferno burns and boomerangs. Dark fire's ultimate vessel!"
+  },
+  {
+    "index": 475,
+    "name": "Rowen of Strata",
+    "description": "From Ronin Warriors! Rowen of Strata fires 100 arrows and Arrow Shock Waves. Sky warrior rains justice!"
+  },
+  {
+    "index": 476,
+    "name": "Ryo of Wildfire",
+    "description": "From Ronin Warriors! Ryo of Wildfire kicks, fires, and flares. The leader's wildfire burns brightest!"
+  },
+  {
+    "index": 477,
+    "name": "Sage of Halo",
+    "description": "From Ronin Warriors! Sage of Halo bolts lightning and heals with holy light. Thunder and honor in one blade!"
+  },
+  {
+    "index": 478,
+    "name": "Sai of Torrent",
+    "description": "From Ronin Warriors! Sai of Torrent waves and Super Wave Smashes. Ocean power crashes down!"
+  },
+  {
+    "index": 479,
+    "name": "Sekhmet of Venom",
+    "description": "From Ronin Warriors! Sekhmet of Venom poisons with six arms. Everything he touches is TOXIC!"
+  },
+  {
+    "index": 480,
+    "name": "Ami",
+    "description": "Sailor Moon's Ami in civilian form. Spin kicks, computer scans, and ice ribbons. Smart AND scrappy!"
+  },
+  {
+    "index": 481,
+    "name": "ChibChib",
+    "description": "Sailor Moon's Chibi-Chibi civilian form. Falls down, gives candy, and fires legendary chalice blasts. Adorably chaotic!"
+  },
+  {
+    "index": 482,
+    "name": "Chibi-usa",
+    "description": "Sailor Moon's Chibi-Usa civilian form. Luna-P gadgets, Crescent Moon beams, and Ginzuishou blasts. Future princess!"
+  },
+  {
+    "index": 483,
+    "name": "Haruka",
+    "description": "Sailor Moon's Haruka in civilian form. Bashes, jaw punches, and races motorcycles into foes. Raw untransformed power!"
+  },
+  {
+    "index": 484,
+    "name": "Helios",
+    "description": "Sailor Moon's Helios in human form. Fires nightmares, heals with dream mirrors, and charges with his horn. Dream guardian!"
+  },
+  {
+    "index": 485,
+    "name": "Hotaru",
+    "description": "Sailor Moon's Hotaru in civilian form. Makes friends, fires death beams, and returns heart crystals. Quiet but apocalyptic!"
+  },
+  {
+    "index": 486,
+    "name": "Makato",
+    "description": "Sailor Moon's Makoto in civilian form. Rose earrings, punches, cat fights, and home cooking. Tough with a tender heart!"
+  },
+  {
+    "index": 487,
+    "name": "Makoto",
+    "description": "Sailor Moon's Makoto variant. Same tough girl -- earrings, punches, and cooking. Strongest civilian Scout!"
+  },
+  {
+    "index": 488,
+    "name": "Mamoru",
+    "description": "Sailor Moon's Mamoru in civilian form. Healing roses, garlic, and sword slashes. The prince fights his way!"
+  },
+  {
+    "index": 489,
+    "name": "Michiru",
+    "description": "Sailor Moon's Michiru civilian form. Beauty stuns, mirror heals, and violin smashes. Elegant untransformed destruction!"
+  },
+  {
+    "index": 490,
+    "name": "Minako",
+    "description": "Sailor Moon's Minako civilian form. Gymnastic stomps, nurse heals, and business cards. The original V, untransformed!"
+  },
+  {
+    "index": 491,
+    "name": "Rei",
+    "description": "Sailor Moon's Rei in civilian form. Ofuda charms, sacred flames, and crows Phobos and Deimos. Shrine maiden fury!"
+  },
+  {
+    "index": 492,
+    "name": "Sanjouin",
+    "description": "Sailor Moon's Nephrite as Sanjouin. Youma symbols, cars, and star guidance. Disguised dark general!"
+  },
+  {
+    "index": 493,
+    "name": "Seiya",
+    "description": "Sailor Moon's Seiya civilian form. Football tackles, guitar smashes, and HP-stealing songs. The idol that HITS!"
+  },
+  {
+    "index": 494,
+    "name": "Setsuna",
+    "description": "Sailor Moon's Setsuna civilian form. Appears from darkness and strikes with the garnet orb. Mysterious time guardian!"
+  },
+  {
+    "index": 495,
+    "name": "Taiki",
+    "description": "Sailor Moon's Taiki civilian form. Uploads viruses, hacks computers, and encodes pages. Digital warrior idol!"
+  },
+  {
+    "index": 496,
+    "name": "Usagi",
+    "description": "Sailor Moon's Usagi civilian form. Stuffs face, screams, cries, and complains. Somehow still wins! Classic Usagi!"
+  },
+  {
+    "index": 497,
+    "name": "Yaten",
+    "description": "Sailor Moon's Yaten civilian form. Camera beams, drains with film, and smart alec remarks. Paparazzi from HELL!"
+  },
+  {
+    "index": 498,
+    "name": "Anakaris",
+    "description": "Darkstalkers' ancient pharaoh! Anakaris dances coffins and casts Pharaoh Magic. The mummy king rises to fight!"
+  },
+  {
+    "index": 499,
+    "name": "Aulbath",
+    "description": "Darkstalkers' merman warrior! Aulbath fires sonic waves and unleashes Sea Rage. The ocean's scaled champion!"
+  },
+  {
+    "index": 500,
+    "name": "Bishamon",
+    "description": "Darkstalkers' possessed samurai! Bishamon soul chokes and stone sentences. A haunted armor of fury!"
+  },
+  {
+    "index": 501,
+    "name": "Bulleta",
+    "description": "Darkstalkers' little red riding psycho! Bulleta fires missiles, uzis, and mines with a smile. Most dangerous girl!"
+  },
+  {
+    "index": 502,
+    "name": "Demitri Maximoff",
+    "description": "Darkstalkers' noble vampire! Demitri fires Chaos Flare and Midnight Pleasure. The lord of the night bites!"
+  },
+  {
+    "index": 503,
+    "name": "Donovan",
+    "description": "Darkstalkers' vampire hunter variant. Donovan channels flame, lightning, and blizzard swords. Demon slayer!"
+  },
+  {
+    "index": 504,
+    "name": "Felicia",
+    "description": "Darkstalkers' catgirl variant! Felicia kicks, spikes, and dances. Alley cat fights with purr-fect rhythm!"
+  },
+  {
+    "index": 505,
+    "name": "Gallon",
+    "description": "Darkstalkers' werewolf warrior! Gallon fires beast cannons and dragon cannons. The wolf howls for blood!"
+  },
+  {
+    "index": 506,
+    "name": "Jedah",
+    "description": "Darkstalkers' demon noble! Jedah slashes with divine and demonic attacks. Twisted lord of demons!"
+  },
+  {
+    "index": 507,
+    "name": "Lei-Lei",
+    "description": "Darkstalkers' hopping vampire! Lei-Lei smashes with gongs and throws ancient weapons. Jiangshi wallop!"
+  },
+  {
+    "index": 508,
+    "name": "Lilith Aensland",
+    "description": "Darkstalkers' succubus clone variant! Lilith fires soul flashes and the Gloomy Puppet Show. Morrigan's other half!"
+  },
+  {
+    "index": 509,
+    "name": "Morrigan Aensland",
+    "description": "Darkstalkers' succubus queen variant! Morrigan fires soul fists and darkness illusions. Eternally deadly!"
+  },
+  {
+    "index": 510,
+    "name": "Phobos",
+    "description": "Darkstalkers' robot warrior! Phobos fires ice lasers and genocide vulcans. Cold metal, hot firepower!"
+  },
+  {
+    "index": 511,
+    "name": "Pyron",
+    "description": "Darkstalkers' cosmic fire demon! Pyron blazes with Zodiac Fire and Piled Hell. A living sun of destruction!"
+  },
+  {
+    "index": 512,
+    "name": "Queen Bee",
+    "description": "Darkstalkers' insect queen! Queen Bee strikes with coded attacks. Mysterious and buzzing with power!"
+  },
+  {
+    "index": 513,
+    "name": "Sasquatch",
+    "description": "Darkstalkers' friendly yeti! Sasquatch breathes big, towers big, and freezes big. Everything is BIG!"
+  },
+  {
+    "index": 514,
+    "name": "Victor Gerdenheim",
+    "description": "Darkstalkers' Frankenstein monster! Victor smashes with Giga Fist and Thunder Break. Stitched-up power!"
+  },
+  {
+    "index": 515,
+    "name": "Lord Zabel",
+    "description": "Darkstalkers' zombie rocker! Lord Zabel hurricanes death and dunks from hell. Rock and roll from the grave!"
+  },
+  {
+    "index": 516,
+    "name": "Frisk",
+    "description": "A determined human child who fell into the Underground. Their unwavering DETERMINATION lets them persist through any challenge."
+  },
+  {
+    "index": 517,
+    "name": "Sans",
+    "description": "A lazy skeleton who serves illegal hot dogs and terrible puns. Don't let the smile fool you — he's the most dangerous monster in the Underground."
+  },
+  {
+    "index": 518,
+    "name": "Papyrus",
+    "description": "The GREAT Papyrus! A cool skeleton who dreams of joining the Royal Guard. His bone attacks are fearsome, but his heart is pure."
+  },
+  {
+    "index": 519,
+    "name": "Undyne",
+    "description": "Captain of the Royal Guard. A fierce warrior whose spear attacks and unbreakable will make her the Underground's greatest fighter."
+  },
+  {
+    "index": 520,
+    "name": "Undyne the Undying",
+    "description": "Fueled by the determination of every monster in the Underground, Undyne has surpassed her mortal limits. She will not die. She REFUSES to die."
+  },
+  {
+    "index": 521,
+    "name": "Alphys",
+    "description": "The Royal Scientist of the Underground. Nervous and anime-obsessed, but brilliant with technology. Her inventions pack a surprising punch."
+  },
+  {
+    "index": 522,
+    "name": "Mettaton EX",
+    "description": "The Underground's biggest star! Fabulous, dramatic, and dangerously entertaining. His ratings are TO DIE FOR — literally."
+  },
+  {
+    "index": 523,
+    "name": "Mettaton NEO",
+    "description": "Mettaton's combat form, designed by Dr. Alphys for battle. Armed to the teeth with weapons, but perhaps not as tough as he looks."
+  },
+  {
+    "index": 524,
+    "name": "Toriel",
+    "description": "Caretaker of the Ruins and former Queen. A kind, motherly boss monster who wields powerful fire magic and healing to protect the children she loves."
+  },
+  {
+    "index": 525,
+    "name": "Asgore",
+    "description": "King of all Monsters. A gentle giant burdened by duty, wielding a mighty trident and fire magic. He fights not out of hatred, but tragic resolve."
+  },
+  {
+    "index": 526,
+    "name": "Flowey",
+    "description": "A sinister golden flower with a twisted smile. In this world, it's kill or BE killed. Don't trust the friendly pellets."
+  },
+  {
+    "index": 527,
+    "name": "Asriel Dreemurr",
+    "description": "The God of Hyperdeath. Asriel has absorbed every SOUL in the Underground and ascended to absolute power. The Angel of the prophecy who will set everyone free."
+  },
+  {
+    "index": 528,
+    "name": "Napstablook",
+    "description": "A melancholy ghost who makes music alone in their house. Their acid tears are surprisingly dangerous. They just want to feel something..."
+  },
+  {
+    "index": 529,
+    "name": "Muffet",
+    "description": "The spider girl who runs the bake sale. Behind her cute ahuhuhu~ lies a ruthless businesswoman with an army of spiders and lethal web attacks."
+  },
+  {
+    "index": 530,
+    "name": "Mad Dummy",
+    "description": "A ghost possessing a cotton dummy with SERIOUS anger issues. They're MAD because you didn't talk to them. Now they're going to DESTROY you."
+  },
+  {
+    "index": 531,
+    "name": "Temmie",
+    "description": "hOI!!! i'm tEMMIE!! tEMMIE go to cooleg and now tEMMIE fight in battle!! vibrate with anticipation!!"
+  },
+  {
+    "index": 532,
+    "name": "Greater Dog",
+    "description": "A tiny dog inside a massive suit of armor. Part of the Royal Guard's canine unit. Loves pets, belly rubs, and smashing things with a giant spear."
+  },
+  {
+    "index": 533,
+    "name": "Lesser Dog",
+    "description": "An excitable dog guard whose neck extends when pet. Simple-minded but enthusiastic, armed with a sword and an unending desire for head pats."
+  },
+  {
+    "index": 534,
+    "name": "Chara",
+    "description": "The first human to fall into the Underground. Once Asriel's best friend, now a sinister force of destruction. Their smile is not a kind one."
+  },
+  {
+    "index": 535,
+    "name": "W.D. Gaster",
+    "description": "The former Royal Scientist who fell into his own creation and was scattered across time and space. He speaks in hands and exists in the void between worlds."
+  }
+]

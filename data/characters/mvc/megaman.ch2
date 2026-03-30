@@ -1,6 +1,6 @@
 "MegaMan"
 "MegaMan"
-""
+0
 "MegaMan"
 "%SN gets his X Buster ready as he flies to the battlefield as Mega Man!"
 "%SN flies into the scene as Mega Man X!!"
@@ -43,7 +43,7 @@
 0
 0
 0
-0
+"0"
 0
 0
 0
@@ -87,7 +87,7 @@
 0
 0
 0
-0
+"0"
 0
 0
 0
@@ -107,7 +107,7 @@
 0
 22
 45
-3
+2
 "Sub Tank"
 "subtank"
 0
@@ -131,7 +131,7 @@
 0
 0
 0
-0
+"0"
 0
 0
 0
@@ -175,7 +175,7 @@
 0
 0
 0
-0
+"0"
 0
 0
 0
@@ -219,7 +219,7 @@
 0
 0
 0
-0
+"0"
 0
 0
 0
@@ -263,7 +263,7 @@
 0
 0
 0
-0
+"0"
 0
 0
 0
@@ -307,7 +307,7 @@
 0
 0
 0
-0
+"0"
 0
 0
 0
@@ -334,7 +334,7 @@
 "%SN acquires Launch Octopus's power and charges his X buster."
 ""
 ""
-"%SN shoots 3 homing missles at %T!! "
+"%SN shoots 3 homing missiles at %T!! "
 ""
 0
 ""
@@ -351,7 +351,7 @@
 0
 0
 0
-0
+"0"
 0
 0
 0
@@ -395,7 +395,7 @@
 0
 0
 0
-0
+"0"
 0
 0
 0
@@ -439,7 +439,7 @@
 0
 0
 0
-0
+"0"
 0
 0
 0
@@ -483,7 +483,7 @@
 0
 0
 0
-0
+"0"
 0
 0
 0
@@ -527,7 +527,7 @@
 0
 0
 0
-0
+"0"
 0
 0
 0
@@ -549,6 +549,10 @@
 88
 2
 "%T watches as %SN explodes. It's showering debris!!"
+""
+""
+""
+""
 ""
 ""
 ""

@@ -1,0 +1,564 @@
+"Alphys"
+"Alphys"
+2501
+"Pick Alphys!"
+"Alphys enters the battle!"
+"Alphys joins the fight!"
+15
+25
+65
+55
+"The forcefield absorbs the attack! Alphys sighs with relief."
+"Alphys nervously eats instant noodles and watches anime."
+"Alphys hides behind a portable forcefield!"
+"The forcefield shatters! Alphys squeaks in terror!"
+"I-I've been studying your attack patterns!"
+"Th-this is just like in Mew Mew Kissy Cutie!"
+"I-I'm not scared! ...Okay maybe a little."
+"My inventions will p-protect everyone!"
+"D-don't underestimate the Royal Scientist!"
+"trulab"
+"Alphys opens the True Lab. Something terrible stirs in the darkness..."
+"Every Amalgamate from the True Lab surges forth and engulfs %T! Memoryhead, Endogeny, Reaper Bird, Lemon Bread, and Snowdrake's Mother converge into a nightmarish mass!"
+"Laser Turret"
+"laser"
+1
+"Alphys activates her portable laser turret..."
+""
+""
+"%SN deploys a laser turret that fires on %T!"
+""
+0
+""
+"%SN's laser turret scores a direct hit on %T! S-sugoi!"
+""
+"The laser turret malfunctions and misses %T!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+30
+110
+2
+"Electric Fence"
+"fence"
+0
+"Alphys types furiously on her keyboard..."
+""
+""
+"Alphys activates electric fences around all enemies!"
+""
+0
+""
+"The electric fences supercharge and shock everyone!"
+""
+"The electric fences short-circuit!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+25
+90
+5
+"DT Injection"
+"inject"
+0
+"Alphys prepares the DETERMINATION extractor..."
+""
+""
+"%SN injects DETERMINATION! HP restored!"
+""
+0
+""
+"%SN's DT Injection works perfectly! Massive healing!"
+""
+"The DT Injection fails to take hold!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+100
+3
+"Mew Mew Attack"
+"mewmew"
+1
+"Alphys holds up her Mew Mew Kissy Cutie figurine..."
+""
+""
+"Alphys summons a Mew Mew Kissy Cutie hologram to blast %T!"
+""
+0
+""
+"MEW MEW KISSY CUTIE SUPER BEAM hits %T! IT'S THE BEST ANIME!"
+""
+"%T isn't impressed by the anime hologram!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+26
+100
+2
+"Hack"
+"hack"
+0
+"Alphys connects to the network..."
+""
+""
+"%SN hacks %T's systems and drains their MP!"
+""
+0
+""
+"%SN completely drains %T's energy reserves!"
+""
+"Alphys's hack is blocked by a firewall!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+12
+80
+2
+"Analysis"
+"analyze"
+0
+"Alphys adjusts her glasses and pulls out a scanner..."
+""
+""
+"%SN runs a complete analysis on %T! Stats revealed!"
+""
+0
+""
+"%SN's analysis reveals everything about %T!"
+""
+"Alphys's scanner glitches out!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+23
+0
+2
+"Amalgamate"
+"amalgamate"
+1
+"Something emerges from Alphys's lab..."
+""
+""
+"%SN unleashes a failed experiment on %T! It's horrifying!"
+""
+0
+""
+"The Amalgamate engulfs %T! A nightmarish combination of monsters!"
+""
+"The Amalgamate dissolves before reaching %T!"
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+75
+130
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+""
+""
+0
+""
+""
+""
+""
+""
+0
+""
+""
+""
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+""
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+2
+"Alphys's HP dropped to 0. Their SOUL shatters..."
+"Alphys has been struck down!"
+"Alphys falls... but their memory remains."
+"Alphys can't hold on any longer..."
+"Alphys fades away..."
+"Alphys strikes the final blow!"
+"Alphys finishes the job! No mercy!"
+"Alphys wins! +EXP!"
+"Alphys is VICTORIOUS!"
+"Alphys delivers the finishing strike!"
+"The Royal Scientist of the Underground. Nervous and"
+"anime-obsessed, but brilliant with technology. Her"
+"inventions pack a surprising punch."
+""

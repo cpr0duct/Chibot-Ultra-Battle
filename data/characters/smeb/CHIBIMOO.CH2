@@ -237,7 +237,7 @@
 0
 0
 0
-20
+1
 120
 2
 "Luna P Sleeping Milk"
@@ -246,7 +246,7 @@
 "Luna-P morphs into a bottle of milk and %SN rams it in %T's mouth."
 ""
 ""
-"%T drinks the milk and feels drousy."
+"%T drinks the milk and feels drowsy."
 ""
 0
 ""
@@ -369,7 +369,7 @@
 0
 0
 0
-20
+26
 100
 2
 "Luna P Morph"

@@ -1,6 +1,6 @@
 "Cloud Strife"
 "cloud"
-""
+0
 "cloud"
 "The Ultima Weapon materializes into %SN's hands as they become Cloud Strife."
 "%SN joins the battle as Cloud Strife."
@@ -149,7 +149,7 @@
 0
 0
 0
-30
+1
 50
 4
 "Attack"
@@ -237,7 +237,7 @@
 0
 0
 0
-27
+1
 70
 2
 "Finishing Touch"
@@ -325,7 +325,7 @@
 0
 0
 0
-21
+1
 100
 2
 "Restore Materia"

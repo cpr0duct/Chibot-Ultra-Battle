@@ -95,8 +95,8 @@ export function projectDamage(attacker, target, move, arena, options = {}) {
     const quarter = Math.floor(damage / 4);
     damage += Math.floor(rng() * (quarter * 2 + 1)) - quarter;
 
-    // Heals always use magStr
-    damage = Math.floor(damage * attacker.magStr / 50);
+    // Heals always use magStr (minimum 10)
+    damage = Math.floor(damage * Math.max(attacker.magStr, 10) / 50);
 
     // Arena element multiplier for heal (index 2)
     if (arena.elements[ELEMENT.HEAL] !== undefined) {
@@ -126,8 +126,8 @@ export function projectDamage(attacker, target, move, arena, options = {}) {
     let damage = move.strength;
     const quarter = Math.floor(damage / 4);
     damage += Math.floor(rng() * (quarter * 2 + 1)) - quarter;
-    damage = Math.floor(damage * attacker.magStr / 50);
-    damage = Math.floor(damage * (100 - target.magDef) / 50);
+    damage = Math.floor(damage * Math.max(attacker.magStr, 10) / 50);
+    damage = Math.floor(damage * (100 - Math.min(target.magDef, 90)) / 50);
     // Cap at what target has
     damage = Math.min(damage, target.hp);
     // Cap at what attacker can hold
@@ -141,8 +141,8 @@ export function projectDamage(attacker, target, move, arena, options = {}) {
     let damage = move.strength;
     const quarter = Math.floor(damage / 4);
     damage += Math.floor(rng() * (quarter * 2 + 1)) - quarter;
-    damage = Math.floor(damage * attacker.magStr / 50);
-    damage = Math.floor(damage * (100 - target.magDef) / 50);
+    damage = Math.floor(damage * Math.max(attacker.magStr, 10) / 50);
+    damage = Math.floor(damage * (100 - Math.min(target.magDef, 90)) / 50);
     // Cap at what target has
     damage = Math.min(damage, target.mp);
     // Cap at what attacker can hold
@@ -161,12 +161,14 @@ export function projectDamage(attacker, target, move, arena, options = {}) {
   const quarter = Math.floor(damage / 4);
   damage += Math.floor(rng() * (half + 1)) - quarter;
 
-  // 3. Apply attacker stat
-  const atkStat = isPhysical(element) ? attacker.physStr : attacker.magStr;
+  // 3. Apply attacker stat (minimum 10 so zero-stat attackers still deal some damage)
+  const rawAtkStat = isPhysical(element) ? attacker.physStr : attacker.magStr;
+  const atkStat = Math.max(rawAtkStat, 10);
   damage = Math.floor(damage * atkStat / 50);
 
-  // 4. Apply defender stat
-  const defStat = isPhysical(element) ? target.physDef : target.magDef;
+  // 4. Apply defender stat (cap effective defense at 90 so 100-def doesn't zero out damage)
+  const rawDefStat = isPhysical(element) ? target.physDef : target.magDef;
+  const defStat = Math.min(rawDefStat, 90);
   damage = Math.floor(damage * (100 - defStat) / 50);
 
   // 5. Arena element multiplier
@@ -214,8 +216,10 @@ export function projectDamage(attacker, target, move, arena, options = {}) {
     damage = CHEESE_LIMIT;
   }
 
-  // Floor at 0 (no negative damage for standard attacks)
-  if (damage < 0) {
+  // Floor: minimum 1 damage if the move has any strength (no free passes)
+  if (damage < 1 && move.strength > 0) {
+    damage = 1;
+  } else if (damage < 0) {
     damage = 0;
   }
 
