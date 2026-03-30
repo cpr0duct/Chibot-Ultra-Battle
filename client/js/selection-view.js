@@ -227,7 +227,7 @@
     }
 
     // Build ordered tab list
-    var order = ['All', 'Sailor Moon', 'Dragon Ball', 'Pokemon', 'Capcom', 'Mario', 'Final Fantasy', 'Zelda', 'Marvel', 'Lodoss War', 'Ronin Warriors', 'Star Wars', 'Wrestling', 'Other'];
+    var order = ['All', 'Sailor Moon', 'Dragon Ball', 'Pokemon', 'Capcom', 'Mario', 'Final Fantasy', 'Zelda', 'Marvel', 'Lodoss War', 'Ronin Warriors', 'Star Wars', 'Wrestling', 'Undertale', 'Other'];
     container.innerHTML = '';
 
     for (var j = 0; j < order.length; j++) {
